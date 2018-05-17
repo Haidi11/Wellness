@@ -11,14 +11,14 @@ import vao.Oseba;
 
 @ManagedBean(name="osebe")
 @SessionScoped
-public class Osebe {
+public class OsebeBean {
 
 	@EJB
 	OsebaVmesnik ejb;
 
 	private Oseba novaOseba= new Oseba();
 	
-	public List<Oseba> vrniVseOsebe(){
+	public List<Oseba> getVrniVseOsebe(){
 		
 		return ejb.vrniSeznamVsehOseb();
 	}

@@ -12,11 +12,9 @@
 			<h:form>
 
 
-				<h1>Vsi clani</h1>
+				<h1>Vse osebe</h1>
 
-
-
-				<h:dataTable value="#{modelNew.vsiClani}" var="a">
+				<h:dataTable value="#{osebe.vrniVseOsebe}" var="a">
 					<h:column>
 						<f:facet name="header">Ime</f:facet>
 						<h:outputText value="#{a.ime}"></h:outputText>

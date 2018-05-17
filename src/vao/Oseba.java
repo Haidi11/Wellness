@@ -15,12 +15,18 @@ public class Oseba {
     private String priimek;
     private String email;
     private boolean orgaizatorDoodkov;
+    private String spol;
+    private String oddelek;
+    private int tocke;
 
     public Oseba() {
     	this.ime="";
     	this.priimek="";
     	this.email="";
     	this.orgaizatorDoodkov=false;
+    	this.spol="";
+    	this.oddelek="";
+    	this.tocke=0;
     	
     	
     }
@@ -67,4 +73,34 @@ public class Oseba {
     public void setId(int id) {
         this.id = id;
     }
+
+
+	public String getSpol() {
+		return spol;
+	}
+
+
+	public void setSpol(String spol) {
+		this.spol = spol;
+	}
+
+
+	public String getOddelek() {
+		return oddelek;
+	}
+
+
+	public void setOddelek(String oddelek) {
+		this.oddelek = oddelek;
+	}
+
+
+	public int getTocke() {
+		return tocke;
+	}
+
+
+	public void setTocke(int tocke) {
+		this.tocke = tocke;
+	}
 }
