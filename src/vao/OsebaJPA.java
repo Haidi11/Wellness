@@ -1,6 +1,9 @@
-package org.primefaces.showcase.view.input;
+package vao;
 
-import javax.faces.bean.ManagedBean;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity(name="Oseba")
 public class Oseba {
