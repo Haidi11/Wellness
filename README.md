@@ -1,4 +1,6 @@
-Projekt D: Planiranje in izvajanje promocije zdravja na delovnem mestu
+Projekt D: 
+
+Planiranje in izvajanje promocije zdravja na delovnem mestu
 Akronim: CORPORATE WELLNESS
 
 Bistvo
