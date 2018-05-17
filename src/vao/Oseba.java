@@ -1,16 +1,19 @@
 package vao;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity(name="oseba")
 public class Oseba {
 
 	
 	
-    private int id;
+    private int idOseba;
     private String ime;
     private String priimek;
     private String email;
@@ -18,6 +21,9 @@ public class Oseba {
     private String spol;
     private String oddelek;
     private int tocke;
+    
+    @ManyToMany(mappedBy = "udelezenci")
+    public List<Dogodek> dogodki;
 
     public Oseba() {
     	this.ime="";
@@ -66,12 +72,12 @@ public class Oseba {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    public int getId() {
-        return id;
+    public int getIdOseba() {
+        return idOseba;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdOseba(int id) {
+        this.idOseba = id;
     }
 
 

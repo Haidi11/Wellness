@@ -22,11 +22,13 @@ public class OsebeBean {
 		
 		return ejb.vrniSeznamVsehOseb();
 	}
-	public void dodajOsebo() {
-		ejb.dodajOsebo(novaOseba);
-		
+	public void dodajOsebo(String ime, String priimek, String email, boolean organizator, String spol, int tocke) {
+		novaOseba.setIme(ime);
+		novaOseba.setPriimek(priimek);
+		novaOseba.setEmail(email);
+		novaOseba.setOrgaizatorDoodkov(organizator);
+		novaOseba.setSpol(spol);
+		novaOseba.setTocke(0);
+		ejb.dodajOsebo(novaOseba);	
 	}
-	
-	
-	
 }
