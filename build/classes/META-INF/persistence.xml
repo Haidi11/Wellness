@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-	<persistence-unit name="pr2">
-	</persistence-unit>
+<persistence version="2.1"
+             xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+
+    <persistence-unit name="NewPersistenceUnit">
+
+    <jta-data-source>java:jboss/datasources/baza</jta-data-source>
+    <class>vao.Oseba</class>
+    <properties>
+        <property name="hibernate.show_sql" value="true"/>
+        <property name="hibernate.id.new_generator_mappings" value="false"/>
+        <property name="hibernate.hbm2ddl.auto" value="create"/> <!-- create | create-drop | validate | update -->
+    </properties>
+    </persistence-unit>
 </persistence>
