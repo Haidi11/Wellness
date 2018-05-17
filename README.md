@@ -29,15 +29,13 @@ Glavne funkcionalnosti
 - Pregled statistik med in znotraj dogodka
 - Razpis tekmovanj in nagrad
 - Vnos uporabnikov in organizacijske strukture podjetja
- Prejem opomnika na dogodek
+ -Prejem opomnika na dogodek
 
 Omejitve
-- Podprite spletne brskalnike na osebnem računalniku (kadrovska služba) in mobilne
-telefone (uporabniki).
-- Uporabnikom omogočite tudi uporabo osebnega računalnika preko odzivnega
-spletnega vmesnika.
+- Podprite spletne brskalnike na osebnem računalniku (kadrovska služba) in mobilne telefone (uporabniki).
+- Uporabnikom omogočite tudi uporabo osebnega računalnika preko odzivnega spletnega vmesnika.
+
 Povezljivost z ostalimi projekti
 - Dogodki so lahko organizirani v fitnes studiih-
 - Zaposlenim boste na podlagi izvajanja vaj v fitnes studiu lahko podelili točke zdravja.
-- Prehranske navade lahko izboljšate s povezavo s projektom, ki se ukvarja s tem
-področjem.
+- Prehranske navade lahko izboljšate s povezavo s projektom, ki se ukvarja s tem področjem.
