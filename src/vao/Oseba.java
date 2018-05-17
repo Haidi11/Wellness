@@ -12,6 +12,15 @@ public class Oseba {
     private String ime;
     private String priimek;
     private String email;
+    private boolean orgaizatorDoodkov;
+
+    public boolean isOrgaizatorDoodkov() {
+        return orgaizatorDoodkov;
+    }
+
+    public void setOrgaizatorDoodkov(boolean orgaizatorDoodkov) {
+        this.orgaizatorDoodkov = orgaizatorDoodkov;
+    }
 
     public String getIme() {
         return ime;
