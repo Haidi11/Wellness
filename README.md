@@ -17,15 +17,15 @@ Predvideni uporabniki
 Kadrovska služba, zaposleni, organizatorji dogodkov
 
 Glavne funkcionalnosti
- Razpis dogodka
- Prijava na dogodek
- Objava nasveta
- Pregled prijav na dogodke
- Pregled statistik med in znotraj dogodka
- Razpis tekmovanj in nagrad
- Vnos uporabnikov in organizacijske strukture podjetja
- Prejem opomnika na dogodek
- …
+- Razpis dogodka
+- Prijava na dogodek
+- Objava nasveta
+- Pregled prijav na dogodke
+- Pregled statistik med in znotraj dogodka
+- Razpis tekmovanj in nagrad
+- Vnos uporabnikov in organizacijske strukture podjetja
+ Prejem opomnika na dogodek
+
 Omejitve
 - Podprite spletne brskalnike na osebnem računalniku (kadrovska služba) in mobilne
 telefone (uporabniki).
