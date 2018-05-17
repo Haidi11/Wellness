@@ -6,15 +6,20 @@ Bistvo
 V vedno več podjetjih se zavedajo pomena zdravega in zadovoljnega osebja. Zato organizirajo
 razne dogodke, tekmovanja, promocije zdravja – in sicer na področju fizičnega in duševnega
 zdravja, zdrave prehrane, medicinskih nasvetov.
+
 Bistvo vašega projekta bo v organizacijskem aspektu dogodkov za zdravo življenje –
 razpisovanje in promocija dogodkov, potrjevanje udeležbe, zbiranje povratnih podatkov
 udeležencev ipd. Prav tako boste zaposlene motivirali pri udeležbi na dogodkih preko
 konceptov igrifikacije (zbiranje točk, nagrajevanje za najbolj aktivne, ugodnosti na podlagi
 točk, objava nagrad »Zdravko« in »Srečko« meseca ipd.
+
 Prav tako omogočite objavljanje nasvetov za izboljšanje zdravja na delovnem mestu –
 odvisno od tipa podjetja, kamor vpeljujete rešitev.
+
 Predvideni uporabniki
-Kadrovska služba, zaposleni, organizatorji dogodkov
+-Kadrovska služba, 
+-zaposleni, 
+-organizatorji dogodkov
 
 Glavne funkcionalnosti
 - Razpis dogodka
