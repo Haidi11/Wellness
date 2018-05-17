@@ -1,6 +1,8 @@
 Projekt D: Planiranje in izvajanje promocije zdravja na delovnem mestu
 Akronim: CORPORATE WELLNESS
+
 Bistvo
+
 V vedno več podjetjih se zavedajo pomena zdravega in zadovoljnega osebja. Zato organizirajo
 razne dogodke, tekmovanja, promocije zdravja – in sicer na področju fizičnega in duševnega
 zdravja, zdrave prehrane, medicinskih nasvetov.
@@ -13,6 +15,7 @@ Prav tako omogočite objavljanje nasvetov za izboljšanje zdravja na delovnem me
 odvisno od tipa podjetja, kamor vpeljujete rešitev.
 Predvideni uporabniki
 Kadrovska služba, zaposleni, organizatorji dogodkov
+
 Glavne funkcionalnosti
  Razpis dogodka
  Prijava na dogodek
@@ -24,12 +27,12 @@ Glavne funkcionalnosti
  Prejem opomnika na dogodek
  …
 Omejitve
- Podprite spletne brskalnike na osebnem računalniku (kadrovska služba) in mobilne
+- Podprite spletne brskalnike na osebnem računalniku (kadrovska služba) in mobilne
 telefone (uporabniki).
- Uporabnikom omogočite tudi uporabo osebnega računalnika preko odzivnega
+- Uporabnikom omogočite tudi uporabo osebnega računalnika preko odzivnega
 spletnega vmesnika.
 Povezljivost z ostalimi projekti
- Dogodki so lahko organizirani v fitnes studiih-
- Zaposlenim boste na podlagi izvajanja vaj v fitnes studiu lahko podelili točke zdravja.
- Prehranske navade lahko izboljšate s povezavo s projektom, ki se ukvarja s tem
+- Dogodki so lahko organizirani v fitnes studiih-
+- Zaposlenim boste na podlagi izvajanja vaj v fitnes studiu lahko podelili točke zdravja.
+- Prehranske navade lahko izboljšate s povezavo s projektom, ki se ukvarja s tem
 področjem.
