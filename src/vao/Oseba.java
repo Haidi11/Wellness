@@ -5,15 +5,27 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity(name="Oseba")
+@Entity(name="oseba")
 public class Oseba {
 
+	
+	
     private int id;
     private String ime;
     private String priimek;
     private String email;
     private boolean orgaizatorDoodkov;
 
+    public Oseba() {
+    	this.ime="";
+    	this.priimek="";
+    	this.email="";
+    	this.orgaizatorDoodkov=false;
+    	
+    	
+    }
+    
+    
     public boolean isOrgaizatorDoodkov() {
         return orgaizatorDoodkov;
     }
