@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity(name="Oseba")
-public class Oseba {
+class Oseba {
 
     private int id;
     private String ime;
