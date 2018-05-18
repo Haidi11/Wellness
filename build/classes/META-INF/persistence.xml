@@ -6,6 +6,7 @@
     <persistence-unit name="NewPersistenceUnit">
 
     <jta-data-source>java:jboss/datasources/baza</jta-data-source>
+    <class>vao.Dogodek</class>
     <class>vao.Oseba</class>
     <properties>
         <property name="hibernate.show_sql" value="true"/>

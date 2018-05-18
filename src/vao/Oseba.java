@@ -1,5 +1,7 @@
 package vao;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -8,7 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
-@Entity(name="oseba")
+@Entity(name="Oseba")
 public class Oseba {
 
     private int idOseba;
@@ -20,10 +22,12 @@ public class Oseba {
     private String spol;
     private String oddelek;
     private int tocke;
-    private  datumRojstva;
+    private Calendar datumRojstva;
+    private Calendar datumZaposlitve;
+    private String EMSO;
     
     
-    @ManyToMany(mappedBy = "udelezenci")
+    
     private List<Dogodek> dogodki;
     
     //nastavi na prazno za resetiranje vnosnih polj
@@ -36,6 +40,9 @@ public class Oseba {
     	this.spol="";
     	this.oddelek="";
     	this.tocke=0;
+    	this.EMSO="";
+    	this.datumRojstva= new GregorianCalendar();
+    	this.datumZaposlitve=new GregorianCalendar();
     		
     }
     
@@ -129,7 +136,7 @@ public class Oseba {
 	}
 
 
-
+	@ManyToMany(mappedBy = "udelezenci")
 	public List<Dogodek> getDogodki() {
 		return dogodki;
 	}
@@ -138,5 +145,41 @@ public class Oseba {
 
 	public void setDogodki(List<Dogodek> dogodki) {
 		this.dogodki = dogodki;
+	}
+
+
+
+	public Calendar getDatumRojstva() {
+		return datumRojstva;
+	}
+
+
+
+	public void setDatumRojstva(Calendar datumRojstva) {
+		this.datumRojstva = datumRojstva;
+	}
+
+
+
+	public Calendar getDatumZaposlitve() {
+		return datumZaposlitve;
+	}
+
+
+
+	public void setDatumZaposlitve(Calendar datumZaposlitve) {
+		this.datumZaposlitve = datumZaposlitve;
+	}
+
+
+
+	public String getEMSO() {
+		return EMSO;
+	}
+
+
+
+	public void setEMSO(String eMSO) {
+		EMSO = eMSO;
 	}
 }
