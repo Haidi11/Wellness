@@ -11,12 +11,11 @@ import javax.persistence.ManyToMany;
 @Entity(name="oseba")
 public class Oseba {
 
-	
-	
     private int idOseba;
     private String ime;
     private String priimek;
     private String email;
+    private boolean kadrovskaSluzba;
     private boolean orgaizatorDoodkov;
     private String spol;
     private String oddelek;
@@ -24,20 +23,25 @@ public class Oseba {
     
     @ManyToMany(mappedBy = "udelezenci")
     private List<Dogodek> dogodki;
-
+    
+    //nastavi na prazno za resetiranje vnosnih polj
     public Oseba() {
     	this.ime="";
     	this.priimek="";
     	this.email="";
+    	this.kadrovskaSluzba=false;
     	this.orgaizatorDoodkov=false;
     	this.spol="";
     	this.oddelek="";
     	this.tocke=0;
-    	
-    	
+    		
     }
     
     
+    
+    /*
+    	getterji/setterji
+    */
     public boolean isOrgaizatorDoodkov() {
         return orgaizatorDoodkov;
     }
