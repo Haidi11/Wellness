@@ -1,0 +1,64 @@
+<html
+ xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">	
+
+<f:view>
+	<h:form>
+		<table style="border: 1px solid black">
+			<tr>
+				<td>Ime:</td>
+				<td><h:inputText id="ime"
+						value="#{osebe.novaOseba.ime}">
+						<f:validateRequired />
+					</h:inputText> <h:message for="ime" style="color:red" /></td>
+			</tr>
+			<tr>
+				<td>Priimek:</td>
+				<td><h:inputText id="priimek"
+						value="#{osebe.novaOseba.priimek}">
+						<f:validateRequired />
+					</h:inputText> <h:message for="priimek" style="color:red" /></td>
+			</tr>
+			<tr>
+				<td>E-mail:</td>
+				<td><h:inputText id="n_email"
+						value="#{osebe.novaOseba.email}"
+						validatorMessage="Vnesite ustrezen e-mail naslov">
+						<f:validateRequired />
+						<f:validateRegex pattern=".+\@.+\..+" />
+					</h:inputText> * <h:message for="n_email" style="color:red" /></td>
+			</tr>
+			<tr>
+				<td>Spol:</td>
+				<td><h:selectOneRadio value="#{osebe.novaOseba.spol}">
+						<f:selectItem itemValue="M" itemLabel="Moski" />
+						<f:selectItem itemValue="Z" itemLabel="Zenska" />
+					</h:selectOneRadio></td>
+			</tr>
+			<tr>
+				<td>Spol:</td>
+				<td><h:selectOneRadio value="#{osebe.novaOseba.orgaizatorDoodkov}">
+						<f:selectItem itemValue="1" itemLabel="DA" />
+						<f:selectItem itemValue="0" itemLabel="NE" />
+					</h:selectOneRadio></td>
+			</tr>
+			<tr>
+				<td>Oddelek:</td>
+				<td><h:inputText id="oddelek"
+						value="#{osebe.novaOseba.oddelek}">
+						<f:validateRequired />
+					</h:inputText></td>
+			</tr>
+			
+			<tr>
+				<td rowspan="2"><h:commandButton value="Dodaj"
+						actionListener="#{osebe.dodajOsebo()}"
+						action="prikaziClane.xhtml" /></td>
+			</tr>
+
+		</table>
+	</h:form>
+</f:view>
+
+</html>
