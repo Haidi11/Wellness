@@ -31,6 +31,16 @@ public class OsebaModel {
 		ejb.dodajOsebo(novaOseba);
 		novaOseba= new Oseba();
 	}
+
+	
+	
+	public Oseba getNovaOseba() {
+		return novaOseba;
+	}
+
+	public void setNovaOseba(Oseba novaOseba) {
+		this.novaOseba = novaOseba;
+	}
 	
 	
 	

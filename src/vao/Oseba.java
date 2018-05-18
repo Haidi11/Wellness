@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.Transient;
 
 @Entity(name="Oseba")
 public class Oseba {
@@ -18,13 +19,15 @@ public class Oseba {
     private String priimek;
     private String email;
     private boolean kadrovskaSluzba;
-    private boolean orgaizatorDoodkov;
+    private boolean organizatorDogodkov;
     private String spol;
     private String oddelek;
     private int tocke;
     private Calendar datumRojstva;
     private Calendar datumZaposlitve;
     private String EMSO;
+    private String telefonskaStevilka;
+    private String davcnaStevilka;
     
     
     
@@ -36,9 +39,10 @@ public class Oseba {
     	this.priimek="";
     	this.email="";
     	this.kadrovskaSluzba=false;
-    	this.orgaizatorDoodkov=false;
+    	this.organizatorDogodkov=false;
     	this.spol="";
     	this.oddelek="";
+    	this.telefonskaStevilka="";
     	this.tocke=0;
     	this.EMSO="";
     	this.datumRojstva= new GregorianCalendar();
@@ -51,12 +55,16 @@ public class Oseba {
     /*
     	getterji/setterji
     */
-    public boolean isOrgaizatorDoodkov() {
-        return orgaizatorDoodkov;
+    public boolean isOrganizatorDogodkov() {
+    	return organizatorDogodkov;
+    }
+    @Transient
+    public boolean getOrganizatorDogodkov() {
+        return organizatorDogodkov;
     }
 
-    public void setOrgaizatorDoodkov(boolean orgaizatorDoodkov) {
-        this.orgaizatorDoodkov = orgaizatorDoodkov;
+    public void setOrganizatorDogodkov(boolean orgaizatorDoodkov) {
+        this.organizatorDogodkov = orgaizatorDoodkov;
     }
 
     public String getIme() {
@@ -181,5 +189,29 @@ public class Oseba {
 
 	public void setEMSO(String eMSO) {
 		EMSO = eMSO;
+	}
+
+
+
+	public String getTelefonskaStevilka() {
+		return telefonskaStevilka;
+	}
+
+
+
+	public void setTelefonskaStevilka(String telefonskaStevilka) {
+		this.telefonskaStevilka = telefonskaStevilka;
+	}
+
+
+
+	public String getDavcnaStevilka() {
+		return davcnaStevilka;
+	}
+
+
+
+	public void setDavcnaStevilka(String davcnaStevilka) {
+		this.davcnaStevilka = davcnaStevilka;
 	}
 }
