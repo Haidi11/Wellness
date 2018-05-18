@@ -11,7 +11,7 @@ import vao.Oseba;
 
 @ManagedBean(name="osebe")
 @SessionScoped
-public class Zaposleni {
+public class OsebaModel {
 
 	//ejb za upravljanje z entitetami
 	@EJB

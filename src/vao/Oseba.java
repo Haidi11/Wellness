@@ -20,6 +20,8 @@ public class Oseba {
     private String spol;
     private String oddelek;
     private int tocke;
+    private  datumRojstva;
+    
     
     @ManyToMany(mappedBy = "udelezenci")
     private List<Dogodek> dogodki;
@@ -112,5 +114,29 @@ public class Oseba {
 
 	public void setTocke(int tocke) {
 		this.tocke = tocke;
+	}
+
+
+
+	public boolean isKadrovskaSluzba() {
+		return kadrovskaSluzba;
+	}
+
+
+
+	public void setKadrovskaSluzba(boolean kadrovskaSluzba) {
+		this.kadrovskaSluzba = kadrovskaSluzba;
+	}
+
+
+
+	public List<Dogodek> getDogodki() {
+		return dogodki;
+	}
+
+
+
+	public void setDogodki(List<Dogodek> dogodki) {
+		this.dogodki = dogodki;
 	}
 }
