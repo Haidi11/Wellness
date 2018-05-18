@@ -65,7 +65,7 @@
 				</h:inputText>*
 				<h:message for="davcnaStevilka"></h:message>
 				<br />
-			Priimek: <h:inputText id="oddelek" value="#{osebe.novaOseba.oddelek}"
+			Oddelek: <h:inputText id="oddelek" value="#{osebe.novaOseba.oddelek}"
 					validatorMessage=" Oddelek?">
 					<f:validateRequired />
 				</h:inputText>*
@@ -106,11 +106,11 @@
 					</h:column>
 					<h:column>
 						<f:facet name="header">Datum rojstva</f:facet>
-						<h:outputText value="#{a.datumRojstva}"></h:outputText>
+						<h:outputText value="#{a.izpisiDatumRojstva}"></h:outputText>
 					</h:column>
 					<h:column>
 						<f:facet name="header">Datum zaposlitve</f:facet>
-						<h:outputText value="#{a.datumZaposlitve}"></h:outputText>
+						<h:outputText value="#{a.izpisiDatumZaposlitve}"></h:outputText>
 					</h:column>
 					<h:column>
 						<f:facet name="header">Email</f:facet>
@@ -142,7 +142,7 @@
 					</h:column>
 					<h:column>
 						<f:facet name="header">Davčna številka</f:facet>
-						<h:outputText value="#{a.davcnaStevlika}"></h:outputText>
+						<h:outputText value="#{a.davcnaStevilka}"></h:outputText>
 					</h:column>
 					<h:column>
 						<f:facet name="header"></f:facet>
