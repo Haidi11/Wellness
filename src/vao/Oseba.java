@@ -23,7 +23,7 @@ public class Oseba {
     private int tocke;
     
     @ManyToMany(mappedBy = "udelezenci")
-    public List<Dogodek> dogodki;
+    private List<Dogodek> dogodki;
 
     public Oseba() {
     	this.ime="";

@@ -29,7 +29,7 @@ public class Dogodek {
 		        joinColumns = @JoinColumn(name = "idDogodek"),
 		        inverseJoinColumns = @JoinColumn(name = "idOseba")
 		    )
-	public List <Oseba> udelezenci;
+	private List <Oseba> udelezenci;
 	
 	public String getNaziv() {
 		return naziv;
