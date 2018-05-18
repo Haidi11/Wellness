@@ -13,22 +13,26 @@ import vao.Oseba;
 @SessionScoped
 public class OsebeBean {
 
+	//ejb za upravljanje z entitetami
 	@EJB
 	OsebaVmesnik ejb;
-
+	
+	//oseba na katero se navezujejoo prazna polja ko odpres spletno aplikacijo
 	private Oseba novaOseba= new Oseba();
 	
+	//vrne vse osebe
 	public List<Oseba> getVrniVseOsebe(){
 		
 		return ejb.vrniSeznamVsehOseb();
 	}
-	public void dodajOsebo(String ime, String priimek, String email, boolean organizator, String spol, int tocke) {
-		novaOseba.setIme(ime);
-		novaOseba.setPriimek(priimek);
-		novaOseba.setEmail(email);
-		novaOseba.setOrgaizatorDoodkov(organizator);
-		novaOseba.setSpol(spol);
-		novaOseba.setTocke(0);
-		ejb.dodajOsebo(novaOseba);	
+	
+	//dodaj osebo, ter naredi novo, da se polja resetirajo
+	public void dodajOsebo() {
+		ejb.dodajOsebo(novaOseba);
+		novaOseba= new Oseba();
 	}
+	
+	
+	
+	
 }
