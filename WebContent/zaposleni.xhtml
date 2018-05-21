@@ -40,27 +40,27 @@
 				</h:inputText>*
 				<h:message for="email" />
 				<br />
-			EM�O:	<h:inputText id="emso" value="#{osebe.novaOseba.EMSO}"
-					validatorMessage=" EM�O?">
+			EMŠO:	<h:inputText id="emso" value="#{osebe.novaOseba.EMSO}"
+					validatorMessage=" EMŠO?">
 					<f:validateRequired />
 				</h:inputText>*
 				<h:message for="emso" />
 				<br />
 			Spol:	<h:selectOneRadio id="spol" value="#{osebe.novaOseba.spol}"
 					validatorMessage="Spol?">
-					<f:selectItem itemValue="Z" itemLabel="�enska" />
-					<f:selectItem itemValue="M" itemLabel="Mo�ki" />
+					<f:selectItem itemValue="Z" itemLabel="Ženska" />
+					<f:selectItem itemValue="M" itemLabel="Moški" />
 					<h:message for="spol" />
 					<f:validateRequired />
 				</h:selectOneRadio>
-			Telefonska �tevilka: <h:inputText id="telefonskaStevilka" value="#{osebe.novaOseba.telefonskaStevilka}"
-					validatorMessage=" Telefonska �tevilka">
+			Telefonska Številka: <h:inputText id="telefonskaStevilka" value="#{osebe.novaOseba.telefonskaStevilka}"
+					validatorMessage=" Telefonska številka">
 					<f:validateRequired />
 				</h:inputText>*
 				<h:message for="telefonskaStevilka"></h:message>
 				<br />
-			Dav�na �tevilka: <h:inputText id="davcnaStevilka" value="#{osebe.novaOseba.davcnaStevilka}"
-					validatorMessage=" Dav�na �tevilka">
+			Davčna Številka: <h:inputText id="davcnaStevilka" value="#{osebe.novaOseba.davcnaStevilka}"
+					validatorMessage=" Davèna številka">
 					<f:validateRequired />
 				</h:inputText>*
 				<h:message for="davcnaStevilka"></h:message>
@@ -78,8 +78,8 @@
 					<h:message for="organizatordogodkov" />
 					<f:validateRequired />
 				</h:selectOneRadio>
-			Kadrovska sluÅ¾ba:	<h:selectOneRadio id="kadrovskaSluzba" value="#{osebe.novaOseba.kadrovskaSluzba}"
-					validatorMessage="Kadrovska slu�ba?">
+			Kadrovska služba:	<h:selectOneRadio id="kadrovskaSluzba" value="#{osebe.novaOseba.kadrovskaSluzba}"
+					validatorMessage="Kadrovska služba?">
 					<f:selectItem itemValue="#{true}" itemLabel="da" />
 					<f:selectItem itemValue="#{false}" itemLabel="ne" />
 					<h:message for="kadrovskaSluzba" />
@@ -125,15 +125,15 @@
 						<h:outputText value="#{a.oddelek}"></h:outputText>
 					</h:column>
 					<h:column>
-						<f:facet name="header">EM�O</f:facet>
+						<f:facet name="header">EMŠO</f:facet>
 						<h:outputText value="#{a.EMSO}"></h:outputText>
 					</h:column>
 					<h:column>
-						<f:facet name="header">To�ke</f:facet>
+						<f:facet name="header">Točke</f:facet>
 						<h:outputText value="#{a.tocke}"></h:outputText>
 					</h:column>
 					<h:column>
-						<f:facet name="header">Kadrovska slu�ba</f:facet>
+						<f:facet name="header">Kadrovska služba</f:facet>
 						<h:outputText value="#{a.kadrovskaSluzba}"></h:outputText>
 					</h:column>
 					<h:column>
@@ -141,13 +141,14 @@
 						<h:outputText value="#{a.organizatorDogodkov}"></h:outputText>
 					</h:column>
 					<h:column>
-						<f:facet name="header">Dav�na �tevilka</f:facet>
+						<f:facet name="header">Davčna številka</f:facet>
 						<h:outputText value="#{a.davcnaStevilka}"></h:outputText>
 					</h:column>
+					<h:column>
 						<f:facet name="header"></f:facet>
 						<h:commandButton value="Podrobnosti"></h:commandButton>
 					</h:column>
-				</h:dataTable>		
+					</h:dataTable>		
 			</h:form>
 		</f:view>
 	</ui:define>
