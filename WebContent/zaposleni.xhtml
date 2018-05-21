@@ -40,8 +40,8 @@
 				</h:inputText>*
 				<h:message for="email" />
 				<br />
-			EMÃ…Â O:	<h:inputText id="emso" value="#{osebe.novaOseba.EMSO}"
-					validatorMessage=" EMÅ O?">
+			EMŠO:	<h:inputText id="emso" value="#{osebe.novaOseba.EMSO}"
+					validatorMessage=" EMŠO?">
 					<f:validateRequired />
 				</h:inputText>*
 				<h:message for="emso" />
@@ -53,14 +53,14 @@
 					<h:message for="spol" />
 					<f:validateRequired />
 				</h:selectOneRadio>
-			Telefonska Ã…Â¡tevilka: <h:inputText id="telefonskaStevilka" value="#{osebe.novaOseba.telefonskaStevilka}"
-					validatorMessage=" Telefonska Å¡tevilka">
+			Telefonska Številka: <h:inputText id="telefonskaStevilka" value="#{osebe.novaOseba.telefonskaStevilka}"
+					validatorMessage=" Telefonska številka">
 					<f:validateRequired />
 				</h:inputText>*
 				<h:message for="telefonskaStevilka"></h:message>
 				<br />
-			DavÃ„ï¿½na Ã…Â¡tevilka: <h:inputText id="davcnaStevilka" value="#{osebe.novaOseba.davcnaStevilka}"
-					validatorMessage=" DavÄna Å¡tevilka">
+			Davèna Številka: <h:inputText id="davcnaStevilka" value="#{osebe.novaOseba.davcnaStevilka}"
+					validatorMessage=" Davèna številka">
 					<f:validateRequired />
 				</h:inputText>*
 				<h:message for="davcnaStevilka"></h:message>
@@ -79,7 +79,7 @@
 					<f:validateRequired />
 				</h:selectOneRadio>
 			Kadrovska sluÃ…Â¾ba:	<h:selectOneRadio id="kadrovskaSluzba" value="#{osebe.novaOseba.kadrovskaSluzba}"
-					validatorMessage="Kadrovska sluÅ¾ba?">
+					validatorMessage="Kadrovska sluba?">
 					<f:selectItem itemValue="#{true}" itemLabel="da" />
 					<f:selectItem itemValue="#{false}" itemLabel="ne" />
 					<h:message for="kadrovskaSluzba" />
@@ -125,15 +125,15 @@
 						<h:outputText value="#{a.oddelek}"></h:outputText>
 					</h:column>
 					<h:column>
-						<f:facet name="header">EMÅ O</f:facet>
+						<f:facet name="header">EMŠO</f:facet>
 						<h:outputText value="#{a.EMSO}"></h:outputText>
 					</h:column>
 					<h:column>
-						<f:facet name="header">ToÄke</f:facet>
+						<f:facet name="header">Toèke</f:facet>
 						<h:outputText value="#{a.tocke}"></h:outputText>
 					</h:column>
 					<h:column>
-						<f:facet name="header">Kadrovska sluÅ¾ba</f:facet>
+						<f:facet name="header">Kadrovska sluba</f:facet>
 						<h:outputText value="#{a.kadrovskaSluzba}"></h:outputText>
 					</h:column>
 					<h:column>
@@ -141,7 +141,7 @@
 						<h:outputText value="#{a.organizatorDogodkov}"></h:outputText>
 					</h:column>
 					<h:column>
-						<f:facet name="header">DavÄna Å tevilka</f:facet>
+						<f:facet name="header">Davèna Številka</f:facet>
 						<h:outputText value="#{a.davcnaStevilka}"></h:outputText>
 					</h:column>
 					<h:column>
