@@ -40,7 +40,7 @@
 				</h:inputText>*
 				<h:message for="email" />
 				<br />
-			EMŠO:	<h:inputText id="emso" value="#{osebe.novaOseba.EMSO}"
+			EMÅ O:	<h:inputText id="emso" value="#{osebe.novaOseba.EMSO}"
 					validatorMessage=" EMŠO?">
 					<f:validateRequired />
 				</h:inputText>*
@@ -48,18 +48,18 @@
 				<br />
 			Spol:	<h:selectOneRadio id="spol" value="#{osebe.novaOseba.spol}"
 					validatorMessage="Spol?">
-					<f:selectItem itemValue="Z" itemLabel="Ženska" />
+					<f:selectItem itemValue="Z" itemLabel="ženska" />
 					<f:selectItem itemValue="M" itemLabel="Moški" />
 					<h:message for="spol" />
 					<f:validateRequired />
 				</h:selectOneRadio>
-			Telefonska številka: <h:inputText id="telefonskaStevilka" value="#{osebe.novaOseba.telefonskaStevilka}"
+			Telefonska Å¡tevilka: <h:inputText id="telefonskaStevilka" value="#{osebe.novaOseba.telefonskaStevilka}"
 					validatorMessage=" Telefonska številka">
 					<f:validateRequired />
 				</h:inputText>*
 				<h:message for="telefonskaStevilka"></h:message>
 				<br />
-			Davčna številka: <h:inputText id="davcnaStevilka" value="#{osebe.novaOseba.davcnaStevilka}"
+			DavÄ�na Å¡tevilka: <h:inputText id="davcnaStevilka" value="#{osebe.novaOseba.davcnaStevilka}"
 					validatorMessage=" Davčna številka">
 					<f:validateRequired />
 				</h:inputText>*
@@ -78,7 +78,7 @@
 					<h:message for="organizatordogodkov" />
 					<f:validateRequired />
 				</h:selectOneRadio>
-			Kadrovska služba:	<h:selectOneRadio id="kadrovskaSluzba" value="#{osebe.novaOseba.kadrovskaSluzba}"
+			Kadrovska sluÅ¾ba:	<h:selectOneRadio id="kadrovskaSluzba" value="#{osebe.novaOseba.kadrovskaSluzba}"
 					validatorMessage="Kadrovska služba?">
 					<f:selectItem itemValue="#{true}" itemLabel="da" />
 					<f:selectItem itemValue="#{false}" itemLabel="ne" />
@@ -117,7 +117,7 @@
 						<h:outputText value="#{a.email}"></h:outputText>
 					</h:column>
 					<h:column>
-						<f:facet name="header">Telefonska Številka</f:facet>
+						<f:facet name="header">Telefonska številka</f:facet>
 						<h:outputText value="#{a.telefonskaStevilka}"></h:outputText>
 					</h:column>
 					<h:column>
@@ -141,7 +141,7 @@
 						<h:outputText value="#{a.organizatorDogodkov}"></h:outputText>
 					</h:column>
 					<h:column>
-						<f:facet name="header">Davčna številka</f:facet>
+						<f:facet name="header">Davčna Številka</f:facet>
 						<h:outputText value="#{a.davcnaStevilka}"></h:outputText>
 					</h:column>
 					<h:column>
