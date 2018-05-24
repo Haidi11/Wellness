@@ -7,18 +7,18 @@ import java.util.Date;
 public class Block {
 	
 	private String podatek;
-	private String hash;
+	String hash;
 	private String prejsnjiHash;
 	private long timeStamp;
 	
-	public Block (String podatek, String hash, String prejsnjiHash) {
+	public Block (String podatek, String prejsnjiHash) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		this.podatek = podatek;
-		this.hash = hash;
+		this.hash = izracunHash();
 		this.prejsnjiHash = prejsnjiHash;
 		this.timeStamp = new Date().getTime();
 	}
 	
-	public String izracunHasha() throws NoSuchAlgorithmException, UnsupportedEncodingException {
+	public String izracunHash() throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		String izracunanHash = Podpis.generiranjePodpisa(prejsnjiHash + Long.toString(timeStamp)+podatek);
 		return izracunanHash;
 	}
