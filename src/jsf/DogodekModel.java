@@ -10,24 +10,31 @@ import ejb.DogodekVmesnik;
 import vao.Dogodek;
 import vao.Oseba;
 
-@ManagedBean(name="dogodek")
+@ManagedBean(name = "dogodek")
 @SessionScoped
 public class DogodekModel {
-	
+
 	@EJB
 	DogodekVmesnik ejb;
-	
-	private Dogodek novDogodek= new Dogodek();
-	
-public List<Dogodek> getVrniVseDogodke(){
-		
+
+	private Dogodek novDogodek = new Dogodek();
+
+	public List<Dogodek> getVrniVseDogodke() {
+
 		return ejb.sezamDogodkov();
 	}
-	
+
 	public void dodajDogodek() {
 		ejb.dodajDogodek(novDogodek);
-		novDogodek= new Dogodek();
+		novDogodek = new Dogodek();
 	}
 
+	public Dogodek getNovDogodek() {
+		return novDogodek;
+	}
+
+	public void setNovDogodek(Dogodek novDogodek) {
+		this.novDogodek = novDogodek;
+	}
 
 }

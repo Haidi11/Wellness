@@ -1,8 +1,156 @@
-<html
- xmlns:ui="http://java.sun.com/jsf/facelets"
+<!DOCTYPE html>
+<html xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">	
-	
-	<h2>Vnesite dogodek</h2>
-	
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+
+<ui:composition template="WEB-INF/template/template.xhtml">
+
+
+	<ui:define name="content">
+		<f:view>  
+			<h:form>
+			Ime: <h:inputText id="ime" value="#{osebe.novaOseba.ime}"
+					validatorMessage=" Ime?">
+					<f:validateRequired />
+				</h:inputText>*
+				<h:message for="ime" />
+				<br />
+			Priimek: <h:inputText id="priimek" value="#{osebe.novaOseba.priimek}"
+					validatorMessage=" Priimek?">
+					<f:validateRequired />
+				</h:inputText>*
+				<h:message for="priimek"></h:message>
+				<br />
+			Datum rojstva: <input type="date"
+					jsf:value="#{osebe.novaOseba.datumRojstva.time}">
+				<f:convertDateTime pattern="yyyy-MM-dd" />
+				</input>
+				<br />
+			Datum zaposlitve: <input type="date"
+					jsf:value="#{osebe.novaOseba.datumZaposlitve.time}">
+				<f:convertDateTime pattern="yyyy-MM-dd" />
+				</input>
+				<br />
+			Email:	<h:inputText id="email" value="#{osebe.novaOseba.email}"
+					validatorMessage=" Email?">
+					<f:validateRequired />
+					<f:validateRegex pattern=".+\@.+\..+" />
+				</h:inputText>*
+				<h:message for="email" />
+				<br />
+			EMŠO:	<h:inputText id="emso" value="#{osebe.novaOseba.EMSO}"
+					validatorMessage=" EMŠO?">
+					<f:validateRequired />
+				</h:inputText>*
+				<h:message for="emso" />
+				<br />
+			Spol:	<h:selectOneRadio id="spol" value="#{osebe.novaOseba.spol}"
+					validatorMessage="Spol?">
+					<f:selectItem itemValue="Z" itemLabel="Ženska" />
+					<f:selectItem itemValue="M" itemLabel="Moški" />
+					<h:message for="spol" />
+					<f:validateRequired />
+				</h:selectOneRadio>
+			Telefonska Številka: <h:inputText id="telefonskaStevilka" value="#{osebe.novaOseba.telefonskaStevilka}"
+					validatorMessage=" Telefonska številka">
+					<f:validateRequired />
+				</h:inputText>*
+				<h:message for="telefonskaStevilka"></h:message>
+				<br />
+			Davčna Številka: <h:inputText id="davcnaStevilka" value="#{osebe.novaOseba.davcnaStevilka}"
+					validatorMessage=" Davèna številka">
+					<f:validateRequired />
+				</h:inputText>*
+				<h:message for="davcnaStevilka"></h:message>
+				<br />
+			Oddelek: <h:inputText id="oddelek" value="#{osebe.novaOseba.oddelek}"
+					validatorMessage=" Oddelek?">
+					<f:validateRequired />
+				</h:inputText>*
+				<h:message for="oddelek"></h:message>
+				<br />
+			Organizator dogodkov:	<h:selectOneRadio id="organizatordogodkov" value="#{osebe.novaOseba.organizatorDogodkov}"
+					validatorMessage="Organizator dogodkov?">
+					<f:selectItem itemValue="#{true}" itemLabel="da" />
+					<f:selectItem itemValue="#{false}" itemLabel="ne" />
+					<h:message for="organizatordogodkov" />
+					<f:validateRequired />
+				</h:selectOneRadio>
+			Kadrovska služba:	<h:selectOneRadio id="kadrovskaSluzba" value="#{osebe.novaOseba.kadrovskaSluzba}"
+					validatorMessage="Kadrovska služba?">
+					<f:selectItem itemValue="#{true}" itemLabel="da" />
+					<f:selectItem itemValue="#{false}" itemLabel="ne" />
+					<h:message for="kadrovskaSluzba" />
+					<f:validateRequired />
+				</h:selectOneRadio>
+				<h:commandButton value="Dodaj Zaposlenega"
+						actionListener="#{osebe.dodajOsebo()}" />
+
+
+				<h1>Vsi zaposleni</h1>
+
+				<h:dataTable value="#{osebe.vrniVseOsebe}" var="a">
+					<h:column>
+						<f:facet name="header">Ime</f:facet>
+						<h:outputText value="#{a.ime}"></h:outputText>
+					</h:column>
+					<h:column>
+						<f:facet name="header">Priimek</f:facet>
+						<h:outputText value="#{a.priimek}"></h:outputText>
+					</h:column>
+					<h:column>
+						<f:facet name="header">Spol</f:facet>
+						<h:outputText value="#{a.spol}"></h:outputText>
+					</h:column>
+					<h:column>
+						<f:facet name="header">Datum rojstva</f:facet>
+						<h:outputText value="#{a.izpisiDatumRojstva}"></h:outputText>
+					</h:column>
+					<h:column>
+						<f:facet name="header">Datum zaposlitve</f:facet>
+						<h:outputText value="#{a.izpisiDatumZaposlitve}"></h:outputText>
+					</h:column>
+					<h:column>
+						<f:facet name="header">Email</f:facet>
+						<h:outputText value="#{a.email}"></h:outputText>
+					</h:column>
+					<h:column>
+						<f:facet name="header">Telefonska številka</f:facet>
+						<h:outputText value="#{a.telefonskaStevilka}"></h:outputText>
+					</h:column>
+					<h:column>
+						<f:facet name="header">Oddelek</f:facet>
+						<h:outputText value="#{a.oddelek}"></h:outputText>
+					</h:column>
+					<h:column>
+						<f:facet name="header">EMŠO</f:facet>
+						<h:outputText value="#{a.EMSO}"></h:outputText>
+					</h:column>
+					<h:column>
+						<f:facet name="header">Točke</f:facet>
+						<h:outputText value="#{a.tocke}"></h:outputText>
+					</h:column>
+					<h:column>
+						<f:facet name="header">Kadrovska služba</f:facet>
+						<h:outputText value="#{a.kadrovskaSluzba}"></h:outputText>
+					</h:column>
+					<h:column>
+						<f:facet name="header">Organizator dogodkov</f:facet>
+						<h:outputText value="#{a.organizatorDogodkov}"></h:outputText>
+					</h:column>
+					<h:column>
+						<f:facet name="header">Davčna številka</f:facet>
+						<h:outputText value="#{a.davcnaStevilka}"></h:outputText>
+					</h:column>
+					<h:column>
+						<f:facet name="header"></f:facet>
+						<h:commandButton value="Podrobnosti"></h:commandButton>
+					</h:column>
+					</h:dataTable>		
+			</h:form>
+		</f:view>
+	</ui:define>
+</ui:composition>
 </html>
