@@ -11,7 +11,7 @@
     <url-pattern>/faces/*</url-pattern>
   </servlet-mapping>
   
-  	<!--Defining security constraint for type of roles available--> 
+  	<!--Defining security constraint for type of roles available
   <security-constraint>
     <web-resource-collection>
       <web-resource-name>kadrovska</web-resource-name>
@@ -22,6 +22,21 @@
       <http-method>DELETE</http-method>
     </web-resource-collection>
     <auth-constraint>
+      <role-name>kadrovska</role-name>
+    </auth-constraint>
+  </security-constraint>
+  
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>zaposleni</web-resource-name>
+      <url-pattern>/faces/dogodki.xhtml</url-pattern>
+      <http-method>POST</http-method>
+      <http-method>GET</http-method>
+      <http-method>PUT</http-method>
+      <http-method>DELETE</http-method>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>zaposleni</role-name>
       <role-name>kadrovska</role-name>
     </auth-constraint>
   </security-constraint>
@@ -56,8 +71,13 @@
 
   <security-role>
     <role-name>zaposleni</role-name>
-  </security-role> 
-  <!--Denining security role-->
+  </security-role>
+  
+  
+  <security-role>
+    <role-name>*</role-name>
+  </security-role>  
+  Denining security role-->
   
   
 </web-app>
