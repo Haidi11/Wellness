@@ -13,7 +13,7 @@
 		margin: 0;
 		padding: 0;
 		border: 0;
-		font-size: 60%;
+		font-size: 80%;
 		font: inherit;
 		vertical-align: baseline;
 	}
@@ -1553,7 +1553,7 @@
 	body {
 		background: #fff;
 		font-family: 'Source Sans Pro', sans-serif;
-		font-size: 13pt;
+		font-size: 19pt;
 		font-weight: 300;
 		line-height: 1.75em;
 		color: #888;
@@ -1666,7 +1666,7 @@
 
 	blockquote {
 		border-left: solid 0.5em #ddd;
-		padding: 1em 0 1em 1em;
+		padding: 1em 0 1em 2em;
 		font-style: italic;
 	}
 
@@ -1681,7 +1681,7 @@
 /* Sections/Article */
 
 	section, article {
-		margin-bottom: 1em;
+		margin-bottom: 3em;
 	}
 
 		section > :last-child,
@@ -1800,9 +1800,9 @@
 		outline: 0;
 		background: #fff;
 		background: rgba(255, 255, 255, 0.75);
-		width: 60%;
+		width: 100%;
 		border-radius: 0.35em;
-		padding: 0.75em 1em 0.75em 1em;
+		padding: 0.1em 0.1em 0.1em 0.1em;
 		box-shadow: inset 0 0.1em 0.1em 0 rgba(0, 0, 0, 0.05);
 		border: solid 1px rgba(0, 0, 0, 0.15);
 		-moz-transition: all 0.35s ease-in-out;
@@ -1902,7 +1902,7 @@
 		border-radius: 0.35em;
 		color: #fff !important;
 		text-decoration: none;
-		padding: 0.5em 1em 0.5em 0.8em;
+		padding: 0.2em 0.4em 0.2em 0.4em;
 		background-color: #8ebebc;
 		border: 0;
 		cursor: pointer;
@@ -2146,7 +2146,7 @@
 		#main > section {
 			margin: 0;
 			overflow: hidden;
-			padding: 1em 0;
+			padding: 4em 0;
 			box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.05), inset 0 0.1em 0.1em 0 rgba(0, 0, 0, 0.025);
 			text-align: center;
 			background-image: url("images/overlay.png");
@@ -2176,7 +2176,7 @@
 					}
 
 			#main > section.cover {
-				padding: 2em 0;
+				padding: 6em 0;
 				background-size: cover;
 				background-position: center center;
 			}
@@ -2235,11 +2235,11 @@
 		/* Main */
 
 			#main > section {
-				padding: 1em 0;
+				padding: 3em 0;
 			}
 
 			#main section.cover {
-				padding: 1.5em 0;
+				padding: 5em 0;
 			}
 
 	}
@@ -2334,7 +2334,7 @@
 			}
 
 			.container {
-				padding: 0 1em 0 1em;
+				padding: 0 2em 0 2em;
 			}
 
 		/* Item */

@@ -5,11 +5,13 @@
 	xmlns:jsf="http://xmlns.jcp.org/jsf">
 	
 <style>
-input {
-    width: 10%;
+.vnos {
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 </style>
-
 
 <ui:composition template="WEB-INF/template/template2.xhtml">
 
@@ -17,13 +19,18 @@ input {
 	<ui:define name="main">
 		<f:view>  
 			<h:form style="width:50%; padding-left:30px;">
-			Ime: <h:inputText id="ime" value="#{osebe.novaOseba.ime}"
-					validatorMessage=" Ime?">
+			Ime: <h:inputText class="vnos" id="ime" value="#{osebe.novaOseba.ime}"
+					validatorMessage=" Ime?" style="
+  											    padding-left: 0px;
+    											padding-right: 0px;
+   												padding-top: 0px;
+    											padding-bottom: 0px;"
+					>
 					<f:validateRequired />
 				</h:inputText>*
 				<h:message for="ime" />
 				<br />
-			Priimek: <h:inputText id="priimek" value="#{osebe.novaOseba.priimek}"
+			Priimek: <h:inputText class="vnos" id="priimek" value="#{osebe.novaOseba.priimek}"
 					validatorMessage=" Priimek?">
 					<f:validateRequired />
 				</h:inputText>*
