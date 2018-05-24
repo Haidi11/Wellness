@@ -10,12 +10,12 @@
 	</style>
 
 
-<ui:composition template="WEB-INF/template/template.xhtml">
+<ui:composition template="WEB-INF/template/template2.xhtml">
 
 
-	<ui:define name="content">
+	<ui:define name="main">
 		<f:view>  
-			<h:form>
+			<h:form style="padding-left:30px;">
 			Naziv: <h:inputText id="naizv" value="#{dogodek.novDogodek.naziv}"
 					validatorMessage=" Naziv?">
 					<f:validateRequired />
