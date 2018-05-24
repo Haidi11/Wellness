@@ -1,7 +1,6 @@
 CORPORATE WELLNESS
 
-Planiranje in izvajanje promocije zdravja na delovnem mestu
-Akronim: CORPORATE WELLNESS
+Planiranje in izvajanje promocije zdravja na delovnem mestu.
 
 Bistvo
 
