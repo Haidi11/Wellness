@@ -13,7 +13,7 @@
 <ui:composition template="WEB-INF/template/template2.xhtml">
 
 
-	<ui:define name="main">
+	<ui:define name="main">  
 		<f:view>  
 			<h:form style="padding-left:30px;">
 			Naziv: <h:inputText id="naizv" value="#{dogodek.novDogodek.naziv}"
@@ -73,7 +73,7 @@
 					</h:column>
 					<h:column>
 						<f:facet name="header"></f:facet>
-						<h:commandButton value="Podrobnosti"></h:commandButton>
+						<h:commandButton value="Podrobnosti" action="podrobnostiDogodek.xhtml" actionListener="#{dogodek.izberiDogodek(a.naziv)}"></h:commandButton>
 					</h:column>
 					</h:dataTable>		
 			</h:form>

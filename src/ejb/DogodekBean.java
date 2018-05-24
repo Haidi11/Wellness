@@ -31,4 +31,13 @@ public class DogodekBean implements DogodekVmesnik {
 		return (ArrayList<Dogodek>) em.createQuery("select d from Dogodek d").getResultList();
 	}
 
+	
+	@Override
+	public void podrobnoDogodek(Dogodek dogodek) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+
 }

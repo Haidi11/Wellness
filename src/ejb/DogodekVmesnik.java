@@ -11,4 +11,5 @@ public interface DogodekVmesnik {
 	void dodajDogodek(Dogodek dogodek);
 	void odstraniDogodek(Dogodek dogodek);
 	ArrayList<Dogodek> sezamDogodkov();
+	void podrobnoDogodek(Dogodek dogodek);
 }

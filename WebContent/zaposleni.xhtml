@@ -4,14 +4,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:jsf="http://xmlns.jcp.org/jsf">
 	
-<style>
-.vnos {
-    padding-left: 0px;
-    padding-right: 0px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-}
-</style>
+
 
 <ui:composition template="WEB-INF/template/template2.xhtml">
 
@@ -19,18 +12,13 @@
 	<ui:define name="main">
 		<f:view>  
 			<h:form style=" padding-left:30px;">
-			Ime: <h:inputText class="vnos" id="ime" value="#{osebe.novaOseba.ime}"
-					validatorMessage=" Ime?" style="
-  											    padding-left: 0px;
-    											padding-right: 0px;
-   												padding-top: 0px;
-    											padding-bottom: 0px;"
-					>
+			Ime: <h:inputText id="ime" value="#{osebe.novaOseba.ime}"
+					validatorMessage=" Ime?" 	>
 					<f:validateRequired />
 				</h:inputText>*
 				<h:message for="ime" />
 				<br />
-			Priimek: <h:inputText class="vnos" id="priimek" value="#{osebe.novaOseba.priimek}"
+			Priimek: <h:inputText  id="priimek" value="#{osebe.novaOseba.priimek}"
 					validatorMessage=" Priimek?">
 					<f:validateRequired />
 				</h:inputText>*
