@@ -30,6 +30,7 @@ public class Oseba {
 	private String EMSO;
 	private String telefonskaStevilka;
 	private String davcnaStevilka;
+	private String vloga;
 
 	private List<Dogodek> dogodki;
 
@@ -192,5 +193,13 @@ public class Oseba {
 
 	public void setDavcnaStevilka(String davcnaStevilka) {
 		this.davcnaStevilka = davcnaStevilka;
+	}
+
+	public String getVloga() {
+		return vloga;
+	}
+
+	public void setVloga(String vloga) {
+		this.vloga = vloga;
 	}
 }
