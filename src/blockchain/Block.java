@@ -1,5 +1,7 @@
 package blockchain;
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 
 public class Block {
@@ -16,6 +18,10 @@ public class Block {
 		this.timeStamp = new Date().getTime();
 	}
 	
+	public String izracunHasha() throws NoSuchAlgorithmException, UnsupportedEncodingException {
+		String izracunanHash = Podpis.generiranjePodpisa(prejsnjiHash + Long.toString(timeStamp)+podatek);
+		return izracunanHash;
+	}
 	public String getPodatek() {
 		return podatek;
 	}
