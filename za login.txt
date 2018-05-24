@@ -1,0 +1,10 @@
+v standalone.xml dodaj 
+
+<jdbc-realm name="wellnes">
+                    <principal-query sql="SELECT vloga as role, geslo as password FROM Oseba WHERE uporabniskoIme = ?" data-source="baza">
+                        <attribute-mapping>
+                            <attribute to="Roles" index="1"/>
+                        </attribute-mapping>
+                        <simple-digest-mapper password-index="2"/>
+                    </principal-query>
+                </jdbc-realm>

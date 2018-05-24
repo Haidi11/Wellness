@@ -31,6 +31,8 @@ public class Oseba {
 	private String telefonskaStevilka;
 	private String davcnaStevilka;
 	private String vloga;
+	private String geslo;
+	private String uporabniskoIme;
 
 	private List<Dogodek> dogodki;
 
@@ -201,5 +203,21 @@ public class Oseba {
 
 	public void setVloga(String vloga) {
 		this.vloga = vloga;
+	}
+
+	public String getGeslo() {
+		return geslo;
+	}
+
+	public void setGeslo(String geslo) {
+		this.geslo = geslo;
+	}
+
+	public String getUporabniskoIme() {
+		return uporabniskoIme;
+	}
+
+	public void setUporabniskoIme(String uporabniskoIme) {
+		this.uporabniskoIme = uporabniskoIme;
 	}
 }
