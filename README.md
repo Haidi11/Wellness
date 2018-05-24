@@ -14,10 +14,15 @@ V vedno več podjetjih se zavedajo pomena zdravega in zadovoljnega osebja. Zato 
 * [Gregor Gorjanc](https://github.com/gregorjanc)
 * [Haidi Zakelšek](https://github.com/Haidi11)
 
+## ER
+![](https://raw.githubusercontent.com/Haidi11/Wellness/master/ostalo/er.png)
+
 ## Namestitev
 * Eclipse Java EE IDE for Web Developers.
 (Version: Oxygen.3a Release )
 * WildFly-11.0.0.Final
-* MySql
+* MySql 
 
+v Wildfly je potrebno ustavriti datasource java:jboss/datasources/baza in v MySql kreirati bazo "Wellness". V administrativni konzoli WildFly strežnika ustvarimo Non XA datasource, katermu nastavimo JNDI: java:jboss/datasources/baza in Connection URL: jdbc:mysql://localhost:3306/wellness. 
+Uporabniki se dodajo s pomočjo CMD.
 
