@@ -2,6 +2,7 @@ package vao;
 
 import java.sql.Date;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -10,6 +11,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+
+import orodja.Oro;
+
 import javax.persistence.JoinColumn;
 
 @Entity
@@ -26,15 +30,41 @@ public class Dogodek {
 	private String opisDogodka;
 	
 	
-	 @ManyToMany(cascade = { 
-		        CascadeType.PERSIST, 
-		        CascadeType.MERGE
-		    })
-		    @JoinTable(name = "dogodek_oseba",
-		        joinColumns = @JoinColumn(name = "idDogodek"),
-		        inverseJoinColumns = @JoinColumn(name = "idOseba")
-		    )
+	@ManyToMany(cascade = { 
+	        CascadeType.PERSIST, 
+	        CascadeType.MERGE
+	    })
+	@JoinTable(name = "dogodek_oseba",
+	        joinColumns = @JoinColumn(name = "idDogodek"),
+	        inverseJoinColumns = @JoinColumn(name = "idOseba")
+	    )
 	private List <Oseba> udelezenci;
+	
+	
+	
+	
+	public Dogodek () {
+		this.datumKonca=new GregorianCalendar();
+		this.datumZacetka=new GregorianCalendar();
+		this.naziv="";
+		this.tocke=0;
+		this.opisDogodka="";
+			
+	}
+	/*
+	 * izpis datumov
+	 */
+	public String getIzpisiZacetek() {
+		return Oro.izpisiDatum(datumZacetka);
+	}
+	public String getIzpisiKonca() {
+		return Oro.izpisiDatum(datumKonca);
+	}
+	
+	
+	/*
+	 * getterji, setterji
+	 */
 	
 	public String getNaziv() {
 		return naziv;
