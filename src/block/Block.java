@@ -10,6 +10,7 @@ public class Block {
 	String hash;
 	private String prejsnjiHash;
 	private long timeStamp;
+	private int nonce;
 	
 	public Block (String podatek, String prejsnjiHash) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		this.podatek = podatek;
@@ -22,6 +23,16 @@ public class Block {
 		String izracunanHash = Podpis.generiranjePodpisa(prejsnjiHash + Long.toString(timeStamp)+podatek);
 		return izracunanHash;
 	}
+	
+	public void rudarjenjeBloka(int tezavnost) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+		String tarca = new String(new char[tezavnost]).replace('\0', '0'); //Create a string with difficulty * "0" 
+		while(!hash.substring( 0, tezavnost).equals(tarca)) {
+			nonce ++;
+			hash = izracunHash();
+		}
+		System.out.println("Rudarjenje uspelo!!! : " + hash);
+	}
+	
 	public String getPodatek() {
 		return podatek;
 	}
