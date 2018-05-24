@@ -8,7 +8,7 @@ import com.google.gson.GsonBuilder;
 
 public class MainTest {
 	public static ArrayList<Block> blockchain = new ArrayList<Block>(); 
-	public static int tezavnost = 1;
+	public static int tezavnost = 1; //nastavi tezavnost na 0! 
 	public static void main(String[] args) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 	
 		blockchain.add(new Block("Hi im the first block", "0"));
@@ -23,7 +23,7 @@ public class MainTest {
 		System.out.println("Trying to Mine block 3... ");
 		blockchain.get(2).rudarjenjeBloka(tezavnost);	
 		
-		System.out.println("\nBlockchain is Valid: " + validacija());
+		System.out.println("\nBlockchain je valid: " + validacija());
 		
 		String blockchainJson = new GsonBuilder().setPrettyPrinting().create().toJson(blockchain);
 		System.out.println("\nThe block chain: ");
