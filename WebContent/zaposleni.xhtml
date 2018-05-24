@@ -3,14 +3,20 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:jsf="http://xmlns.jcp.org/jsf">
+	
+<style>
+input {
+    width: 10%;
+}
+</style>
 
 
-<ui:composition template="WEB-INF/template/template.xhtml">
+<ui:composition template="WEB-INF/template/template2.xhtml">
 
 
-	<ui:define name="content">
+	<ui:define name="main">
 		<f:view>  
-			<h:form>
+			<h:form style="width:50%; padding-left:30px;">
 			Ime: <h:inputText id="ime" value="#{osebe.novaOseba.ime}"
 					validatorMessage=" Ime?">
 					<f:validateRequired />
