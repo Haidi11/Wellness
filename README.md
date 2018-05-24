@@ -1,4 +1,4 @@
-Projekt D: 
+CORPORATE WELLNESS
 
 Planiranje in izvajanje promocije zdravja na delovnem mestu
 Akronim: CORPORATE WELLNESS
