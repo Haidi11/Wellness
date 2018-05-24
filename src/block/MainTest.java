@@ -1,4 +1,4 @@
-package blockchain;
+package block;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
@@ -15,8 +15,8 @@ public class MainTest {
 		blockchain.add(new Block("Yo im the second block",blockchain.get(blockchain.size()-1).hash)); 
 		blockchain.add(new Block("Hey im the third block",blockchain.get(blockchain.size()-1).hash));
 		
-		String blockchainJson = new GsonBuilder().setPrettyPrinting().create().toJson(blockchain);		
-		System.out.println(blockchainJson);
+		/*String blockchainJson = new GsonBuilder().setPrettyPrinting().create().toJson(blockchain);		
+		System.out.println(blockchainJson);*/
 
 	}
 }
