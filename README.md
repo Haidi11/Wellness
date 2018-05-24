@@ -27,4 +27,5 @@ v Wildfly je potrebno ustavriti datasource java:jboss/datasources/baza in v MySq
 Uporabniki se dodajo s pomočjo CMD.
 
 ## GSON
-Open Windows >preferences in the Eclipse menu, and navigate to the Java >Build path > User Libraries tab. Click new and enter a new User Library name: like “gson_lib” and hit ok. With “gson_lib” selected press Add External JARs and find the gson-2.6.2.jar you downloaded. Apply and Close.
+Open Windows >preferences in the Eclipse menu, and navigate to the Java >Build path > User Libraries tab. Click new and enter a new User Library name: like “gson_lib” and hit ok. With “gson_lib” selected press Add External JARs and find the gson-2.6.2.jar you downloaded. Apply and Close. Nato pa Wellness -> properties -> Java Build Path -> add Library -> User library
+-> gson_lib -> apply and close.
