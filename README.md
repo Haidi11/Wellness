@@ -18,5 +18,6 @@ V vedno več podjetjih se zavedajo pomena zdravega in zadovoljnega osebja. Zato 
 * Eclipse Java EE IDE for Web Developers.
 (Version: Oxygen.3a Release )
 * WildFly-11.0.0.Final
+* MySql
 
 
