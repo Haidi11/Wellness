@@ -18,5 +18,4 @@ public class MainTest {
 		System.out.println("Hash for block 3 : " + thirdBlock.hash);
 
 	}
-
 }
