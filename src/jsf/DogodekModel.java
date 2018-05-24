@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 import ejb.DogodekVmesnik;
 import vao.Dogodek;
@@ -19,6 +20,7 @@ public class DogodekModel {
 
 	private Dogodek novDogodek = new Dogodek();
 
+	
 	public List<Dogodek> getVrniVseDogodke() {
 
 		return ejb.sezamDogodkov();
