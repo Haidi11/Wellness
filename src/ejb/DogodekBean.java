@@ -16,6 +16,7 @@ public class DogodekBean implements DogodekVmesnik {
 	@Override
 	public void dodajDogodek(Dogodek dogodek) {
 		em.persist(dogodek);
+		System.out.println("Dogodek dodan: "+dogodek.getNaziv());
 		
 	}
 

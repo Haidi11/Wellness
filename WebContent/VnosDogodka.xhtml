@@ -3,6 +3,11 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:jsf="http://xmlns.jcp.org/jsf">
+	<style>
+	column {
+	padding: 10px;
+	}
+	</style>
 
 
 <ui:composition template="WEB-INF/template/template.xhtml">
@@ -45,7 +50,7 @@
 					<br />	
 				<h1>Vsi dogodki</h1>
 
-				<h:dataTable value="#{dogodek.vrniVseDogodke}" var="a">
+				<h:dataTable value="#{dogodek.vrniVseDogodke}" var="a" >
 					<h:column>
 						<f:facet name="header">Naziv</f:facet>
 						<h:outputText value="#{a.naziv}"></h:outputText>
