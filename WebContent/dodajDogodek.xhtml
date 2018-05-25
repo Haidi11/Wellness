@@ -16,7 +16,38 @@
 	<ui:define name="main">  
 		<f:view>  
 			<h:form style="padding-left:30px;">
-		
+			Naziv: <h:inputText id="naizv" value="#{dogodek.novDogodek.naziv}"
+					validatorMessage=" Naziv?">
+					<f:validateRequired />
+				</h:inputText>
+				<h:message for="naziv" />
+				
+			Točke: <h:inputText id="tocke" value="#{dogodek.novDogodek.tocke}"
+					validatorMessage=" Točke?">
+					<f:validateRequired />
+				</h:inputText>
+				<h:message for="tocke"></h:message>
+				
+			Datum začetka: <input type="date"
+					jsf:value="#{dogodek.novDogodek.datumZacetka.time}">
+				<f:convertDateTime pattern="yyyy-MM-dd" />
+				</input>
+				
+			Datum konca: <input type="date"
+					jsf:value="#{dogodek.novDogodek.datumKonca.time}">
+				<f:convertDateTime pattern="yyyy-MM-dd" />
+				</input>
+				
+				<br />
+			Opis dogodka:	<h:inputText id="opis" value="#{dogodek.novDogodek.opisDogodka}"
+					validatorMessage=" Opis dogodka?">
+					<f:validateRequired />
+				</h:inputText>
+				<h:message for="opis" />
+				<br />
+			<h:commandButton value="Dodaj dogodek"
+						actionListener="#{dogodek.dodajDogodek()}" />
+					<br />	
 				<h1>Vsi dogodki</h1>
 
 				<h:dataTable value="#{dogodek.vrniVseDogodke}" var="a" >
@@ -40,15 +71,7 @@
 						<f:facet name="header">Opis dogodka</f:facet>
 						<h:outputText value="#{a.opisDogodka}"></h:outputText>
 					</h:column>
-					<h:column>
-						<f:facet name="header"></f:facet>
-						<h:commandButton value="Podrobnosti" action="#{dogodek.izberiDogodek(a)}"></h:commandButton>
-					</h:column>
-					<h:column>
-						<f:facet name="header"></f:facet>
-						<h:commandButton value="Prijava" actionListener="#{zaposleni.izberiDogodek(a)}"></h:commandButton>
-					</h:column>
-					</h:dataTable>		
+				</h:dataTable>		
 			</h:form>
 		</f:view>
 	</ui:define>

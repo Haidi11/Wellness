@@ -1,6 +1,7 @@
 package vao;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -38,7 +39,7 @@ public class Dogodek {
 	        joinColumns = @JoinColumn(name = "idDogodek"),
 	        inverseJoinColumns = @JoinColumn(name = "idOseba")
 	    )
-	private List <Oseba> udelezenci;
+	private List <Oseba> udelezenci = new ArrayList<>();
 	
 	
 	

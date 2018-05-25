@@ -1,5 +1,6 @@
 package vao;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -34,7 +35,7 @@ public class Oseba {
 	private String geslo;
 	private String uporabniskoIme;
 
-	private List<Dogodek> dogodki;
+	private List<Dogodek> dogodki= new ArrayList<>();
 
 	// nastavi na prazno za resetiranje vnosnih polj
 	public Oseba() {

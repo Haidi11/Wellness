@@ -19,16 +19,34 @@ public class DogodekModel {
 	DogodekVmesnik ejb;
 
 	private Dogodek novDogodek = new Dogodek();
+	private Dogodek izbranDogodek;
 
+	
+	
+	
+	
+	//izbira dogodka za prikaz na strani za podrobnosti
+	public String izberiDogodek(Dogodek d) {
+		this.izbranDogodek=d;
+		return "podrobnostiDogodek.xhtml";
+	}
+	
+	//dodajanje novega dogodka
+	public void dodajDogodek() {
+		ejb.dodajDogodek(novDogodek);
+		novDogodek = new Dogodek();
+	}
+	
+	
+	
+	/*
+	 * getterji, setterji
+	 */
+	
 	
 	public List<Dogodek> getVrniVseDogodke() {
 
 		return ejb.sezamDogodkov();
-	}
-
-	public void dodajDogodek() {
-		ejb.dodajDogodek(novDogodek);
-		novDogodek = new Dogodek();
 	}
 
 	public Dogodek getNovDogodek() {
@@ -37,6 +55,14 @@ public class DogodekModel {
 
 	public void setNovDogodek(Dogodek novDogodek) {
 		this.novDogodek = novDogodek;
+	}
+
+	public Dogodek getIzbranDogodek() {
+		return izbranDogodek;
+	}
+
+	public void setIzbranDogodek(Dogodek izbranDogodek) {
+		this.izbranDogodek = izbranDogodek;
 	}
 
 }

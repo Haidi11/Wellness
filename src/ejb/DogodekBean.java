@@ -5,8 +5,10 @@ import java.util.ArrayList;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import vao.Dogodek;
+import vao.Oseba;
 
 @Stateless
 public class DogodekBean implements DogodekVmesnik {
@@ -38,6 +40,20 @@ public class DogodekBean implements DogodekVmesnik {
 		
 	}
 	
+	@Override
+	public void izberiDogodek(Dogodek d, String uporabniskoIme) {
+		Dogodek temp = em.find(Dogodek.class,d.getIdDogodek());
+		
+		temp.getUdelezenci().add(najdiPoUporabniskemImenu(uporabniskoIme));
+		
+	}
 	
+	@Override
+	public Oseba najdiPoUporabniskemImenu(String u) {
+		Query q = em.createQuery("select o from Oseba o where o.uporabniskoIme= :u");
+		q.setParameter("u", u);
+			
+		return (Oseba) q.getResultList().get(0);
+	}
 
 }
