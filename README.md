@@ -24,7 +24,7 @@ V vedno več podjetjih se zavedajo pomena zdravega in zadovoljnega osebja. Zato 
 * MySql 
 
 v Wildfly je potrebno ustavriti datasource java:jboss/datasources/baza in v MySql kreirati bazo "Wellness". V administrativni konzoli WildFly strežnika ustvarimo Non XA datasource, katermu nastavimo JNDI: java:jboss/datasources/baza in Connection URL: jdbc:mysql://localhost:3306/wellness. 
-Uporabniki se dodajo s pomočjo CMD.
+
 
 ## GSON
 Open Windows >preferences in the Eclipse menu, and navigate to the Java >Build path > User Libraries tab. Click new and enter a new User Library name: like “gson_lib” and hit ok. With “gson_lib” selected press Add External JARs and find the gson-2.6.2.jar you downloaded. Apply and Close. Nato pa Wellness -> properties -> Java Build Path -> add Library -> User library
