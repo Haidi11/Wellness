@@ -18,4 +18,9 @@ public interface DogodekVmesnik {
 	void izberiDogodek(Dogodek d, String uporabniskoIme);
 	Oseba najdiPoUporabniskemImenu(String u);
 	PaketZaprikazDogodkov sezamDogodkovZaUporabnika(String name);
+	List<Dogodek> vrniMojeDogodke(int id);
+	Dogodek dogodek(int idDogodek);
+	List<Oseba> vrniMojeUdelezence(int idDogodek);
+	Dogodek vrniMojDogodek(int idDogodek);
+
 }

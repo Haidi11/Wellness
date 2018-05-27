@@ -27,11 +27,14 @@ public class Dogodek {
 	private String naziv;
 	private Calendar datumZacetka;
 	private Calendar datumKonca;
+	private Calendar datumPrijave;
 	private int tocke;
+	@Transient
 	private int steviloPrijavljenih;
 	private String opisDogodka;
 	@Transient
 	private String prijavljen;
+	private int idLastnik;
 	
 	
 	@ManyToMany(cascade = { 
@@ -49,11 +52,13 @@ public class Dogodek {
 	
 	public Dogodek () {
 		this.datumKonca=new GregorianCalendar();
+		this.datumPrijave=new GregorianCalendar();
 		this.datumZacetka=new GregorianCalendar();
 		this.naziv="";
 		this.tocke=0;
 		this.opisDogodka="";
 		this.prijavljen="Prijavi";
+		
 			
 	}
 	/*
@@ -64,6 +69,9 @@ public class Dogodek {
 	}
 	public String getIzpisiKonca() {
 		return Oro.izpisiDatum(datumKonca);
+	}
+	public String getIzpisiDatumPrijave() {
+		return Oro.izpisiDatum(datumPrijave);
 	}
 	
 	
@@ -127,6 +135,18 @@ public class Dogodek {
 	}
 	public void setPrijavljen(String prijavljen) {
 		this.prijavljen = prijavljen;
+	}
+	public Calendar getDatumPrijave() {
+		return datumPrijave;
+	}
+	public void setDatumPrijave(Calendar datumPrijave) {
+		this.datumPrijave = datumPrijave;
+	}
+	public int getIdLastnik() {
+		return idLastnik;
+	}
+	public void setIdLastnik(int idLastnik) {
+		this.idLastnik = idLastnik;
 	}
 	
 }

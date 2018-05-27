@@ -26,7 +26,8 @@ public class DogodekBean implements DogodekVmesnik {
 
 	@Override
 	public void odstraniDogodek(Dogodek dogodek) {
-		em.remove(dogodek);
+		Dogodek temp = em.find(Dogodek.class, dogodek.getIdDogodek());
+		em.remove(temp);
 
 	}
 
@@ -41,17 +42,18 @@ public class DogodekBean implements DogodekVmesnik {
 		// TODO Auto-generated method stub
 
 	}
-	//prijava na dogodek, kjer se ob klicu prijavljenega uporabnika le tega odjavi
+
+	// prijava na dogodek, kjer se ob klicu prijavljenega uporabnika le tega odjavi
 	@Override
 	public void izberiDogodek(Dogodek d, String uporabniskoIme) {
 		Dogodek temp = em.find(Dogodek.class, d.getIdDogodek());
 		Oseba o = najdiPoUporabniskemImenu(uporabniskoIme);
-		
-		if(temp.getUdelezenci().contains(o)){
+
+		if (temp.getUdelezenci().contains(o)) {
 			temp.getUdelezenci().remove(o);
 			return;
 		}
-			
+
 		temp.getUdelezenci().add(o);
 
 	}
@@ -66,26 +68,54 @@ public class DogodekBean implements DogodekVmesnik {
 
 	@Override
 	public PaketZaprikazDogodkov sezamDogodkovZaUporabnika(String name) {
-		PaketZaprikazDogodkov p= new PaketZaprikazDogodkov();
-		String str="";
+		PaketZaprikazDogodkov p = new PaketZaprikazDogodkov();
+		String str = "";
 		// uporabnik z dogodki
 		Oseba temp = najdiPoUporabniskemImenu(name);
-		//System.out.println(temp.getDogodki());
+		// System.out.println(temp.getDogodki());
 		List<Dogodek> dogodki = sezamDogodkov();
 		// primerjaj in uredi tiste
 		for (Dogodek d : dogodki) {
-			
-				if (temp.getDogodki().contains(d)) {
-					d.setPrijavljen("Odjavi");
-					str+= "prijavljen,";
-				}else {
-					str+= "neprijavljen,";
+
+			if (temp.getDogodki().contains(d)) {
+				d.setPrijavljen("Odjavi");
+				str += "prijavljen,";
+			} else {
+				str += "neprijavljen,";
 			}
+
 		}
-		p.setSeznamRazredov(str.substring(0, str.length()-1));
+		p.setSeznamRazredov(str.substring(0, str.length() - 1));
 		p.setSeznam(dogodki);
 		// vrni
 		return p;
 	}
 
+	@Override
+	public List<Dogodek> vrniMojeDogodke(int id) {
+		Query q = em.createQuery("select d from Dogodek d where d.idLastnik= :id");
+		q.setParameter("id", id);
+
+		return q.getResultList();
+
+	}
+
+	@Override
+	public Dogodek dogodek(int idDogodek) {
+		return em.find(Dogodek.class, idDogodek);
+	}
+
+	@Override
+	public List<Oseba> vrniMojeUdelezence(int idDogodek) {
+	List<Oseba> o =	em.find(Dogodek.class, idDogodek).getUdelezenci();
+	o.size();
+	return o;
+	}
+	//vrni z stevilom prijavljenih
+	@Override
+	public Dogodek vrniMojDogodek(int idDogodek) {
+	Dogodek d =	em.find(Dogodek.class, idDogodek);
+	d.setSteviloPrijavljenih(d.getUdelezenci().size());
+	return d;
+	}
 }
