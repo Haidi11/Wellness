@@ -33,9 +33,9 @@ public class DogodekModel {
 	//vrne osebe ki so prijavljene na dogodek
 	public List<Oseba> getVrniPrijavljeneOsebeNaDogodek(){
 		//return ejb.vrniMojeUdelezence(izbranDogodek.getIdDogodek());
-		Dogodek temp = ejb.vrniMojDogodek(izbranDogodek.getIdDogodek());
-		izbranDogodek=temp;
-		return temp.getUdelezenci();
+		izbranDogodek = ejb.vrniMojDogodek(izbranDogodek.getIdDogodek());
+		
+		return izbranDogodek.getUdelezenci();
 	}
 	
 	//izbira dogodka za prikaz na strani za podrobnosti
@@ -61,26 +61,33 @@ public class DogodekModel {
 	public List<Dogodek> getVrniVseDogodke() {
 		return ejb.sezamDogodkov();
 	}
+	
 	//izbris dogodka
 	public void izbrisiDogodek(Dogodek d) {
 		ejb.odstraniDogodek(d);
 	}
-	
+	//vrne prijavljenega uporabnika
 	private Principal vrniUporabnika() {
 		FacesContext fc = FacesContext.getCurrentInstance();
 		return fc.getExternalContext().getUserPrincipal();
 	}
+	
+	//vrne prijavljeno osebo
 	public Oseba getUporabnik() {
 		return ejb.najdiPoUporabniskemImenu(vrniUporabnika().getName());
 		
 	}
 	
 	
+	//potrdi udelezbo na dogodek
+	public void potrdiUdelezbo(Oseba o) {
+		ejb.potrdiUdelezbo(izbranDogodek, o);
+		
+	}
+	
 	/*
 	 * getterji, setterji
 	 */
-	
-	
 	public Dogodek getNovDogodek() {
 		return novDogodek;
 	}

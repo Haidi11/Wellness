@@ -1,6 +1,7 @@
 package ejb;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -11,6 +12,7 @@ import javax.persistence.Query;
 import orodja.PaketZaprikazDogodkov;
 import vao.Dogodek;
 import vao.Oseba;
+import vao.Tocke;
 
 @Stateless
 public class DogodekBean implements DogodekVmesnik {
@@ -76,21 +78,34 @@ public class DogodekBean implements DogodekVmesnik {
 		List<Dogodek> dogodki = sezamDogodkov();
 		// primerjaj in uredi tiste
 		for (Dogodek d : dogodki) {
-
 			if (temp.getDogodki().contains(d)) {
 				d.setPrijavljen("Odjavi");
 				str += "prijavljen,";
 			} else {
 				str += "neprijavljen,";
 			}
-
+			if(casZaOdjavoPotekel(d.getDatumPrijave())) {
+				d.setGumbPrijava(true);
+			}
 		}
+		//preveri ce je rok za odjavo ze potekel
+		
 		p.setSeznamRazredov(str.substring(0, str.length() - 1));
 		p.setSeznam(dogodki);
 		// vrni
 		return p;
 	}
-
+	//preveri ce je cas za odjavo potekel
+	private boolean casZaOdjavoPotekel(Calendar c) {
+		Calendar zdaj = Calendar.getInstance();
+		//System.out.println(zdaj.get(Calendar.HOUR_OF_DAY)+ ":" + zdaj.get(Calendar.MINUTE) );
+				
+		if(c.before(zdaj)) {	
+			return true;
+		}
+		return false;
+		
+	}
 	@Override
 	public List<Dogodek> vrniMojeDogodke(int id) {
 		Query q = em.createQuery("select d from Dogodek d where d.idLastnik= :id");
@@ -107,15 +122,59 @@ public class DogodekBean implements DogodekVmesnik {
 
 	@Override
 	public List<Oseba> vrniMojeUdelezence(int idDogodek) {
-	List<Oseba> o =	em.find(Dogodek.class, idDogodek).getUdelezenci();
-	o.size();
-	return o;
+		List<Oseba> o = em.find(Dogodek.class, idDogodek).getUdelezenci();
+		o.size();
+		return o;
 	}
-	//vrni z stevilom prijavljenih
+
+	// vrni z stevilom prijavljenih
 	@Override
 	public Dogodek vrniMojDogodek(int idDogodek) {
-	Dogodek d =	em.find(Dogodek.class, idDogodek);
-	d.setSteviloPrijavljenih(d.getUdelezenci().size());
-	return d;
+		Dogodek d = em.find(Dogodek.class, idDogodek);
+		d.setSteviloPrijavljenih(d.getUdelezenci().size());
+		for (Oseba o : d.getUdelezenci()) {
+			if (tockeDane(o, d)) {
+				o.setUdelezba("Udelezba potrjena");
+				o.setGumbUdelezba(true);
+			} else {
+				o.setGumbUdelezba(false);
+				o.setUdelezba("Potrdi udeležbo");
+			}
+		
+			
+		}
+		return d;
+	}
+
+	// preveri ce so tocke ze bile podeljene
+	private boolean tockeDane(Oseba o, Dogodek d) {
+		Query q = em.createQuery("select d from Tocke d where d.idOseba = :idOseba and d.idDogodek= :idDogodek");
+		q.setParameter("idOseba", o.getIdOseba());
+		q.setParameter("idDogodek", d.getIdDogodek());
+
+		List<Tocke> l = new ArrayList<Tocke>();
+		l = q.getResultList();
+		if (l == null) {
+			return false;
+		} else if (l.isEmpty()) {
+			return false;
+
+		} else {
+			return true;
+		}
+
+	}
+
+	// potrdi udelezbo na dogodku tako da zapise dogodek in osebo v tocke in osebi
+	// pristeje tocke
+	@Override
+	public void potrdiUdelezbo(Dogodek izbranDogodek, Oseba o) {
+		Oseba os = em.find(Oseba.class, o.getIdOseba());
+		os.setTocke(os.getTocke() + izbranDogodek.getTocke());
+		Tocke t = new Tocke();
+
+		em.persist(t);
+		t.setIdDogodek(izbranDogodek.getIdDogodek());
+		t.setIdOseba(o.getIdOseba());
 	}
 }

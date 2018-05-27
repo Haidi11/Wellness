@@ -8,6 +8,8 @@
     <jta-data-source>java:jboss/datasources/baza</jta-data-source>
     <class>vao.Dogodek</class>
     <class>vao.Oseba</class>
+    <class>vao.Tocke</class>
+    
     <properties>
         <property name="hibernate.show_sql" value="true"/>
         <property name="hibernate.id.new_generator_mappings" value="false"/>

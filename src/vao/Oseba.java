@@ -34,7 +34,12 @@ public class Oseba {
 	private String vloga;
 	private String geslo;
 	private String uporabniskoIme;
-
+	@Transient
+	private String udelezba;
+	@Transient
+	private boolean gumbUdelezba;
+	
+	
 	private List<Dogodek> dogodki= new ArrayList<>();
 
 	// nastavi na prazno za resetiranje vnosnih polj
@@ -51,7 +56,7 @@ public class Oseba {
 		this.EMSO = "";
 		this.datumRojstva = new GregorianCalendar();
 		this.datumZaposlitve = new GregorianCalendar();
-
+		
 	}
 
 	/*
@@ -221,4 +226,22 @@ public class Oseba {
 	public void setUporabniskoIme(String uporabniskoIme) {
 		this.uporabniskoIme = uporabniskoIme;
 	}
+
+	public String getUdelezba() {
+		return udelezba;
+	}
+
+	public void setUdelezba(String udelezba) {
+		this.udelezba = udelezba;
+	}
+
+	public boolean isGumbUdelezba() {
+		return gumbUdelezba;
+	}
+
+	public void setGumbUdelezba(boolean gumbUdelezba) {
+		this.gumbUdelezba = gumbUdelezba;
+	}
+
+	
 }

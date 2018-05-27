@@ -49,7 +49,10 @@ column {
 						<f:facet name="header">Oddelek</f:facet>
 						<h:outputText value="#{a.oddelek}"></h:outputText>
 					</h:column>
-
+					<h:column>
+						<f:facet name="header"></f:facet>
+						<h:commandButton value="#{a.udelezba}" disabled="#{a.gumbUdelezba}" action="#{dogodek.potrdiUdelezbo(a)}"></h:commandButton>
+					</h:column>
 				</h:dataTable>
 				
 				<h3>

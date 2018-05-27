@@ -35,7 +35,8 @@ public class Dogodek {
 	@Transient
 	private String prijavljen;
 	private int idLastnik;
-	
+	@Transient
+	private boolean gumbPrijava;
 	
 	@ManyToMany(cascade = { 
 	        CascadeType.PERSIST, 
@@ -148,5 +149,12 @@ public class Dogodek {
 	public void setIdLastnik(int idLastnik) {
 		this.idLastnik = idLastnik;
 	}
+	public boolean isGumbPrijava() {
+		return gumbPrijava;
+	}
+	public void setGumbPrijava(boolean gumbPrijava) {
+		this.gumbPrijava = gumbPrijava;
+	}
+	
 	
 }
