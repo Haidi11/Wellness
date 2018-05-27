@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.Transient;
 
 import orodja.Oro;
 
@@ -29,6 +30,7 @@ public class Dogodek {
 	private int tocke;
 	private int steviloPrijavljenih;
 	private String opisDogodka;
+	private String prijavljen;
 	
 	
 	@ManyToMany(cascade = { 
@@ -116,6 +118,13 @@ public class Dogodek {
 	}
 	public void setOpisDogodka(String opisDogodka) {
 		this.opisDogodka = opisDogodka;
+	}
+	@Transient
+	public String getPrijavljen() {
+		return prijavljen;
+	}
+	public void setPrijavljen(String prijavljen) {
+		this.prijavljen = prijavljen;
 	}
 	
 }

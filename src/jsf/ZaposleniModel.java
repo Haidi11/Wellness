@@ -19,7 +19,7 @@ import vao.Dogodek;
 
 @ManagedBean(name = "zaposleni")
 @SessionScoped
-public class Zaposleni {
+public class ZaposleniModel {
 	
 	
 	@EJB

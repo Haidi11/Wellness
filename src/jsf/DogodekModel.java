@@ -37,6 +37,16 @@ public class DogodekModel {
 		novDogodek = new Dogodek();
 	}
 	
+	//prikaz sveh dogodkov
+	public List<Dogodek> getVrniVseDogodke() {
+		return ejb.sezamDogodkov();
+	}
+	
+	//prikaz dogodkov z dodanimi lastnostmi o prijavljenosti
+	public List<Dogodek> getVrniVseDogodkeZaUporabnika() {
+		return ejb.sezamDogodkov();
+	}
+
 	
 	
 	/*
@@ -44,11 +54,6 @@ public class DogodekModel {
 	 */
 	
 	
-	public List<Dogodek> getVrniVseDogodke() {
-
-		return ejb.sezamDogodkov();
-	}
-
 	public Dogodek getNovDogodek() {
 		return novDogodek;
 	}
