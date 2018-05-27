@@ -30,16 +30,9 @@ odvisno od tipa podjetja, kamor vpeljujete rešitev
 * Vnos uporabnikov in organizacijske strukture podjetja
 * Prejem opomnika na dogodek
 
-
-
-## Ekipa
-* [Manica Abramenko](https://github.com/ManicaA)
-* [Gregor Gorjanc](https://github.com/gregorjanc)
-* [Haidi Zakelšek](https://github.com/Haidi11)
-
 ## ER
 ![](https://raw.githubusercontent.com/Haidi11/Wellness/master/ostalo/er.png)
-
+***
 ## Namestitev
 * Eclipse Java EE IDE for Web Developers.
 (Version: Oxygen.3a Release )
@@ -70,3 +63,8 @@ v Wildfly je potrebno ustavriti datasource java:jboss/datasources/baza in v MySq
 ## GSON
 Open Windows >preferences in the Eclipse menu, and navigate to the Java >Build path > User Libraries tab. Click new and enter a new User Library name: like “gson_lib” and hit ok. With “gson_lib” selected press Add External JARs and find the gson-2.6.2.jar you downloaded. Apply and Close. Nato pa Wellness -> properties -> Java Build Path -> add Library -> User library
 -> gson_lib -> apply and close.
+***
+## Ekipa
+* [Manica Abramenko](https://github.com/ManicaA)
+* [Gregor Gorjanc](https://github.com/gregorjanc)
+* [Haidi Zakelšek](https://github.com/Haidi11)
