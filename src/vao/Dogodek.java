@@ -1,6 +1,6 @@
 package vao;
 
-import java.sql.Date;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -30,6 +30,7 @@ public class Dogodek {
 	private int tocke;
 	private int steviloPrijavljenih;
 	private String opisDogodka;
+	@Transient
 	private String prijavljen;
 	
 	
@@ -52,6 +53,7 @@ public class Dogodek {
 		this.naziv="";
 		this.tocke=0;
 		this.opisDogodka="";
+		this.prijavljen="Prijavi";
 			
 	}
 	/*
@@ -119,7 +121,7 @@ public class Dogodek {
 	public void setOpisDogodka(String opisDogodka) {
 		this.opisDogodka = opisDogodka;
 	}
-	@Transient
+	
 	public String getPrijavljen() {
 		return prijavljen;
 	}

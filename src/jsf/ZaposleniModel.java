@@ -1,40 +1,58 @@
 package jsf;
 
 import java.security.Principal;
+import java.util.List;
 
-import javax.annotation.Resource;
 import javax.ejb.EJB;
-import javax.ejb.SessionContext;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
-import org.jboss.security.auth.spi.Users;
-import org.wildfly.security._private.ElytronMessages;
-import org.wildfly.security.auth.util.ElytronAuthenticator;
-import org.wildfly.security.permission.ElytronPermission;
-
 import ejb.DogodekVmesnik;
+import orodja.PaketZaprikazDogodkov;
 import vao.Dogodek;
 
 @ManagedBean(name = "zaposleni")
 @SessionScoped
 public class ZaposleniModel {
-	
-	
+
 	@EJB
 	DogodekVmesnik dv;
 	
-	//uporabnik izbere dogodek, ta se doda na njegov seznam dogodkov
-	public void izberiDogodek(Dogodek d) {
-		
+	//za prikaz stilov glede na prijavljenost
+	private String prijave;
+	
+	//pridobi uporabnika
+	private Principal vrniUporabnika() {
 		FacesContext fc = FacesContext.getCurrentInstance();
-		Principal p = fc.getExternalContext().getUserPrincipal();
-//		System.out.println(p.getName());
-		dv.izberiDogodek(d, p.getName());
-		
-		
-		
+		return fc.getExternalContext().getUserPrincipal();
 	}
 
+	// uporabnik izbere dogodek, ta se doda na njegov seznam dogodkov
+	public void izberiDogodek(Dogodek d) {
+		Principal p = vrniUporabnika();	
+		dv.izberiDogodek(d, p.getName());
+	}
+
+	// prikaz dogodkov z dodanimi lastnostmi o prijavljenosti
+	public List<Dogodek> getVrniVseDogodkeZaUporabnika() {
+		PaketZaprikazDogodkov p=dv.sezamDogodkovZaUporabnika(vrniUporabnika().getName());
+		prijave=p.getSeznamRazredov();
+		//System.out.println(prijave);
+		return p.getSeznam();
+	}
+
+	
+	/*
+	 * getterji, setterji
+	 */
+	public String getPrijave() {
+		return prijave;
+	}
+
+	public void setPrijave(String prijave) {
+		this.prijave = prijave;
+	}
+	
+		
 }
