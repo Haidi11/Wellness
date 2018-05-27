@@ -1,80 +1,101 @@
 <!DOCTYPE HTML>
-<html  xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets">
-	<head>
-		<title>Wellness</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	
-	<body>
-	
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+<head>
+<title>Wellness</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="assets/css/main.css" />
+<title>Corrporate Wellness</title>
+</head>
+
+<body>
+
 	<!-- Header -->
-			<div id="header">
-				 
-				 <title><ui:insert name="title">Naslov</ui:insert></title>
+	<div id="header">
 
-				<div class="top">
 
-					<!-- Logo -->
-						<div id="logo">
-							<span class="image avatar48"><img src="images/avatar.jpg" alt="" /></span>
-							<h1 id="title">Dioklecijan</h1>
-							<p>Corrporate Wellness</p>
-						</div>
 
-					<!-- Navigacija -->
-						<nav id="nav">
-							
-							<ul>
-								<li><a href="index.xhtml" id="top-link" class="skel-layers-ignoreHref"><span class="icon fa-home">Domov</span></a></li>
-								<li><a href="dogodki.xhtml" id="portfolio-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Dogodki</span></a></li>
-								<li><a href="dodajDogodek.xhtml" id="portfolio-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Dodaj dogodek</span></a></li>
-								<li><a href="" id="about-link" class="skel-layers-ignoreHref"><span class="icon fa-user">Profil</span></a></li>
-								<li><a href="zaposleni.xhtml" id="about-link" class="skel-layers-ignoreHref"><span class="icon fa-user">Dodaj Uporabnika</span></a></li>
-								<li><a href="" id="contact-link" class="skel-layers-ignoreHref"><span class="icon fa-envelope">???</span></a></li>
-							</ul>
-						</nav>
+		<div class="top">
 
-				</div>
-
-				<div class="bottom">
-
-					<!-- Social Icons -->
-						<ul class="icons">
-							<li><a href="https://github.com/Haidi11/Wellness" class="icon fa-github"><span class="label">Github</span></a></li>
-							<li><a href="https://outlook.com" class="icon fa-envelope"><span class="label">Email</span></a></li>
-						</ul>
-
-				</div>
-
-			</div> <!-- Header -->
-			
-			
-			<div id="main">
-				<ui:insert name="main">
-    		
- 
-				</ui:insert>
-			</div>
-			
-		<!-- Footer -->
-			<div id="footer">
-
-				<!-- Copyright -->
-					<ul class="copyright">
-						<li> Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
-
+			<!-- Logo -->
+			<div id="logo">
+				<span class="image avatar48"><img src="images/avatar.jpg"
+					alt="" /></span>
+				<h1 id="title">
+					<h:outputText value="#{zaposleni.uporabnik.ime}"></h:outputText><h:outputText value="&#160;" />
+					 <h:outputText value="#{zaposleni.uporabnik.priimek}"></h:outputText>
+				</h1>
+				<p><h:outputText value="#{zaposleni.uporabnik.vloga}"></h:outputText></p>
 			</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.scrollzer.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-	
-	</body>
-	</html>
+			<!-- Navigacija -->
+			<nav id="nav">
+
+				<ul>
+					<li><a href="index.xhtml" id="top-link"
+						class="skel-layers-ignoreHref"><span class="icon fa-home">Domov</span></a></li>
+					<li><a href="dogodki.xhtml" id="portfolio-link"
+						class="skel-layers-ignoreHref"><span class="icon fa-th">Dogodki</span></a></li>
+					<li><a href="dodajDogodek.xhtml" id="portfolio-link"
+						class="skel-layers-ignoreHref"><span class="icon fa-th">Dodaj
+								dogodek</span></a></li>
+					<li><a href="" id="about-link" class="skel-layers-ignoreHref"><span
+							class="icon fa-user">Profil</span></a></li>
+					<li><a href="zaposleni.xhtml" id="about-link"
+						class="skel-layers-ignoreHref"><span class="icon fa-user">Dodaj
+								Uporabnika</span></a></li>
+					<li><a href="" id="contact-link"
+						class="skel-layers-ignoreHref"><span class="icon fa-envelope">???</span></a></li>
+				</ul>
+			</nav>
+
+		</div>
+
+		<div class="bottom">
+
+			<!-- Social Icons -->
+			<ul class="icons">
+				<li><a href="https://github.com/Haidi11/Wellness"
+					class="icon fa-github"><span class="label">Github</span></a></li>
+				<li><a href="https://outlook.com" class="icon fa-envelope"><span
+						class="label">Email</span></a></li>
+			</ul>
+
+		</div>
+
+	</div>
+	<!-- Header -->
+
+
+	<div id="main">
+		<ui:insert name="main">
+
+
+		</ui:insert>
+	</div>
+
+	<!-- Footer -->
+	<div id="footer">
+
+		<!-- Copyright -->
+		<ul class="copyright">
+			<li>Untitled. All rights reserved.</li>
+			<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+		</ul>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/jquery.scrollzer.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+</html>
