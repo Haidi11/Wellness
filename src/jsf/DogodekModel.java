@@ -11,7 +11,7 @@ import javax.faces.context.FacesContext;
 
 import org.hibernate.validator.constraintvalidation.HibernateConstraintValidatorContext;
 
-import ejb.DogodekVmesnik;
+import vmesniki.*;
 import vao.Dogodek;
 import vao.Oseba;
 

@@ -6,7 +6,8 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-import ejb.OsebaVmesnik;
+import vmesniki.*;
+import vmesniki.*;
 import vao.Oseba;
 
 @ManagedBean(name="osebe")

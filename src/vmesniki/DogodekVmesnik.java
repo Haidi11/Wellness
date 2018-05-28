@@ -1,4 +1,4 @@
-package ejb;
+package vmesniki;
 
 import java.util.ArrayList;
 import java.util.List;

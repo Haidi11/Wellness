@@ -6,23 +6,26 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import block.Block;
+
 import orodja.PaketZaprikazDogodkov;
 import vao.Dogodek;
 import vao.Oseba;
 import vao.Tocke;
+import vmesniki.*;
+import ejb.BlockChainBean;
 
 @Stateless
 public class DogodekBean implements DogodekVmesnik {
-	Dogodek najdenDogodek;
-	public static ArrayList<Block> blockchain = new ArrayList<Block>(); 
-	public static int tezavnost = 0;
-	Block block = new Block();
+	@EJB
+	BlockChainVmesnik bc;
+	
+	
 	 @PersistenceContext
 	    EntityManager em;
 
@@ -47,6 +50,7 @@ public class DogodekBean implements DogodekVmesnik {
 
 	@Override
 	public Dogodek podrobnoDogodek(int dogodekID) {
+		Dogodek najdenDogodek;
 		najdenDogodek = em.find(Dogodek.class, dogodekID);
 		System.out.println("najden dogodek: "+najdenDogodek.getNaziv());
 		return najdenDogodek;
@@ -184,26 +188,7 @@ public class DogodekBean implements DogodekVmesnik {
 		em.persist(t);
 		t.setIdDogodek(izbranDogodek.getIdDogodek());
 		t.setIdOseba(o.getIdOseba());
-		try {
-			System.out.println("tocka: "+t.getId()+", oseba: "+t.getIdOseba()+", dogodek: "+t.getIdDogodek());
-			blockchain.add(new Block(t.getId(),t.getIdOseba(),t.getIdDogodek(), "0"));
-			for(int i = 0; i==blockchain.size();i++) {
-				if(i== 0) {
-					block.setPrejsnjiHash("0");
-					blockchain.get(i).rudarjenjeBloka(tezavnost);
-					System.out.println("Hash trenutnega bloka: "+blockchain.get(i).getHash()+", idTocke: "+blockchain.get(i).getIdTocke());
-				}
-				blockchain.get(i).rudarjenjeBloka(tezavnost);
-				System.out.println("Hash trenutnega bloka: "+blockchain.get(i).getHash()+", idTocke: "+blockchain.get(i).getIdTocke());
-			}
-		} catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		System.out.println("Konec potrditve ");
+		bc.shrani(t);
 	}
 
 	@Override

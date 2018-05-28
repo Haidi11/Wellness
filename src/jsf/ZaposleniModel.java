@@ -9,7 +9,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
-import ejb.DogodekVmesnik;
+import vmesniki.*;
 import orodja.PaketZaprikazDogodkov;
 import vao.Dogodek;
 import vao.Oseba;
@@ -63,6 +63,15 @@ public class ZaposleniModel {
 	public Oseba getUporabnik() {
 		return dv.najdiPoUporabniskemImenu(vrniUporabnika().getName());
 		
+	}
+	
+	
+	public String odjavi() {
+		
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+		
+System.out.println("odjava");
+		return "index.xhtml?faces-redirect=true";
 	}
 
 	/*
