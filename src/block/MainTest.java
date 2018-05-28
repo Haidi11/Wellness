@@ -15,10 +15,6 @@ public class MainTest {
 		System.out.println("block 1... ");
 		blockchain.get(0).rudarjenjeBloka(tezavnost);
 		
-		blockchain.add(new Block(2,5,6,blockchain.get(blockchain.size()-1).hash));
-		System.out.println("block 2... ");
-		blockchain.get(1).rudarjenjeBloka(tezavnost);
-		
 		
 		System.out.println("\nBlockchain je valid: " + validacija());
 		
@@ -37,12 +33,12 @@ public class MainTest {
 			trenutniBlok = blockchain.get(i);
 			prejsnjiBlok = blockchain.get(i-1);
 			
-			if(!trenutniBlok.hash.equals(trenutniBlok.izracunHash()) ){
+			if(!trenutniBlok.getHash().equals(trenutniBlok.izracunHash()) ){
 				System.out.println("Trenutni hash ni enak!");			
 				return false;
 			}
 			
-			if(!prejsnjiBlok.hash.equals(trenutniBlok.izracunHash()) ) {
+			if(!prejsnjiBlok.getHash().equals(trenutniBlok.izracunHash()) ) {
 				System.out.println("prejsnji hash ni enak!");
 				return false;
 			}
