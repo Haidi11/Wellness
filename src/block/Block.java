@@ -4,16 +4,22 @@ import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Block {
 	
+	@Id
+	@GeneratedValue
+	private int idBlock;
 	private int idTocke;
 	private int idDogodek;
 	private int idOSeba;
-	private String podatek;
-	String hash;
+	private String hash;
 	private String prejsnjiHash;
 	private long timeStamp;
-	private int nonce;
 	
 	public Block() {}
 	
@@ -26,10 +32,6 @@ public class Block {
 		this.timeStamp = new Date().getTime();
 	}
 	
-	public String pretvorbaVString(int id, int idDogodek, int idOseba) {
-		return "Id: "+id+", id Dogodka: "+idDogodek+", id Osebe: "+idOseba;
-	}
-	
 	public String izracunHash() throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		String izracunanHash = Podpis.generiranjePodpisa(prejsnjiHash + Long.toString(timeStamp)+Long.toString(idTocke)+Long.toString(idOSeba)+Long.toString(idDogodek));
 		return izracunanHash;
@@ -38,18 +40,11 @@ public class Block {
 	public void rudarjenjeBloka(int tezavnost) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		String tarca = new String(new char[tezavnost]).replace('\0', '0'); //Create a string with difficulty * "0" 
 		while(!hash.substring( 0, tezavnost).equals(tarca)) {
-			nonce ++;
 			hash = izracunHash();
 		}
 		System.out.println("Rudarjenje uspelo!!! : " + hash);
 	}
 	
-	public String getPodatek() {
-		return podatek;
-	}
-	public void setPodatek(String podatek) {
-		this.podatek = podatek;
-	}
 	public String getHash() {
 		return hash;
 	}
@@ -91,5 +86,13 @@ public class Block {
 
 	public void setIdOSeba(int idOSeba) {
 		this.idOSeba = idOSeba;
+	}
+
+	public int getIdBlock() {
+		return idBlock;
+	}
+
+	public void setIdBlock(int idBlock) {
+		this.idBlock = idBlock;
 	}
 }
