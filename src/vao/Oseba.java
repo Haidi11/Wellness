@@ -56,6 +56,7 @@ public class Oseba {
 		this.EMSO = "";
 		this.datumRojstva = new GregorianCalendar();
 		this.datumZaposlitve = new GregorianCalendar();
+		this.vloga = "";
 		
 	}
 

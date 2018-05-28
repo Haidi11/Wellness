@@ -86,6 +86,10 @@
 					<h:message for="kadrovskaSluzba" />
 					<f:validateRequired />
 				</h:selectOneRadio>
+		Vloga <h:inputText id="vloga" value="#{osebe.novaOseba.vloga}"
+					validatorMessage="Vloga">
+					<f:validateRequired />
+				</h:inputText>
 				<h:commandButton value="Dodaj Zaposlenega"
 						actionListener="#{osebe.dodajOsebo()}" />
 
@@ -146,9 +150,14 @@
 						<h:outputText value="#{a.davcnaStevilka}"></h:outputText>
 					</h:column>
 					<h:column>
+						<f:facet name="header">Vloga</f:facet>
+						<h:outputText value="#{a.vloga}"></h:outputText>
+					</h:column>
+					<h:column>
 						<f:facet name="header"></f:facet>
 						<h:commandButton value="Podrobnosti"></h:commandButton>
 					</h:column>
+					
 					</h:dataTable>		
 			</h:form>
 		</f:view>
