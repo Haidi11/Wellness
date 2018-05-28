@@ -1,5 +1,6 @@
 package jsf;
 
+import java.io.Serializable;
 import java.security.Principal;
 import java.util.List;
 
@@ -16,7 +17,9 @@ import vao.Oseba;
 
 @ManagedBean(name = "dogodek")
 @SessionScoped
-public class DogodekModel {
+public class DogodekModel implements Serializable {
+
+	private static final long serialVersionUID = 4158584015534953569L;
 
 	@EJB
 	DogodekVmesnik ejb;
@@ -45,12 +48,18 @@ public class DogodekModel {
 	}
 	
 	//izbira dogodka za prikaz na strani za podrobnosti
-		public String izberiDogodekKotLastnik(Dogodek d) {
-			this.izbranDogodek=ejb.dogodek(d.getIdDogodek());
-			return "mojDogodek.xhtml";
-		}
+	public String izberiDogodekKotLastnik(Dogodek d) {
+		this.izbranDogodek=ejb.dogodek(d.getIdDogodek());
+		return "mojDogodek.xhtml";
+	}
 	
 	//dodajanje novega dogodka
+
+	public Dogodek najdiDogodek(String id) {
+		return null;
+	}
+
+
 	public void dodajDogodek() {
 		novDogodek.setIdLastnik(getUporabnik().getIdOseba());
 		ejb.dodajDogodek(novDogodek);
@@ -81,8 +90,7 @@ public class DogodekModel {
 	
 	//potrdi udelezbo na dogodek
 	public void potrdiUdelezbo(Oseba o) {
-		ejb.potrdiUdelezbo(izbranDogodek, o);
-		
+		ejb.potrdiUdelezbo(izbranDogodek, o); //id uporabnika, st tock
 	}
 	
 	/*
@@ -96,12 +104,19 @@ public class DogodekModel {
 		this.novDogodek = novDogodek;
 	}
 
+
 	public Dogodek getIzbranDogodek() {
 		return izbranDogodek;
 	}
 
 	public void setIzbranDogodek(Dogodek izbranDogodek) {
 		this.izbranDogodek = izbranDogodek;
+	}
+
+
+	public String izbranDogodekI(int id) {
+		ejb.podrobnoDogodek(id);
+		return "podrobnostiDogodek.xhtml";
 	}
 
 }

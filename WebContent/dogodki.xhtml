@@ -50,12 +50,12 @@
 					</h:column>
 					<h:column> 
 						<f:facet name="header"></f:facet>
-						<h:commandButton value="#{a.prijavljen}" disabled="#{a.gumbPrijava}" onclick="prikaziVec(this)" actionListener="#{zaposleni.izberiDogodek(a)}"></h:commandButton>
+						<h:commandButton value="#{a.prijavljen}" disabled="#{a.gumbPrijava}"  actionListener="#{zaposleni.izberiDogodek(a)}"></h:commandButton>
 					</h:column>
 					</h:dataTable>	
 					
 					<div id="pokaziVec">Več:
-						<h:outputText value="#{zaposelni.dogodekPodrobno.naziv}"></h:outputText>
+						#{zaposleni.dogodekPodrobno.naziv}
 					</div>
 						
 			</h:form>
@@ -63,10 +63,6 @@
 	</ui:define>
 </ui:composition>
 
-<script>
-	function prikaziVec(a){
-		
-	}
-</script>
+
 
 </html>

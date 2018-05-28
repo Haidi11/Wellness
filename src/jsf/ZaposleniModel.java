@@ -20,10 +20,11 @@ public class ZaposleniModel {
 
 	private Dogodek dogodekPodrobno;
 	
+	
 	@PostConstruct
 	public void naredi() {
 		dogodekPodrobno= new Dogodek();
-		dogodekPodrobno.setNaziv("sdfds");
+		
 	}
 	
 	@EJB
@@ -76,12 +77,13 @@ public class ZaposleniModel {
 	}
 
 	public Dogodek getDogodekPodrobno() {
-		System.out.println("dačfjačl");
 		return dogodekPodrobno;
 	}
 
 	public void setDogodekPodrobno(Dogodek dogodekPodrobno) {
 		this.dogodekPodrobno = dogodekPodrobno;
 	}
+
+	
 
 }

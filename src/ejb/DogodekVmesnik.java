@@ -14,6 +14,7 @@ public interface DogodekVmesnik {
 	void dodajDogodek(Dogodek dogodek);
 	void odstraniDogodek(Dogodek dogodek);
 	ArrayList<Dogodek> sezamDogodkov();
+	Dogodek podrobnoDogodek(int dogodek);
 	void podrobnoDogodek(Dogodek dogodek);
 	void izberiDogodek(Dogodek d, String uporabniskoIme);
 	Oseba najdiPoUporabniskemImenu(String u);
