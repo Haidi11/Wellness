@@ -234,7 +234,7 @@ public class Oseba {
 	public void setUdelezba(String udelezba) {
 		this.udelezba = udelezba;
 	}
-
+@Transient
 	public boolean isGumbUdelezba() {
 		return gumbUdelezba;
 	}
