@@ -1,4 +1,4 @@
-package ejb;
+package vmesniki;
 
 import vao.Oseba;
 

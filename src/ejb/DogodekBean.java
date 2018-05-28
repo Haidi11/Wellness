@@ -16,6 +16,7 @@ import orodja.PaketZaprikazDogodkov;
 import vao.Dogodek;
 import vao.Oseba;
 import vao.Tocke;
+import vmesniki.*;
 
 @Stateless
 public class DogodekBean implements DogodekVmesnik {
