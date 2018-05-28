@@ -6,23 +6,26 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import block.Block;
+
 import orodja.PaketZaprikazDogodkov;
 import vao.Dogodek;
 import vao.Oseba;
 import vao.Tocke;
 import vmesniki.*;
+import ejb.BlockChainBean;
 
 @Stateless
 public class DogodekBean implements DogodekVmesnik {
-	Dogodek najdenDogodek;
+	@EJB
+	BlockChainVmesnik bc;
 	
-	Block block = new Block();
+	
 	 @PersistenceContext
 	    EntityManager em;
 
@@ -47,6 +50,7 @@ public class DogodekBean implements DogodekVmesnik {
 
 	@Override
 	public Dogodek podrobnoDogodek(int dogodekID) {
+		Dogodek najdenDogodek;
 		najdenDogodek = em.find(Dogodek.class, dogodekID);
 		System.out.println("najden dogodek: "+najdenDogodek.getNaziv());
 		return najdenDogodek;
@@ -184,6 +188,7 @@ public class DogodekBean implements DogodekVmesnik {
 		em.persist(t);
 		t.setIdDogodek(izbranDogodek.getIdDogodek());
 		t.setIdOseba(o.getIdOseba());
+		bc.shrani(t);
 	}
 
 	@Override
