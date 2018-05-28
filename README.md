@@ -39,7 +39,7 @@ odvisno od tipa podjetja, kamor vpeljujete rešitev
 * WildFly-11.0.0.Final
 * MySql 
 
-v Wildfly je potrebno ustavriti datasource java:jboss/datasources/baza in v MySql kreirati bazo "Wellness". V administrativni konzoli WildFly strežnika ustvarimo Non XA datasource, katermu nastavimo JNDI: java:jboss/datasources/baza in Connection URL: jdbc:mysql://localhost:3306/wellness. 
+v Wildfly je potrebno ustavriti datasource java:jboss/datasources/baza in v MySql kreirati bazo "baza". V administrativni konzoli WildFly strežnika ustvarimo Non XA datasource, katermu nastavimo JNDI: java:jboss/datasources/baza in Connection URL: jdbc:mysql://localhost:3306/baza. 
 
 **Login:**
 * Zaženi server.
