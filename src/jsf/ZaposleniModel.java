@@ -3,6 +3,7 @@ package jsf;
 import java.security.Principal;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -17,9 +18,23 @@ import vao.Oseba;
 @SessionScoped
 public class ZaposleniModel {
 
+	private Dogodek dogodekPodrobno;
+	
+	@PostConstruct
+	public void naredi() {
+		dogodekPodrobno= new Dogodek();
+		dogodekPodrobno.setNaziv("sdfds");
+	}
+	
 	@EJB
 	DogodekVmesnik dv;
 
+	//prikaz podrobnosti
+	public void prikaziPodrobno(Dogodek d) {
+		this.dogodekPodrobno=d;
+		
+	}
+	
 	// za prikaz stilov glede na prijavljenost
 	private String prijave;
 
@@ -58,6 +73,15 @@ public class ZaposleniModel {
 
 	public void setPrijave(String prijave) {
 		this.prijave = prijave;
+	}
+
+	public Dogodek getDogodekPodrobno() {
+		System.out.println("dačfjačl");
+		return dogodekPodrobno;
+	}
+
+	public void setDogodekPodrobno(Dogodek dogodekPodrobno) {
+		this.dogodekPodrobno = dogodekPodrobno;
 	}
 
 }
