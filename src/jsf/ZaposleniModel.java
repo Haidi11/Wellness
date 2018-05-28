@@ -64,6 +64,15 @@ public class ZaposleniModel {
 		return dv.najdiPoUporabniskemImenu(vrniUporabnika().getName());
 		
 	}
+	
+	
+	public String odjavi() {
+		
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+		
+System.out.println("odjava");
+		return "index.xhtml?faces-redirect=true";
+	}
 
 	/*
 	 * getterji, setterji
