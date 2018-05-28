@@ -1,5 +1,7 @@
 package ejb;
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -9,6 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import block.Block;
 import orodja.PaketZaprikazDogodkov;
 import vao.Dogodek;
 import vao.Oseba;
@@ -16,8 +19,12 @@ import vao.Tocke;
 
 @Stateless
 public class DogodekBean implements DogodekVmesnik {
-	@PersistenceContext
-	EntityManager em;
+	Dogodek najdenDogodek;
+	public static ArrayList<Block> blockchain = new ArrayList<Block>(); 
+	public static int tezavnost = 0;
+	Block block = new Block();
+	 @PersistenceContext
+	    EntityManager em;
 
 	@Override
 	public void dodajDogodek(Dogodek dogodek) {
@@ -38,14 +45,14 @@ public class DogodekBean implements DogodekVmesnik {
 		return (ArrayList<Dogodek>) em.createQuery("select d from Dogodek d").getResultList();
 	}
 
-	// zakaj je to tu?
 	@Override
-	public void podrobnoDogodek(Dogodek dogodek) {
-		// TODO Auto-generated method stub
-
+	public Dogodek podrobnoDogodek(int dogodekID) {
+		najdenDogodek = em.find(Dogodek.class, dogodekID);
+		System.out.println("najden dogodek: "+najdenDogodek.getNaziv());
+		return najdenDogodek;
 	}
 
-	// prijava na dogodek, kjer se ob klicu prijavljenega uporabnika le tega odjavi
+	
 	@Override
 	public void izberiDogodek(Dogodek d, String uporabniskoIme) {
 		Dogodek temp = em.find(Dogodek.class, d.getIdDogodek());
@@ -168,7 +175,8 @@ public class DogodekBean implements DogodekVmesnik {
 	// potrdi udelezbo na dogodku tako da zapise dogodek in osebo v tocke in osebi
 	// pristeje tocke
 	@Override
-	public void potrdiUdelezbo(Dogodek izbranDogodek, Oseba o) {
+	public void potrdiUdelezbo(Dogodek izbranDogodek, Oseba o)  {
+		System.out.println("Zacetek potrditve ");
 		Oseba os = em.find(Oseba.class, o.getIdOseba());
 		os.setTocke(os.getTocke() + izbranDogodek.getTocke());
 		Tocke t = new Tocke();
@@ -176,5 +184,31 @@ public class DogodekBean implements DogodekVmesnik {
 		em.persist(t);
 		t.setIdDogodek(izbranDogodek.getIdDogodek());
 		t.setIdOseba(o.getIdOseba());
+		try {
+			System.out.println("tocka: "+t.getId()+", oseba: "+t.getIdOseba()+", dogodek: "+t.getIdDogodek());
+			blockchain.add(new Block(t.getId(),t.getIdOseba(),t.getIdDogodek(), "0"));
+			for(int i = 0; i==blockchain.size();i++) {
+				if(i== 0) {
+					block.setPrejsnjiHash("0");
+					blockchain.get(i).rudarjenjeBloka(tezavnost);
+					System.out.println("Hash trenutnega bloka: "+blockchain.get(i).getHash()+", idTocke: "+blockchain.get(i).getIdTocke());
+				}
+				blockchain.get(i).rudarjenjeBloka(tezavnost);
+				System.out.println("Hash trenutnega bloka: "+blockchain.get(i).getHash()+", idTocke: "+blockchain.get(i).getIdTocke());
+			}
+		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("Konec potrditve ");
+	}
+
+	@Override
+	public void podrobnoDogodek(Dogodek dogodek) {
+		// TODO Auto-generated method stub
+		
 	}
 }
