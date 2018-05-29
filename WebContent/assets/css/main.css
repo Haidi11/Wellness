@@ -1891,6 +1891,7 @@
 
 			table.default tbody tr:nth-child(2n+2) {
 				background: #f4f4f4;
+				/*background: #f0e6e6;*/
 			}
 
 			table.default td {
