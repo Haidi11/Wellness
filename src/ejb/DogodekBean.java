@@ -1,7 +1,5 @@
 package ejb;
 
-import java.io.UnsupportedEncodingException;
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -12,22 +10,20 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-
+import block.Block;
 import orodja.PaketZaprikazDogodkov;
 import vao.Dogodek;
 import vao.Oseba;
 import vao.Tocke;
 import vmesniki.*;
-import ejb.BlockChainBean;
 
 @Stateless
 public class DogodekBean implements DogodekVmesnik {
 	@EJB
 	BlockChainVmesnik bc;
-	
-	
-	 @PersistenceContext
-	    EntityManager em;
+
+	@PersistenceContext
+	EntityManager em;
 
 	@Override
 	public void dodajDogodek(Dogodek dogodek) {
@@ -52,11 +48,10 @@ public class DogodekBean implements DogodekVmesnik {
 	public Dogodek podrobnoDogodek(int dogodekID) {
 		Dogodek najdenDogodek;
 		najdenDogodek = em.find(Dogodek.class, dogodekID);
-		System.out.println("najden dogodek: "+najdenDogodek.getNaziv());
+		System.out.println("najden dogodek: " + najdenDogodek.getNaziv());
 		return najdenDogodek;
 	}
 
-	
 	@Override
 	public void izberiDogodek(Dogodek d, String uporabniskoIme) {
 		Dogodek temp = em.find(Dogodek.class, d.getIdDogodek());
@@ -95,28 +90,31 @@ public class DogodekBean implements DogodekVmesnik {
 			} else {
 				str += "neprijavljen,";
 			}
-			if(casZaOdjavoPotekel(d.getDatumPrijave())) {
+			if (casZaOdjavoPotekel(d.getDatumPrijave())) {
 				d.setGumbPrijava(true);
 			}
 		}
-		//preveri ce je rok za odjavo ze potekel
-		
+		// preveri ce je rok za odjavo ze potekel
+
 		p.setSeznamRazredov(str.substring(0, str.length() - 1));
 		p.setSeznam(dogodki);
 		// vrni
 		return p;
 	}
-	//preveri ce je cas za odjavo potekel
+
+	// preveri ce je cas za odjavo potekel
 	private boolean casZaOdjavoPotekel(Calendar c) {
 		Calendar zdaj = Calendar.getInstance();
-		//System.out.println(zdaj.get(Calendar.HOUR_OF_DAY)+ ":" + zdaj.get(Calendar.MINUTE) );
-				
-		if(c.before(zdaj)) {	
+		// System.out.println(zdaj.get(Calendar.HOUR_OF_DAY)+ ":" +
+		// zdaj.get(Calendar.MINUTE) );
+
+		if (c.before(zdaj)) {
 			return true;
 		}
 		return false;
-		
+
 	}
+
 	@Override
 	public List<Dogodek> vrniMojeDogodke(int id) {
 		Query q = em.createQuery("select d from Dogodek d where d.idLastnik= :id");
@@ -151,23 +149,37 @@ public class DogodekBean implements DogodekVmesnik {
 				o.setGumbUdelezba(false);
 				o.setUdelezba("Potrdi udeležbo");
 			}
-		
-			
+
 		}
 		return d;
 	}
 
 	// preveri ce so tocke ze bile podeljene
 	private boolean tockeDane(Oseba o, Dogodek d) {
-		Query q = em.createQuery("select d from Tocke d where d.idOseba = :idOseba and d.idDogodek= :idDogodek");
+		// Query q = em.createQuery("select d from Tocke d where d.idOseba = :idOseba
+		// and d.idDogodek= :idDogodek");
+		// q.setParameter("idOseba", o.getIdOseba());
+		// q.setParameter("idDogodek", d.getIdDogodek());
+		Query q = em.createQuery("select d from Block d where d.idOSeba = :idOseba and d.idDogodek= :idDogodek");
 		q.setParameter("idOseba", o.getIdOseba());
 		q.setParameter("idDogodek", d.getIdDogodek());
 
-		List<Tocke> l = new ArrayList<Tocke>();
-		l = q.getResultList();
-		if (l == null) {
+		// List<Tocke> l = new ArrayList<Tocke>();
+		// l = q.getResultList();
+		// if (l == null) {
+		// return false;
+		// } else if (l.isEmpty()) {
+		// return false;
+		//
+		// } else {
+		// return true;
+		// }
+
+		List<Block> b = new ArrayList<Block>();
+		b = q.getResultList();
+		if (b == null) {
 			return false;
-		} else if (l.isEmpty()) {
+		} else if (b.isEmpty()) {
 			return false;
 
 		} else {
@@ -179,13 +191,13 @@ public class DogodekBean implements DogodekVmesnik {
 	// potrdi udelezbo na dogodku tako da zapise dogodek in osebo v tocke in osebi
 	// pristeje tocke
 	@Override
-	public void potrdiUdelezbo(Dogodek izbranDogodek, Oseba o)  {
+	public void potrdiUdelezbo(Dogodek izbranDogodek, Oseba o) {
 		System.out.println("Zacetek potrditve ");
 		Oseba os = em.find(Oseba.class, o.getIdOseba());
 		os.setTocke(os.getTocke() + izbranDogodek.getTocke());
 		Tocke t = new Tocke();
 
-		em.persist(t);
+		// em.persist(t);
 		t.setIdDogodek(izbranDogodek.getIdDogodek());
 		t.setIdOseba(o.getIdOseba());
 		bc.shrani(t);
@@ -194,6 +206,6 @@ public class DogodekBean implements DogodekVmesnik {
 	@Override
 	public void podrobnoDogodek(Dogodek dogodek) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }
