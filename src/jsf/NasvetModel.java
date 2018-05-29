@@ -29,6 +29,10 @@ public class NasvetModel {
 		ejb.dodajNasvet(novNasvet);
 		novNasvet = new Nasvet();
 	}
+	
+	public void izbrisiNasvet(Nasvet izbranNasvet) {
+		ejb.brisiNasvet(izbranNasvet);
+	}
 
 	public Nasvet getNovNasvet() {
 		return novNasvet;

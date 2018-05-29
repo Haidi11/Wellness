@@ -7,19 +7,23 @@
 	<h2>Nasveti</h2>
 	<f:view>
 		<h:form >
-			<h:dataTable value="#{nasvet.vseNasvete}" var="nasvet">
+			<h:dataTable value="#{nasvet.vseNasvete}" var="n">
 				<h:column>
 					<f:facet name="header">Naziv</f:facet>
-					<h:outputText value="#{nasvet.naslov}"></h:outputText>
+					<h:outputText value="#{n.naslov}"></h:outputText>
 				</h:column>
 				<h:column>
 					<f:facet name="header">Avtor</f:facet>
-					<h:outputText value="#{nasvet.avtor}"></h:outputText>
+					<h:outputText value="#{n.avtor}"></h:outputText>
 				</h:column>
 				<h:column>
 					<f:facet name="header">Nasvet</f:facet>
-					<h:outputText value="#{nasvet.nasvet}"></h:outputText>
+					<h:outputText value="#{n.nasvet}"></h:outputText>
 				</h:column>
+				<h:column> 
+						<f:facet name="header"></f:facet>
+						<h:commandButton value="Izbrisi" actionListener="#{nasvet.izbrisiNasvet(n)}"></h:commandButton>
+					</h:column>
 			</h:dataTable>
 		</h:form>
 	</f:view>
@@ -36,8 +40,7 @@
 		<h:inputText type="text" name="nasvet" id="nasvet"
 			value="#{nasvet.novNasvet.nasvet}"></h:inputText>
 		<br></br>
-		<h:commandButton value="Dodaj nasvet"
-			actionListener="#{nasvet.dodajNovNasvet}" />
+		<h:commandButton value="Dodaj nasvet" actionListener="#{nasvet.dodajNovNasvet}" />
 	</h:form>
 </h:body>
 </html>
