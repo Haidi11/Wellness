@@ -2,7 +2,9 @@
 <html xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:jsf="http://xmlns.jcp.org/jsf">
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:p="http://primefaces.org/ui"
+	>
 	<style>
 	column {
 	padding: 10px;
@@ -18,7 +20,7 @@
 			<h:form style="padding-left:30px;">
 		
 				<h1>Vsi dogodki</h1>
-
+<h:panelGrid>
 				<h:dataTable value="#{zaposleni.vrniVseDogodkeZaUporabnika}" var="a" rowClasses="#{zaposleni.prijave}">
 					<h:column>
 						<f:facet name="header">Naziv</f:facet>
@@ -46,17 +48,21 @@
 					</h:column>
 					<h:column>
 						<f:facet name="header"></f:facet>
-						<h:commandButton value="Podrobnosti" action="#{zaposleni.prikaziPodrobno(a)}"></h:commandButton>
+						<h:commandButton value="Podrobnosti"  type="button" onclick="PF('dlg2').show();"  action="#{zaposleni.prikaziPodrobno(a)}"></h:commandButton>
 					</h:column>
 					<h:column> 
 						<f:facet name="header"></f:facet>
 						<h:commandButton value="#{a.prijavljen}" disabled="#{a.gumbPrijava}"  actionListener="#{zaposleni.izberiDogodek(a)}"></h:commandButton>
 					</h:column>
 					</h:dataTable>	
-					
+					</h:panelGrid>
 					<div id="pokaziVec">Več:
 						#{zaposleni.dogodekPodrobno.naziv}
 					</div>
+					
+					<p:dialog header="Modal Dialog" widgetVar="dlg2" modal="true" height="100">
+    					<h:outputText value="#{zaposleni.dogodekPodrobno.naziv}" />
+					</p:dialog>
 						
 			</h:form>
 			</f:view>
