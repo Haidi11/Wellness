@@ -3,13 +3,41 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:jsf="http://xmlns.jcp.org/jsf">
-	<h:body>
+<h:body>
 	<h2>Nasveti</h2>
-	<form>
-	<label for="naziv">Vnesite naziv</label>
-  	<input type="text" name="nasvet" id="naziv" value="Vnesite nasvet"><br>
-	<label for="nasvet">Vnesite nasvet</label>
-  	<input type="text" name="nasvet" id="nasvet" value="Vnesite nasvet"><br>
-	</form>	
-	</h:body>
+	<f:view>
+		<h:form >
+			<h:dataTable value="#{nasvet.vseNasvete}" var="nasvet">
+				<h:column>
+					<f:facet name="header">Naziv</f:facet>
+					<h:outputText value="#{nasvet.naslov}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">Avtor</f:facet>
+					<h:outputText value="#{nasvet.avtor}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">Nasvet</f:facet>
+					<h:outputText value="#{nasvet.nasvet}"></h:outputText>
+				</h:column>
+			</h:dataTable>
+		</h:form>
+	</f:view>
+	<h:form>
+		<label for="naziv">Vnesite naziv</label>
+		<h:inputText type="text" name="naziv" id="naziv"
+			value="#{nasvet.novNasvet.naslov}"></h:inputText>
+		<br></br>
+		<label for="avtor">Avtor</label>
+		<h:inputText type="text" name="avtor" id="avtor"
+			value="#{nasvet.novNasvet.avtor}"></h:inputText>
+		<br></br>
+		<label for="nasvet">Vnesite nasvet</label>
+		<h:inputText type="text" name="nasvet" id="nasvet"
+			value="#{nasvet.novNasvet.nasvet}"></h:inputText>
+		<br></br>
+		<h:commandButton value="Dodaj nasvet"
+			actionListener="#{nasvet.dodajNovNasvet}" />
+	</h:form>
+</h:body>
 </html>
