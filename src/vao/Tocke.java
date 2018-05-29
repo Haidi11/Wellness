@@ -5,10 +5,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
+
 public class Tocke {
-	@Id
-	@GeneratedValue
+	
 	private int id;
 	private int idDogodek;
 	private int idOseba;	

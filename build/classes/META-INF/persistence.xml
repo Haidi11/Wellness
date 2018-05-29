@@ -8,7 +8,6 @@
     <jta-data-source>java:jboss/datasources/baza</jta-data-source>
     <class>vao.Dogodek</class>
     <class>vao.Oseba</class>
-    <class>vao.Tocke</class>
     <class>block.Block</class>
     <class>vao.Nasvet</class>
     
