@@ -2,68 +2,69 @@
 <html xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:jsf="http://xmlns.jcp.org/jsf"
-	xmlns:p="http://primefaces.org/ui"
-	>
-	
-	
+	xmlns:jsf="http://xmlns.jcp.org/jsf" xmlns:p="http://primefaces.org/ui">
+
 
 
 <ui:composition template="WEB-INF/template/template2.xhtml">
 
 
-	<ui:define name="main">  
-		<f:view>  
+	<ui:define name="main">
+		<f:view>
 			<h:form style="padding-left:30px;">
-		
+
 				<h1>Vsi dogodki</h1>
 
-				<h:dataTable value="#{zaposleni.vrniVseDogodkeZaUporabnika}" var="a" rowClasses="#{zaposleni.prijave}">
+				<h:dataTable value="#{zaposleni.vrniVseDogodkeZaUporabnika}" var="a"
+					rowClasses="#{zaposleni.prijave}">
 					<h:column>
-						<f:facet name="header">Naziv</f:facet>
-						<h:outputText value="#{a.naziv}"></h:outputText>
+						<div>
+							<h:outputText value="#{a.naziv}"></h:outputText>
+							
+							<div class="gumbaPrijava">
+								<input type="button" value="Podrobnosti"
+									onclick="toggleDiv(div_#{a.idDogodek})"></input>
+								<h:commandButton value="#{a.prijavljen}"
+									disabled="#{a.gumbPrijava}"
+									actionListener="#{zaposleni.izberiDogodek(a)}"></h:commandButton>
+							</div>
+							<div class="skritiDiv" id="div_#{a.idDogodek}">
+							<span class="dogodekOznake">Potek prijave: </span>
+							<h:outputText value="#{a.izpisiDatumPrijave}"></h:outputText><br />
+								<span class="dogodekOznake">Datum začetka: </span>
+								<h:outputText class="dogodekVsebina" value="#{a.izpisiZacetek}"></h:outputText>
+								<br /> <span class="dogodekOznake">Datum konca: </span>
+								<h:outputText class="dogodekVsebina" value="#{a.izpisiKonca}"></h:outputText>
+								<br /> <span class="dogodekOznake"> Vrednost v točkah: </span>
+								<h:outputText class="dogodekVsebina" value="#{a.tocke}"></h:outputText>
+								<br /> <span class="dogodekOznake">Opis dogodka</span><br /> <span
+									class="dogodekVsebina"><h:outputText
+										value="#{a.opisDogodka}"></h:outputText></span><br />
+
+
+
+
+							</div>
+						</div>
+
+
+
 					</h:column>
-					<h:column>
-						<f:facet name="header">Rok prijave</f:facet>
-						<h:outputText value="#{a.izpisiDatumPrijave}"></h:outputText>
-					</h:column>
-					<h:column>
-						<f:facet name="header">Datum začetka</f:facet>
-						<h:outputText value="#{a.izpisiZacetek}"></h:outputText>
-					</h:column>
-					<h:column>
-						<f:facet name="header">Datum konca</f:facet>
-						<h:outputText value="#{a.izpisiKonca}"></h:outputText>
-					</h:column>
-					<h:column>
-						<f:facet name="header">Vrednost v točkah</f:facet>
-						<h:outputText value="#{a.tocke}"></h:outputText>
-					</h:column>
-					<h:column>
-						<f:facet name="header">Opis dogodka</f:facet>
-						<h:outputText value="#{a.opisDogodka}"></h:outputText>
-					</h:column>
-					<h:column>
-						<f:facet name="header"></f:facet>
-						<h:commandButton value="Podrobnosti" action="#{zaposleni.prikaziPodrobno(a)}"></h:commandButton>
-					</h:column>
-					<h:column> 
-						<f:facet name="header"></f:facet>
-						<h:commandButton value="#{a.prijavljen}" disabled="#{a.gumbPrijava}"  actionListener="#{zaposleni.izberiDogodek(a)}"></h:commandButton>
-					</h:column>
-					</h:dataTable>	
-					
-					<div id="pokaziVec">Več:
-						#{zaposleni.dogodekPodrobno.naziv}
-					</div>
-					
-					
-					
+
+				</h:dataTable>
+				<script>
+
+	function toggleDiv(a){
+		$( a ).toggle(300);
+		
+	}
+
+</script>
+
 			</h:form>
-			</f:view>
+		</f:view>
 	</ui:define>
+
 </ui:composition>
-
-
 
 </html>
