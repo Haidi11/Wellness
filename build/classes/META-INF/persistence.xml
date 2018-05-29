@@ -9,6 +9,7 @@
     <class>vao.Dogodek</class>
     <class>vao.Oseba</class>
     <class>vao.Tocke</class>
+    <class>block.Block</class>
     
     <properties>
         <property name="hibernate.show_sql" value="true"/>
