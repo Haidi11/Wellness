@@ -20,7 +20,7 @@
 					<h:column>
 						<div>
 							<h:outputText value="#{a.naziv}"></h:outputText>
-							<h:outputText value="#{a.izpisiDatumPrijave}"></h:outputText>
+							
 							<div class="gumbaPrijava">
 								<input type="button" value="Podrobnosti"
 									onclick="toggleDiv(div_#{a.idDogodek})"></input>
@@ -29,11 +29,13 @@
 									actionListener="#{zaposleni.izberiDogodek(a)}"></h:commandButton>
 							</div>
 							<div class="skritiDiv" id="div_#{a.idDogodek}">
-								<span class="dogodekOznake">Datum začetka</span>
+							<span class="dogodekOznake">Potek prijave: </span>
+							<h:outputText value="#{a.izpisiDatumPrijave}"></h:outputText><br />
+								<span class="dogodekOznake">Datum začetka: </span>
 								<h:outputText class="dogodekVsebina" value="#{a.izpisiZacetek}"></h:outputText>
-								<br /> <span class="dogodekOznake">Datum konca</span>
+								<br /> <span class="dogodekOznake">Datum konca: </span>
 								<h:outputText class="dogodekVsebina" value="#{a.izpisiKonca}"></h:outputText>
-								<br /> <span class="dogodekOznake"> Vrednost v točkah</span>
+								<br /> <span class="dogodekOznake"> Vrednost v točkah: </span>
 								<h:outputText class="dogodekVsebina" value="#{a.tocke}"></h:outputText>
 								<br /> <span class="dogodekOznake">Opis dogodka</span><br /> <span
 									class="dogodekVsebina"><h:outputText
