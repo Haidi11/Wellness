@@ -19,7 +19,7 @@
 					rowClasses="#{zaposleni.prijave}">
 					<h:column>
 						<div>
-							<h:outputText value="#{a.naziv}"></h:outputText>
+							<h:outputText class="dogodekVsebina" value="#{a.naziv}"></h:outputText>
 							
 							<div class="gumbaPrijava">
 								<input type="button" value="Podrobnosti"
@@ -30,7 +30,7 @@
 							</div>
 							<div class="skritiDiv" id="div_#{a.idDogodek}">
 							<span class="dogodekOznake">Potek prijave: </span>
-							<h:outputText value="#{a.izpisiDatumPrijave}"></h:outputText><br />
+							<h:outputText class="dogodekVsebina" value="#{a.izpisiDatumPrijave}"></h:outputText><br />
 								<span class="dogodekOznake">Datum začetka: </span>
 								<h:outputText class="dogodekVsebina" value="#{a.izpisiZacetek}"></h:outputText>
 								<br /> <span class="dogodekOznake">Datum konca: </span>
