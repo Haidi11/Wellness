@@ -51,8 +51,8 @@ public class DogodekBean implements DogodekVmesnik {
 		System.out.println("najden dogodek: " + najdenDogodek.getNaziv());
 		return najdenDogodek;
 	}
-	
-	// prijava na dogodek, kjer se ob klicu prijavljenega uporabnika le tega odjavi 
+
+	// prijava na dogodek, kjer se ob klicu prijavljenega uporabnika le tega odjavi
 	@Override
 	public void izberiDogodek(Dogodek d, String uporabniskoIme) {
 		Dogodek temp = em.find(Dogodek.class, d.getIdDogodek());
@@ -93,13 +93,15 @@ public class DogodekBean implements DogodekVmesnik {
 			}
 			if (casZaOdjavoPotekel(d.getDatumPrijave())) {
 				d.setGumbPrijava(true);
-			}else {
+			} else {
 				d.setGumbPrijava(false);
 			}
 		}
 		// preveri ce je rok za odjavo ze potekel
+		if (str.length() > 0) {
+			p.setSeznamRazredov(str.substring(0, str.length() - 1));
+		}
 
-		p.setSeznamRazredov(str.substring(0, str.length() - 1));
 		p.setSeznam(dogodki);
 		// vrni
 		return p;
