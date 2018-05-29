@@ -1,10 +1,19 @@
 package vao;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Nasvet {
+	
+	@Id
+	@GeneratedValue
 	private int idNasvet;
 	private String nasvet;
 	private String avtor;
 	private long timeStamp;
+	
 	public int getIdNasvet() {
 		return idNasvet;
 	}
