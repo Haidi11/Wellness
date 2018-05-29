@@ -52,7 +52,14 @@ public class NasvetBean implements NasvetVmesnik {
 	}
 
 	@Override
-	public Oseba najdiPoIdAvtorja(int id) {
+	public List<Nasvet> getNasveteAvtorja(int id) {
+		Query q = em.createQuery("select o from Naslov o where o.fk_avtor= :id");
+		q.setParameter("id", id);
+		return  q.getResultList();
+	}
+
+	@Override
+	public Nasvet najdiPoIdAvtorja(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -2,6 +2,7 @@ package vmesniki;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.ejb.Local;
 
@@ -16,5 +17,6 @@ public interface NasvetVmesnik {
 	void urediNasvet(Nasvet nasvet);
 	ArrayList<Nasvet> seznamVsehNasvetov();
 	PaketZaPrikazNasvetov sezamDogodkovZaUporabnika(int id);
-	Oseba najdiPoIdAvtorja(int id);
+	Nasvet najdiPoIdAvtorja(int id);
+	List<Nasvet> getNasveteAvtorja(int id);
 }

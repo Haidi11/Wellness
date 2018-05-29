@@ -27,6 +27,10 @@ public class NasvetModel {
 		return ejb.seznamVsehNasvetov();
 	}
 	
+	public List<Nasvet> getVseNasveteAvtorja(int id){
+		return ejb.getNasveteAvtorja(id);
+	}
+	
 	public void dodajNovNasvet() {
 		long timeStamp = new Date().getTime();
 		novNasvet.setTimeStamp(timeStamp);
