@@ -1,10 +1,18 @@
 package vao;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Nasvet {
@@ -13,7 +21,9 @@ public class Nasvet {
 	@GeneratedValue
 	private int idNasvet;
 	private String naslov;
-	private String avtor;
+	@ManyToOne
+    @JoinColumn(name = "fk_avtor")
+	private Oseba avtor;
 	private String nasvet;
 	private long timeStamp;
 	
@@ -21,7 +31,6 @@ public class Nasvet {
 	
 	public Nasvet( String naslov, String avtor,String nasvet) {
 		this.naslov = naslov;
-		this.avtor = avtor;
 		this.nasvet = nasvet;
 		this.timeStamp = new Date().getTime();
 	}
@@ -38,10 +47,10 @@ public class Nasvet {
 	public void setNasvet(String nasvet) {
 		this.nasvet = nasvet;
 	}
-	public String getAvtor() {
+	public Oseba getAvtor() {
 		return avtor;
 	}
-	public void setAvtor(String avtor) {
+	public void setAvtor(Oseba avtor) {
 		this.avtor = avtor;
 	}
 	public long getTimeStamp() {
