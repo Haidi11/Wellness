@@ -5,11 +5,17 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
 import orodja.Oro;
@@ -38,9 +44,9 @@ public class Oseba {
 	private String udelezba;
 	@Transient
 	private boolean gumbUdelezba;
-	
-	
-	private List<Dogodek> dogodki= new ArrayList<>();
+
+	private List<Nasvet> nasveti = new ArrayList<>();
+	private List<Dogodek> dogodki = new ArrayList<>();
 
 	// nastavi na prazno za resetiranje vnosnih polj
 	public Oseba() {
@@ -57,7 +63,7 @@ public class Oseba {
 		this.datumRojstva = new GregorianCalendar();
 		this.datumZaposlitve = new GregorianCalendar();
 		this.vloga = "";
-		
+
 	}
 
 	/*
@@ -235,7 +241,8 @@ public class Oseba {
 	public void setUdelezba(String udelezba) {
 		this.udelezba = udelezba;
 	}
-@Transient
+
+	@Transient
 	public boolean isGumbUdelezba() {
 		return gumbUdelezba;
 	}
@@ -244,5 +251,13 @@ public class Oseba {
 		this.gumbUdelezba = gumbUdelezba;
 	}
 
-	
+
+	 @OneToMany(mappedBy = "avtor", targetEntity=Nasvet.class,fetch=FetchType.EAGER)
+	public List<Nasvet> getNasveti() {
+		return nasveti;
+	}
+
+	public void setNasveti(List<Nasvet> nasveti) {
+		this.nasveti = nasveti;
+	}
 }

@@ -41,4 +41,8 @@ public class NasvetModel {
 	public void setNovNasvet(Nasvet novNasvet) {
 		this.novNasvet = novNasvet;
 	}
+	
+	public void getNasveteUporabnika(Nasvet novNasvet) {
+		this.novNasvet = novNasvet;
+	}
 }
