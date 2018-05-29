@@ -4,7 +4,88 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:jsf="http://xmlns.jcp.org/jsf" xmlns:p="http://primefaces.org/ui">
 
-<h:head></h:head>
+
+
+<ui:composition template="WEB-INF/template/template2.xhtml">
+
+
+	<ui:define name="main">
+		<f:view>
+			<h:form style="padding-left:30px;">
+
+				<h1>Vsi dogodki</h1>
+
+				<h:dataTable value="#{zaposleni.vrniVseDogodkeZaUporabnika}" var="a"
+					rowClasses="#{zaposleni.prijave}">
+					<h:column>
+						<div>
+							<h:outputText value="#{a.naziv}"></h:outputText>
+							<h:outputText value="#{a.izpisiDatumPrijave}"></h:outputText>
+							<div class="gumbaPrijava">
+								<input type="button" value="Podrobnosti"
+									onclick="toggleDiv(div_#{a.idDogodek})"></input>
+								<h:commandButton value="#{a.prijavljen}"
+									disabled="#{a.gumbPrijava}"
+									actionListener="#{zaposleni.izberiDogodek(a)}"></h:commandButton>
+							</div>
+							<div class="skritiDiv" id="div_#{a.idDogodek}">
+								<span class="dogodekOznake">Datum začetka</span>
+								<h:outputText class="dogodekVsebina" value="#{a.izpisiZacetek}"></h:outputText>
+								<br /> <span class="dogodekOznake">Datum konca</span>
+								<h:outputText class="dogodekVsebina" value="#{a.izpisiKonca}"></h:outputText>
+								<br /> <span class="dogodekOznake"> Vrednost v točkah</span>
+								<h:outputText class="dogodekVsebina" value="#{a.tocke}"></h:outputText>
+								<br /> <span class="dogodekOznake">Opis dogodka</span><br /> <span
+									class="dogodekVsebina"><h:outputText
+										value="#{a.opisDogodka}"></h:outputText></span><br />
+
+
+
+
+							</div>
+						</div>
+
+
+
+					</h:column>
+
+				</h:dataTable>
+				<script>
+
+	function toggleDiv(a){
+		$( a ).toggle(300);
+		
+	}
+
+</script>
+
+
+
+
+			</h:form>
+		</f:view>
+	</ui:define>
+
+
+</ui:composition>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -30,64 +111,51 @@
 <!-- 	</h:form> -->
 <!-- </f:view> -->
 
-<ui:composition template="WEB-INF/template/template2.xhtml">
+
+<!-- 		<f:view> -->
 
 
-	<ui:define name="main">
-		<f:view>
+<!-- 			<h:form id="form" style="padding-left:30px;"> -->
 
 
-			<h:form id="form" style="padding-left:30px;">
-		
+<!-- 				<p:dataList value="#{zaposleni.vrniVseDogodkeZaUporabnika}" -->
+<!-- 					var="car" type="unordered" itemType="none" paginator="true" -->
+<!-- 					rows="10" styleClass="paginated"> -->
 
-				<p:dataList value="#{dataListView.cars3}" var="car" type="unordered"
-					itemType="none" paginator="true" rows="10" styleClass="paginated">
-					<f:facet name="header">
-            Paginator
-        </f:facet>
-					<p:commandLink update=":form:carDetail"
-						oncomplete="PF('carDialog').show()" title="View Detail"
-						styleClass="ui-icon ui-icon-search"
-						style="float:left;margin-right:10px">
-						<f:setPropertyActionListener value="#{car}"
-							target="#{dataListView.selectedCar}" />
-						<h:outputText value="#{car.brand}, #{car.year}" />
-					</p:commandLink>
-					<h:outputText value="#{car.brand}, #{car.year}"
-						style="display:inline-block" />
-				</p:dataList>
+<!-- 					<f:facet name="header">Dogodki</f:facet> -->
 
-				<p:dialog header="Car Info" widgetVar="carDialog" modal="true"
-					showEffect="blind" hideEffect="explode" resizable="false">
-					<p:outputPanel id="carDetail" style="text-align:center;">
-						<p:panelGrid columns="2"
-							rendered="#{not empty dataListView.selectedCar}"
-							columnClasses="label,value">
-							<f:facet name="header">
-								<p:graphicImage
-									name="demo/images/car/#{dataListView.selectedCar.brand}-big.gif" />
-							</f:facet>
+<!-- 					<p:commandLink update=":form:carDetail" oncomplete="PF('carDialog').show()" title="View Detail"	styleClass="ui-icon ui-icon-search" style="float:left; margin-right:10px"> -->
+<!-- 						<f:setPropertyActionListener value="#{car}" target="#{zaposleni.dogodekPodrobno}" /> -->
+<!-- 						<h:outputText value="#{car.naziv}, #{car.izpisiDatumPrijave}" /> -->
+<!-- 					</p:commandLink> -->
+<!-- 					<h:outputText value="#{car.naziv}, #{car.tocke}" style="display:inline-block" /> -->
+<!-- 				</p:dataList> -->
 
-							<h:outputText value="Id:" />
-							<h:outputText value="#{dataListView.selectedCar.id}" />
+<!-- 				<p:dialog header="Informacije o dogodku" widgetVar="carDialog" modal="true" -->
+<!-- 					showEffect="blind" hideEffect="explode" resizable="false"> -->
+<!-- 					<p:outputPanel id="carDetail" style="text-align:center;"> -->
+<!-- 						<p:panelGrid columns="2" -->
+<!-- 							rendered="#{not empty zaposleni.dogodekPodrobno}" -->
+<!-- 							columnClasses="label,value"> -->
+<!-- 							<f:facet name="header"> -->
+<!-- 								<h:outputText value="Id:" /> -->
+<!-- 							</f:facet> -->
 
-							<h:outputText value="Year" />
-							<h:outputText value="#{dataListView.selectedCar.year}" />
+<!-- 							<h:outputText value="Id:" /> -->
+<!-- 							<h:outputText value="#{zaposleni.dogodekPodrobno.naziv}" /> -->
 
-							<h:outputText value="Color:" />
-							<h:outputText value="#{dataListView.selectedCar.color}"
-								style="color:#{dataListView.selectedCar.color}" />
+<!-- 							<h:outputText value="Year" /> -->
+<!-- 							<h:outputText value="#{zaposleni.dogodekPodrobno.naziv}" /> -->
 
-							<h:outputText value="Price" />
-							<h:outputText value="$#{dataListView.selectedCar.price}" />
-						</p:panelGrid>
-					</p:outputPanel>
-				</p:dialog>
-			</h:form>
 
-		</f:view>
-	</ui:define>
-</ui:composition>
+<!-- 						</p:panelGrid> -->
+<!-- 					</p:outputPanel> -->
+<!-- 				</p:dialog> -->
+<!-- 			</h:form> -->
+
+<!-- 		</f:view> -->
+
+
 
 
 

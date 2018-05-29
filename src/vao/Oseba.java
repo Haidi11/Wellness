@@ -22,7 +22,7 @@ import orodja.Oro;
 
 @Entity(name = "Oseba")
 public class Oseba {
-
+ 
 	private int idOseba;
 	private String ime;
 	private String priimek;

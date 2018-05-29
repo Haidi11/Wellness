@@ -20,7 +20,8 @@ import javax.persistence.JoinColumn;
 
 @Entity
 public class Dogodek {
-
+ 
+	
 	@Id
 	@GeneratedValue
 	private int idDogodek;
