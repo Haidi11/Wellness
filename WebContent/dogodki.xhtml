@@ -5,11 +5,8 @@
 	xmlns:jsf="http://xmlns.jcp.org/jsf"
 	xmlns:p="http://primefaces.org/ui"
 	>
-	<style>
-	column {
-	padding: 10px;
-	}
-	</style>
+	
+	
 
 
 <ui:composition template="WEB-INF/template/template2.xhtml">
@@ -20,7 +17,7 @@
 			<h:form style="padding-left:30px;">
 		
 				<h1>Vsi dogodki</h1>
-<h:panelGrid>
+
 				<h:dataTable value="#{zaposleni.vrniVseDogodkeZaUporabnika}" var="a" rowClasses="#{zaposleni.prijave}">
 					<h:column>
 						<f:facet name="header">Naziv</f:facet>
@@ -55,15 +52,16 @@
 						<h:commandButton value="#{a.prijavljen}" disabled="#{a.gumbPrijava}"  actionListener="#{zaposleni.izberiDogodek(a)}"></h:commandButton>
 					</h:column>
 					</h:dataTable>	
-					</h:panelGrid>
+					
 					<div id="pokaziVec">Več:
 						#{zaposleni.dogodekPodrobno.naziv}
 					</div>
 					
 					<p:dialog header="Modal Dialog" widgetVar="dlg2" modal="true" height="100">
+					lalal
     					<h:outputText value="#{zaposleni.dogodekPodrobno.naziv}" />
 					</p:dialog>
-						
+					
 			</h:form>
 			</f:view>
 	</ui:define>
