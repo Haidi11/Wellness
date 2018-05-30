@@ -51,6 +51,11 @@
 					<h:commandButton value="Izbrisi"
 						actionListener="#{nasvet.izbrisiNasvet(a)}"></h:commandButton>
 				</h:column>
+				<h:column>
+					<f:facet name="header"></f:facet>
+					<h:commandButton value="Uredi" action="urediNasvet?faces-redirect=true"
+						actionListener="#{nasvet.preusmeriNaUrejanje}"></h:commandButton>
+				</h:column>
 			</h:dataTable>
 		</h:form>
 	</f:view>

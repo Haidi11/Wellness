@@ -17,20 +17,21 @@ import vmesniki.NasvetVmesnik;
 
 @Stateless
 public class NasvetBean implements NasvetVmesnik {
-	
-	 @PersistenceContext
-	    EntityManager em;
 
+	@PersistenceContext
+	EntityManager em;
 
 	@Override
 	public void brisiNasvet(Nasvet nasvet) {
 		Nasvet temp = em.find(Nasvet.class, nasvet.getIdNasvet());
-		em.remove(temp);		
+		em.remove(temp);
 	}
 
-
-	public void urediNasvet( Nasvet nasvet) {
-		em.persist(nasvet);
+	@Override
+	public void urediNasvet(int id, String novNasvet) {
+		Query q = em.createQuery("UPDATE Nasvet n SET n.nasvet = :nasvet WHERE n.id = :id ");
+		q.setParameter("nasvet", novNasvet).executeUpdate();
+		q.setParameter("id", id);
 	}
 
 	@Override
@@ -51,20 +52,19 @@ public class NasvetBean implements NasvetVmesnik {
 		int id = (int) q.getResultList().get(0);
 		return id;
 	}
-	
+
 	@Override
 	public List<Nasvet> getNasveteAvtorja(int id) {
 		Query q = em.createQuery("select n from Nasvet n join n.avtor o where o.id= :id ");
 		q.setParameter("id", id);
 		return (List<Nasvet>) q.getResultList();
 	}
-	
+
 	@Override
 	public void dodajNasvet(Nasvet nasvet) {
 		em.persist(nasvet);
 		// TODO Auto-generated method stub
 	}
-
 
 	@Override
 	public Nasvet najdiPoIdAvtorja(int id) {
