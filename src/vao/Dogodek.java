@@ -48,6 +48,8 @@ public class Dogodek {
 	private StarostneSkupine starostneSkupine;
 	@Transient
 	private Oddelki oddelki;
+	@Transient
+	private double udelezba;
 	
 	@ManyToMany(cascade = { 
 	        CascadeType.PERSIST, 
@@ -193,6 +195,13 @@ public class Dogodek {
 	}
 	public void setOddelki(Oddelki oddelki) {
 		this.oddelki = oddelki;
+	}
+	@Transient
+	public double getUdelezba() {
+		return udelezba;
+	}
+	public void setUdelezba(double udelezba) {
+		this.udelezba = udelezba;
 	}
 	
 	

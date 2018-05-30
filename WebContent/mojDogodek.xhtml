@@ -123,10 +123,56 @@
 					
 					);
 					
+			var horizontalBarChartData = {
+						labels: ['Udeležba'],
+						datasets: [{
+							label: 'Udeležba',
+							backgroundColor:'rgba(255, 159, 64, 0.2)' ,
+							borderColor: 'rgba(255, 159, 64, 1)',
+							borderWidth: 1,
+							data: [
+								#{dogodek.izbranDogodek.udelezba}
+							]
+						}]
+
+					};
+
+					
+						var udelezba = document.getElementById('graf_udelezba').getContext('2d');
+						var procentni = new Chart(udelezba, {
+							type: 'horizontalBar',
+							data: horizontalBarChartData,
+							options: {
+								elements: {
+									rectangle: {
+										borderWidth: 2,
+									}
+								},
+								responsive: true,
+								legend: {
+									position: 'top',
+								},
+								title: {
+									display: false									
+							        },
+							        scales: {
+							            xAxes: [{
+							                ticks: {
+							                    max: 100,
+							                    min: 0,
+							                    stepSize: 1.0,
+							                     callback: function(value){return value+ "%"} 
+							                }
+							            }]
+							        }   
+							
+							}
+						});
 
 				
-
-					var config = {
+					
+					
+					var config_pie = {
 						type: 'pie',
 						data: {
 							datasets: [{
@@ -152,60 +198,11 @@
 						}
 					};
 
-					window.onload = function() {
-						var oddelki = document.getElementById('graf_oddelki').getContext('2d');
-						window.myPie = new Chart(oddelki, config);
-					};
-					
-					
 
-					
-					var horizontalBarChartData = {
-						labels: ['Udeležba'],
-						datasets: [{
-							label: 'Udeležba',
-							backgroundColor:'rgba(255, 159, 64, 0.2)' ,
-							borderColor: 'rgba(255, 159, 64, 1)',
-							borderWidth: 1,
-							data: [
-								50
-							]
-						}]
+					var oddelki = document.getElementById('graf_oddelki').getContext('2d');
 
-					};
+					var pitaMoja	= new Chart(oddelki, config_pie);
 
-					window.onload = function() {
-						var udelezba = document.getElementById('graf_udelezba').getContext('2d');
-						window.myHorizontalBar = new Chart(udelezba, {
-							type: 'horizontalBar',
-							data: horizontalBarChartData,
-							options: {
-								elements: {
-									rectangle: {
-										borderWidth: 2,
-									}
-								},
-								responsive: true,
-								legend: {
-									position: 'right',
-								},
-								title: {
-									display: false									
-							        },
-							        scales: {
-							            yAxes: [{
-							                ticks: {
-							                    max: 5,
-							                    min: 0,
-							                    stepSize: 0.5
-							                }
-							            }]
-							        }   
-							
-							}
-						});
-
-					};
 
 										
 				

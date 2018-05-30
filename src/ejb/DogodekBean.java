@@ -147,7 +147,7 @@ public class DogodekBean implements DogodekVmesnik {
 		return o;
 	}
 
-	// vrni z stevilom prijavljenih, stevlil spolov, starostnimi skupinami, udelezba po oddelkih
+	// vrni z stevilom prijavljenih, stevlil spolov, starostnimi skupinami, udelezba po oddelkih, udelezba
 	@Override
 	public Dogodek vrniMojDogodek(int idDogodek) {
 		Dogodek d = em.find(Dogodek.class, idDogodek);
@@ -158,6 +158,7 @@ public class DogodekBean implements DogodekVmesnik {
 			d.setSteviloZensk(stevlioSpola(d, "Z"));
 			d.setStarostneSkupine(new StarostneSkupine(d));
 			d.setOddelki(new Oddelki(d));
+			d.setUdelezba(izracunajUdelezbo(d));
 		}
 		for (Oseba o : d.getUdelezenci()) {
 			if (tockeDane(o, d)) {
@@ -172,6 +173,14 @@ public class DogodekBean implements DogodekVmesnik {
 		return d;
 	}
 
+	private double izracunajUdelezbo(Dogodek d) {
+
+		Query q = em.createQuery("select d from Block d where d.idDogodek = :id");
+		q.setParameter("id", d.getIdDogodek());
+		
+		return 100* ( (double)q.getResultList().size()/(double)d.getUdelezenci().size());
+	}
+	
 	private int stevlioSpola(Dogodek d, String spol) {
 		int st = 0;
 		for (Oseba o : d.getUdelezenci()) {
