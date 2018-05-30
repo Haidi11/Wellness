@@ -28,10 +28,9 @@ public class NasvetBean implements NasvetVmesnik {
 		em.remove(temp);		
 	}
 
-	@Override
-	public void urediNasvet(Nasvet nasvet) {
-		// TODO Auto-generated method stub
-		
+
+	public void urediNasvet( Nasvet nasvet) {
+		em.persist(nasvet);
 	}
 
 	@Override
@@ -47,7 +46,7 @@ public class NasvetBean implements NasvetVmesnik {
 
 	@Override
 	public int najdiIdAvtorja(String ime) {
-		Query q = em.createQuery("select o.idOseba from Oseba o where o.ime= :ime");
+		Query q = em.createQuery("select o.idOseba from Oseba o where o.uporabniskoIme= :ime");
 		q.setParameter("ime", ime);
 		int id = (int) q.getResultList().get(0);
 		return id;

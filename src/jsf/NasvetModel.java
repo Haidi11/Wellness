@@ -28,6 +28,10 @@ public class NasvetModel {
 		return ejb.seznamVsehNasvetov();
 	}
 	
+	public void urediNasvete(int idNasveta, String novNasvet) {
+		
+	};
+	
 	private Principal vrniAvtorja() {
 		FacesContext fc = FacesContext.getCurrentInstance();
 		return fc.getExternalContext().getUserPrincipal();
