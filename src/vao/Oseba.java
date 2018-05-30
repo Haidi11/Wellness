@@ -65,6 +65,10 @@ public class Oseba {
 		this.vloga = "";
 
 	}
+	
+	public Oseba (int id ) {
+		this.idOseba = id;
+	}
 
 	/*
 	 * za izpis datumov

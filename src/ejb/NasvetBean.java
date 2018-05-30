@@ -21,12 +21,6 @@ public class NasvetBean implements NasvetVmesnik {
 	 @PersistenceContext
 	    EntityManager em;
 
-	@Override
-	public void dodajNasvet(Nasvet nasvet) {
-		em.persist(nasvet);
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void brisiNasvet(Nasvet nasvet) {
@@ -55,14 +49,21 @@ public class NasvetBean implements NasvetVmesnik {
 	public int najdiIdAvtorja(String ime) {
 		Query q = em.createQuery("select o.idOseba from Oseba o where o.ime= :ime");
 		q.setParameter("ime", ime);
-		return q.getFirstResult();
+		int id = (int) q.getResultList().get(0);
+		return id;
 	}
 	
 	@Override
 	public List<Nasvet> getNasveteAvtorja(int id) {
-		Query q = em.createQuery("select n from Naslov n where n.fk_avtor= :id");
+		Query q = em.createQuery("select n from Nasvet n join n.avtor o where o.id= :id ");
 		q.setParameter("id", id);
 		return (List<Nasvet>) q.getResultList();
+	}
+	
+	@Override
+	public void dodajNasvet(Nasvet nasvet) {
+		em.persist(nasvet);
+		// TODO Auto-generated method stub
 	}
 
 
