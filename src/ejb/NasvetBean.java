@@ -28,11 +28,9 @@ public class NasvetBean implements NasvetVmesnik {
 	}
 
 	@Override
-	public void urediNasvet(int id, String novNasvet) {
-		Query q = em.createQuery("UPDATE Nasvet n SET n.nasvet = :nasvet WHERE n.id = :id");
-		q.setParameter("nasvet", novNasvet);
-		q.setParameter("id", id);
-		q.executeUpdate();
+	public void urediNasvet(Nasvet n) {
+		Nasvet temp = em.find(Nasvet.class, n.getIdNasvet());
+		temp.setNasvet(n.getNasvet());
 	}
 
 	@Override
