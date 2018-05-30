@@ -2,14 +2,9 @@
 <html xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:jsf="http://xmlns.jcp.org/jsf">
-<style>
-column {
-	padding: 10px;
-}
-</style>
+	xmlns:jsf="http://xmlns.jcp.org/jsf" xmlns:p="http://primefaces.org/ui">
 
-
+<h:head></h:head>
 <ui:composition template="WEB-INF/template/template2.xhtml">
 
 
@@ -51,16 +46,87 @@ column {
 					</h:column>
 					<h:column>
 						<f:facet name="header"></f:facet>
-						<h:commandButton value="#{a.udelezba}" disabled="#{a.gumbUdelezba}" action="#{dogodek.potrdiUdelezbo(a)}"></h:commandButton>
+						<h:commandButton value="#{a.udelezba}"
+							disabled="#{a.gumbUdelezba}"
+							action="#{dogodek.potrdiUdelezbo(a)}"></h:commandButton>
 					</h:column>
 				</h:dataTable>
-				
+
 				<h3>
 					Število prijavljenih:
 					<h:outputText value="#{dogodek.izbranDogodek.steviloPrijavljenih}" />
 				</h3>
+				<h2>graf</h2>
+
+
+				<canvas class="graf_mojDogodek" id="graf_spol"></canvas>
+				<canvas class="graf_mojDogodek" id="graf_starosti"></canvas>
+				<script>
+					var ctx = document.getElementById("graf_starosti").getContext(
+							'2d');
+					var myChart = new Chart(ctx, {
+						type : 'bar',
+						data : {
+							labels : [ "do 20", "20-30", "30-40", "40-50",
+									"50-65", "nad 65" ],
+							datasets : [ {
+								label : 'Število ljudi',
+								data : [ #{dogodek.izbranDogodek.starostneSkupine.do20}, #{dogodek.izbranDogodek.starostneSkupine.st20_30}, #{dogodek.izbranDogodek.starostneSkupine.st30_40}, #{dogodek.izbranDogodek.starostneSkupine.st40_50}, #{dogodek.izbranDogodek.starostneSkupine.st50_65}, #{dogodek.izbranDogodek.starostneSkupine.nad65} ],
+								backgroundColor : [ 'rgba(255, 99, 132, 0.2)',
+										'rgba(54, 162, 235, 0.2)',
+										'rgba(255, 206, 86, 0.2)',
+										'rgba(75, 192, 192, 0.2)',
+										'rgba(153, 102, 255, 0.2)',
+										'rgba(255, 159, 64, 0.2)' ],
+								borderColor : [ 'rgba(255,99,132,1)',
+										'rgba(54, 162, 235, 1)',
+										'rgba(255, 206, 86, 1)',
+										'rgba(75, 192, 192, 1)',
+										'rgba(153, 102, 255, 1)',
+										'rgba(255, 159, 64, 1)' ],
+								borderWidth : 1
+							} ]
+						},
+						options : {
+							scales : {
+								yAxes : [ {
+									ticks : {
+										beginAtZero : true
+									}
+								} ]
+							}
+						}
+					});
+					
+					var krof = document.getElementById("graf_spol").getContext(
+					'2d');
+					
+					var myDoughnutChart = new Chart(krof, {
+					    type: 'doughnut',
+				
+						data : {
+							labels : [ "Ženske", "Moški"],
+							datasets : [ {
+								label : 'Število ljudi',
+								data : [ #{dogodek.izbranDogodek.steviloZensk}, #{dogodek.izbranDogodek.steviloMoskih} ],
+								backgroundColor : [ 'rgba(255, 99, 132, 0.2)',
+									'rgba(54, 162, 235, 0.2)'
+									 ],
+							borderColor : [ 'rgba(255,99,132,1)',
+									'rgba(54, 162, 235, 1)' ],
+							borderWidth : 1
+							} ]
+						}}
+					
+					);
+				</script>
 			</h:form>
+
+
 		</f:view>
+
 	</ui:define>
+
 </ui:composition>
+
 </html>

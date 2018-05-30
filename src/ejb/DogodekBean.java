@@ -12,6 +12,7 @@ import javax.persistence.Query;
 
 import block.Block;
 import orodja.PaketZaprikazDogodkov;
+import orodja.StarostneSkupine;
 import vao.Dogodek;
 import vao.Oseba;
 import vao.Tocke;
@@ -55,6 +56,9 @@ public class DogodekBean implements DogodekVmesnik {
 	// prijava na dogodek, kjer se ob klicu prijavljenega uporabnika le tega odjavi
 	@Override
 	public void izberiDogodek(Dogodek d, String uporabniskoIme) {
+		if(d==null) {
+			return;
+		}
 		Dogodek temp = em.find(Dogodek.class, d.getIdDogodek());
 		Oseba o = najdiPoUporabniskemImenu(uporabniskoIme);
 
@@ -124,7 +128,7 @@ public class DogodekBean implements DogodekVmesnik {
 	public List<Dogodek> vrniMojeDogodke(int id) {
 		Query q = em.createQuery("select d from Dogodek d where d.idLastnik= :id");
 		q.setParameter("id", id);
-
+		
 		return q.getResultList();
 
 	}
@@ -141,11 +145,14 @@ public class DogodekBean implements DogodekVmesnik {
 		return o;
 	}
 
-	// vrni z stevilom prijavljenih
+	// vrni z stevilom prijavljenih, stevlil spolov, starostnimi skupinami
 	@Override
 	public Dogodek vrniMojDogodek(int idDogodek) {
 		Dogodek d = em.find(Dogodek.class, idDogodek);
 		d.setSteviloPrijavljenih(d.getUdelezenci().size());
+		d.setSteviloMoskih(stevlioSpola(d, "M"));
+		d.setSteviloZensk(stevlioSpola(d,"Z"));
+		d.setStarostneSkupine(new StarostneSkupine(d));
 		for (Oseba o : d.getUdelezenci()) {
 			if (tockeDane(o, d)) {
 				o.setUdelezba("Udelezba potrjena");
@@ -158,7 +165,18 @@ public class DogodekBean implements DogodekVmesnik {
 		}
 		return d;
 	}
-
+	private int stevlioSpola(Dogodek d, String spol) {
+		int st=0;
+		for(Oseba o : d.getUdelezenci()) {
+			if(o.getSpol().equals(spol)) {
+				st++;
+			}
+			
+		}
+		return st;
+		
+	}
+	
 	// preveri ce so tocke ze bile podeljene
 	private boolean tockeDane(Oseba o, Dogodek d) {
 		// Query q = em.createQuery("select d from Tocke d where d.idOseba = :idOseba

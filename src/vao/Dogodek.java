@@ -15,6 +15,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Transient;
 
 import orodja.Oro;
+import orodja.StarostneSkupine;
 
 import javax.persistence.JoinColumn;
 
@@ -38,6 +39,12 @@ public class Dogodek {
 	private int idLastnik;
 	@Transient
 	private boolean gumbPrijava;
+	@Transient
+	private int steviloMoskih;
+	@Transient
+	private int steviloZensk;
+	@Transient
+	private StarostneSkupine starostneSkupine;
 	
 	@ManyToMany(cascade = { 
 	        CascadeType.PERSIST, 
@@ -155,6 +162,27 @@ public class Dogodek {
 	}
 	public void setGumbPrijava(boolean gumbPrijava) {
 		this.gumbPrijava = gumbPrijava;
+	}
+	@Transient
+	public int getSteviloMoskih() {
+		return steviloMoskih;
+	}
+	public void setSteviloMoskih(int steviloMoskih) {
+		this.steviloMoskih = steviloMoskih;
+	}
+	@Transient
+	public int getSteviloZensk() {
+		return steviloZensk;
+	}
+	public void setSteviloZensk(int steviloZensk) {
+		this.steviloZensk = steviloZensk;
+	}
+	@Transient
+	public StarostneSkupine getStarostneSkupine() {
+		return starostneSkupine;
+	}
+	public void setStarostneSkupine(StarostneSkupine starostneSkupine) {
+		this.starostneSkupine = starostneSkupine;
 	}
 	
 	
