@@ -28,9 +28,8 @@ public class NasvetModel {
 		return ejb.seznamVsehNasvetov();
 	}
 	
-	public void urediNasvete(int idNasveta, String novNasvet) {
-		
-	};
+	public void preusmeriNaUrejanje() {
+	}
 	
 	private Principal vrniAvtorja() {
 		FacesContext fc = FacesContext.getCurrentInstance();
@@ -62,6 +61,11 @@ public class NasvetModel {
 	public void izbrisiNasvet(Nasvet izbranNasvet) {
 		ejb.brisiNasvet(izbranNasvet);
 	}
+	
+	public void urediNasvete(String novNasvet) {
+		int idNasveta = idAvtorja();
+		ejb.urediNasvet(idNasveta, novNasvet);
+	};
 
 	public Nasvet getNovNasvet() {
 		return novNasvet;

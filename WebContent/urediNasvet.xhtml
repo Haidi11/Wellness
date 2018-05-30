@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+<h:body>
+<h:form>
+			<h2>Nasveti avtorja</h2>
+			<h:dataTable value="#{nasvet.vseNasveteAvtorja}" var="a">
+				<h:column>
+					<f:facet name="header">Id nasveta</f:facet>
+					<h:outputText value="#{a.idNasvet}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">Trenutni nasvet</f:facet>
+					<h:inputText value="#{a.nasvet}"></h:inputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header"></f:facet>
+					<h:commandButton value="Shrani" action="nasveti.xhtml"
+						actionListener="#{nasvet.urediNasvete(a.nasvet)}"></h:commandButton>
+				</h:column>
+			</h:dataTable>
+		</h:form>
+</h:body>
+
+</html>

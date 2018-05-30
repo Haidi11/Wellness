@@ -15,7 +15,7 @@ public interface NasvetVmesnik {
 
 	void brisiNasvet(Nasvet nasvet);
 
-	void urediNasvet(Nasvet nasvet);
+	void urediNasvet(int id, String novNasvet);
 
 	ArrayList<Nasvet> seznamVsehNasvetov();
 
