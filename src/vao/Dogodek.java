@@ -14,6 +14,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Transient;
 
+import orodja.Oddelki;
 import orodja.Oro;
 import orodja.StarostneSkupine;
 
@@ -45,6 +46,8 @@ public class Dogodek {
 	private int steviloZensk;
 	@Transient
 	private StarostneSkupine starostneSkupine;
+	@Transient
+	private Oddelki oddelki;
 	
 	@ManyToMany(cascade = { 
 	        CascadeType.PERSIST, 
@@ -183,6 +186,13 @@ public class Dogodek {
 	}
 	public void setStarostneSkupine(StarostneSkupine starostneSkupine) {
 		this.starostneSkupine = starostneSkupine;
+	}
+	@Transient
+	public Oddelki getOddelki() {
+		return oddelki;
+	}
+	public void setOddelki(Oddelki oddelki) {
+		this.oddelki = oddelki;
 	}
 	
 	

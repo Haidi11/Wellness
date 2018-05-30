@@ -11,6 +11,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import block.Block;
+import orodja.Oddelki;
 import orodja.PaketZaprikazDogodkov;
 import orodja.StarostneSkupine;
 import vao.Dogodek;
@@ -56,7 +57,7 @@ public class DogodekBean implements DogodekVmesnik {
 	// prijava na dogodek, kjer se ob klicu prijavljenega uporabnika le tega odjavi
 	@Override
 	public void izberiDogodek(Dogodek d, String uporabniskoIme) {
-		if(d==null) {
+		if (d == null) {
 			return;
 		}
 		Dogodek temp = em.find(Dogodek.class, d.getIdDogodek());
@@ -95,13 +96,14 @@ public class DogodekBean implements DogodekVmesnik {
 			} else {
 				str += "neprijavljen,";
 			}
+			// preveri ce je rok za odjavo ze potekel
 			if (casZaOdjavoPotekel(d.getDatumPrijave())) {
 				d.setGumbPrijava(true);
 			} else {
 				d.setGumbPrijava(false);
 			}
 		}
-		// preveri ce je rok za odjavo ze potekel
+
 		if (str.length() > 0) {
 			p.setSeznamRazredov(str.substring(0, str.length() - 1));
 		}
@@ -128,7 +130,7 @@ public class DogodekBean implements DogodekVmesnik {
 	public List<Dogodek> vrniMojeDogodke(int id) {
 		Query q = em.createQuery("select d from Dogodek d where d.idLastnik= :id");
 		q.setParameter("id", id);
-		
+
 		return q.getResultList();
 
 	}
@@ -145,14 +147,18 @@ public class DogodekBean implements DogodekVmesnik {
 		return o;
 	}
 
-	// vrni z stevilom prijavljenih, stevlil spolov, starostnimi skupinami
+	// vrni z stevilom prijavljenih, stevlil spolov, starostnimi skupinami, udelezba po oddelkih
 	@Override
 	public Dogodek vrniMojDogodek(int idDogodek) {
 		Dogodek d = em.find(Dogodek.class, idDogodek);
+
 		d.setSteviloPrijavljenih(d.getUdelezenci().size());
-		d.setSteviloMoskih(stevlioSpola(d, "M"));
-		d.setSteviloZensk(stevlioSpola(d,"Z"));
-		d.setStarostneSkupine(new StarostneSkupine(d));
+		if (d.getSteviloPrijavljenih() != 0) {
+			d.setSteviloMoskih(stevlioSpola(d, "M"));
+			d.setSteviloZensk(stevlioSpola(d, "Z"));
+			d.setStarostneSkupine(new StarostneSkupine(d));
+			d.setOddelki(new Oddelki(d));
+		}
 		for (Oseba o : d.getUdelezenci()) {
 			if (tockeDane(o, d)) {
 				o.setUdelezba("Udelezba potrjena");
@@ -165,18 +171,19 @@ public class DogodekBean implements DogodekVmesnik {
 		}
 		return d;
 	}
+
 	private int stevlioSpola(Dogodek d, String spol) {
-		int st=0;
-		for(Oseba o : d.getUdelezenci()) {
-			if(o.getSpol().equals(spol)) {
+		int st = 0;
+		for (Oseba o : d.getUdelezenci()) {
+			if (o.getSpol().equals(spol)) {
 				st++;
 			}
-			
+
 		}
 		return st;
-		
+
 	}
-	
+
 	// preveri ce so tocke ze bile podeljene
 	private boolean tockeDane(Oseba o, Dogodek d) {
 		// Query q = em.createQuery("select d from Tocke d where d.idOseba = :idOseba

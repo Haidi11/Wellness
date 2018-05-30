@@ -19,7 +19,9 @@ public class StarostneSkupine {
 	public  StarostneSkupine(Dogodek d) {
 		for(Oseba o : d.getUdelezenci()) {
 			 int starost = Period.between(o.getDatumRojstva().getTime().toInstant().atZone(ZoneId.systemDefault()).toLocalDate(), Calendar.getInstance().getTime().toInstant().atZone(ZoneId.systemDefault()).toLocalDate()).getYears();
-			if(starost<=20)
+			starost++;
+//			 System.out.println(starost);
+			 if(starost<=20)
 				do20++;
 			if(starost>20&&starost<=30)
 				st20_30++;

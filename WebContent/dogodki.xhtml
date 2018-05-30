@@ -25,7 +25,7 @@
 								<input type="button" value="Podrobnosti"
 									onclick="toggleDiv(div_#{a.idDogodek})"></input>
 								<h:commandButton value="#{a.prijavljen}"
-									disabled="#{a.gumbPrijava}"
+									disabled="#{a.gumbPrijava}" class="dis_#{a.gumbPrijava} aval_#{a.prijavljen}"
 									actionListener="#{zaposleni.izberiDogodek(a)}"></h:commandButton>
 							</div>
 							<div class="skritiDiv" id="div_#{a.idDogodek}">
