@@ -62,9 +62,8 @@ public class NasvetModel {
 		ejb.brisiNasvet(izbranNasvet);
 	}
 	
-	public void urediNasvete(String novNasvet) {
-		int idNasveta = idAvtorja();
-		ejb.urediNasvet(idNasveta, novNasvet);
+	public void urediNasvete(Nasvet nasvet) {
+		ejb.urediNasvet(nasvet);
 	};
 
 	public Nasvet getNovNasvet() {
