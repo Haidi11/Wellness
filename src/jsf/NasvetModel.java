@@ -12,6 +12,7 @@ import javax.faces.context.FacesContext;
 import orodja.PaketZaprikazDogodkov;
 import vao.Dogodek;
 import vao.Nasvet;
+import vao.Oseba;
 import vmesniki.NasvetVmesnik;
 
 @ManagedBean(name = "nasvet")
@@ -27,13 +28,6 @@ public class NasvetModel {
 		return ejb.seznamVsehNasvetov();
 	}
 	
-	public void dodajNovNasvet() {
-		long timeStamp = new Date().getTime();
-		novNasvet.setTimeStamp(timeStamp);
-		ejb.dodajNasvet(novNasvet);
-		novNasvet = new Nasvet();
-	}
-	
 	private Principal vrniAvtorja() {
 		FacesContext fc = FacesContext.getCurrentInstance();
 		return fc.getExternalContext().getUserPrincipal();
@@ -47,15 +41,19 @@ public class NasvetModel {
 	
 
 	public List<Nasvet> getVseNasveteAvtorja(){
-		int id = idAvtorja();
+		int id = idAvtorja ();
 		return ejb.getNasveteAvtorja(id);
 	}
-	/*public List<Nasvet> getVrniVseNasveteAvtoja() {
-		PaketZaPrikazNasvetov p = ejb.sezamDogodkovZaUporabnika(vrniAvtorja().ge)
-		prijave = p.getSeznamRazredov();
-		// System.out.println(prijave);
-		return p.getSeznam();
-	}*/
+	
+	public void dodajNovNasvet() {
+		long timeStamp = new Date().getTime();
+		int id = idAvtorja ();
+		Oseba o = new Oseba(id);
+		novNasvet.setAvtor(o);
+		novNasvet.setTimeStamp(timeStamp);
+		ejb.dodajNasvet(novNasvet);
+		novNasvet = new Nasvet();
+	}
 	
 	public void izbrisiNasvet(Nasvet izbranNasvet) {
 		ejb.brisiNasvet(izbranNasvet);

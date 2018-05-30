@@ -4,46 +4,53 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:jsf="http://xmlns.jcp.org/jsf">
 <h:body>
-	<h2>Nasveti</h2>
+	<h1>Nasveti</h1>
 	<f:view>
-			<h:form >
-			<h:dataTable value="#{nasvet.vseNasveteAvtorja}" var="a">
-				<h:column>
-					<f:facet name="header">Naziv</f:facet>
-					<h:outputText value="#{a.naslov}"></h:outputText>
-				</h:column>
-				<h:column>
-					<f:facet name="header">Avtor</f:facet>
-					<h:outputText value="#{a.avtor}"></h:outputText>
-				</h:column>
-				<h:column>
-					<f:facet name="header">Nasvet</f:facet>
-					<h:outputText value="#{a.nasvet}"></h:outputText>
-				</h:column>
-				<h:column> 
-						<f:facet name="header"></f:facet>
-						<h:commandButton value="Izbrisi" actionListener="#{nasvet.izbrisiNasvet(n)}"></h:commandButton>
-					</h:column>
-			</h:dataTable>
-		</h:form>
-		<h:form >
+		<h:form>
+			<h2>Vsi nasveti</h2>
 			<h:dataTable value="#{nasvet.vseNasvete}" var="n">
 				<h:column>
 					<f:facet name="header">Naziv</f:facet>
 					<h:outputText value="#{n.naslov}"></h:outputText>
 				</h:column>
 				<h:column>
-					<f:facet name="header">Avtor</f:facet>
-					<h:outputText value="#{n.avtor}"></h:outputText>
+					<f:facet name="header">Ime avtorja</f:facet>
+					<h:outputText value="#{n.avtor.ime}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">Priimek avtorja</f:facet>
+					<h:outputText value="#{n.avtor.priimek}"></h:outputText>
 				</h:column>
 				<h:column>
 					<f:facet name="header">Nasvet</f:facet>
 					<h:outputText value="#{n.nasvet}"></h:outputText>
 				</h:column>
-				<h:column> 
-						<f:facet name="header"></f:facet>
-						<h:commandButton value="Izbrisi" actionListener="#{nasvet.izbrisiNasvet(n)}"></h:commandButton>
-					</h:column>
+			</h:dataTable>
+		</h:form>
+		<h:form>
+			<h2>Nasveti avtorja</h2>
+			<h:dataTable value="#{nasvet.vseNasveteAvtorja}" var="a">
+				<h:column>
+					<f:facet name="header">Naziv</f:facet>
+					<h:outputText value="#{a.naslov}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">Ime avtorja</f:facet>
+					<h:outputText value="#{a.avtor.ime}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">Priimek avtorja</f:facet>
+					<h:outputText value="#{a.avtor.priimek}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">Nasvet</f:facet>
+					<h:outputText value="#{a.nasvet}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header"></f:facet>
+					<h:commandButton value="Izbrisi"
+						actionListener="#{nasvet.izbrisiNasvet(a)}"></h:commandButton>
+				</h:column>
 			</h:dataTable>
 		</h:form>
 	</f:view>
@@ -56,7 +63,8 @@
 		<h:inputText type="text" name="nasvet" id="nasvet"
 			value="#{nasvet.novNasvet.nasvet}"></h:inputText>
 		<br></br>
-		<h:commandButton value="Dodaj nasvet" actionListener="#{nasvet.dodajNovNasvet}" />
+		<h:commandButton value="Dodaj nasvet"
+			actionListener="#{nasvet.dodajNovNasvet}" />
 	</h:form>
 </h:body>
 </html>
