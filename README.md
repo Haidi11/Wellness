@@ -59,6 +59,15 @@ v Wildfly je potrebno ustavriti datasource java:jboss/datasources/baza in v MySq
 
 * Ustvari uporabnike v bazi za dostop do strani, potrebno je nastaviti vsaj geslo in uporabnisko ime. Nastavi željene vloge (brez/"kadrovska"/"zaposleni")
 
+**Konfiguracija maila:**
+* zaženi server
+* Pojdi na konfiguracije strežnika 
+* v Subsystem izberite Mail in add
+* vnesite: name: gmail JNDI: java:/jboss/mail/gmail
+* nato mu dodate novi tip ( opcij view in add)
+* Socket-binding: mail-smtp - Type: smtp - Username: "Your@gmail account" - Password: ********* - SSL: enable
+* restartraj server
+
 
 ## GSON
 Open Windows >preferences in the Eclipse menu, and navigate to the Java >Build path > User Libraries tab. Click new and enter a new User Library name: like “gson_lib” and hit ok. With “gson_lib” selected press Add External JARs and find the gson-2.6.2.jar you downloaded. Apply and Close. Nato pa Wellness -> properties -> Java Build Path -> add Library -> User library

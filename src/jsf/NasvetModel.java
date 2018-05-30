@@ -27,10 +27,6 @@ public class NasvetModel {
 		return ejb.seznamVsehNasvetov();
 	}
 	
-	public List<Nasvet> getVseNasveteAvtorja(int id){
-		return ejb.getNasveteAvtorja(id);
-	}
-	
 	public void dodajNovNasvet() {
 		long timeStamp = new Date().getTime();
 		novNasvet.setTimeStamp(timeStamp);
@@ -43,6 +39,17 @@ public class NasvetModel {
 		return fc.getExternalContext().getUserPrincipal();
 	}
 	
+	public int idAvtorja () {
+		String ime = vrniAvtorja().getName();
+		int id = ejb.najdiIdAvtorja(ime);
+		return id;
+	}
+	
+
+	public List<Nasvet> getVseNasveteAvtorja(){
+		int id = idAvtorja();
+		return ejb.getNasveteAvtorja(id);
+	}
 	/*public List<Nasvet> getVrniVseNasveteAvtoja() {
 		PaketZaPrikazNasvetov p = ejb.sezamDogodkovZaUporabnika(vrniAvtorja().ge)
 		prijave = p.getSeznamRazredov();

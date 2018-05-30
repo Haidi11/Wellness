@@ -52,33 +52,29 @@ public class NasvetBean implements NasvetVmesnik {
 	}
 
 	@Override
-	public List<Nasvet> getNasveteAvtorja(int id) {
-		Query q = em.createQuery("select o from Naslov o where o.fk_avtor= :id");
-		q.setParameter("id", id);
-		return  q.getResultList();
+	public int najdiIdAvtorja(String ime) {
+		Query q = em.createQuery("select o.idOseba from Oseba o where o.ime= :ime");
+		q.setParameter("ime", ime);
+		return q.getFirstResult();
 	}
+	
+	@Override
+	public List<Nasvet> getNasveteAvtorja(int id) {
+		Query q = em.createQuery("select n from Naslov n where n.fk_avtor= :id");
+		q.setParameter("id", id);
+		return (List<Nasvet>) q.getResultList();
+	}
+
 
 	@Override
 	public Nasvet najdiPoIdAvtorja(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-	/*@Override
-	public Oseba najdiPoIdAvtorja(int id) {
-		Query q = em.createQuery("select o from Naslov o where o.fk_avtor= :id");
-		q.setParameter("id", id);
-		return (Oseba) q.getResultList().get(0);
-	}
-	
-	@Override
-	public PaketZaPrikazNasvetov sezamDogodkovZaUporabnika(String ime) {
-		PaketZaPrikazNasvetov p = new PaketZaPrikazNasvetov();
-		String str = "";
-		// uporabnik z dogodki
-		Oseba temp = najdiPoIdAvtorja(ime);
-		List<Nasvet> nasveti =  seznamVsehNasvetov();
-		return p;
-	}*/
 
+	@Override
+	public List<Nasvet> getVseNasveteAvtorja() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

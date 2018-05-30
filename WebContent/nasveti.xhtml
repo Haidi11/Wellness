@@ -6,6 +6,26 @@
 <h:body>
 	<h2>Nasveti</h2>
 	<f:view>
+			<h:form >
+			<h:dataTable value="#{nasvet.vseNasveteAvtorja}" var="a">
+				<h:column>
+					<f:facet name="header">Naziv</f:facet>
+					<h:outputText value="#{a.naslov}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">Avtor</f:facet>
+					<h:outputText value="#{a.avtor}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">Nasvet</f:facet>
+					<h:outputText value="#{a.nasvet}"></h:outputText>
+				</h:column>
+				<h:column> 
+						<f:facet name="header"></f:facet>
+						<h:commandButton value="Izbrisi" actionListener="#{nasvet.izbrisiNasvet(n)}"></h:commandButton>
+					</h:column>
+			</h:dataTable>
+		</h:form>
 		<h:form >
 			<h:dataTable value="#{nasvet.vseNasvete}" var="n">
 				<h:column>
@@ -31,10 +51,6 @@
 		<label for="naziv">Vnesite naziv</label>
 		<h:inputText type="text" name="naziv" id="naziv"
 			value="#{nasvet.novNasvet.naslov}"></h:inputText>
-		<br></br>
-		<label for="avtor">Avtor</label>
-		<h:inputText type="text" name="avtor" id="avtor"
-			value="#{nasvet.novNasvet.avtor}"></h:inputText>
 		<br></br>
 		<label for="nasvet">Vnesite nasvet</label>
 		<h:inputText type="text" name="nasvet" id="nasvet"
