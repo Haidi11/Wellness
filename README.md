@@ -39,10 +39,6 @@ odvisno od tipa podjetja, kamor vpeljujete rešitev
 * WildFly-11.0.0.Final
 * MySql 
 
-## Maps
-*Api key: AIzaSyD4JVT8B0kQ4tYLF7GvSvZBMCYlIXuYNA4 
-Gmail za login: sduper587@gmail.com, geslo:Q75FvKN6Uz7y 
-
 v Wildfly je potrebno ustavriti datasource java:jboss/datasources/baza in v MySql kreirati bazo "baza". V administrativni konzoli WildFly strežnika ustvarimo Non XA datasource, katermu nastavimo JNDI: java:jboss/datasources/baza in Connection URL: jdbc:mysql://localhost:3306/baza. 
 
 **Login:**
@@ -78,9 +74,11 @@ v Wildfly je potrebno ustavriti datasource java:jboss/datasources/baza in v MySq
 * nato mu dodate novi tip ( opcij view in add)
 * Socket-binding: mail-smtp - Type: smtp - Username: wellness.keks@gmail.com - Password: Lukapavlic - SSL: enable
 * restartraj server
-* v standalalone.xml je potrebno nastaviti port na 465 (na koncu datoteke) (<outbound-socket-binding name="mail-smtp">
+* v standalalone.xml je potrebno nastaviti port na 465 (na koncu datoteke) 
+
+`<outbound-socket-binding name="mail-smtp">
             <remote-destination host="localhost" port="465"/>
-        </outbound-socket-binding>) 
+        </outbound-socket-binding> `
 * mail za testiranje: sduper587@gmail.com, geslo:Q75FvKN6Uz7y
 * link za dajanje dovoljenja manj varnim aplikacijam: https://myaccount.google.com/lesssecureapps
 
