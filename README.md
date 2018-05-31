@@ -57,13 +57,10 @@ v Wildfly je potrebno ustavriti datasource java:jboss/datasources/baza in v MySq
 
 `/subsystem=ejb3/application-security-domain=KEKSApplicationDomain:add(security-domain=KEKS-domain)`
 
-* Ustvari uporabnike v bazi za dostop do strani, potrebno je nastaviti vsaj geslo in uporabnisko ime. Nastavi željene vloge (brez/"kadrovska"/"zaposleni")
+* Če uporabnikov v bazi ni, se bo en sam vnesel
 
-`INSERT INTO oseba (EMSO, datumRojstva, datumZaposlitve, davcnaStevilka, email, geslo, ime, kadrovskaSluzba, oddelek, organizatorDogodkov, priimek, spol, telefonskaStevilka, tocke, uporabniskoIme, vloga) VALUES ('937459', '1996-02-02 01:00:00', '2018-05-30 02:00:00', '4f4fg', 'm.@g.c', 'geslo', 'Testni', 0, 'oddelek1', 0, 'Uporabnik', 'M', '0904304646', 0, 'geslo', 'kadrovska');
-`
-
-* uporabniško ime: geslo
-* geslo: geslo
+* uporabniško ime: luka
+* geslo: luka123
 
 
 **Mail:**
