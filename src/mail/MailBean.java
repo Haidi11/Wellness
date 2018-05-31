@@ -13,11 +13,11 @@ import javax.servlet.http.HttpSession;
 
 @Stateless
 @Resource(name= "java:/jboss/mail/gmail")
-public class Mail {
+public class MailBean {
 	
 	private Session session;
 
-	public Mail() {
+	public MailBean() {
 		
 	}
 	
