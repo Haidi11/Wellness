@@ -62,8 +62,10 @@ public class NasvetModel {
 		ejb.brisiNasvet(izbranNasvet);
 	}
 	
-	public void urediNasvete(Nasvet nasvet) {
-		ejb.urediNasvet(nasvet);
+	public String urediNasvete(int id, String popravljenNasvet) {
+		ejb.urediNasvet(id,popravljenNasvet);
+		System.out.println("Sprememba shranjena! "+popravljenNasvet+" pri id: "+id);
+		return "nasveti.xhtml";
 	};
 
 	public Nasvet getNovNasvet() {
