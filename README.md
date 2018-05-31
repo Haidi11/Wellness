@@ -76,9 +76,11 @@ v Wildfly je potrebno ustavriti datasource java:jboss/datasources/baza in v MySq
 * v Subsystem izberite Mail in add
 * vnesite: name: gmail JNDI: java:/jboss/mail/gmail
 * nato mu dodate novi tip ( opcij view in add)
-* Socket-binding: mail-smtp - Type: smtp - Username: "Your@gmail account" - Password: ********* - SSL: enable
+* Socket-binding: mail-smtp - Type: smtp - Username: wellness.keks@gmail.com - Password: Lukapavlic - SSL: enable
 * restartraj server
-* v standalalone.xml je potrebno nastaviti port na 465 (na koncu datoteke)
+* v standalalone.xml je potrebno nastaviti port na 465 (na koncu datoteke) (<outbound-socket-binding name="mail-smtp">
+            <remote-destination host="localhost" port="465"/>
+        </outbound-socket-binding>) 
 * mail za testiranje: sduper587@gmail.com, geslo:Q75FvKN6Uz7y
 * link za dajanje dovoljenja manj varnim aplikacijam: https://myaccount.google.com/lesssecureapps
 
