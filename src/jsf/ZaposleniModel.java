@@ -1,6 +1,7 @@
 package jsf;
 
 import java.security.Principal;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -87,6 +88,28 @@ public class ZaposleniModel {
 	    return ov.topMesecniUporanbik(); 
 	   
 	  } 
+	  
+	  //ce je prvic
+	  public void prvic() {
+		  if(ov.vrniSeznamVsehOseb().size()==0) {
+		  Oseba o = new Oseba();
+		  o.setDatumRojstva(Calendar.getInstance());
+		  o.setDatumZaposlitve(Calendar.getInstance());
+		  o.setDavcnaStevilka("4wfw");
+		  o.setEmail("nekaj@nekaj.com");
+		  o.setEMSO("9i9494944");
+		  o.setIme("Luka");
+		  o.setOddelek("informatika");
+		  o.setPriimek("Pavlič");
+		  o.setSpol("M");
+		  o.setGeslo("luka123");
+		  o.setUporabniskoIme("luka");
+		  o.setTelefonskaStevilka("i99i");
+		  o.setVloga("kadrovska");
+		  
+		  ov.dodajOsebo(o);
+		  }
+	  }
 
 	/*
 	 * getterji, setterji
