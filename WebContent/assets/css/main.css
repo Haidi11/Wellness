@@ -2298,3 +2298,26 @@ za radio gumbke
 	width: 200px;
 	height: 10px;
 }
+
+/* za skrite dive pri osebah */
+
+.skritiDiv{
+	
+	display: none;
+	
+}
+
+.gumbPodrobno{
+	float:right;
+	text-align: center;
+	
+}
+
+
+.osebeOznake {
+	font-size: 80%;
+}
+
+.osebaVsebina {
+	color: black;
+}

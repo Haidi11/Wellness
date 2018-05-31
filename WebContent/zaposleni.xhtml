@@ -98,70 +98,69 @@
 
 
 				<h1>Vsi zaposleni</h1>
-
-				<h:dataTable value="#{osebe.vrniVseOsebe}" var="a">
-					<h:column>
-						<f:facet name="header">Ime</f:facet>
-						<h:outputText value="#{a.ime}"></h:outputText>
+			<h:dataTable value="#{osebe.vrniVseOsebe}" var="a">
+				<h:column>
+						<div>
+							<h:outputText class="osebaPodrono" value="#{a.ime}"></h:outputText>
+							
+							<div class="gumbPodrobno">
+							<input type="button" value="Podrobnosti" onclick="toggleDiv(div_#{a.idOseba})"></input>
+							</div>
+							
+							<div class="skritiDiv" id="div_#{a.idOseba}">
+							<span class="osebeOznake">Priimek: </span>
+							<h:outputText class="osebaVsebina" value="#{a.priimek}"></h:outputText><br />
+								<span class="osebeOznake">Spol: </span>
+								<h:outputText class="osebaVsebina" value="#{a.spol}"></h:outputText>
+								<br /> 
+								<span class="osebeOznake">Datum rojstva: </span>
+								<h:outputText class="osebaVsebina" value="#{a.izpisiDatumRojstva}"></h:outputText>
+								<br /> 
+								<span class="osebeOznake"> Datum zaposlitve: </span>
+								<h:outputText class="osebaVsebina" value="#{a.izpisiDatumZaposlitve}"></h:outputText>
+								<br />
+								<span class="osebeOznake"> Email: </span>
+								<h:outputText class="osebaVsebina" value="#{a.email}"></h:outputText>
+								<br />
+								<span class="osebeOznake"> Telefonska Številka: </span>
+								<h:outputText class="osebaVsebina" value="#{a.telefonskaStevilka}"></h:outputText>
+								<br />
+								<span class="osebeOznake"> Oddelek: </span>
+								<h:outputText class="osebaVsebina" value="#{a.oddelek}"></h:outputText>
+								<br />
+								<span class="osebeOznake"> EMŠO: </span>
+								<h:outputText class="osebaVsebina" value="#{a.EMSO}"></h:outputText>
+								<br />
+								<span class="osebeOznake"> Točke: </span>
+								<h:outputText class="osebaVsebina" value="#{a.tocke}"></h:outputText>
+								<br />
+								<span class="osebeOznake"> Kadrovska služba: </span>
+								<h:outputText class="osebaVsebina" value="#{a.kadrovskaSluzba}"></h:outputText>
+								<br />
+								<span class="osebeOznake"> Organizator dogodkov: </span>
+								<h:outputText class="osebaVsebina" value="#{a.organizatorDogodkov}"></h:outputText>
+								<br />
+								<span class="osebeOznake"> Davčna številka: </span>
+								<h:outputText class="osebaVsebina" value="#{a.davcnaStevilka}"></h:outputText>
+								<br />
+								<span class="osebeOznake"> Vloga: </span>
+								<h:outputText class="osebaVsebina" value="#{a.vloga}"></h:outputText>
+								<br />
+								
+							
+							</div>
+					</div>
 					</h:column>
-					<h:column>
-						<f:facet name="header">Priimek</f:facet>
-						<h:outputText value="#{a.priimek}"></h:outputText>
-					</h:column>
-					<h:column>
-						<f:facet name="header">Spol</f:facet>
-						<h:outputText value="#{a.spol}"></h:outputText>
-					</h:column>
-					<h:column>
-						<f:facet name="header">Datum rojstva</f:facet>
-						<h:outputText value="#{a.izpisiDatumRojstva}"></h:outputText>
-					</h:column>
-					<h:column>
-						<f:facet name="header">Datum zaposlitve</f:facet>
-						<h:outputText value="#{a.izpisiDatumZaposlitve}"></h:outputText>
-					</h:column>
-					<h:column>
-						<f:facet name="header">Email</f:facet>
-						<h:outputText value="#{a.email}"></h:outputText>
-					</h:column>
-					<h:column>
-						<f:facet name="header">Telefonska številka</f:facet>
-						<h:outputText value="#{a.telefonskaStevilka}"></h:outputText>
-					</h:column>
-					<h:column>
-						<f:facet name="header">Oddelek</f:facet>
-						<h:outputText value="#{a.oddelek}"></h:outputText>
-					</h:column>
-					<h:column>
-						<f:facet name="header">EMŠO</f:facet>
-						<h:outputText value="#{a.EMSO}"></h:outputText>
-					</h:column>
-					<h:column>
-						<f:facet name="header">Točke</f:facet>
-						<h:outputText value="#{a.tocke}"></h:outputText>
-					</h:column>
-					<h:column>
-						<f:facet name="header">Kadrovska služba</f:facet>
-						<h:outputText value="#{a.kadrovskaSluzba}"></h:outputText>
-					</h:column>
-					<h:column>
-						<f:facet name="header">Organizator dogodkov</f:facet>
-						<h:outputText value="#{a.organizatorDogodkov}"></h:outputText>
-					</h:column>
-					<h:column>
-						<f:facet name="header">Davčna številka</f:facet>
-						<h:outputText value="#{a.davcnaStevilka}"></h:outputText>
-					</h:column>
-					<h:column>
-						<f:facet name="header">Vloga</f:facet>
-						<h:outputText value="#{a.vloga}"></h:outputText>
-					</h:column>
-					<h:column>
-						<f:facet name="header"></f:facet>
-						<h:commandButton value="Podrobnosti"></h:commandButton>
-					</h:column>
+					</h:dataTable>
 					
-					</h:dataTable>		
+					<script>
+
+	function toggleDiv(a){
+		$( a ).toggle(300);
+		
+	}
+
+</script>
 			</h:form>
 		</f:view>
 	</ui:define>
