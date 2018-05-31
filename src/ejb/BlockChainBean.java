@@ -47,7 +47,7 @@ public class BlockChainBean implements BlockChainVmesnik {
 	}
 	private void initialBlock() {
 		Block temp=new Block();
-		temp.setPrejsnjiHash("9u");
+		temp.setHash("9u");
 		em.persist(temp);
 		
 	}
