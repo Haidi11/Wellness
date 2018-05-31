@@ -1,7 +1,6 @@
 package mail;
 
 import javax.ejb.Stateless;
-import javax.mail.Address;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
@@ -9,14 +8,12 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.annotation.Resource;
-import javax.servlet.http.HttpSession;
 
 import vmesniki.MailVmesnik;
 
 @Stateless
-@Resource(name= "java:/jboss/mail/gmail")
 public class MailBean implements MailVmesnik {
-	
+	@Resource(name= "java:/jboss/mail/gmail")
 	private Session session;
 	public MailBean() {}
 	
@@ -28,9 +25,9 @@ public class MailBean implements MailVmesnik {
 			msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
 			msg.setSubject(subject);
 			msg.setText(body);
-			
 			Transport.send(msg);
 		}catch(MessagingException e) {
+			e.printStackTrace();
 			System.out.println("ne gre poslat :( ");
 		}	
 	}
