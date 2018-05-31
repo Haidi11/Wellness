@@ -7,21 +7,61 @@
 <div id="map" style="width:400px;height:400px;background:yellow"></div>
 
 <script>
-function myMap() {
-var mapOptions = {
-    center: new google.maps.LatLng(51.5, -0.12),
-    zoom: 10,
-    mapTypeId: google.maps.MapTypeId.HYBRID
-}
-var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-}
-</script>
+document.addEventListener('DOMContentLoaded', function () {
+	  if (document.querySelectorAll('#map').length > 0)
+	  {
+	    if (document.querySelector('html').lang)
+	      lang = document.querySelector('html').lang;
+	    else
+	      lang = 'en';
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
-<!--
-To use this code on your website, get a free API key from Google.
-Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
--->
+	    var js_file = document.createElement('script');
+	    js_file.type = 'text/javascript';
+	    js_file.src = 'https://maps.googleapis.com/maps/api/js?callback=initMap&signed_in=true&language=' + lang+';';
+	    document.getElementsByTagName('head')[0].appendChild(js_file);
+	  }
+	});
+
+	var map;
+
+	function initMap()
+	{
+	  map = new google.maps.Map(document.getElementById('map'), {
+	    center: {lat: -34.397, lng: 150.644},
+	    zoom: 8
+	  });
+
+	  fetch('https://raw.githubusercontent.com/jayshields/google-maps-api-template/master/markers.json')
+	    .then(function(response){return response.json()})
+	    .then(plotMarkers);
+	}
+
+	var markers;
+	var bounds;
+
+	function plotMarkers(m)
+	{
+	  markers = [];
+	  bounds = new google.maps.LatLngBounds();
+
+	  m.forEach(function (marker) {
+	    var position = new google.maps.LatLng(marker.lat, marker.lng);
+
+	    markers.push(
+	      new google.maps.Marker({
+	        position: position,
+	        map: map,
+	        animation: google.maps.Animation.DROP
+	      })
+	    );
+
+	    bounds.extend(position);
+	  });
+
+	  map.fitBounds(bounds);
+	}
+</script>
+<div id="map"></div>
 
 </body>
 </html>
