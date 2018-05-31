@@ -58,8 +58,9 @@
 				</h:column>
 				<h:column>
 					<f:facet name="header"></f:facet>
-					<h:commandButton value="Uredi" action="urediNasvet?faces-redirect=true"
-						actionListener="#{nasvet.preusmeriNaUrejanje}"></h:commandButton>
+					<h:link outcome="urediNasvet.xhtml" value="Uredi" includeViewParam ="true">
+					<f:param name="idNasvet"  value="#{a.idNasvet}"></f:param>
+					</h:link>
 				</h:column>
 			</h:dataTable>
 		</h:form>

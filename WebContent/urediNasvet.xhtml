@@ -3,31 +3,19 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:jsf="http://xmlns.jcp.org/jsf">
-
-    <ui:composition template="WEB-INF/template/template2.xhtml">
-	<ui:define name="main">
-      
-  	 <f:view>
-  	 
-
+	
+<f:metadata includeViewParam ="true">
+<f:viewParam name="idNasvet" value="#{nasvet.novNasvet.idNasvet}"/>
+</f:metadata>
+ 
+<ui:composition template="WEB-INF/template/template2.xhtml">
+<ui:define name="main">  
+<f:view>
 <h:form>
-			<h2>Nasveti avtorja</h2>
-			<h:dataTable value="#{nasvet.vseNasveteAvtorja}" var="a">
-				<h:column>
-					<f:facet name="header">Id nasveta</f:facet>
-					<h:outputText value="#{a.idNasvet}"></h:outputText>
-				</h:column>
-				<h:column>
-					<f:facet name="header">Trenutni nasvet</f:facet>
-					<h:inputText value="#{a.nasvet}"></h:inputText>
-				</h:column>
-				<h:column>
-					<f:facet name="header"></f:facet>
-					<h:commandButton value="Shrani" action="nasveti.xhtml"
-						actionListener="#{nasvet.urediNasvete(a)}"></h:commandButton>
-				</h:column>
-			</h:dataTable>
-		</h:form>
+	<h:outputText value="id: #{nasvet.novNasvet.idNasvet}"></h:outputText>
+	<h:inputText  value="#{nasvet.novNasvet.nasvet}"></h:inputText>
+	<h:commandButton value="Shrani" action="#{nasvet.urediNasvete(nasvet.novNasvet.idNasvet, nasvet.novNasvet.nasvet)}"></h:commandButton>
+</h:form>
 </f:view>
 </ui:define>
 </ui:composition>
