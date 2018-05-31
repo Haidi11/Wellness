@@ -16,9 +16,9 @@ odvisno od tipa podjetja, kamor vpeljujete rešitev
 
 ## Predvideni uporabniki
 
-* Kadrovska služba, 
-* zaposleni, 
-* organizatorji dogodkov
+* Kadrovska služba (dodajanje uporabnika, dodajanje dogodkov + funkcionlnosti zaposlenega) 
+* zaposleni (pregled dogodkov, pisanje nasvetov, pregled statistike, prijava na dogodke) 
+* organizatorji dogodkov (dodajanje dogodkov + funkcionlnosti zaposlenega)
 
 ## Glavne funkcionalnosti
 * Razpis dogodka
@@ -77,3 +77,5 @@ Open Windows >preferences in the Eclipse menu, and navigate to the Java >Build p
 * [Manica Abramenko](https://github.com/ManicaA)
 * [Gregor Gorjanc](https://github.com/gregorjanc)
 * [Haidi Zakelšek](https://github.com/Haidi11)
+
+
