@@ -13,7 +13,10 @@ import vmesniki.MailVmesnik;
 
 @Stateless
 public class MailBean implements MailVmesnik {
+<<<<<<< Updated upstream
 	@Resource(name= "java:/jboss/mail/gmail")
+=======
+>>>>>>> Stashed changes
 	private Session session;
 	public MailBean() {}
 	
