@@ -15,18 +15,19 @@
 
 	<ui:define name="main">  
 		<f:view>  
-			<h:form style="padding-left:30px;">
-			Naziv: <h:inputText id="naizv" value="#{dogodek.novDogodek.naziv}"
-					validatorMessage=" Naziv?">
+			<h:form>
+			Naziv: <h:inputText id="naziv" value="#{dogodek.novDogodek.naziv}"
+					validatorMessage="Vnesite naziv dogodka">
 					<f:validateRequired />
 				</h:inputText>
-				<h:message for="naziv" />
-				
+				<span class="opozorilo"><h:message for="naziv"></h:message></span>
+				<br />
 			Točke: <h:inputText id="tocke" value="#{dogodek.novDogodek.tocke}"
-					validatorMessage=" Točke?">
+					validatorMessage="Vnesite število točk">
 					<f:validateRequired />
 				</h:inputText>
-				<h:message for="tocke"></h:message>
+				<span class="opozorilo"><h:message for="tocke"></h:message></span>
+				<br />
 			Rok prijave: <input type="date"
 					jsf:value="#{dogodek.novDogodek.datumPrijave.time}">
 				<f:convertDateTime pattern="yyyy-MM-dd" />
@@ -44,14 +45,17 @@
 				
 				<br />
 			Opis dogodka:	<h:inputText id="opis" value="#{dogodek.novDogodek.opisDogodka}"
-					validatorMessage=" Opis dogodka?">
+					validatorMessage="Vnesite opis dogodka">
 					<f:validateRequired />
 				</h:inputText>
-				<h:message for="opis" />
+				<span class="opozorilo"><h:message for="opis"></h:message></span>
 				<br />
+				
 			<h:commandButton value="Dodaj dogodek"
 						actionListener="#{dogodek.dodajDogodek()}" />
 					<br />	
+					
+					
 				<h1>Vsi dogodki</h1>
 
 				<h:dataTable value="#{dogodek.vrniVseDogodke}" var="a" >
