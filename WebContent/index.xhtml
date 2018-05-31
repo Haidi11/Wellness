@@ -25,17 +25,17 @@
 						<h:outputText value="#{a.ime}"></h:outputText> 
 						<h:outputText value="#{a.priimek}"></h:outputText> z 
 						 
-						<h:outputText value="#{a.tocke}"></h:outputText> točkami.
+						<h:outputText value="#{a.tocke}"></h:outputText> <h:outputText value="#{zaposleni.tockeSklon(a.tocke)}"></h:outputText>.
 					</h:column>
 					
 					</h:dataTable>
  			  <h:dataTable value="#{zaposleni.topMesecniUporabnik}" var="a">
 					<h:column>
 						Zaposleni z največ točkami ta mesec:
-						<h:outputText value="#{a.ime}"></h:outputText> 
+						<h:outputText value="#{a.ime}"></h:outputText>  
 						<h:outputText value="#{a.priimek}"></h:outputText> z 
 						 
-						<h:outputText value="#{a.tocke}"></h:outputText> točkami.
+						<h:outputText value="#{a.tocke}"></h:outputText> <h:outputText value="#{zaposleni.tockeSklon(a.tocke)}"></h:outputText>.
 					</h:column>
 					
 					</h:dataTable>

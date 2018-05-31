@@ -67,7 +67,16 @@ public class ZaposleniModel {
 		return dv.najdiPoUporabniskemImenu(vrniUporabnika().getName());
 
 	}
-
+	//vrne tocke v pravilnem sklonu
+	public String tockeSklon(int t) {
+		if(t>2)
+			return " točkami";
+		if(t==2)
+			return " točkama";
+		return " točko";
+		
+	}
+	
 	public String odjavi() {
 
 		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
