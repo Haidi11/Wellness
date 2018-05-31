@@ -8,7 +8,7 @@ import javax.persistence.Id;
 
 public class Tocke {
 	
-	private int id;
+	private int stTock;
 	private int idDogodek;
 	private int idOseba;	
 	
@@ -16,12 +16,7 @@ public class Tocke {
 	 * getterji, setterji
 	 */
 	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+
 	public int getIdDogodek() {
 		return idDogodek;
 	}
@@ -33,5 +28,11 @@ public class Tocke {
 	}
 	public void setIdOseba(int idOseba) {
 		this.idOseba = idOseba;
+	}
+	public int getStTock() {
+		return stTock;
+	}
+	public void setStTock(int stTock) {
+		this.stTock = stTock;
 	}
 }

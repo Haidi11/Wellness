@@ -23,9 +23,9 @@ public class BlockChainBean implements BlockChainVmesnik {
 	@Override
 	public void shrani(Tocke t) {
 		String prejsnjiHash = najdiPrejsnjiHash();
-		System.out.println("tocka: " + t.getId() + ", oseba: " + t.getIdOseba() + ", dogodek: " + t.getIdDogodek());
+		System.out.println("tocka: " + t.getStTock() + ", oseba: " + t.getIdOseba() + ", dogodek: " + t.getIdDogodek());
 		try {
-			shraniBlockChain(new Block(t.getId(), t.getIdOseba(), t.getIdDogodek(), prejsnjiHash));
+			shraniBlockChain(new Block(t.getStTock(), t.getIdOseba(), t.getIdDogodek(), prejsnjiHash));
 		} catch (NoSuchAlgorithmException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -29,8 +29,6 @@ public class ZaposleniModel {
 
 	@EJB
 	OsebaVmesnik ov; 
-	   
-
 	
 	@EJB
 	DogodekVmesnik dv;

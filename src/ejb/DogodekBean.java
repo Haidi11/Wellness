@@ -243,7 +243,7 @@ public class DogodekBean implements DogodekVmesnik {
 		os.setTocke(os.getTocke() + izbranDogodek.getTocke());
 		Tocke t = new Tocke();
 
-		// em.persist(t);
+		t.setStTock(izbranDogodek.getTocke());
 		t.setIdDogodek(izbranDogodek.getIdDogodek());
 		t.setIdOseba(o.getIdOseba());
 		bc.shrani(t);

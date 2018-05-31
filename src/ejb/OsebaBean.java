@@ -5,6 +5,9 @@ import vao.Oseba;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 import vmesniki.OsebaVmesnik;
 
@@ -32,7 +35,7 @@ public class OsebaBean implements OsebaVmesnik{
     
     @Override 
     public Oseba topUporabnik() { 
-      Oseba temo = (Oseba) entityManager.createQuery("select e from Oseba e where MONTH(e.) and e.tocke = max(e.tocke)") 
+      Oseba temo = (Oseba) entityManager.createQuery("select e from Oseba e where e.tocke=(select max(o.tocke) from Oseba o)") 
         .getSingleResult(); 
        
       return temo; 
@@ -42,9 +45,9 @@ public class OsebaBean implements OsebaVmesnik{
    
     @Override 
     public Oseba topMesecniUporanbik() { 
-//      Oseba temo = (Oseba) entityManager.createQuery("select max(e.dateProcessed) from Oseba e ").setParameter("mesec", GregorianCalendar.getInstance().get(Calendar.MONTH)) 
-//            .getSingleResult(); 
-  //   
+      Oseba temo = (Oseba) entityManager.createQuery("select e from Oseba e where MONTH(e.)").setParameter("mesec", GregorianCalendar.getInstance().get(Calendar.MONTH)+1) 
+            .getSingleResult(); 
+     
   return null; 
     } 
 }
