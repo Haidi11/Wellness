@@ -3,7 +3,13 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:jsf="http://xmlns.jcp.org/jsf">
-<h:body>
+
+    <ui:composition template="WEB-INF/template/template2.xhtml">
+	<ui:define name="main">
+      
+  	 <f:view>
+  	 
+
 <h:form>
 			<h2>Nasveti avtorja</h2>
 			<h:dataTable value="#{nasvet.vseNasveteAvtorja}" var="a">
@@ -22,6 +28,7 @@
 				</h:column>
 			</h:dataTable>
 		</h:form>
-</h:body>
-
+</f:view>
+</ui:define>
+</ui:composition>
 </html>

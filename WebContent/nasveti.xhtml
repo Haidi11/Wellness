@@ -3,7 +3,12 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:jsf="http://xmlns.jcp.org/jsf">
-<h:body>
+   
+<ui:composition template="WEB-INF/template/template2.xhtml">
+<ui:define name="main">   
+  	 <f:view>
+  	 
+
 	<h1>Nasveti</h1>
 	<f:view>
 		<h:form>
@@ -71,5 +76,8 @@
 		<h:commandButton value="Dodaj nasvet"
 			actionListener="#{nasvet.dodajNovNasvet}" />
 	</h:form>
-</h:body>
+
+</f:view>
+</ui:define>
+</ui:composition>
 </html>
