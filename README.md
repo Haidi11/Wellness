@@ -82,6 +82,18 @@ v Wildfly je potrebno ustavriti datasource java:jboss/datasources/baza in v MySq
 * mail za testiranje: sduper587@gmail.com, geslo:Q75FvKN6Uz7y
 * link za dajanje dovoljenja manj varnim aplikacijam: https://myaccount.google.com/lesssecureapps
 
+standalone.xml:
+  <outbound-socket-binding name="mail-smtp-gmail">
+            <remote-destination host="smtp.gmail.com" port="465"/>
+  </outbound-socket-binding>
+  
+   <subsystem xmlns="urn:jboss:domain:mail:3.0">
+            <mail-session name="Gmail" debug="false" jndi-name="java:/jboss/mail/gmail">
+                <smtp-server outbound-socket-binding-ref="mail-smtp-gmail" ssl="true" tls="false" username="wellness.keks@gmail.com" password="Lukapavlic"/>
+            </mail-session>
+   </subsystem>
+        
+
 
 ## GSON
 Open Windows >preferences in the Eclipse menu, and navigate to the Java >Build path > User Libraries tab. Click new and enter a new User Library name: like “gson_lib” and hit ok. With “gson_lib” selected press Add External JARs and find the gson-2.6.2.jar you downloaded. Apply and Close. Nato pa Wellness -> properties -> Java Build Path -> add Library -> User library
