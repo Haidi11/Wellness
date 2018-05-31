@@ -39,7 +39,7 @@ public class OsebaBean implements OsebaVmesnik {
 	public Oseba topUporabnik() {
 		Oseba temo = (Oseba) entityManager
 				.createQuery("select e from Oseba e where e.tocke=(select max(o.tocke) from Oseba o)")
-				.getSingleResult();
+				.getResultList().get(0);
 
 		return temo;
 
