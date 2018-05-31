@@ -26,6 +26,11 @@ public class ZaposleniModel {
 		dogodekPodrobno= new Dogodek();
 		
 	}
+
+	@EJB
+	OsebaVmesnik ov; 
+	   
+
 	
 	@EJB
 	DogodekVmesnik dv;
@@ -70,9 +75,20 @@ public class ZaposleniModel {
 		
 		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
 		
-System.out.println("odjava");
+//System.out.println("odjava");
 		return "index.xhtml?faces-redirect=true";
 	}
+	
+	//prikaz tock na index za uporabnika z najvec tockami 
+	  public Oseba getTopUporabnik() { 
+	    return ov.topUporabnik(); 
+	     
+	  } 
+	  //prikaz tock za top mesecnega uporabnika 
+	  public Oseba getTopMesecniUporabnik() { 
+	    return ov.topMesecniUporanbik(); 
+	   
+	  } 
 
 	/*
 	 * getterji, setterji

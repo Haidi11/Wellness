@@ -2,6 +2,7 @@ package jsf;
 
 import java.io.Serializable;
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -9,11 +10,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
-import org.hibernate.validator.constraintvalidation.HibernateConstraintValidatorContext;
-import org.primefaces.model.chart.Axis;
-import org.primefaces.model.chart.AxisType;
-import org.primefaces.model.chart.BarChartModel;
-import org.primefaces.model.chart.ChartSeries;
+
 
 import vmesniki.*;
 import vao.Dogodek;
@@ -40,6 +37,9 @@ public class DogodekModel implements Serializable {
 	//vrne osebe ki so prijavljene na dogodek
 	public List<Oseba> getVrniPrijavljeneOsebeNaDogodek(){
 		//return ejb.vrniMojeUdelezence(izbranDogodek.getIdDogodek());
+		if(izbranDogodek==null)
+			return new ArrayList<>();
+		
 		izbranDogodek = ejb.vrniMojDogodek(izbranDogodek.getIdDogodek());
 		
 		return izbranDogodek.getUdelezenci();
