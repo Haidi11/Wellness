@@ -74,6 +74,7 @@ v Wildfly je potrebno ustavriti datasource java:jboss/datasources/baza in v MySq
 * nato mu dodate novi tip ( opcij view in add)
 * Socket-binding: mail-smtp - Type: smtp - Username: "Your@gmail account" - Password: ********* - SSL: enable
 * restartraj server
+* v standalalone.xml je potrebno nastaviti port na 465 (na koncu datoteke)
 
 
 ## GSON
