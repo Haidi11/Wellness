@@ -11,16 +11,16 @@ import javax.mail.internet.MimeMessage;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
+import vmesniki.MailVmesnik;
+
 @Stateless
 @Resource(name= "java:/jboss/mail/gmail")
-public class MailBean {
+public class MailBean implements MailVmesnik {
 	
 	private Session session;
-
-	public MailBean() {
-		
-	}
+	public MailBean() {}
 	
+	@Override
 	public void poslji(String to, String subject, String body) {
 		
 		try {
@@ -32,12 +32,8 @@ public class MailBean {
 			Transport.send(msg);
 		}catch(MessagingException e) {
 			System.out.println("ne gre poslat :( ");
-		}
-		
+		}	
 	}
-
-	
-	
 }
 	
 	

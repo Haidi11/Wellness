@@ -66,7 +66,7 @@ v Wildfly je potrebno ustavriti datasource java:jboss/datasources/baza in v MySq
 * geslo: geslo
 
 
-**Konfiguracija maila:**
+**Mail:**
 * zaženi server
 * Pojdi na konfiguracije strežnika 
 * v Subsystem izberite Mail in add
@@ -75,6 +75,8 @@ v Wildfly je potrebno ustavriti datasource java:jboss/datasources/baza in v MySq
 * Socket-binding: mail-smtp - Type: smtp - Username: "Your@gmail account" - Password: ********* - SSL: enable
 * restartraj server
 * v standalalone.xml je potrebno nastaviti port na 465 (na koncu datoteke)
+* mail za testiranje: sduper587@gmail.com, geslo:Q75FvKN6Uz7y
+* link za dajanje dovoljenja manj varnim aplikacijam: https://myaccount.google.com/lesssecureapps
 
 
 ## GSON
