@@ -29,4 +29,22 @@ public class OsebaBean implements OsebaVmesnik{
     public List<Oseba> vrniSeznamVsehOseb() {
         return entityManager.createQuery("select o from Oseba o").getResultList();
     }
+    
+    @Override 
+    public Oseba topUporabnik() { 
+      Oseba temo = (Oseba) entityManager.createQuery("select e from Oseba e where MONTH(e.) and e.tocke = max(e.tocke)") 
+        .getSingleResult(); 
+       
+      return temo; 
+       
+       
+    } 
+   
+    @Override 
+    public Oseba topMesecniUporanbik() { 
+//      Oseba temo = (Oseba) entityManager.createQuery("select max(e.dateProcessed) from Oseba e ").setParameter("mesec", GregorianCalendar.getInstance().get(Calendar.MONTH)) 
+//            .getSingleResult(); 
+  //   
+  return null; 
+    } 
 }

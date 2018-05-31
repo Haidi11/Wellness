@@ -131,7 +131,14 @@ public class DogodekBean implements DogodekVmesnik {
 		Query q = em.createQuery("select d from Dogodek d where d.idLastnik= :id");
 		q.setParameter("id", id);
 
-		return q.getResultList();
+		   List<Dogodek> seznam = q.getResultList(); 
+		     
+		    for (Dogodek d : seznam) { 
+		      d.setSteviloPrijavljenih(d.getUdelezenci().size()); 
+		       
+		       
+		    } 
+		    return seznam; 
 
 	}
 
