@@ -1408,8 +1408,9 @@ blockquote {
 	font-style: italic;
 }
 
+/* poprvek 2em na manj*/
 p, ul, ol, dl, table {
-	margin-bottom: 2em;
+	margin-bottom: 10px;
 }
 
 br.clear {
@@ -2278,4 +2279,22 @@ mojDogodek, drugi gumbi
 .dis_true{
 	background-color: gray;
 	
+}
+
+/* 
+Opozorilo
+*/
+
+.opozorilo{
+	color: red;
+	 font-size: 14px;
+}
+
+/* 
+za radio gumbke
+*/
+
+.radioGumbi{
+	width: 200px;
+	height: 10px;
 }

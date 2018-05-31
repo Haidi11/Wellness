@@ -11,18 +11,18 @@
 
 	<ui:define name="main">
 		<f:view>  
-			<h:form style=" padding-left:30px;">
+			<h:form>
 			Ime: <h:inputText id="ime" value="#{osebe.novaOseba.ime}"
-					validatorMessage=" Ime?" 	>
+					validatorMessage="Prosim vnesite ime" 	>
 					<f:validateRequired />
 				</h:inputText>
-				<h:message for="ime" />
+					<span class="opozorilo"><h:message for="ime"></h:message></span>
 				<br />
 			Priimek: <h:inputText  id="priimek" value="#{osebe.novaOseba.priimek}"
-					validatorMessage=" Priimek?">
+					validatorMessage= "Prosim vnesite priimek">
 					<f:validateRequired />
 				</h:inputText>
-				<h:message for="priimek"></h:message>
+				<span class="opozorilo"><h:message for="priimek"></h:message></span>
 				<br />
 			Datum rojstva: <input type="date"
 					jsf:value="#{osebe.novaOseba.datumRojstva.time}">
@@ -35,61 +35,64 @@
 				</input>
 				<br />
 			Email:	<h:inputText id="email" value="#{osebe.novaOseba.email}"
-					validatorMessage=" Email?">
+					validatorMessage="Prosim vnesite email">
 					<f:validateRequired />
 					<f:validateRegex pattern=".+\@.+\..+" />
 				</h:inputText>
-				<h:message for="email" />
+				<span class="opozorilo"><h:message for="email"></h:message></span>
 				<br />
 			EMŠO:	<h:inputText id="emso" value="#{osebe.novaOseba.EMSO}"
-					validatorMessage=" EMŠO?">
+					validatorMessage=" Prosim vnesite EMŠO">
 					<f:validateRequired />
 				</h:inputText>
-				<h:message for="emso" />
+				<span class="opozorilo"><h:message for="emso"></h:message></span>
 				<br />
-			Spol:	<h:selectOneRadio id="spol" value="#{osebe.novaOseba.spol}"
-					validatorMessage="Spol?">
+			Spol:	<h:selectOneRadio id="spol" class="radioGumbi" value="#{osebe.novaOseba.spol}"
+					validatorMessage="Prosim vnesite spol">
 					<f:selectItem itemValue="Z" itemLabel="Ženska" />
 					<f:selectItem itemValue="M" itemLabel="Moški" />
-					<h:message for="spol" />
 					<f:validateRequired />
 				</h:selectOneRadio>
+				<span class="opozorilo"><h:message for="spol"></h:message></span>
+				<br />
 			Telefonska Številka: <h:inputText id="telefonskaStevilka" value="#{osebe.novaOseba.telefonskaStevilka}"
-					validatorMessage=" Telefonska številka">
+					validatorMessage="Prosim vnesite telefonsko številko">
 					<f:validateRequired />
 				</h:inputText>
-				<h:message for="telefonskaStevilka"></h:message>
+				<span class="opozorilo"><h:message for="telefonskaStevilka"></h:message></span>
 				<br />
 			Davčna Številka: <h:inputText id="davcnaStevilka" value="#{osebe.novaOseba.davcnaStevilka}"
-					validatorMessage=" Davèna številka">
+					validatorMessage="Prosim vnesite davčno številko">
 					<f:validateRequired />
 				</h:inputText>
-				<h:message for="davcnaStevilka"></h:message>
+				<span class="opozorilo"><h:message for="davcnaStevilka"></h:message></span>
 				<br />
 			Oddelek: <h:inputText id="oddelek" value="#{osebe.novaOseba.oddelek}"
-					validatorMessage=" Oddelek?">
+					validatorMessage="Prosim vnesite oddelek">
 					<f:validateRequired />
 				</h:inputText>
-				<h:message for="oddelek"></h:message>
+				<span class="opozorilo"><h:message for="oddelek"></h:message></span>
 				<br />
-			Organizator dogodkov:	<h:selectOneRadio id="organizatordogodkov" value="#{osebe.novaOseba.organizatorDogodkov}"
-					validatorMessage="Organizator dogodkov?">
+			Organizator dogodkov:	<h:selectOneRadio id="organizatordogodkov" class="radioGumbi" value="#{osebe.novaOseba.organizatorDogodkov}"
+					validatorMessage="Prosim vnesite ali je oseba organizator dogodkov?">
 					<f:selectItem itemValue="#{true}" itemLabel="da" />
 					<f:selectItem itemValue="#{false}" itemLabel="ne" />
-					<h:message for="organizatordogodkov" />
 					<f:validateRequired />
 				</h:selectOneRadio>
-			Kadrovska služba:	<h:selectOneRadio id="kadrovskaSluzba" value="#{osebe.novaOseba.kadrovskaSluzba}"
-					validatorMessage="Kadrovska služba?">
+
+			Kadrovska služba:	<h:selectOneRadio  id="kadrovskaSluzba" class="radioGumbi" value="#{osebe.novaOseba.kadrovskaSluzba}"
+					validatorMessage="Prosim vnesite ali je oseba član kadrovske službe">
 					<f:selectItem itemValue="#{true}" itemLabel="da" />
 					<f:selectItem itemValue="#{false}" itemLabel="ne" />
-					<h:message for="kadrovskaSluzba" />
 					<f:validateRequired />
 				</h:selectOneRadio>
-		Vloga <h:inputText id="vloga" value="#{osebe.novaOseba.vloga}"
-					validatorMessage="Vloga">
+				
+			Vloga <h:inputText id="vloga" value="#{osebe.novaOseba.vloga}"
+					validatorMessage="Prosim vnesite vlogo osebe v podjetju">
 					<f:validateRequired />
-				</h:inputText>
+				</h:inputText> 
+				<span class="opozorilo"><h:message for="vloga"></h:message></span>
+				<br />
 				<h:commandButton value="Dodaj Zaposlenega"
 						actionListener="#{osebe.dodajOsebo()}" />
 
