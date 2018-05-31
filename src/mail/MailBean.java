@@ -28,6 +28,7 @@ public class MailBean implements MailVmesnik {
 			msg.setSubject(subject);
 			msg.setText(body);
 			Transport.send(msg);
+			System.out.println("mail uspesno poslan :)"); 
 		}catch(MessagingException e) {
 			e.printStackTrace();
 			System.out.println("ne gre poslat :( ");
