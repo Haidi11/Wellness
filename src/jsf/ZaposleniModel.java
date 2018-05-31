@@ -20,26 +20,25 @@ import vao.Oseba;
 public class ZaposleniModel {
 
 	private Dogodek dogodekPodrobno;
-	
-	
+
 	@PostConstruct
 	public void naredi() {
-		dogodekPodrobno= new Dogodek();
-		
+		dogodekPodrobno = new Dogodek();
+
 	}
 
 	@EJB
-	OsebaVmesnik ov; 
-	
+	OsebaVmesnik ov;
+
 	@EJB
 	DogodekVmesnik dv;
 
-	//prikaz podrobnosti
+	// prikaz podrobnosti
 	public void prikaziPodrobno(Dogodek d) {
-		this.dogodekPodrobno=d;
-		
+		this.dogodekPodrobno = d;
+
 	}
-	
+
 	// za prikaz stilov glede na prijavljenost
 	private String prijave;
 
@@ -62,54 +61,54 @@ public class ZaposleniModel {
 		// System.out.println(prijave);
 		return p.getSeznam();
 	}
-	
-	//za prikaz imena, vloge
+
+	// za prikaz imena, vloge
 	public Oseba getUporabnik() {
 		return dv.najdiPoUporabniskemImenu(vrniUporabnika().getName());
-		
+
 	}
-	
-	
+
 	public String odjavi() {
-		
+
 		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-		
-//System.out.println("odjava");
+
+		// System.out.println("odjava");
 		return "index.xhtml?faces-redirect=true";
 	}
-	
-	//prikaz tock na index za uporabnika z najvec tockami 
-	  public Oseba getTopUporabnik() { 
-	    return ov.topUporabnik(); 
-	     
-	  } 
-	  //prikaz tock za top mesecnega uporabnika 
-	  public Oseba getTopMesecniUporabnik() { 
-	    return ov.topMesecniUporanbik(); 
-	   
-	  } 
-	  
-	  //ce je prvic
-	  public void prvic() {
-		  if(ov.vrniSeznamVsehOseb().size()==0) {
-		  Oseba o = new Oseba();
-		  o.setDatumRojstva(Calendar.getInstance());
-		  o.setDatumZaposlitve(Calendar.getInstance());
-		  o.setDavcnaStevilka("4wfw");
-		  o.setEmail("nekaj@nekaj.com");
-		  o.setEMSO("9i9494944");
-		  o.setIme("Luka");
-		  o.setOddelek("informatika");
-		  o.setPriimek("Pavlič");
-		  o.setSpol("M");
-		  o.setGeslo("luka123");
-		  o.setUporabniskoIme("luka");
-		  o.setTelefonskaStevilka("i99i");
-		  o.setVloga("kadrovska");
-		  
-		  ov.dodajOsebo(o);
-		  }
-	  }
+
+	// prikaz tock na index za uporabnika z najvec tockami
+	public List<Oseba> getTopUporabnik() {
+		return ov.topUporabnik();
+
+	}
+
+	// prikaz tock za top mesecnega uporabnika
+	public List<Oseba> getTopMesecniUporabnik() {
+		return ov.topMesecniUporanbik();
+
+	}
+
+	// ce je prvic
+	public void prvic() {
+		if (ov.vrniSeznamVsehOseb().size() == 0) {
+			Oseba o = new Oseba();
+			o.setDatumRojstva(Calendar.getInstance());
+			o.setDatumZaposlitve(Calendar.getInstance());
+			o.setDavcnaStevilka("4wfw");
+			o.setEmail("nekaj@nekaj.com");
+			o.setEMSO("9i9494944");
+			o.setIme("Luka");
+			o.setOddelek("informatika");
+			o.setPriimek("Pavlič");
+			o.setSpol("M");
+			o.setGeslo("luka123");
+			o.setUporabniskoIme("luka");
+			o.setTelefonskaStevilka("i99i");
+			o.setVloga("kadrovska");
+
+			ov.dodajOsebo(o);
+		}
+	}
 
 	/*
 	 * getterji, setterji
@@ -129,7 +128,5 @@ public class ZaposleniModel {
 	public void setDogodekPodrobno(Dogodek dogodekPodrobno) {
 		this.dogodekPodrobno = dogodekPodrobno;
 	}
-
-	
 
 }

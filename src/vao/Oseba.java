@@ -239,7 +239,7 @@ public class Oseba {
 	public void setUporabniskoIme(String uporabniskoIme) {
 		this.uporabniskoIme = uporabniskoIme;
 	}
-
+	@Transient
 	public String getUdelezba() {
 		return udelezba;
 	}

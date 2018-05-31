@@ -19,8 +19,29 @@
  		</map>
  		
  		
- 			  <div>Zaposleni z največ točkami:#{zaposleni.topUporabnik.ime} #{zaposleni.topUporabnik.priimek} z #{zaposleni.topUporabnik.tocke} točkami.
-         			uporabnik z največ točkami ta mesec: #{zaposleni.topMesecniUporabnik.ime} #{zaposleni.topMesecniUporabnik.priimek} z #{zaposleni.topMesecniUporabnik.stTockTaMesec} tockami.
+ 			  <div class="tockovnik"><h:dataTable value="#{zaposleni.topUporabnik}" var="a">
+					<h:column>
+						Zaposleni z največ točkami:
+						<h:outputText value="#{a.ime}"></h:outputText> 
+						<h:outputText value="#{a.priimek}"></h:outputText> z 
+						 
+						<h:outputText value="#{a.tocke}"></h:outputText> točkami.
+					</h:column>
+					
+					</h:dataTable>
+ 			  <h:dataTable value="#{zaposleni.topMesecniUporabnik}" var="a">
+					<h:column>
+						Zaposleni z največ točkami ta mesec:
+						<h:outputText value="#{a.ime}"></h:outputText> 
+						<h:outputText value="#{a.priimek}"></h:outputText> z 
+						 
+						<h:outputText value="#{a.tocke}"></h:outputText> točkami.
+					</h:column>
+					
+					</h:dataTable>
+ 			  
+ 			
+         			
        </div> 
  		
   	 </f:view>   

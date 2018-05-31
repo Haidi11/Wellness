@@ -6,6 +6,8 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import com.sun.org.apache.bcel.internal.generic.NEW;
+
 import block.Block;
 
 import java.util.ArrayList;
@@ -36,22 +38,21 @@ public class OsebaBean implements OsebaVmesnik {
 	}
 
 	@Override
-	public Oseba topUporabnik() {
-		Oseba temo = (Oseba) entityManager
-				.createQuery("select e from Oseba e where e.tocke=(select max(o.tocke) from Oseba o)")
-				.getResultList().get(0);
+	public List<Oseba> topUporabnik() {
+		List<Oseba> seznam =  entityManager
+				.createQuery("select e from Oseba e where e.tocke=(select max(o.tocke) from Oseba o)").getResultList();
 
-		return temo;
+		return seznam;
 
 	}
-
+	//poisce vse tocke ki so bile dane ta mesec in nastavi vsoto uporabnikom
 	@Override
-	public Oseba topMesecniUporanbik() {
+	public List<Oseba> topMesecniUporanbik() {
 		List<Block> seznam = entityManager.createQuery("select e from Block e").getResultList();
 		List<Block> seznamBlokovTaMesec = dobiSeznamBlokovZaTaMesec(seznam);
 		
 		if(seznamBlokovTaMesec.size()==0) {
-			return new Oseba();
+			return new ArrayList<>();
 			
 		}
 		
@@ -68,8 +69,8 @@ public class OsebaBean implements OsebaVmesnik {
 
 		return uporabnikZNajvecTockami(osebe);
 	}
-
-	private Oseba uporabnikZNajvecTockami(List<Oseba> osebe) {
+//poisci uporabnika z najvec tockami ta mesec
+	private List<Oseba> uporabnikZNajvecTockami(List<Oseba> osebe) {
 		Oseba top=osebe.get(0);
 		
 		for(Oseba o : osebe) {
@@ -79,7 +80,18 @@ public class OsebaBean implements OsebaVmesnik {
 			}
 			
 		}
-		return top;
+		
+		List<Oseba> seznamIste= new ArrayList<>();
+		
+		for(Oseba o : osebe) {
+			if(o.getStTockTaMesec()==top.getStTockTaMesec()) {
+				seznamIste.add(o);
+				
+			}
+			
+		}
+		
+		return seznamIste;
 	}
 
 	// dobi seznam blokov za ta mesec

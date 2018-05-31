@@ -238,7 +238,7 @@ public class DogodekBean implements DogodekVmesnik {
 	// pristeje tocke
 	@Override
 	public void potrdiUdelezbo(Dogodek izbranDogodek, Oseba o) {
-		System.out.println("Zacetek potrditve ");
+		//System.out.println("Zacetek potrditve ");
 		Oseba os = em.find(Oseba.class, o.getIdOseba());
 		os.setTocke(os.getTocke() + izbranDogodek.getTocke());
 		Tocke t = new Tocke();
