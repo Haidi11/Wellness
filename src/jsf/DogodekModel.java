@@ -2,6 +2,7 @@ package jsf;
 
 import java.io.Serializable;
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -40,6 +41,9 @@ public class DogodekModel implements Serializable {
 	//vrne osebe ki so prijavljene na dogodek
 	public List<Oseba> getVrniPrijavljeneOsebeNaDogodek(){
 		//return ejb.vrniMojeUdelezence(izbranDogodek.getIdDogodek());
+		if(izbranDogodek==null)
+			return new ArrayList<>();
+		
 		izbranDogodek = ejb.vrniMojDogodek(izbranDogodek.getIdDogodek());
 		
 		return izbranDogodek.getUdelezenci();

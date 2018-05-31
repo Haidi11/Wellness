@@ -2,11 +2,12 @@ package ejb;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
+import java.util.*;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
 
 import block.Block;
 import vao.Tocke;
@@ -35,22 +36,15 @@ public class BlockChainBean implements BlockChainVmesnik {
 	}
 
 	public String najdiPrejsnjiHash() {
-		Block o =  (Block) em.createQuery("select b from Block b order by b.timeStamp desc").getResultList().get(0);
-		String prejsnjiHash = o.getHash();
-		if (prejsnjiHash==null) {
-			initialBlock();
-			Block a =  (Block) em.createQuery("select b from Block b order by b.timeStamp desc").getResultList().get(0);
-			 prejsnjiHash =  a.getHash();
+		List<Block> seznam =  em.createQuery("select b from Block b order by b.timeStamp desc").getResultList();
+		
+		if (seznam.size()==0) {	
+			return " ";
 		}
-		
-		return prejsnjiHash;
+			
+		return seznam.get(0).getHash();
 	}
-	private void initialBlock() {
-		Block temp=new Block();
-		temp.setHash("9u");
-		em.persist(temp);
-		
-	}
+	
 	public void shraniBlockChain(Block block) {
 		em.persist(block);
 	}
