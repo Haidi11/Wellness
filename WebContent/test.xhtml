@@ -100,6 +100,49 @@
 					</h:column>
 
 				</h:dataTable>
+				
+				
+				
+				<h1>MOji dogodki</h1>
+				
+				<h:form>
+					<h:dataTable value="#{dogodek.mojiDogodki}" var="a">
+					<h:column>
+						<div>
+							<h:outputText class="dogodekVsebina" value="#{a.naziv}"></h:outputText>
+							
+							<div class="gumbPodrobno">
+								<input type="button" value="Podrobnosti"
+									onclick="toggleDiv(div_#{a.idDogodek})"></input>
+									<h:commandButton class="gumbZObrobo" value="Statistika"
+							action="#{dogodek.izberiDogodekKotLastnik(a)}"></h:commandButton>
+							<h:commandButton class="gumbZObrobo" value="Izbriši dogodek"
+							action="#{dogodek.izbrisiDogodek(a)}"></h:commandButton>
+							</div>
+							
+							<div class="skritiDiv" id="div_#{a.idDogodek}">
+							<span class="dogodekOznake">Število prijavljenih: </span>
+							<h:outputText class="dogodekVsebina" value="#{a.steviloPrijavljenih}"></h:outputText><br />
+							<span class="dogodekOznake">Rok prijave: </span>
+							<h:outputText class="dogodekVsebina" value="#{a.izpisiDatumPrijave}"></h:outputText><br />
+								<span class="dogodekOznake">Datum začetka: </span>
+								<h:outputText class="dogodekVsebina" value="#{a.izpisiZacetek}"></h:outputText>
+								<br /> <span class="dogodekOznake">Datum konca: </span>
+								<h:outputText class="dogodekVsebina" value="#{a.izpisiKonca}"></h:outputText>
+								<br /> <span class="dogodekOznake"> Vrednost v točkah: </span>
+								<h:outputText class="dogodekVsebina" value="#{a.tocke}"></h:outputText>
+								<br /> <span class="dogodekOznake">Opis dogodka</span><br /> <span
+									class="dogodekVsebina"><h:outputText
+										value="#{a.opisDogodka}"></h:outputText></span><br />
+
+							</div>
+						</div>
+						<hr />
+					</h:column>
+
+				</h:dataTable>
+				</h:form>
+				
 					
 					<script>
 
