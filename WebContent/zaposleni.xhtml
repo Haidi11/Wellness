@@ -101,7 +101,7 @@
 			<h:dataTable value="#{osebe.vrniVseOsebe}" var="a">
 				<h:column>
 						<div>
-							<h:outputText class="osebaPodrono" value="#{a.ime}"></h:outputText>
+							<h:outputText class="osebaNaziv" value="#{a.ime}"></h:outputText>
 							
 							<div class="gumbPodrobno">
 							<input type="button" value="Podrobnosti" onclick="toggleDiv(div_#{a.idOseba})"></input>
@@ -146,10 +146,9 @@
 								<span class="osebeOznake"> Vloga: </span>
 								<h:outputText class="osebaVsebina" value="#{a.vloga}"></h:outputText>
 								<br />
-								
-							
-							</div>
-					</div>
+								</div>
+								</div>
+								<hr />
 					</h:column>
 					</h:dataTable>
 					

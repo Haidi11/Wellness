@@ -2249,10 +2249,14 @@ input[type="button"]:active, input[type="submit"]:active, input[type="reset"]:ac
 	border-radius: 0px;
 }
 .dogodekOznake {
-	font-size: 80%;
+	font-size: 70%;
 }
 
 .dogodekVsebina {
+	color: black;
+}
+
+.dogodekNaziv {
 	color: black;
 }
 
@@ -2315,9 +2319,14 @@ za radio gumbke
 
 
 .osebeOznake {
-	font-size: 80%;
+	font-size: 70%;
 }
 
 .osebaVsebina {
 	color: black;
+}
+
+.osebaNaziv{
+	color: black;
+	
 }
