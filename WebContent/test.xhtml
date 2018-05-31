@@ -71,6 +71,36 @@
 					</h:column>
 					</h:dataTable>
 					
+						<h1>Vsi dogodki</h1>
+
+				<h:dataTable value="#{dogodek.vrniVseDogodke}" var="a">
+					<h:column>
+						<div>
+							<h:outputText class="dogodekVsebina" value="#{a.naziv}"></h:outputText>
+							
+							<div class="gumbPodrobno">
+								<input type="button" value="Podrobnosti"
+									onclick="toggleDiv(div_#{a.idDogodek})"></input>
+							</div>
+							<div class="skritiDiv" id="div_#{a.idDogodek}">
+							<span class="dogodekOznake">Potek prijave: </span>
+							<h:outputText class="dogodekVsebina" value="#{a.izpisiDatumPrijave}"></h:outputText><br />
+								<span class="dogodekOznake">Datum začetka: </span>
+								<h:outputText class="dogodekVsebina" value="#{a.izpisiZacetek}"></h:outputText>
+								<br /> <span class="dogodekOznake">Datum konca: </span>
+								<h:outputText class="dogodekVsebina" value="#{a.izpisiKonca}"></h:outputText>
+								<br /> <span class="dogodekOznake"> Vrednost v točkah: </span>
+								<h:outputText class="dogodekVsebina" value="#{a.tocke}"></h:outputText>
+								<br /> <span class="dogodekOznake">Opis dogodka</span><br /> <span
+									class="dogodekVsebina"><h:outputText
+										value="#{a.opisDogodka}"></h:outputText></span><br />
+
+							</div>
+						</div>
+					</h:column>
+
+				</h:dataTable>
+					
 					<script>
 
 	function toggleDiv(a){
