@@ -3,18 +3,18 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:jsf="http://xmlns.jcp.org/jsf">
-	<style>
-	column {
+<style>
+column {
 	padding: 10px;
-	}
-	</style>
+}
+</style>
 
 
 <ui:composition template="WEB-INF/template/template2.xhtml">
 
 
-	<ui:define name="main">  
-		<f:view>  
+	<ui:define name="main">
+		<f:view>
 			<h:form>
 			Naziv: <h:inputText id="naziv" value="#{dogodek.novDogodek.naziv}"
 					validatorMessage="Vnesite naziv dogodka">
@@ -22,82 +22,100 @@
 				</h:inputText>
 				<span class="opozorilo"><h:message for="naziv"></h:message></span>
 				<br />
-			Točke: <h:inputText id="tocke" value="#{dogodek.novDogodek.tocke}"
-					validatorMessage="Vnesite število točk">
-					<f:validateRequired />
-				</h:inputText>
+			Točke: <input type="number" min="0" id="tocke" jsf:value="#{dogodek.novDogodek.tocke}">
+
+				</input>
 				<span class="opozorilo"><h:message for="tocke"></h:message></span>
 				<br />
-		<div class="vnosCasa">Rok prijave:</div> <input type="date"
+				<div class="vnosCasa">Rok prijave:</div>
+				<input type="date"
 					jsf:value="#{dogodek.novDogodek.datumPrijave.time}">
-				<f:convertDateTime pattern="yyyy-MM-dd" /> 
-				</input> <input type="time"
-					jsf:value="#{dogodek.novDogodek.datumPrijave.time}">
-				<f:convertDateTime pattern="HH:mm" /> </input>
-				<br />
-			
-				
-							
-			<div class="vnosCasa">Datum začetka:</div> <input type="date"
-					jsf:value="#{dogodek.novDogodek.datumZacetka.time}">
 				<f:convertDateTime pattern="yyyy-MM-dd" />
-				</input><input type="time"
-					jsf:value="#{dogodek.novDogodek.datumZacetka.time}">
+				</input>
+				<input type="time"
+					jsf:value="#{dogodek.potekUra.time}">
 				<f:convertDateTime pattern="HH:mm" />
 				</input>
 				<br />
-				
-		<div class="vnosCasa">Datum konca:</div> <input type="date"
-					jsf:value="#{dogodek.novDogodek.datumKonca.time}">
+
+
+
+				<div class="vnosCasa">Datum začetka:</div>
+				<input type="date"
+					jsf:value="#{dogodek.novDogodek.datumZacetka.time}">
 				<f:convertDateTime pattern="yyyy-MM-dd" />
-				</input> <input type="both"
-					jsf:value="#{dogodek.novDogodek.datumKonca.time}">
-				<f:convertDateTime pattern="yyyy-MM-dd HH:mm" />
-				</input>
 				
+				</input>
+				<input type="time"
+					jsf:value="#{dogodek.uraZacetka.time}">
+				<f:convertDateTime pattern="HH:mm" />
+				</input>
 				<br />
-			Opis dogodka:	<h:inputTextarea id="opis" value="#{dogodek.novDogodek.opisDogodka}"
+
+				<div class="vnosCasa">Datum konca:</div>
+				<input type="date" jsf:value="#{dogodek.novDogodek.datumKonca.time}">
+				<f:convertDateTime pattern="yyyy-MM-dd" />
+				</input>
+				<input type="time" jsf:value="#{dogodek.uraKonca.time}">
+				<f:convertDateTime pattern="HH:mm" />
+				</input>
+
+				<br />
+			Opis dogodka:	<h:inputTextarea id="opis"
+					value="#{dogodek.novDogodek.opisDogodka}"
 					validatorMessage="Vnesite opis dogodka">
 					<f:validateRequired />
 				</h:inputTextarea>
 				<span class="opozorilo"><h:message for="opis"></h:message></span>
 				<br />
-				
-			<h:commandButton value="Dodaj dogodek"
-						actionListener="#{dogodek.dodajDogodek()}" />
-					<br />	
-					
-					
+
+				<h:commandButton value="Dodaj dogodek"
+					actionListener="#{dogodek.dodajDogodek()}" />
+				<br />
+
+
 				<h1>Vsi dogodki</h1>
 
 				<h:dataTable value="#{dogodek.vrniVseDogodke}" var="a">
 					<h:column>
 						<div>
 							<h:outputText class="dogodekNaziv" value="#{a.naziv}"></h:outputText>
-							
+
 							<div class="gumbPodrobno">
 								<input type="button" value="Podrobnosti"
 									onclick="toggleDiv(div_#{a.idDogodek})"></input>
 							</div>
 							<div class="skritiDiv" id="div_#{a.idDogodek}">
-							<span class="dogodekOznake">Potek prijave: </span>
-							<h:outputText class="dogodekVsebina" value="#{a.izpisiDatumPrijave}"></h:outputText><br />
-								<span class="dogodekOznake">Datum začetka: </span>
+							
+								<span class="dogodekOznake">Potek prijave: </span>
+								
+								<h:outputText class="dogodekVsebina" value="#{a.izpisiDatumPrijave}"></h:outputText>
+								
+								<br /> <span class="dogodekOznake">Datum začetka: </span>
+
 								<h:outputText class="dogodekVsebina" value="#{a.izpisiZacetek}"></h:outputText>
+
 								<br /> <span class="dogodekOznake">Datum konca: </span>
+
 								<h:outputText class="dogodekVsebina" value="#{a.izpisiKonca}"></h:outputText>
+
 								<br /> <span class="dogodekOznake"> Vrednost v točkah: </span>
+
 								<h:outputText class="dogodekVsebina" value="#{a.tocke}"></h:outputText>
-								<br /> <span class="dogodekOznake">Opis dogodka</span><br /> <span
-									class="dogodekVsebina"><h:outputText
-									value="#{a.opisDogodka}"></h:outputText></span><br />
-								</div>
-								</div>
-								<hr />
-						</h:column>
-					</h:dataTable>
-					
-					<script>
+
+								<br /> <span class="dogodekOznake">Opis dogodka</span><br /> 
+								
+								<span class="dogodekVsebina"> 
+								
+								<h:outputText value="#{a.opisDogodka}"></h:outputText>
+								</span> <br />
+							</div>
+						</div>
+						<hr />
+					</h:column>
+				</h:dataTable>
+
+				<script>
 					function toggleDiv(a){
 						$( a ).toggle(300);	
 						}

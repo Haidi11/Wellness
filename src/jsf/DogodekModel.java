@@ -3,6 +3,7 @@ package jsf;
 import java.io.Serializable;
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -27,6 +28,11 @@ public class DogodekModel implements Serializable {
 
 	private Dogodek novDogodek = new Dogodek();
 	private Dogodek izbranDogodek;
+	
+	private Calendar potekUra= Calendar.getInstance();
+	private Calendar uraZacetka= Calendar.getInstance();
+	private Calendar uraKonca= Calendar.getInstance();
+	
 	
 
 	//vrne dogodke prijavljenega uporabnika
@@ -66,7 +72,20 @@ public class DogodekModel implements Serializable {
 
 	public void dodajDogodek() {
 		novDogodek.setIdLastnik(getUporabnik().getIdOseba());
+		novDogodek.getDatumZacetka().set(novDogodek.getDatumZacetka().get(Calendar.YEAR),
+				novDogodek.getDatumZacetka().get(Calendar.MONTH), novDogodek.getDatumZacetka().get(Calendar.DATE), uraZacetka.get(Calendar.HOUR_OF_DAY)-1, uraZacetka.get(Calendar.MINUTE));
+		
+		novDogodek.getDatumPrijave().set(novDogodek.getDatumPrijave().get(Calendar.YEAR),
+				novDogodek.getDatumPrijave().get(Calendar.MONTH), novDogodek.getDatumPrijave().get(Calendar.DATE), potekUra.get(Calendar.HOUR_OF_DAY)-1, potekUra.get(Calendar.MINUTE));
+		
+		novDogodek.getDatumKonca().set(novDogodek.getDatumKonca().get(Calendar.YEAR),
+				novDogodek.getDatumKonca().get(Calendar.MONTH), novDogodek.getDatumKonca().get(Calendar.DATE), uraKonca.get(Calendar.HOUR_OF_DAY)-1, uraKonca.get(Calendar.MINUTE));
+		
 		ejb.dodajDogodek(novDogodek);
+		
+		potekUra= Calendar.getInstance();
+		uraZacetka= Calendar.getInstance();
+		uraKonca= Calendar.getInstance();
 		novDogodek = new Dogodek();
 	}
 	
@@ -124,6 +143,33 @@ public class DogodekModel implements Serializable {
 	public String izbranDogodekI(int id) {
 		ejb.podrobnoDogodek(id);
 		return "podrobnostiDogodek.xhtml";
+	}
+	public DogodekVmesnik getEjb() {
+		return ejb;
+	}
+	public void setEjb(DogodekVmesnik ejb) {
+		this.ejb = ejb;
+	}
+	public Calendar getPotekUra() {
+		return potekUra;
+	}
+	public void setPotekUra(Calendar potekUra) {
+		this.potekUra = potekUra;
+	}
+	public Calendar getUraZacetka() {
+		return uraZacetka;
+	}
+	public void setUraZacetka(Calendar uraZacetka) {
+		this.uraZacetka = uraZacetka;
+	}
+	public Calendar getUraKonca() {
+		return uraKonca;
+	}
+	public void setUraKonca(Calendar uraKonca) {
+		this.uraKonca = uraKonca;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 }
