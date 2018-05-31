@@ -2337,3 +2337,13 @@ za radio gumbke
 	margin-bottom: 0 px;
 	margin-left:1px;
 }
+
+/*
+	vnos casa
+*/
+.vnosCasa{
+	width: 180px;
+	display: inline-block;
+	overflow:hidden;
+	
+}

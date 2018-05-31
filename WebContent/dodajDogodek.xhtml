@@ -28,26 +28,38 @@
 				</h:inputText>
 				<span class="opozorilo"><h:message for="tocke"></h:message></span>
 				<br />
-			Rok prijave: <input type="date"
+		<div class="vnosCasa">Rok prijave:</div> <input type="date"
 					jsf:value="#{dogodek.novDogodek.datumPrijave.time}">
-				<f:convertDateTime pattern="yyyy-MM-dd" />
-				</input>
+				<f:convertDateTime pattern="yyyy-MM-dd" /> 
+				</input> <input type="time"
+					jsf:value="#{dogodek.novDogodek.datumPrijave.time}">
+				<f:convertDateTime pattern="HH:mm" /> </input>
+				<br />
+			
+				
 							
-			Datum začetka: <input type="date"
+			<div class="vnosCasa">Datum začetka:</div> <input type="date"
 					jsf:value="#{dogodek.novDogodek.datumZacetka.time}">
 				<f:convertDateTime pattern="yyyy-MM-dd" />
+				</input><input type="time"
+					jsf:value="#{dogodek.novDogodek.datumZacetka.time}">
+				<f:convertDateTime pattern="HH:mm" />
 				</input>
+				<br />
 				
-			Datum konca: <input type="date"
+		<div class="vnosCasa">Datum konca:</div> <input type="date"
 					jsf:value="#{dogodek.novDogodek.datumKonca.time}">
 				<f:convertDateTime pattern="yyyy-MM-dd" />
+				</input> <input type="both"
+					jsf:value="#{dogodek.novDogodek.datumKonca.time}">
+				<f:convertDateTime pattern="yyyy-MM-dd HH:mm" />
 				</input>
 				
 				<br />
-			Opis dogodka:	<h:inputText id="opis" value="#{dogodek.novDogodek.opisDogodka}"
+			Opis dogodka:	<h:inputTextarea id="opis" value="#{dogodek.novDogodek.opisDogodka}"
 					validatorMessage="Vnesite opis dogodka">
 					<f:validateRequired />
-				</h:inputText>
+				</h:inputTextarea>
 				<span class="opozorilo"><h:message for="opis"></h:message></span>
 				<br />
 				
