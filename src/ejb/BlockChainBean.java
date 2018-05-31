@@ -37,9 +37,20 @@ public class BlockChainBean implements BlockChainVmesnik {
 	public String najdiPrejsnjiHash() {
 		Block o =  (Block) em.createQuery("select b from Block b order by b.timeStamp desc").getResultList().get(0);
 		String prejsnjiHash = o.getHash();
+		if (prejsnjiHash==null) {
+			initialBlock();
+			Block a =  (Block) em.createQuery("select b from Block b order by b.timeStamp desc").getResultList().get(0);
+			 prejsnjiHash =  a.getHash();
+		}
+		
 		return prejsnjiHash;
 	}
-
+	private void initialBlock() {
+		Block temp=new Block();
+		temp.setPrejsnjiHash("9u");
+		em.persist(temp);
+		
+	}
 	public void shraniBlockChain(Block block) {
 		em.persist(block);
 	}
