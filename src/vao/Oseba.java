@@ -22,7 +22,7 @@ import orodja.Oro;
 
 @Entity(name = "Oseba")
 public class Oseba {
- 
+
 	private int idOseba;
 	private String ime;
 	private String priimek;
@@ -44,6 +44,8 @@ public class Oseba {
 	private String udelezba;
 	@Transient
 	private boolean gumbUdelezba;
+	@Transient
+	private int stTockTaMesec;
 
 	private List<Nasvet> nasveti = new ArrayList<>();
 	private List<Dogodek> dogodki = new ArrayList<>();
@@ -65,8 +67,8 @@ public class Oseba {
 		this.vloga = "";
 
 	}
-	
-	public Oseba (int id ) {
+
+	public Oseba(int id) {
 		this.idOseba = id;
 	}
 
@@ -255,13 +257,21 @@ public class Oseba {
 		this.gumbUdelezba = gumbUdelezba;
 	}
 
-
-	 @OneToMany(mappedBy = "avtor", targetEntity=Nasvet.class,fetch=FetchType.EAGER)
+	@OneToMany(mappedBy = "avtor", targetEntity = Nasvet.class, fetch = FetchType.EAGER)
 	public List<Nasvet> getNasveti() {
 		return nasveti;
 	}
 
 	public void setNasveti(List<Nasvet> nasveti) {
 		this.nasveti = nasveti;
+	}
+
+	@Transient
+	public int getStTockTaMesec() {
+		return stTockTaMesec;
+	}
+
+	public void setStTockTaMesec(int stTockTaMesec) {
+		this.stTockTaMesec = stTockTaMesec;
 	}
 }

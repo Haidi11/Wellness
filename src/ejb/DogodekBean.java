@@ -206,7 +206,7 @@ public class DogodekBean implements DogodekVmesnik {
 		// and d.idDogodek= :idDogodek");
 		// q.setParameter("idOseba", o.getIdOseba());
 		// q.setParameter("idDogodek", d.getIdDogodek());
-		Query q = em.createQuery("select d from Block d where d.idOSeba = :idOseba and d.idDogodek= :idDogodek");
+		Query q = em.createQuery("select d from Block d where d.idOseba = :idOseba and d.idDogodek= :idDogodek");
 		q.setParameter("idOseba", o.getIdOseba());
 		q.setParameter("idDogodek", d.getIdDogodek());
 

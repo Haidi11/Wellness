@@ -16,7 +16,7 @@ public class Block {
 	private int idBlock;
 	private int stTock;
 	private int idDogodek;
-	private int idOSeba;
+	private int idOseba;
 	private String hash;
 	private String prejsnjiHash;
 	private long timeStamp;
@@ -25,7 +25,7 @@ public class Block {
 	
 	public Block (int id, int idOseba, int idDogodek, String prejsnjiHash) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		this.stTock = id;
-		this.idOSeba = idOseba;
+		this.idOseba = idOseba;
 		this.idDogodek = idDogodek;
 		this.hash = izracunHash();
 		this.prejsnjiHash = prejsnjiHash;
@@ -33,7 +33,7 @@ public class Block {
 	}
 	
 	public String izracunHash() throws NoSuchAlgorithmException, UnsupportedEncodingException {
-		String izracunanHash = Podpis.generiranjePodpisa(prejsnjiHash + Long.toString(timeStamp)+Long.toString(stTock)+Long.toString(idOSeba)+Long.toString(idDogodek));
+		String izracunanHash = Podpis.generiranjePodpisa(prejsnjiHash + Long.toString(timeStamp)+Long.toString(stTock)+Long.toString(idOseba)+Long.toString(idDogodek));
 		return izracunanHash;
 	}
 	
@@ -72,12 +72,12 @@ public class Block {
 		this.idDogodek = idDogodek;
 	}
 
-	public int getIdOSeba() {
-		return idOSeba;
+	public int getIdOseba() {
+		return idOseba;
 	}
 
 	public void setIdOSeba(int idOSeba) {
-		this.idOSeba = idOSeba;
+		this.idOseba = idOSeba;
 	}
 
 	public int getIdBlock() {
