@@ -2249,10 +2249,14 @@ input[type="button"]:active, input[type="submit"]:active, input[type="reset"]:ac
 	border-radius: 0px;
 }
 .dogodekOznake {
-	font-size: 80%;
+	font-size: 70%;
 }
 
 .dogodekVsebina {
+	color: black;
+}
+
+.dogodekNaziv {
 	color: black;
 }
 
@@ -2297,4 +2301,39 @@ za radio gumbke
 .radioGumbi{
 	width: 200px;
 	height: 10px;
+}
+
+/* za skrite dive pri osebah */
+
+.skritiDiv{
+	
+	display: none;
+	
+}
+
+.gumbPodrobno{
+	float:right;
+	text-align: center;
+	
+}
+
+
+.osebeOznake {
+	font-size: 70%;
+}
+
+.osebaVsebina {
+	color: black;
+}
+
+.osebaNaziv{
+	color: black;
+	
+}
+
+.gumbZObrobo{
+	margin-top:0px;
+	margin-right: 1px;
+	margin-bottom: 0 px;
+	margin-left:1px;
 }

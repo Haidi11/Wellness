@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+	
+	<h:body>
+	<h2>Kontaktiraj nas!</h2>
+	<h4>Mail</h4>
+	<h:form>
+	<h:outputText value="Vnesite svoj mail"></h:outputText><br></br>
+	<h:inputText id="email" value="#{mail.novMail.mailPrejemnika}"></h:inputText><br></br>
+	<h:outputText value="Vnesite predmet"></h:outputText><br></br>
+	<h:inputText id="predmet" value="#{mail.novMail.predmet}"></h:inputText><br></br>
+	<h:outputText value="Vnesite vsebino"></h:outputText><br></br>
+	<h:inputText id="vsebina" value="#{mail.novMail.vsebina}"></h:inputText><br></br>
+	<h:commandButton value="Poslji" action="#{mail.poslji(mail.novMail.mailPrejemnika,mail.novMail.predmet,mail.novMail.vsebina)}"></h:commandButton>
+	</h:form>
+	</h:body> 
+</html>
