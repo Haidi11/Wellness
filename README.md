@@ -16,7 +16,7 @@ odvisno od tipa podjetja, kamor vpeljujete rešitev
 
 ## Predvideni uporabniki
 
-* Kadrovska služba (dodajanje uporabnika, dodajanje dogodkov + vse ostalo) 
+* Kadrovska služba (dodajanje uporabnika, dodajanje dogodkov + funkcionlnosti zaposlenega) 
 * zaposleni (pregled dogodkov, pisanje nasvetov, pregled statistike, prijava na dogodke) 
 * organizatorji dogodkov (dodajanje dogodkov + funkcionlnosti zaposlenega)
 
