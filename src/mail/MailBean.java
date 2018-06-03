@@ -7,6 +7,9 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+
+import jms.Sporocilo;
+
 import javax.annotation.Resource;
 
 import vmesniki.MailVmesnik;
@@ -33,6 +36,12 @@ public class MailBean implements MailVmesnik {
 			e.printStackTrace();
 			System.out.println("ne gre poslat :( ");
 		}	
+	}
+
+	@Override
+	public void poslji(Sporocilo s) {
+		poslji(s.getEmail(),s.getZadeva(),s.getTelo());
+		
 	}
 }
 	

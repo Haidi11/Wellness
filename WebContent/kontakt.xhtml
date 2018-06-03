@@ -15,6 +15,7 @@
 	<h:outputText value="Vnesite vsebino"></h:outputText><br></br>
 	<h:inputText id="vsebina" value="#{mail.novMail.vsebina}"></h:inputText><br></br>
 	<h:commandButton value="Poslji" action="#{mail.poslji(mail.novMail.mailPrejemnika,mail.novMail.predmet,mail.novMail.vsebina)}"></h:commandButton>
+	<h:commandButton value="Poslji preko JMS" actionListener="#{mail.posljiJMS}"></h:commandButton>
 	</h:form>
 	</h:body> 
 </html>

@@ -7,12 +7,17 @@ import javax.faces.bean.SessionScoped;
 import mail.Mail;
 import vmesniki.MailVmesnik;
 import vmesniki.NasvetVmesnik;
+import vmesniki.PosljiVmesnik;
 
 @ManagedBean(name = "mail")
 @SessionScoped
 public class MailModel {
 	private Mail novMail = new Mail();
 	
+	@EJB
+	PosljiVmesnik pv;
+	
+	//tega zdaj vec ne rabimo
 	@EJB
 	MailVmesnik ejb;
 	
@@ -21,6 +26,11 @@ public class MailModel {
 		novMail.setPredmet(subject);
 		novMail.setVsebina(body);
 		ejb.poslji(novMail.getMailPrejemnika(), novMail.getPredmet(), novMail.getVsebina());
+	}
+	
+	public void posljiJMS() {
+		pv.poslji(novMail);
+		
 	}
 
 	public Mail getNovMail() {

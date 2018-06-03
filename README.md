@@ -39,6 +39,12 @@ odvisno od tipa podjetja, kamor vpeljujete rešitev
 * WildFly-11.0.0.Final
 * MySql 
 
+**JMS**
+* kopiraj datoteke iz "WF11DodatekJMS.rar"
+* prilepi in prepiši datoteke v mapi serverja
+
+
+
 v Wildfly je potrebno ustavriti datasource java:jboss/datasources/baza in v MySql kreirati bazo "baza". V administrativni konzoli WildFly strežnika ustvarimo Non XA datasource, katermu nastavimo JNDI: java:jboss/datasources/baza in Connection URL: jdbc:mysql://localhost:3306/baza. 
 
 **Login:**
@@ -57,30 +63,33 @@ v Wildfly je potrebno ustavriti datasource java:jboss/datasources/baza in v MySq
 
 `/subsystem=ejb3/application-security-domain=KEKSApplicationDomain:add(security-domain=KEKS-domain)`
 
-* Če uporabnikov v bazi ni, se bo en sam vnesel
+** Če uporabnikov v bazi ni, se bo en sam vnesel**
 
 * uporabniško ime: luka
 * geslo: luka123
+
+
 
 
 **Mail:**
 * zaženi server
 * Pojdi na konfiguracije strežnika 
 * v Subsystem izberite Mail in add
-* vnesite: name: gmail JNDI: java:/jboss/mail/gmail
-* nato mu dodate novi tip ( opcij view in add)
-* Socket-binding: mail-smtp - Type: smtp - Username: wellness.keks@gmail.com - Password: Lukapavlic - SSL: enable
+* vnesite: 
+* name: gmail 
+* JNDI: java:/jboss/mail/gmail
+* nato klikneta na "View"
+* kjer z "Add" dodate novi tip:
+* Socket-binding: mail-smtp 
+* Type: smtp  
+* Username: wellness.keks@gmail.com
+* Password: Lukapavlic
+* SSL: enable
 * restartraj server
-* v standalalone.xml je potrebno nastaviti port na 465 (na koncu datoteke) 
-
-`<outbound-socket-binding name="mail-smtp">
-            <remote-destination host="localhost" port="465"/>
-        </outbound-socket-binding> `
-* mail za testiranje: sduper587@gmail.com, geslo:Q75FvKN6Uz7y
-* link za dajanje dovoljenja manj varnim aplikacijam: https://myaccount.google.com/lesssecureapps
+* v standalalone.xml (na koncu datoteke) je potrebno nastaviti port iz 25 na 465 in potrebno je spremeniti host iz "localhost" na "smtp.gmail.com"
 
 standalone.xml:
-  <outbound-socket-binding name="mail-smtp-gmail">
+  `<outbound-socket-binding name="mail-smtp-gmail">
             <remote-destination host="smtp.gmail.com" port="465"/>
   </outbound-socket-binding>
   
@@ -88,8 +97,10 @@ standalone.xml:
             <mail-session name="Gmail" debug="false" jndi-name="java:/jboss/mail/gmail">
                 <smtp-server outbound-socket-binding-ref="mail-smtp-gmail" ssl="true" tls="false" username="wellness.keks@gmail.com" password="Lukapavlic"/>
             </mail-session>
-   </subsystem>
-        
+   </subsystem>`
+  
+* link za dajanje dovoljenja manj varnim aplikacijam: https://myaccount.google.com/lesssecureapps     
+* mail za testiranje: sduper587@gmail.com, geslo:Q75FvKN6Uz7y
 
 **Maps**
 API: AIzaSyD4JVT8B0kQ4tYLF7GvSvZBMCYlIXuYNA4
