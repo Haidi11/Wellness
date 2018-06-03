@@ -93,7 +93,7 @@ odvisno od tipa podjetja, kamor vpeljujete rešitev
 * restartraj server
 * v standalalone.xml (na koncu datoteke) je potrebno nastaviti port iz 25 na 465 in potrebno je spremeniti host iz "localhost" na "smtp.gmail.com"
 
-standalone.xml:
+standalone.xml rezultat:
 
 `<outbound-socket-binding name="mail-smtp-gmail">
             <remote-destination host="smtp.gmail.com" port="465"/>
