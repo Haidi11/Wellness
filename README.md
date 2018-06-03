@@ -44,8 +44,13 @@ odvisno od tipa podjetja, kamor vpeljujete rešitev
 * prilepi in prepiši datoteke v mapi serverja
 
 
-
-v Wildfly je potrebno ustavriti datasource java:jboss/datasources/baza in v MySql kreirati bazo "baza". V administrativni konzoli WildFly strežnika ustvarimo Non XA datasource, katermu nastavimo JNDI: java:jboss/datasources/baza in Connection URL: jdbc:mysql://localhost:3306/baza. 
+**Baza**
+* ustvari Schemo v MySQL z imenom baza
+* ustvari Non XA Custum datasource v Wildfly administrativni konzoli
+* ime:baza
+* JNDI: java:jboss/datasources/baza
+* izberemo mysql gonilnik iz sezmana namenskih gonilnikov
+* Connection URL: jdbc:mysql://localhost:3306/baza
 
 **Login:**
 * Zaženi server.
@@ -89,11 +94,12 @@ v Wildfly je potrebno ustavriti datasource java:jboss/datasources/baza in v MySq
 * v standalalone.xml (na koncu datoteke) je potrebno nastaviti port iz 25 na 465 in potrebno je spremeniti host iz "localhost" na "smtp.gmail.com"
 
 standalone.xml:
-  `<outbound-socket-binding name="mail-smtp-gmail">
+
+`<outbound-socket-binding name="mail-smtp-gmail">
             <remote-destination host="smtp.gmail.com" port="465"/>
-  </outbound-socket-binding>
+  </outbound-socket-binding>`
   
-   <subsystem xmlns="urn:jboss:domain:mail:3.0">
+  `<subsystem xmlns="urn:jboss:domain:mail:3.0">
             <mail-session name="Gmail" debug="false" jndi-name="java:/jboss/mail/gmail">
                 <smtp-server outbound-socket-binding-ref="mail-smtp-gmail" ssl="true" tls="false" username="wellness.keks@gmail.com" password="Lukapavlic"/>
             </mail-session>
