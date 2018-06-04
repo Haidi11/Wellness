@@ -3,8 +3,7 @@ package jms;
 import java.io.Serializable;
 
 public class Sporocilo implements Serializable {
-
-	
+	private static final long serialVersionUID = 5759582486965499221L;
 	private String email;
 	private String zadeva;
 	private String telo;
