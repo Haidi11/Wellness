@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+<style>
+column {
+	padding: 10px;
+}
+</style>
+
+
+<ui:composition template="WEB-INF/template/template2.xhtml">
+
+
+	<ui:define name="main">
+		<f:view>
+			<h:form>
+			
+			Leto: <input type="number" min="0" max="3000" id="leto" jsf:value="#{tekmovanje.novoTekmovanje.leto}">
+
+				</input>
+			Mesec: <input type="number" min="1" max="12" id="mesec" jsf:value="#{tekmovanje.novoTekmovanje.mesec}">
+
+				</input>
+				
+
+				<br />
+			Nagrada:	<h:inputTextarea id="nagrada"
+					value="#{tekmovanje.novoTekmovanje.nagrada}"
+					validatorMessage="Vnesite nagrado">
+					<f:validateRequired />
+				</h:inputTextarea>
+				<span class="opozorilo"><h:message for="nagrada"></h:message></span>
+				<br />
+
+				<h:commandButton value="Dodaj tekmovanje"
+					actionListener="#{tekmovanje.dodajTekmovanje()}" />
+				<br />
+
+
+				<h1>Vsi dogodki</h1>
+
+				<h:dataTable value="#{tekmovanje.mojaTekmovanja}" var="a">
+					<h:column>
+						<div>
+							<h:outputText class="dogodekNaziv" value="#{a.leto}"></h:outputText>, 
+							<h:outputText class="dogodekNaziv" value="#{a.mesec}"></h:outputText>
+
+							<div class="gumbPodrobno">
+								<input type="button" value="Podrobnosti"
+									onclick="toggleDiv(div_#{a.id})"></input>
+								<h:commandButton type="button" value="Koncaj tekmovanje"
+									actionListener="#{tekmovanje.koncaj(a)}"></h:commandButton>
+							</div>
+							<div class="skritiDiv" id="div_#{a.id}">
+							
+								<span class="dogodekOznake">Nagrada: </span>
+								
+								<h:outputText class="dogodekVsebina" value="#{a.nagrada}"></h:outputText>
+								<span class="dogodekOznake">Zmagovalec: </span>
+								
+								<h:outputText class="dogodekVsebina" value="#{tekmovanje.oseba(a).ime}"></h:outputText> 
+								<h:outputText class="dogodekVsebina" value="#{tekmovanje.oseba(a).priimek}"></h:outputText>
+								
+								
+								
+								
+							</div>
+						</div>
+						<hr />
+					</h:column>
+				</h:dataTable>
+
+				<script>
+					function toggleDiv(a){
+						$( a ).toggle(300);	
+						}
+					</script>
+			</h:form>
+		</f:view>
+	</ui:define>
+</ui:composition>
+</html>

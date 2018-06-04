@@ -49,6 +49,7 @@ public class Oseba {
 
 	private List<Nasvet> nasveti = new ArrayList<>();
 	private List<Dogodek> dogodki = new ArrayList<>();
+	private List<Tekmovanje> tekmovanja= new ArrayList<>();
 
 	// nastavi na prazno za resetiranje vnosnih polj
 	public Oseba() {
@@ -273,5 +274,13 @@ public class Oseba {
 
 	public void setStTockTaMesec(int stTockTaMesec) {
 		this.stTockTaMesec = stTockTaMesec;
+	}
+	@OneToMany(mappedBy="lastnik", targetEntity=Tekmovanje.class)
+	public List<Tekmovanje> getTekmovanja() {
+		return tekmovanja;
+	}
+
+	public void setTekmovanja(List<Tekmovanje> tekmovanja) {
+		this.tekmovanja = tekmovanja;
 	}
 }

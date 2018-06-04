@@ -6,6 +6,8 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.hibernate.validator.constraints.Email;
+
 import com.sun.org.apache.bcel.internal.generic.NEW;
 
 import block.Block;
@@ -111,5 +113,10 @@ public class OsebaBean implements OsebaVmesnik {
 		}
 		return seznamLjudiTaMesec;
 
+	}
+	@Override
+	public Oseba najdiPoId(int id) {
+		return entityManager.find(Oseba.class, id);
+		
 	}
 }

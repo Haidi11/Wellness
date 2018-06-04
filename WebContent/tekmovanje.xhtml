@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+
+
+<ui:composition template="WEB-INF/template/template2.xhtml">
+
+
+	<ui:define name="main">
+		<f:view>
+			<h1>Tekmovanja</h1>
+			<h:form>
+					<h:dataTable value="#{tekmovanje.vsaTekmovanja}" var="a">
+					<h:column>
+						<div>
+							<h:outputText class="dogodekVsebina" value="#{a.leto}"></h:outputText> , 
+														<h:outputText class="dogodekVsebina" value="#{a.mesec}"></h:outputText>
+							
+							
+							<div class="gumbPodrobno">
+								<input type="button" value="Podrobnosti"
+									onclick="toggleDiv(div_#{a.id})"></input>
+
+							<div class="skritiDiv" id="div_#{a.id}">
+							
+							<span class="dogodekOznake">Nagrada: </span>
+							<h:outputText class="dogodekVsebina" value="#{a.nagrada}"></h:outputText><br />
+							<span class="dogodekOznake">Zmagovalec: </span>
+							<h:outputText class="dogodekVsebina" value="#{tekmovanje.oseba(a).ime}"></h:outputText><br /> 
+							<h:outputText class="dogodekVsebina" value="#{tekmovanje.oseba(a).priimek}"></h:outputText><br />
+							
+
+							</div>
+						</div>
+						<hr />
+					</h:column>
+
+				</h:dataTable>
+				</h:form>
+				
+					
+					<script>
+
+	function toggleDiv(a){
+		$( a ).toggle(300);
+		
+	}
+
+</script>
+			
+		</f:view>
+	</ui:define>
+</ui:composition>
+</html>

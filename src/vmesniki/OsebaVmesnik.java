@@ -12,5 +12,6 @@ public interface OsebaVmesnik {
     void odstraniOsebo(Oseba o);
     List<Oseba> vrniSeznamVsehOseb();
     List<Oseba> topUporabnik(); 
-    List<Oseba> topMesecniUporanbik(); 
+    List<Oseba> topMesecniUporanbik();
+	Oseba najdiPoId(int id); 
 }

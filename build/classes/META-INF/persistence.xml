@@ -9,6 +9,7 @@
     <class>vao.Dogodek</class>
     <class>vao.Oseba</class>
     <class>block.Block</class>
+    <class>vao.Tekmovanje</class>
     <class>vao.Nasvet</class>
     
     <properties>
