@@ -52,8 +52,7 @@ public class TekmovanjeBean implements TekmovanjeVmesnik {
 
 		Tekmovanje temp = em.find(Tekmovanje.class, t.getId());
 		temp.setZmagovalec(topMesecniUporanbik(temp.getMesec(), temp.getLeto()).getIdOseba());
-		System.out.println("zmaovalec");
-		System.out.println(temp.getZmagovalec());
+	
 	}
 
 	// poisce vse tocke ki so bile dane v danem mescu in letu

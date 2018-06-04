@@ -41,12 +41,14 @@ public class TekmovanjeModel {
 	}
 
 	public Oseba oseba(Tekmovanje a) {
+		if(a==null)
+		return new Oseba();
 		return ov.najdiPoId(a.getZmagovalec());
 
 	}
 
 	// potrdi zmagovalca tekmovanja
-	public void koncaj(Tekmovanje t) {
+	public void ustavi(Tekmovanje t) {
 		tv.koncajTekmovanje(t);
 
 	}

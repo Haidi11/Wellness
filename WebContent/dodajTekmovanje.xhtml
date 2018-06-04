@@ -3,11 +3,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:jsf="http://xmlns.jcp.org/jsf">
-<style>
-column {
-	padding: 10px;
-}
-</style>
+
 
 
 <ui:composition template="WEB-INF/template/template2.xhtml">
@@ -16,56 +12,59 @@ column {
 	<ui:define name="main">
 		<f:view>
 			<h:form>
-			
-			Leto: <input type="number" min="0" max="3000" id="leto" jsf:value="#{tekmovanje.novoTekmovanje.leto}">
+			<h1>Dodaj tekmovanje</h1>
+			Leto: <input type="number" min="0" max="3000" id="leto"
+					jsf:value="#{tekmovanje.novoTekmovanje.leto}"> </input>
+			Mesec: <input type="number" min="1" max="12" id="mesec"
+					jsf:value="#{tekmovanje.novoTekmovanje.mesec}"> </input>
 
-				</input>
-			Mesec: <input type="number" min="1" max="12" id="mesec" jsf:value="#{tekmovanje.novoTekmovanje.mesec}">
-
-				</input>
-				
 
 				<br />
-			Nagrada:	<h:inputTextarea id="nagrada"
+				
+			Nagrada:	<h:inputText id="nagrada"
 					value="#{tekmovanje.novoTekmovanje.nagrada}"
 					validatorMessage="Vnesite nagrado">
 					<f:validateRequired />
-				</h:inputTextarea>
-				<span class="opozorilo"><h:message for="nagrada"></h:message></span>
+				</h:inputText>
+				<span class="opozorilo"><h:message for="nagrada" /></span>
 				<br />
 
 				<h:commandButton value="Dodaj tekmovanje"
 					actionListener="#{tekmovanje.dodajTekmovanje()}" />
 				<br />
-
-
-				<h1>Vsi dogodki</h1>
+			</h:form>
+			<h:form>
+				<h1>Moja tekmovanja</h1>
 
 				<h:dataTable value="#{tekmovanje.mojaTekmovanja}" var="a">
 					<h:column>
 						<div>
-							<h:outputText class="dogodekNaziv" value="#{a.leto}"></h:outputText>, 
+							<h:outputText class="dogodekNaziv" value="#{a.leto}"></h:outputText>
+							,
 							<h:outputText class="dogodekNaziv" value="#{a.mesec}"></h:outputText>
 
 							<div class="gumbPodrobno">
 								<input type="button" value="Podrobnosti"
 									onclick="toggleDiv(div_#{a.id})"></input>
-								<h:commandButton type="button" value="Koncaj tekmovanje"
-									actionListener="#{tekmovanje.koncaj(a)}"></h:commandButton>
+
+								<h:commandButton value="Koncaj tekmovanje"
+									actionListener="#{tekmovanje.ustavi(a)}" />
 							</div>
 							<div class="skritiDiv" id="div_#{a.id}">
-							
+
 								<span class="dogodekOznake">Nagrada: </span>
-								
+
 								<h:outputText class="dogodekVsebina" value="#{a.nagrada}"></h:outputText>
 								<span class="dogodekOznake">Zmagovalec: </span>
-								
-								<h:outputText class="dogodekVsebina" value="#{tekmovanje.oseba(a).ime}"></h:outputText> 
-								<h:outputText class="dogodekVsebina" value="#{tekmovanje.oseba(a).priimek}"></h:outputText>
-								
-								
-								
-								
+
+								<h:outputText class="dogodekVsebina"
+									value="#{tekmovanje.oseba(a).ime}"></h:outputText>
+								<h:outputText class="dogodekVsebina"
+									value="#{tekmovanje.oseba(a).priimek}"></h:outputText>
+
+
+
+
 							</div>
 						</div>
 						<hr />

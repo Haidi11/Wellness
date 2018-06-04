@@ -11,8 +11,9 @@
 
 	<ui:define name="main">
 		<f:view>
-			<h1>Tekmovanja</h1>
+			
 			<h:form>
+			<h1>Tekmovanja</h1>
 					<h:dataTable value="#{tekmovanje.vsaTekmovanja}" var="a">
 					<h:column>
 						<div>
@@ -22,14 +23,14 @@
 							
 							<div class="gumbPodrobno">
 								<input type="button" value="Podrobnosti"
-									onclick="toggleDiv(div_#{a.id})"></input>
+									onclick="toggleDiv(div_#{a.id})"></input></div>
 
 							<div class="skritiDiv" id="div_#{a.id}">
 							
 							<span class="dogodekOznake">Nagrada: </span>
 							<h:outputText class="dogodekVsebina" value="#{a.nagrada}"></h:outputText><br />
 							<span class="dogodekOznake">Zmagovalec: </span>
-							<h:outputText class="dogodekVsebina" value="#{tekmovanje.oseba(a).ime}"></h:outputText><br /> 
+							<h:outputText class="dogodekVsebina" value="#{tekmovanje.oseba(a).ime} "></h:outputText>
 							<h:outputText class="dogodekVsebina" value="#{tekmovanje.oseba(a).priimek}"></h:outputText><br />
 							
 
