@@ -12,7 +12,6 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 public class EJBTimerTest {
-/*
    BufferedReader brConsoleReader = null; 
    Properties props;
    InitialContext ctx;
@@ -51,10 +50,10 @@ public class EJBTimerTest {
          TimerSessionBeanRemote timerServiceBean = (TimerSessionBeanRemote)ctx.lookup("TimerSessionBean/remote");
 
          System.out.println("["+(new Date()).toString()+ "]" + "timer created.");
-         timerServiceBean.createTimer(2000);            
+         timerServiceBean.ustvariTimer(2000);            
 
       } catch (NamingException ex) {
          ex.printStackTrace();
       }
-   }*/
+   }
 }
