@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:p="http://primefaces.org/ui">
+
+
+
+<ui:composition template="WEB-INF/template/template2.xhtml">
+
+
+	<ui:define name="main">
+		<f:view>
+
+			<h:form>
+				<h1>Struktura</h1>
+				
+				
+					
+					<p:tree styleClass="drevo" value="#{struktura.root}" var="node">
+						<p:treeNode>
+							<h:outputText value="#{node}" />
+						</p:treeNode>
+					</p:tree>
+<br />
+
+
+				</h:form>
+		</f:view>
+	</ui:define>
+</ui:composition>
+</html>
