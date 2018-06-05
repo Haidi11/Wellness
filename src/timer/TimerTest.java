@@ -27,7 +27,6 @@ public class TimerTest implements TimerSessionBeanRemote {
 	@PersistenceContext
 	EntityManager em;
 	
-	@Schedule(second="*/2")
 	public List<Dogodek> seznamDogodkov(){
 		List<Dogodek> seznamDogodekovInOseb = new ArrayList<Dogodek>();
 		seznamDogodekovInOseb = em.createQuery("select * from dogodek d").getResultList();
@@ -40,20 +39,25 @@ public class TimerTest implements TimerSessionBeanRemote {
 	    return cal.getTime();
 	}
 	
-	public void nastaviMail(String email) throws Exception {
+	public void posljiMail(String email) throws Exception {
 		Poslji poslji = new Poslji();
 		poslji.posljiMail(email, "Obvestilo", "Jutri se izvede vas dogodek.");
 	}
 	
 	public void najdiEmailZaDogodek(int idDogodka) {
-		em.createQuery("select ds from dogodek_oseba ds join Dogodek d where ds.idDogodek = :id");
+		em.createQuery("select d.");
 	}
 	
-	public void sprehodiSeCezDogodke(ArrayList<Dogodek> dogodki) {
+	@Schedule(minute="*/2")
+	public void sprehodiSeCezDogodke(List<Dogodek> dogodki) throws Exception {
+		dogodki = seznamDogodkov();
 		SimpleDateFormat dateFormatter = new SimpleDateFormat("dd:MM:yyyy HH:mm:ss");
 		for(int i = 0; i < dogodki.size();i++) {
 			if(dateFormatter.format(dogodki.get(i).getDatumZacetka().equals(dateFormatter.format(enDanPrej(dogodki.get(i).getDatumZacetka())))) != null) {
-				int idDogodkaEnDanPrej = dogodki.get(i).getIdDogodek();
+				List<Oseba> udelezenci = dogodki.get(i).getUdelezenci();
+				for (int j = 0; j < udelezenci.size(); j++) {
+					posljiMail(udelezenci.get(j).getEmail());
+				}
 			}
 		}
 	}
