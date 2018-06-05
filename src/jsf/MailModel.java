@@ -26,6 +26,7 @@ public class MailModel {
 		novMail.setPredmet(novMail.getPredmet());
 		novMail.setVsebina("Oseba z mailom: " +  njihovMail + " nam sporoča naslednje:  " + novMail.getVsebina());
 		pv.poslji(novMail);
+		novMail=new Mail();
 		
 	}
 

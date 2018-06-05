@@ -2,17 +2,19 @@ package mail;
 
 public class Mail {
 	
-	//private String mailPrejemnika;
-	private String mailP="wellness.keks@gmail.com";
+
+	private String mailP;
 	private String predmet;
 	private String vsebina;
 	
-//	public String getMailPrejemnika() {
-//		return mailPrejemnika;
-//	}
-//	public void setMailPrejemnika(String mailPrejemnika) {
-//		this.mailPrejemnika = mailPrejemnika;
-//	}
+
+	
+	public Mail() {
+		this.mailP="";
+		this.vsebina="";
+		this.predmet="";
+		
+	}
 	public String getPredmet() {
 		return predmet;
 	}
