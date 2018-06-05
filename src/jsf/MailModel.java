@@ -23,7 +23,8 @@ public class MailModel {
 
 	public void posljiJMS() {
 		novMail.setMailP("wellness.keks@gmail.com");
-		novMail.setVsebina("Oseba za mailom: " +  njihovMail + " nam sporoča naslednje:  " + novMail.getVsebina());
+		novMail.setPredmet(novMail.getPredmet());
+		novMail.setVsebina("Oseba z mailom: " +  njihovMail + " nam sporoča naslednje:  " + novMail.getVsebina());
 		pv.poslji(novMail);
 		
 	}
