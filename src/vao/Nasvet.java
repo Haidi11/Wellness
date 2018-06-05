@@ -29,6 +29,7 @@ public class Nasvet {
 	
 	public Nasvet() {
 		this.nasvet="";
+		this.naslov="";
 		
 	}
 	
