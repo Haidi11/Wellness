@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
+import orodja.Oro;
 import vmesniki.DogodekVmesnik;
 import vmesniki.OsebaVmesnik;
 
@@ -42,14 +43,11 @@ public class Tekmovanje {
 		this.lastnik = new Oseba();
 
 	}
-//	@Transient
-//	public Oseba getZmagovalecOseba() {
-//		
-//		if (zmagovalec==0)
-//			return new Oseba();
-//		return ov.najdiPoId(zmagovalec);
-//
-//	}
+	@Transient
+	public String getIzpisiMesec() {
+		
+		return Oro.mesec(mesec);
+	}
 
 	/*
 	 * getterji setterji

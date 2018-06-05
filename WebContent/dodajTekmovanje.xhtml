@@ -41,9 +41,7 @@
 				<h:dataTable value="#{tekmovanje.mojaTekmovanja}" var="a">
 					<h:column>
 						<div>
-							<h:outputText class="dogodekNaziv" value="#{a.leto}"></h:outputText>
-							,
-							<h:outputText class="dogodekNaziv" value="#{a.mesec}"></h:outputText>
+							<h:outputText class="dogodekNaziv" value="#{a.izpisiMesec} "></h:outputText><h:outputText class="dogodekNaziv" value="#{a.leto}"></h:outputText>
 
 							<div class="gumbPodrobno">
 								<input type="button" value="Podrobnosti"
@@ -60,7 +58,7 @@
 								<span class="dogodekOznake">Zmagovalec: </span>
 
 								<h:outputText class="dogodekVsebina"
-									value="#{tekmovanje.oseba(a).ime}"></h:outputText>
+									value="#{tekmovanje.oseba(a).ime} "></h:outputText>
 								<h:outputText class="dogodekVsebina"
 									value="#{tekmovanje.oseba(a).priimek}"></h:outputText>
 

@@ -31,4 +31,41 @@ public class Oro {
 				
 		
 	}
+	
+	public static String mesec(int st) {
+		
+		switch (st) {
+		case 1:
+			return "Januar";
+		case 2:
+			return "Februar";
+		case 3:
+			return "Marec";
+		case 4:
+			return "April";
+		case 5:
+			return "Maj";
+		case 6:
+			return "Junij";
+		case 7:
+			return "Julij";
+		case 8:
+			return "Avgust";
+		case 9:
+			return "September";
+		case 10:
+			return "Oktober";
+		case 11:
+			return "November";
+		case 12:
+			return "December";
+			
+
+		default:
+			return "";
+		} 
+	
+		
+		
+	}
 }
