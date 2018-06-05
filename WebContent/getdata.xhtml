@@ -3,14 +3,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
   	<ui:composition template="WEB-INF/template/template2.xhtml">
 	<ui:define name="main">
       
   	 <f:view>
 		<form id="get-data-form" method="post"
 >
-			<textarea class="tinymce" id="texteditor"></textarea>
+			<textarea jsf:value="#{}" class="tinymce" id="texteditor"></textarea>
 			<input value="submit" type="submit"> </input>
 
 		</form>
