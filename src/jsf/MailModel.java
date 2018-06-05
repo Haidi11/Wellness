@@ -13,22 +13,17 @@ import vmesniki.PosljiVmesnik;
 @SessionScoped
 public class MailModel {
 	private Mail novMail = new Mail();
-	
+	private String njihovMail;
 	@EJB
 	PosljiVmesnik pv;
 	
 	//tega zdaj vec ne rabimo
 	@EJB
 	MailVmesnik ejb;
-	
-	public void poslji(String to, String subject, String body) {
-		novMail.setMailPrejemnika(to);
-		novMail.setPredmet(subject);
-		novMail.setVsebina(body);
-		ejb.poslji(novMail.getMailPrejemnika(), novMail.getPredmet(), novMail.getVsebina());
-	}
-	
+
 	public void posljiJMS() {
+		novMail.setMailP("wellness.keks@gmail.com");
+		novMail.setVsebina("Oseba za mailom: " +  njihovMail + " nam sporoča naslednje:  " + novMail.getVsebina());
 		pv.poslji(novMail);
 		
 	}
@@ -39,5 +34,13 @@ public class MailModel {
 
 	public void setNovMail(Mail novMail) {
 		this.novMail = novMail;
+	}
+
+	public String getNjihovMail() {
+		return njihovMail;
+	}
+
+	public void setNjihovMail(String njihovMail) {
+		this.njihovMail = njihovMail;
 	}
 }
