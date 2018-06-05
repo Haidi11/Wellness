@@ -13,6 +13,7 @@ import orodja.PaketZaprikazDogodkov;
 import vao.Dogodek;
 import vao.Nasvet;
 import vao.Oseba;
+import vmesniki.DogodekVmesnik;
 import vmesniki.NasvetVmesnik;
 
 @ManagedBean(name = "nasvet")
@@ -22,10 +23,12 @@ public class NasvetModel {
 	private String prijave;
 	
 	@EJB
-	NasvetVmesnik ejb;
+	NasvetVmesnik nv;
+	@EJB
+	DogodekVmesnik dv;
 	
 	public List<Nasvet> getVseNasvete(){
-		return ejb.seznamVsehNasvetov();
+		return nv.seznamVsehNasvetov();
 	}
 	
 	public void preusmeriNaUrejanje() {
@@ -38,33 +41,30 @@ public class NasvetModel {
 	
 	public int idAvtorja () {
 		String ime = vrniAvtorja().getName();
-		int id = ejb.najdiIdAvtorja(ime);
+		int id = nv.najdiIdAvtorja(ime);
 		return id;
 	}
 	
 
 	public List<Nasvet> getVseNasveteAvtorja(){
 		int id = idAvtorja ();
-		return ejb.getNasveteAvtorja(id);
+		return nv.getNasveteAvtorja(id);
 	}
 	
 	public void dodajNovNasvet() {
-		System.out.println(novNasvet.getNasvet());
-		long timeStamp = new Date().getTime();
-		int id = idAvtorja ();
-		Oseba o = new Oseba(id);
-		novNasvet.setAvtor(o);
-		novNasvet.setTimeStamp(timeStamp);
-		ejb.dodajNasvet(novNasvet);
+		novNasvet.setAvtor(dv.najdiPoUporabniskemImenu(vrniAvtorja().getName()));
+		novNasvet.setTimeStamp(new Date().getTime());
+		nv.dodajNasvet(novNasvet);
+		
 		novNasvet = new Nasvet();
 	}
 	
 	public void izbrisiNasvet(Nasvet izbranNasvet) {
-		ejb.brisiNasvet(izbranNasvet);
+		nv.brisiNasvet(izbranNasvet);
 	}
 	
 	public String urediNasvete(int id, String popravljenNasvet) {
-		ejb.urediNasvet(id,popravljenNasvet);
+		nv.urediNasvet(id,popravljenNasvet);
 		System.out.println("Sprememba shranjena! "+popravljenNasvet+" pri id: "+id);
 		return "nasveti.xhtml";
 	};

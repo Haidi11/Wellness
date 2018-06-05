@@ -11,7 +11,6 @@ import vao.Oseba;
 
 @Local
 public interface NasvetVmesnik {
-	void dodajNasvet(Nasvet nasvet);
 
 	void brisiNasvet(Nasvet nasvet);
 
@@ -21,11 +20,13 @@ public interface NasvetVmesnik {
 
 	PaketZaPrikazNasvetov sezamDogodkovZaUporabnika(int id);
 
-	Nasvet najdiPoIdAvtorja(int id);
-
 	List<Nasvet> getNasveteAvtorja(int id);
 
 	int najdiIdAvtorja(String ime);
 
-	List<Nasvet> getVseNasveteAvtorja();
+	void dodajNasvet(Nasvet nasvet);
+	
+	
+
+
 }

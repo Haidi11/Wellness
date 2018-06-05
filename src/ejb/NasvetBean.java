@@ -63,21 +63,10 @@ public class NasvetBean implements NasvetVmesnik {
 		return (List<Nasvet>) q.getResultList();
 	}
 
-	@Override
-	public void dodajNasvet(Nasvet nasvet) {
-		em.persist(nasvet);
-		// TODO Auto-generated method stub
-	}
+	 @Override 
+	  public void dodajNasvet(Nasvet nasvet) { 
+	    em.persist(nasvet); 
+	    // TODO Auto-generated method stub 
+	  } 
 
-	@Override
-	public Nasvet najdiPoIdAvtorja(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Nasvet> getVseNasveteAvtorja() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }
