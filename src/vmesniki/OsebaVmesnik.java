@@ -13,5 +13,6 @@ public interface OsebaVmesnik {
     List<Oseba> vrniSeznamVsehOseb();
     List<Oseba> topUporabnik(); 
     List<Oseba> topMesecniUporanbik();
-	Oseba najdiPoId(int id); 
+	Oseba najdiPoId(int id);
+	boolean jeZasedeno(String o); 
 }

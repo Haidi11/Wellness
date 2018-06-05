@@ -13,7 +13,9 @@
 		<servlet-name>Faces Servlet</servlet-name>
 		<url-pattern>/faces/*</url-pattern>
 	</servlet-mapping>
-
+	<welcome-file-list>
+		<welcome-file>/faces/index.xhtml</welcome-file>
+	</welcome-file-list>
 	<!--Defining security constraint for type of roles available -->
 	<security-constraint>
 		<web-resource-collection>

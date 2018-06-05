@@ -22,42 +22,43 @@ import vmesniki.OsebaVmesnik;
 public class OsebaBean implements OsebaVmesnik {
 
 	@PersistenceContext
-	EntityManager entityManager;
+	EntityManager em;
 
 	@Override
 	public void dodajOsebo(Oseba o) {
-		entityManager.persist(o);
+		em.persist(o);
 	}
 
 	@Override
 	public void odstraniOsebo(Oseba o) {
-		entityManager.remove(o);
+		em.remove(o);
 	}
 
 	@Override
 	public List<Oseba> vrniSeznamVsehOseb() {
-		return entityManager.createQuery("select o from Oseba o").getResultList();
+		return em.createQuery("select o from Oseba o").getResultList();
 	}
 
 	@Override
 	public List<Oseba> topUporabnik() {
-		List<Oseba> seznam =  entityManager
-				.createQuery("select e from Oseba e where e.tocke=(select max(o.tocke) from Oseba o)").getResultList();
+		List<Oseba> seznam = em.createQuery("select e from Oseba e where e.tocke=(select max(o.tocke) from Oseba o)")
+				.getResultList();
 
 		return seznam;
 
 	}
-	//poisce vse tocke ki so bile dane ta mesec in nastavi vsoto uporabnikom
+
+	// poisce vse tocke ki so bile dane ta mesec in nastavi vsoto uporabnikom
 	@Override
 	public List<Oseba> topMesecniUporanbik() {
-		List<Block> seznam = entityManager.createQuery("select e from Block e").getResultList();
+		List<Block> seznam = em.createQuery("select e from Block e").getResultList();
 		List<Block> seznamBlokovTaMesec = dobiSeznamBlokovZaTaMesec(seznam);
-		
-		if(seznamBlokovTaMesec.size()==0) {
+
+		if (seznamBlokovTaMesec.size() == 0) {
 			return new ArrayList<>();
-			
+
 		}
-		
+
 		List<Oseba> osebe = vrniSeznamVsehOseb();
 
 		for (Block b : seznamBlokovTaMesec) {
@@ -71,28 +72,29 @@ public class OsebaBean implements OsebaVmesnik {
 
 		return uporabnikZNajvecTockami(osebe);
 	}
-//poisci uporabnika z najvec tockami ta mesec
+
+	// poisci uporabnika z najvec tockami ta mesec
 	private List<Oseba> uporabnikZNajvecTockami(List<Oseba> osebe) {
-		Oseba top=osebe.get(0);
-		
-		for(Oseba o : osebe) {
-			if(top.getStTockTaMesec()<o.getStTockTaMesec()) {
-				top=o;
-								
+		Oseba top = osebe.get(0);
+
+		for (Oseba o : osebe) {
+			if (top.getStTockTaMesec() < o.getStTockTaMesec()) {
+				top = o;
+
 			}
-			
+
 		}
-		
-		List<Oseba> seznamIste= new ArrayList<>();
-		
-		for(Oseba o : osebe) {
-			if(o.getStTockTaMesec()==top.getStTockTaMesec()) {
+
+		List<Oseba> seznamIste = new ArrayList<>();
+
+		for (Oseba o : osebe) {
+			if (o.getStTockTaMesec() == top.getStTockTaMesec()) {
 				seznamIste.add(o);
-				
+
 			}
-			
+
 		}
-		
+
 		return seznamIste;
 	}
 
@@ -114,9 +116,21 @@ public class OsebaBean implements OsebaVmesnik {
 		return seznamLjudiTaMesec;
 
 	}
+
 	@Override
 	public Oseba najdiPoId(int id) {
-		return entityManager.find(Oseba.class, id);
+		return em.find(Oseba.class, id);
+
+	}
+
+	@Override
+	public boolean jeZasedeno(String o) {
+		if (em.createQuery("select e from Oseba e where e.uporabniskoIme = :uime)").setParameter("uime", o).getResultList().size() == 0) {
+			return false;
+
+		}
+		return true;
+
 		
 	}
 }

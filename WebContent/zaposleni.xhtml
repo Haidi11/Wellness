@@ -3,23 +3,23 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:jsf="http://xmlns.jcp.org/jsf">
-	
+
 
 
 <ui:composition template="WEB-INF/template/template2.xhtml">
 
 
 	<ui:define name="main">
-		<f:view>  
+		<f:view>
 			<h:form>
 			Ime: <h:inputText id="ime" value="#{osebe.novaOseba.ime}"
-					validatorMessage="Prosim vnesite ime" 	>
+					validatorMessage="Prosim vnesite ime">
 					<f:validateRequired />
 				</h:inputText>
-					<span class="opozorilo"><h:message for="ime"></h:message></span>
+				<span class="opozorilo"><h:message for="ime"></h:message></span>
 				<br />
-			Priimek: <h:inputText  id="priimek" value="#{osebe.novaOseba.priimek}"
-					validatorMessage= "Prosim vnesite priimek">
+			Priimek: <h:inputText id="priimek" value="#{osebe.novaOseba.priimek}"
+					validatorMessage="Prosim vnesite priimek">
 					<f:validateRequired />
 				</h:inputText>
 				<span class="opozorilo"><h:message for="priimek"></h:message></span>
@@ -47,7 +47,8 @@
 				</h:inputText>
 				<span class="opozorilo"><h:message for="emso"></h:message></span>
 				<br />
-			Spol:	<h:selectOneRadio id="spol" class="radioGumbi" value="#{osebe.novaOseba.spol}"
+			Spol:	<h:selectOneRadio id="spol" class="radioGumbi"
+					value="#{osebe.novaOseba.spol}"
 					validatorMessage="Prosim vnesite spol">
 					<f:selectItem itemValue="Z" itemLabel="Ženska" />
 					<f:selectItem itemValue="M" itemLabel="Moški" />
@@ -55,13 +56,15 @@
 				</h:selectOneRadio>
 				<span class="opozorilo"><h:message for="spol"></h:message></span>
 				<br />
-			Telefonska Številka: <h:inputText id="telefonskaStevilka" value="#{osebe.novaOseba.telefonskaStevilka}"
+			Telefonska Številka: <h:inputText id="telefonskaStevilka"
+					value="#{osebe.novaOseba.telefonskaStevilka}"
 					validatorMessage="Prosim vnesite telefonsko številko">
 					<f:validateRequired />
 				</h:inputText>
 				<span class="opozorilo"><h:message for="telefonskaStevilka"></h:message></span>
 				<br />
-			Davčna Številka: <h:inputText id="davcnaStevilka" value="#{osebe.novaOseba.davcnaStevilka}"
+			Davčna Številka: <h:inputText id="davcnaStevilka"
+					value="#{osebe.novaOseba.davcnaStevilka}"
 					validatorMessage="Prosim vnesite davčno številko">
 					<f:validateRequired />
 				</h:inputText>
@@ -73,14 +76,16 @@
 				</h:inputText>
 				<span class="opozorilo"><h:message for="oddelek"></h:message></span>
 				<br />
-			Organizator dogodkov:	<h:selectOneRadio id="organizatordogodkov" class="radioGumbi" value="#{osebe.novaOseba.organizatorDogodkov}"
+			Organizator dogodkov:	<h:selectOneRadio id="organizatordogodkov"
+					class="radioGumbi" value="#{osebe.novaOseba.organizatorDogodkov}"
 					validatorMessage="Prosim vnesite ali je oseba organizator dogodkov?">
 					<f:selectItem itemValue="#{true}" itemLabel="da" />
 					<f:selectItem itemValue="#{false}" itemLabel="ne" />
 					<f:validateRequired />
 				</h:selectOneRadio>
 
-			Kadrovska služba:	<h:selectOneRadio  id="kadrovskaSluzba" class="radioGumbi" value="#{osebe.novaOseba.kadrovskaSluzba}"
+			Kadrovska služba:	<h:selectOneRadio id="kadrovskaSluzba"
+					class="radioGumbi" value="#{osebe.novaOseba.kadrovskaSluzba}"
 					validatorMessage="Prosim vnesite ali je oseba član kadrovske službe">
 					<f:selectItem itemValue="#{true}" itemLabel="da" />
 					<f:selectItem itemValue="#{false}" itemLabel="ne" />
@@ -90,69 +95,76 @@
 			Vloga <h:inputText id="vloga" value="#{osebe.novaOseba.vloga}"
 					validatorMessage="Prosim vnesite vlogo osebe v podjetju">
 					<f:validateRequired />
-				</h:inputText> 
+				</h:inputText>
 				<span class="opozorilo"><h:message for="vloga"></h:message></span>
 				<br />
-				<h:commandButton value="Dodaj Zaposlenega"
-						actionListener="#{osebe.dodajOsebo()}" />
+				
+			Uporabniško ime: <h:inputText id="uporanbiskoIme" validator="#{PreveriUporabniskoIme.validate}"
+					value="#{osebe.novaOseba.uporabniskoIme}"
+					>
 
+					<f:validateRequired />
+					
+				</h:inputText>
+				<span class="opozorilo"><h:message for="uporanbiskoIme" />
+				
+				</span>
+				<br />
+
+				<h:commandButton value="Dodaj Zaposlenega"
+					actionListener="#{osebe.dodajOsebo()}" />
 
 				<h1>Vsi zaposleni</h1>
-			<h:dataTable value="#{osebe.vrniVseOsebe}" var="a">
-				<h:column>
+				<h:dataTable value="#{osebe.vrniVseOsebe}" var="a">
+					<h:column>
 						<div>
 							<h:outputText class="osebaNaziv" value="#{a.ime}"></h:outputText>
-							
+
 							<div class="gumbPodrobno">
-							<input type="button" value="Podrobnosti" onclick="toggleDiv(div_#{a.idOseba})"></input>
+								<input type="button" value="Podrobnosti"
+									onclick="toggleDiv(div_#{a.idOseba})"></input>
 							</div>
-							
+
 							<div class="skritiDiv" id="div_#{a.idOseba}">
-							<span class="osebeOznake">Priimek: </span>
-							<h:outputText class="osebaVsebina" value="#{a.priimek}"></h:outputText><br />
-								<span class="osebeOznake">Spol: </span>
+								<span class="osebeOznake">Priimek: </span>
+								<h:outputText class="osebaVsebina" value="#{a.priimek}"></h:outputText>
+								<br /> <span class="osebeOznake">Spol: </span>
 								<h:outputText class="osebaVsebina" value="#{a.spol}"></h:outputText>
-								<br /> 
-								<span class="osebeOznake">Datum rojstva: </span>
-								<h:outputText class="osebaVsebina" value="#{a.izpisiDatumRojstva}"></h:outputText>
-								<br /> 
-								<span class="osebeOznake"> Datum zaposlitve: </span>
-								<h:outputText class="osebaVsebina" value="#{a.izpisiDatumZaposlitve}"></h:outputText>
-								<br />
-								<span class="osebeOznake"> Email: </span>
+								<br /> <span class="osebeOznake">Datum rojstva: </span>
+								<h:outputText class="osebaVsebina"
+									value="#{a.izpisiDatumRojstva}"></h:outputText>
+								<br /> <span class="osebeOznake"> Datum zaposlitve: </span>
+								<h:outputText class="osebaVsebina"
+									value="#{a.izpisiDatumZaposlitve}"></h:outputText>
+								<br /> <span class="osebeOznake"> Email: </span>
 								<h:outputText class="osebaVsebina" value="#{a.email}"></h:outputText>
-								<br />
-								<span class="osebeOznake"> Telefonska Številka: </span>
-								<h:outputText class="osebaVsebina" value="#{a.telefonskaStevilka}"></h:outputText>
-								<br />
-								<span class="osebeOznake"> Oddelek: </span>
+								<br /> <span class="osebeOznake"> Telefonska Številka: </span>
+								<h:outputText class="osebaVsebina"
+									value="#{a.telefonskaStevilka}"></h:outputText>
+								<br /> <span class="osebeOznake"> Oddelek: </span>
 								<h:outputText class="osebaVsebina" value="#{a.oddelek}"></h:outputText>
-								<br />
-								<span class="osebeOznake"> EMŠO: </span>
+								<br /> <span class="osebeOznake"> EMŠO: </span>
 								<h:outputText class="osebaVsebina" value="#{a.EMSO}"></h:outputText>
-								<br />
-								<span class="osebeOznake"> Točke: </span>
+								<br /> <span class="osebeOznake"> Točke: </span>
 								<h:outputText class="osebaVsebina" value="#{a.tocke}"></h:outputText>
-								<br />
-								<span class="osebeOznake"> Kadrovska služba: </span>
+								<br /> <span class="osebeOznake"> Kadrovska služba: </span>
 								<h:outputText class="osebaVsebina" value="#{a.kadrovskaSluzba}"></h:outputText>
-								<br />
-								<span class="osebeOznake"> Organizator dogodkov: </span>
-								<h:outputText class="osebaVsebina" value="#{a.organizatorDogodkov}"></h:outputText>
-								<br />
-								<span class="osebeOznake"> Davčna številka: </span>
+								<br /> <span class="osebeOznake"> Organizator dogodkov:
+								</span>
+								<h:outputText class="osebaVsebina"
+									value="#{a.organizatorDogodkov}"></h:outputText>
+								<br /> <span class="osebeOznake"> Davčna številka: </span>
 								<h:outputText class="osebaVsebina" value="#{a.davcnaStevilka}"></h:outputText>
-								<br />
-								<span class="osebeOznake"> Vloga: </span>
+								<br /> <span class="osebeOznake"> Vloga: </span>
 								<h:outputText class="osebaVsebina" value="#{a.vloga}"></h:outputText>
 								<br />
-								</div>
-								</div>
-								<hr />
+							</div>
+						</div>
+						<hr />
 					</h:column>
-					</h:dataTable>
-					
-					<script>
+				</h:dataTable>
+
+				<script>
 
 	function toggleDiv(a){
 		$( a ).toggle(300);
