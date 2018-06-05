@@ -2,11 +2,21 @@ package vao;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Obvestilo {
+	
+	@Id
+	@GeneratedValue
 	private int idObvestila;
 	private int idOsebe;
 	private int idDogodka;
 	private long timeStamp;
+	
+	public Obvestilo() {} 
 	
 	public Obvestilo(int idOseba, int idDogodek) {
 		this.idOsebe = idOseba;

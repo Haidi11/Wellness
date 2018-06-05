@@ -11,6 +11,7 @@
     <class>block.Block</class>
     <class>vao.Tekmovanje</class>
     <class>vao.Nasvet</class>
+    <class>vao.Obvestilo</class>
     
     <properties>
         <property name="hibernate.show_sql" value="false"/>
