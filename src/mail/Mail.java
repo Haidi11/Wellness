@@ -31,4 +31,5 @@ public class Mail {
 	public void setMailP(String mailP) {
 		this.mailP = mailP;
 	}
+
 }

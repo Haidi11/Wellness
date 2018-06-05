@@ -9,14 +9,14 @@
   	 <f:view>
 	<h2>Kontaktiraj nas!</h2>
 	<h:form>
-	<h:outputText value="Vnesite svoj mail"></h:outputText><br></br>
-	<h:inputText id="email" value="#{mail.novMail.mailP}"></h:inputText><br></br>
 	<h:outputText value="Vnesite predmet"></h:outputText><br></br>
 	<h:inputText id="predmet" value="#{mail.novMail.predmet}"></h:inputText><br></br>
 	<h:outputText value="Vnesite vsebino"></h:outputText><br></br>
 	<h:inputText id="vsebina" value="#{mail.novMail.vsebina}"></h:inputText><br></br>
-	<h:commandButton value="Poslji" action="#{mail.poslji(mail.novMail.mailP,mail.novMail.predmet,mail.novMail.vsebina)}"></h:commandButton>
-	<h:commandButton value="Poslji preko JMS" actionListener="#{mail.posljiJMS}"></h:commandButton>
+	<h:outputText value="Vnesite svoj mail"></h:outputText><br></br>
+	<h:inputText id="vsebina" value="#{mail.njihovMail}"></h:inputText><br></br>
+
+	<h:commandButton value="Poslji" actionListener="#{mail.posljiJMS}"></h:commandButton>
 	</h:form>
 	</f:view>
 	</ui:define>
