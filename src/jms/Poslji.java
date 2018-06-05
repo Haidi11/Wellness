@@ -41,7 +41,7 @@ public class Poslji implements PosljiVmesnik{
 	
 		public void poslji(Mail mail)  {
 			try {
-				posljiMail(mail.getMailPrejemnika(),mail.getPredmet(),mail.getVsebina());
+				posljiMail(mail.getMailP(),mail.getPredmet(),mail.getVsebina());
 			} catch (Exception e) {
 				System.out.println("nekaj ne dela (Poslji.poslji(...))");
 				e.printStackTrace();

@@ -22,10 +22,12 @@ public class MailModel {
 	MailVmesnik ejb;
 	
 	public void poslji(String to, String subject, String body) {
-		novMail.setMailPrejemnika(to);
+		//novMail.setMailPrejemnika(to);
+		novMail.setMailP(to);
 		novMail.setPredmet(subject);
 		novMail.setVsebina(body);
-		ejb.poslji(novMail.getMailPrejemnika(), novMail.getPredmet(), novMail.getVsebina());
+		//ejb.poslji(novMail.getMailPrejemnika(), novMail.getPredmet(), novMail.getVsebina());
+		ejb.poslji(novMail.getMailP(), novMail.getPredmet(), novMail.getVsebina());
 	}
 	
 	public void posljiJMS() {
