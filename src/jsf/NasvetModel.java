@@ -49,6 +49,7 @@ public class NasvetModel {
 	}
 	
 	public void dodajNovNasvet() {
+		System.out.println(novNasvet.getNasvet());
 		long timeStamp = new Date().getTime();
 		int id = idAvtorja ();
 		Oseba o = new Oseba(id);
