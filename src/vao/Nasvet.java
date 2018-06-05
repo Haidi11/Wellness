@@ -27,7 +27,10 @@ public class Nasvet {
 	private String nasvet;
 	private long timeStamp;
 	
-	public Nasvet() {}
+	public Nasvet() {
+		this.nasvet="";
+		
+	}
 	
 	public Nasvet( String naslov, String avtor,String nasvet) {
 		this.naslov = naslov;

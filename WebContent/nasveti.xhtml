@@ -3,82 +3,90 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:jsf="http://xmlns.jcp.org/jsf">
-   
+
 <ui:composition template="WEB-INF/template/template2.xhtml">
-<ui:define name="main">   
-  	 <f:view>
-  	 
+	<ui:define name="main">
+		<f:view>
 
-	<h1>Nasveti</h1>
-	<f:view>
-		<h:form>
-			<h2>Vsi nasveti</h2>
-			<h:dataTable value="#{nasvet.vseNasvete}" var="n">
-				<h:column>
-					<f:facet name="header">Naziv</f:facet>
-					<h:outputText value="#{n.naslov}"></h:outputText>
-				</h:column>
-				<h:column>
-					<f:facet name="header">Ime avtorja</f:facet>
-					<h:outputText value="#{n.avtor.ime}"></h:outputText>
-				</h:column>
-				<h:column>
-					<f:facet name="header">Priimek avtorja</f:facet>
-					<h:outputText value="#{n.avtor.priimek}"></h:outputText>
-				</h:column>
-				<h:column>
-					<f:facet name="header">Nasvet</f:facet>
-					<h:outputText value="#{n.nasvet}"></h:outputText>
-				</h:column>
-			</h:dataTable>
-		</h:form>
-		<h:form>
-			<h2>Nasveti avtorja</h2>
-			<h:dataTable value="#{nasvet.vseNasveteAvtorja}" var="a">
-				<h:column>
-					<f:facet name="header">Naziv</f:facet>
-					<h:outputText value="#{a.naslov}"></h:outputText>
-				</h:column>
-				<h:column>
-					<f:facet name="header">Ime avtorja</f:facet>
-					<h:outputText value="#{a.avtor.ime}"></h:outputText>
-				</h:column>
-				<h:column>
-					<f:facet name="header">Priimek avtorja</f:facet>
-					<h:outputText value="#{a.avtor.priimek}"></h:outputText>
-				</h:column>
-				<h:column>
-					<f:facet name="header">Nasvet</f:facet>
-					<h:outputText value="#{a.nasvet}"></h:outputText>
-				</h:column>
-				<h:column>
-					<f:facet name="header"></f:facet>
-					<h:commandButton value="Izbrisi"
-						actionListener="#{nasvet.izbrisiNasvet(a)}"></h:commandButton>
-				</h:column>
-				<h:column>
-					<f:facet name="header"></f:facet>
-					<h:link outcome="urediNasvet.xhtml" value="Uredi" includeViewParam ="true">
-					<f:param name="idNasvet"  value="#{a.idNasvet}"></f:param>
-					</h:link>
-				</h:column>
-			</h:dataTable>
-		</h:form>
-	</f:view>
-	<h:form>
-		<label for="naziv">Vnesite naziv</label>
-		<h:inputText type="text" name="naziv" id="naziv"
-			value="#{nasvet.novNasvet.naslov}"></h:inputText>
-		<br></br>
-		<label for="nasvet">Vnesite nasvet</label>
-		<h:inputText type="text" name="nasvet" id="nasvet"
-			value="#{nasvet.novNasvet.nasvet}"></h:inputText>
-		<br></br>
-		<h:commandButton value="Dodaj nasvet"
-			actionListener="#{nasvet.dodajNovNasvet}" />
-	</h:form>
 
-</f:view>
-</ui:define>
+			<h1>Nasveti</h1>
+			<f:view>
+				<h:form>
+					<h2>Vsi nasveti</h2>
+					<h:dataTable value="#{nasvet.vseNasvete}" var="n">
+						<h:column>
+							<f:facet name="header">Naziv</f:facet>
+							<h:outputText value="#{n.naslov}"></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header">Ime avtorja</f:facet>
+							<h:outputText value="#{n.avtor.ime}"></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header">Priimek avtorja</f:facet>
+							<h:outputText value="#{n.avtor.priimek}"></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header">Nasvet</f:facet>
+							<h:outputText value="#{n.nasvet}"></h:outputText>
+						</h:column>
+					</h:dataTable>
+				</h:form>
+				<h:form>
+					<h2>Nasveti avtorja</h2>
+					<h:dataTable value="#{nasvet.vseNasveteAvtorja}" var="a">
+						<h:column>
+							<f:facet name="header">Naziv</f:facet>
+							<h:outputText value="#{a.naslov}"></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header">Ime avtorja</f:facet>
+							<h:outputText value="#{a.avtor.ime}"></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header">Priimek avtorja</f:facet>
+							<h:outputText value="#{a.avtor.priimek}"></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header">Nasvet</f:facet>
+							<h:outputText value="#{a.nasvet}"></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header"></f:facet>
+							<h:commandButton value="Izbrisi"
+								actionListener="#{nasvet.izbrisiNasvet(a)}"></h:commandButton>
+						</h:column>
+						<h:column>
+							<f:facet name="header"></f:facet>
+							<h:link outcome="urediNasvet.xhtml" value="Uredi"
+								includeViewParam="true">
+								<f:param name="idNasvet" value="#{a.idNasvet}"></f:param>
+							</h:link>
+						</h:column>
+					</h:dataTable>
+				</h:form>
+			</f:view>
+			<h:form>
+				<label for="naziv">Vnesite naziv</label>
+				<h:inputText type="text" name="naziv" id="naziv"
+					value="#{nasvet.novNasvet.naslov}"></h:inputText>
+				<br></br>
+				
+<!-- 				<label for="nasvet">Vnesite nasvet</label> -->
+<!-- 				<h:inputText type="text" name="nasvet" id="nasvet" -->
+<!-- 					value="#{nasvet.novNasvet.nasvet}"></h:inputText> -->
+				
+				<h:inputTextarea value="#{nasvet.novNasvet.nasvet}" class="tinymce"  id="texteditor" name="nasvet"/>
+				<br></br>
+				<h:commandButton value="Dodaj nasvet"
+					actionListener="#{nasvet.dodajNovNasvet}" />
+			</h:form>
+			
+		<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="editor/tinymce/tinymce.min.js"></script>
+		<script type="text/javascript" src="editor/tinymce/init-tinymce.js"></script>
+		<script type="text/javascript" src="js/getdata.js"></script>
+		</f:view>
+	</ui:define>
 </ui:composition>
 </html>
