@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+<ui:composition template="WEB-INF/template/template2.xhtml">
+	<ui:define name="main">
+		<f:view>
+		
+	<!-- 	#{nasvet.nasvetPodrobno.naslov}
+		#{nasvet.nasvetPodrobno.nasvet} -->
+		Naslov:
+	 <h:outputText class="nasvet" value="#{nasvet.nasvetPodrobno.naslov}" escape="false"/>
+	 <hr />
+		
+	 <h:outputText class="nasvet" value="#{nasvet.nasvetPodrobno.nasvet}" escape="false"/>
+		
+		
+</f:view>
+</ui:define>
+</ui:composition>
+</html>
+		

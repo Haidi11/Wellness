@@ -28,7 +28,7 @@ public interface NasvetVmesnik {
 
 	void dodajUrejenNasvet(Nasvet n);
 	
-	
+
 
 
 }

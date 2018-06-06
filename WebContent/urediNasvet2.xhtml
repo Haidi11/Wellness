@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+<ui:composition template="WEB-INF/template/template2.xhtml">
+	<ui:define name="main">
+		<f:view>
+			<h:form>
+				<label for="naziv">Vnesite naziv</label>
+				<h:inputText type="text" name="naziv" id="naziv"
+					value="#{nasvet.novNasvet.naslov}"></h:inputText>
+				<br></br>
+				
+
+				
+				<h:inputTextarea value="#{nasvet.uredinasvet.nasvet}" class="tinymce"  id="texteditor" name="nasvet" />
+				<br></br>
+				<h:commandButton value="Dodaj nasvet"
+					actionListener="#{nasvet.dodajNovNasvet}" />
+			</h:form>
+			
+		<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="editor/tinymce/tinymce.min.js"></script>
+		<script type="text/javascript" src="editor/tinymce/init-tinymce.js"></script>
+		<script type="text/javascript" src="js/getdata.js"></script>
+		</f:view>
+	</ui:define>
+</ui:composition>
+</html>
