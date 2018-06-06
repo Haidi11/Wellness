@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+<h:head></h:head>
+<h:body>
+<h1>Nasveti</h1>
+			<f:view>
+				<h:form>
+					<h2>Seznam blokov</h2>
+					<h:dataTable value="#{blok.seznamBlokovOsebe}" var="blok">
+						<h:column>
+							<f:facet name="header">hashk</f:facet>
+							<h:outputText value="#{blok.hash}"></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header">prejsnji hask</f:facet>
+							<h:outputText value="#{blok.prejsnjiHash}"></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header">idDogodka</f:facet>
+							<h:outputText value="#{blok.idDogodek}"></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header">St tock</f:facet>
+							<h:outputText value="#{blok.stTock}"></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header">timestamp</f:facet>
+							<h:outputText value="#{blok.timeStamp}"></h:outputText>
+						</h:column>
+					</h:dataTable>
+				</h:form>
+			</f:view>
+</h:body>	
+</html>

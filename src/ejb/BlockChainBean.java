@@ -7,7 +7,7 @@ import java.util.*;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-
+import javax.persistence.Query;
 
 import block.Block;
 import vao.Tocke;
@@ -47,5 +47,11 @@ public class BlockChainBean implements BlockChainVmesnik {
 	
 	public void shraniBlockChain(Block block) {
 		em.persist(block);
+	}
+	
+	public List<Block> getVseBlokiZaOsebo(int id) {
+		 Query q = em.createQuery("select b from Block b where b.idOseba= :id");
+		 q.setParameter("id", id);
+		 return q.getResultList();
 	}
 }
