@@ -2440,3 +2440,10 @@ za radio gumbke
 .drevo{
 	width: auto;
 }
+
+.nasvet{
+	 all: initial;
+  * {
+    all: unset;
+  }
+}

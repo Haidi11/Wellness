@@ -1,4 +1,4 @@
-package ejb;
+package timer;
 
 import java.util.Calendar;
 
@@ -19,7 +19,7 @@ import vmesniki.PosljiVmesnik;
 
 @Startup
 @Singleton
-public class TestO {
+public class TimerZaObvescanje {
 
 	@EJB
 	DogodekVmesnik dv;

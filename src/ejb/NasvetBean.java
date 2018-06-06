@@ -67,6 +67,13 @@ public class NasvetBean implements NasvetVmesnik {
 	  public void dodajNasvet(Nasvet nasvet) { 
 	    em.persist(nasvet); 
 	    // TODO Auto-generated method stub 
-	  } 
+	  }
+	 
+	 @Override
+	 public void dodajUrejenNasvet(Nasvet n) {
+		 Nasvet temp = em.find(Nasvet.class, n.getIdNasvet());
+		 temp.setNasvet(n.getNasvet());
+		 temp.setNaslov(n.getNaslov());
+	 }
 
 }

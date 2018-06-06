@@ -21,7 +21,9 @@ import vmesniki.NasvetVmesnik;
 public class NasvetModel {
 	private Nasvet novNasvet = new Nasvet();
 	private String prijave;
-	
+	private Nasvet nasvetPodrobno;
+	private Nasvet uredinasvet;
+
 	@EJB
 	NasvetVmesnik nv;
 	@EJB
@@ -65,9 +67,18 @@ public class NasvetModel {
 	
 	public String urediNasvete(int id, String popravljenNasvet) {
 		nv.urediNasvet(id,popravljenNasvet);
-		System.out.println("Sprememba shranjena! "+popravljenNasvet+" pri id: "+id);
+		
 		return "nasveti.xhtml";
-	};
+	}
+	public String urediNasvet(Nasvet a) {
+		uredinasvet=a;
+		
+		return "urediNasvet2.xhtml";
+	}
+	public String podrobno(Nasvet n) {
+		nasvetPodrobno=n;
+		return "nasvetPodrobno.xhtml";
+	}
 
 	public Nasvet getNovNasvet() {
 		return novNasvet;
@@ -79,5 +90,21 @@ public class NasvetModel {
 	
 	public void getNasveteUporabnika(Nasvet novNasvet) {
 		this.novNasvet = novNasvet;
+	}
+
+	public Nasvet getNasvetPodrobno() {
+		return nasvetPodrobno;
+	}
+
+	public void setNasvetPodrobno(Nasvet nasvetPodrobno) {
+		this.nasvetPodrobno = nasvetPodrobno;
+	}
+
+	public Nasvet getUredinasvet() {
+		return uredinasvet;
+	}
+
+	public void setUredinasvet(Nasvet uredinasvet) {
+		this.uredinasvet = uredinasvet;
 	}
 }

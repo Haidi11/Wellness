@@ -25,8 +25,10 @@ public interface NasvetVmesnik {
 	int najdiIdAvtorja(String ime);
 
 	void dodajNasvet(Nasvet nasvet);
+
+	void dodajUrejenNasvet(Nasvet n);
 	
-	
+
 
 
 }
