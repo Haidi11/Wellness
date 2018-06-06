@@ -3,37 +3,62 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:jsf="http://xmlns.jcp.org/jsf">
+<style>
+column {
+	padding: 10px;
+}
+</style>
+
+
 <ui:composition template="WEB-INF/template/template2.xhtml">
+
+
 	<ui:define name="main">
-			<f:view>
-				<h:form>
-					<h2>Seznam blokov</h2>
-					<h:dataTable value="#{blok.seznamBlokovOsebe}" var="blok" >
-						<h:column>
-							<f:facet name="header">hash</f:facet>
-							<h:outputText value="#{blok.hash}"></h:outputText>
-						</h:column>
-						<h:column>
-							<f:facet name="header">prejsnji hask</f:facet>
-							<h:outputText value="#{blok.prejsnjiHash}"></h:outputText>
-						</h:column>
-						<h:column>
-							<f:facet name="header">idDogodka</f:facet>
-							<h:outputText value="#{blok.idDogodek}"></h:outputText>
-						</h:column>
-						<h:column>
-							<f:facet name="header">St tock</f:facet>
-							<h:outputText value="#{blok.stTock}"></h:outputText>
-						</h:column>
-						<h:column>
-							<f:facet name="header">timestamp</f:facet>
-							<h:outputText value="#{blok.timeStamp}">
-							<f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
-							</h:outputText>
-						</h:column>
-					</h:dataTable>
+		<f:view>
+			<h1>Seznam blokov</h1>
+			<h:form>
+					<h:dataTable value="#{blok.seznamBlokovOsebe}" var="a">
+					<h:column>
+						<div>
+							<h:outputText class="dogodekVsebina" value="Blok #{a.idBlock}"></h:outputText>
+							
+							<div class="gumbPodrobno">
+								<input type="button" value="Podrobnosti"
+									onclick="toggleDiv(div_#{a.idBlock})"></input>
+									<h:commandButton class="gumbZObrobo" value="Statistika"
+							action="#{dogodek.izberiDogodekKotLastnik(a)}"></h:commandButton>
+							<h:commandButton class="gumbZObrobo" value="Izbriši dogodek"
+							actionListener="#{dogodek.izbrisiDogodek(a)}"></h:commandButton>
+							</div>
+							
+							<div class="skritiDiv" id="div_#{a.idBlock}">
+							<span class="dogodekOznake">Hash: </span>
+							<h:outputText class="dogodekVsebina" value="#{a.hash}"></h:outputText><br />
+							<span class="dogodekOznake">Prejsnji hash: </span>
+							<h:outputText class="dogodekVsebina" value="#{a.prejsnjiHash}"></h:outputText><br />
+								<span class="dogodekOznake">Tocke: </span>
+								<h:outputText class="dogodekVsebina" value="#{a.stTock}"></h:outputText>
+								<br /> <span class="dogodekOznake">ID dogodka: </span>
+								<h:outputText class="dogodekVsebina" value="#{a.idDogodek}"></h:outputText>
+								<br /> 
+							</div>
+						</div>
+						<hr />
+					</h:column>
+				</h:dataTable>
 				</h:form>
-			</f:view>
-		</ui:define>
-	</ui:composition>
+				
+					
+					<script>
+
+	function toggleDiv(a){
+		$( a ).toggle(300);
+		
+	}
+
+</script>
+			
+		</f:view>
+	</ui:define>
+</ui:composition>
 </html>
