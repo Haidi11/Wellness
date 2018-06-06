@@ -70,8 +70,9 @@
 				</h:inputText>
 				<span class="opozorilo"><h:message for="davcnaStevilka"></h:message></span>
 				<br />
-			Oddelek: <h:selectOneMenu id="oddelek" value="#{osebe.novaOseba.oddelek}">
+			Oddelek: <h:selectOneMenu id="oddelek" validator="#{PreveriOddelek.validate}" value="#{osebe.novaOseba.oddelek}">
 					<f:selectItems value="#{osebe.oddelki}" />
+					<f:validateRequired />
 				</h:selectOneMenu>
 				<span class="opozorilo"><h:message for="oddelek"></h:message></span>
 				<br />

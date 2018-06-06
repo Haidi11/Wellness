@@ -16,7 +16,10 @@ import block.Block;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+
 import vmesniki.OsebaVmesnik;
 
 @Stateless
@@ -145,5 +148,21 @@ public class OsebaBean implements OsebaVmesnik {
 		 temp.setGeslo(oseba.getGeslo());
 		 temp.setTelefonskaStevilka(oseba.getTelefonskaStevilka());
 		 temp.setDavcnaStevilka(oseba.getDavcnaStevilka());
+	}
+
+	@Override
+	public Map<String, String> vrniOddelke() {
+		Map<String,String> oddelki= new LinkedHashMap<>();
+		
+		oddelki.put("", "");
+		oddelki.put("oddelek C", "oddelek C");
+		oddelki.put("Vodstvo", "Vodstvo");
+		oddelki.put("Kadrovska služba", "Kadrovska služba");
+		oddelki.put("Organizatorji dogodkov", "Organizatorji dogodkov");
+		oddelki.put("oddelek B", "oddelek B");
+		oddelki.put("oddelek A", "oddelek A");
+		
+		
+		return oddelki;
 	}
 }

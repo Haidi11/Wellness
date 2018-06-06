@@ -43,13 +43,7 @@ public class OsebaModel {
 	private  Map<String,String> oddelki;
 	@PostConstruct
 	public void init() {
-		oddelki = new LinkedHashMap<>();
-		oddelki.put("Vodstvo", "Vodstvo");
-		oddelki.put("Kadrovska služba", "Kadrovska služba");
-		oddelki.put("Organizatorji dogodkov", "Organizatorji dogodkov");
-		oddelki.put("oddelek B", "oddelek B");
-		oddelki.put("oddelek A", "oddelek A");
-		oddelki.put("oddelek C", "oddelek C");
+		oddelki =ejb.vrniOddelke();
 	}
 	
 	public Oseba getNovaOseba() {

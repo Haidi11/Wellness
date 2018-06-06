@@ -4,6 +4,7 @@ import vao.Oseba;
 
 import javax.ejb.Local;
 import java.util.List;
+import java.util.Map;
 
 @Local
 public interface OsebaVmesnik {
@@ -16,5 +17,6 @@ public interface OsebaVmesnik {
 	Oseba najdiPoId(int id);
 	boolean jeZasedeno(String o);
 	void shraniUrejenoOsebo(Oseba oseba); 
-	List<Oseba> vrniOsebeOddelek(String data); 
+	List<Oseba> vrniOsebeOddelek(String data);
+	Map<String, String> vrniOddelke(); 
 }
