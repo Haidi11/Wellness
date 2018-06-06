@@ -1,7 +1,10 @@
 package jsf;
 
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -36,8 +39,18 @@ public class OsebaModel {
 		ejb.dodajOsebo(novaOseba);
 		novaOseba= new Oseba();
 	}
-
-	
+	//oddelki 
+	private  Map<String,String> oddelki;
+	@PostConstruct
+	public void init() {
+		oddelki = new LinkedHashMap<>();
+		oddelki.put("Vodstvo", "Vodstvo");
+		oddelki.put("Kadrovska služba", "Kadrovska služba");
+		oddelki.put("Organizatorji dogodkov", "Organizatorji dogodkov");
+		oddelki.put("oddelek B", "oddelek B");
+		oddelki.put("oddelek A", "oddelek A");
+		oddelki.put("oddelek C", "oddelek C");
+	}
 	
 	public Oseba getNovaOseba() {
 		return novaOseba;
@@ -47,6 +60,15 @@ public class OsebaModel {
 		this.novaOseba = novaOseba;
 	}
 	
+	
+	public  Map<String, String> getOddelki() {
+		return oddelki;
+	}
+
+	public  void setOddelki(Map<String, String> oddelki) {
+		oddelki = oddelki;
+	}
+
 	
 	
 	

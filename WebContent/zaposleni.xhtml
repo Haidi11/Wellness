@@ -70,10 +70,9 @@
 				</h:inputText>
 				<span class="opozorilo"><h:message for="davcnaStevilka"></h:message></span>
 				<br />
-			Oddelek: <h:inputText id="oddelek" value="#{osebe.novaOseba.oddelek}"
-					validatorMessage="Prosim vnesite oddelek">
-					<f:validateRequired />
-				</h:inputText>
+			Oddelek: <h:selectOneMenu id="oddelek" value="#{osebe.novaOseba.oddelek}">
+					<f:selectItems value="#{osebe.oddelki}" />
+				</h:selectOneMenu>
 				<span class="opozorilo"><h:message for="oddelek"></h:message></span>
 				<br />
 			Organizator dogodkov:	<h:selectOneRadio id="organizatordogodkov"
