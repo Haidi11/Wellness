@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+<ui:composition template="WEB-INF/template/template2.xhtml">
+
+
+	<ui:define name="main">
+		<f:view>
+			<h2>Profil</h2>
+			<h4>Vasi podatki</h4>
+			<h:form>
+
+				<label><b>Ime: </b></label><h:outputText value="#{profil.oseba.ime}"></h:outputText>
+				<br></br>
+				<label>Priimek:</label><h:outputText value="#{profil.oseba.priimek}"></h:outputText>
+				<br></br>
+				<label>Datum rojstva: </label><h:outputText value="#{profil.oseba.izpisiDatumRojstva}"></h:outputText>
+				<br></br>
+				<label>Datum zaposlitve: </label><h:outputText value="#{profil.oseba.izpisiDatumZaposlitve}"></h:outputText>
+				<br></br>
+				<label>EMSO: </label>
+				<h:outputText value="#{profil.oseba.EMSO}"><f:convertDateTime pattern="dd.MM.yyyy HH:mm:ss" /></h:outputText>
+				<br></br>
+				<label>Davcna stevilka: </label><h:outputText value="#{profil.oseba.davcnaStevilka}"></h:outputText>
+				<br></br>
+				<label>Email: </label><h:outputText value="#{profil.oseba.email}"></h:outputText>
+				<br></br>
+				<label>Geslo: </label><h:outputText value="#{profil.oseba.geslo}"></h:outputText>
+				<br></br>
+				<label>Spol: </label><h:outputText value="#{profil.oseba.spol}"></h:outputText>
+				<br></br>
+				<label>Telefonska stevilka: </label><h:outputText value="#{profil.oseba.telefonskaStevilka}"></h:outputText>
+				<br></br>
+				<label>Oddelek: </label><h:outputText value="#{profil.oseba.oddelek}"></h:outputText>
+				<br></br>
+				<label>Organizator: </label><h:outputText value="#{profil.oseba.organizatorDogodkov}"></h:outputText>
+				<br></br>
+				<label>KadrovskaSluzba: </label><h:outputText value="#{profil.oseba.kadrovskaSluzba}"></h:outputText>
+				<br></br>
+				<label>Vloga: </label><h:outputText value="#{profil.oseba.vloga}"></h:outputText>
+				<br></br>
+				<label>Uporabnisko ime: </label><h:outputText value="#{profil.oseba.uporabniskoIme}"></h:outputText>
+				<br></br>
+			</h:form>
+			<hr />
+			<h2>Uredi podatke</h2>
+			<h:form>
+			Uporabniško ime: <h:inputText id="uporanbiskoIme"
+					validator="#{PreveriUporabniskoIme.validate}"
+					value="#{profil.oseba.uporabniskoIme}">
+					<f:validateRequired />
+				</h:inputText>
+				<span class="opozorilo"><h:message for="uporanbiskoIme" /> </span>
+				<br />
+		
+			Email:	<h:inputText id="email" value="#{profil.oseba.email}" validatorMessage="Prosim vnesite email">
+					<f:validateRequired />
+					<f:validateRegex pattern=".+\@.+\..+" />
+				</h:inputText>
+				<span class="opozorilo"><h:message for="email"></h:message></span>
+				<br />	
+				
+			Geslo:	<h:inputText id="geslo" value="#{profil.oseba.geslo}" validatorMessage="Prosim vnesite geslo">
+					<f:validateRequired />
+				</h:inputText>
+				<span class="opozorilo"><h:message for="geslo"></h:message></span>
+				<br />			
+			Telefonska Številka: <h:inputText id="telefonskaStevilka"
+					value="#{profil.oseba.telefonskaStevilka}"
+					validatorMessage="Prosim vnesite telefonsko številko">
+					<f:validateRequired />
+				</h:inputText>
+				<span class="opozorilo"><h:message for="telefonskaStevilka"></h:message></span>
+				<br />
+				
+			Davčna Številka: <h:inputText id="davcnaStevilka"
+					value="#{profil.oseba.davcnaStevilka}"
+					validatorMessage="Prosim vnesite davčno številko">
+					<f:validateRequired />
+				</h:inputText>
+				<span class="opozorilo"><h:message for="davcnaStevilka"></h:message></span>
+				<br />
+				<h:commandButton value="Shrani spremembe" actionListener="#{profil.shraniUrejenoOseno}" />
+			</h:form>
+		</f:view>
+	</ui:define>
+</ui:composition>
+</html>

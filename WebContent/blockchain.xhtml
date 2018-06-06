@@ -17,47 +17,41 @@ column {
 		<f:view>
 			<h1>Seznam blokov</h1>
 			<h:form>
-					<h:dataTable value="#{blok.seznamBlokovOsebe}" var="a">
+				<h:dataTable value="#{blok.seznamBlokovOsebe}" var="a">
 					<h:column>
 						<div>
 							<h:outputText class="dogodekVsebina" value="Blok #{a.idBlock}"></h:outputText>
-							
+
 							<div class="gumbPodrobno">
 								<input type="button" value="Podrobnosti"
 									onclick="toggleDiv(div_#{a.idBlock})"></input>
 							</div>
-							
 							<div class="skritiDiv" id="div_#{a.idBlock}">
-							<span class="dogodekOznake">Hash: </span>
-							<h:outputText class="dogodekVsebina" value="#{a.hash}"></h:outputText><br />
-							<span class="dogodekOznake">Prejsnji hash: </span>
-							<h:outputText class="dogodekVsebina" value="#{a.prejsnjiHash}"></h:outputText><br />
-								<span class="dogodekOznake">Tocke: </span>
+								<span class="dogodekOznake">Hash: </span>
+								<h:outputText class="dogodekVsebina" value="#{a.hash}"></h:outputText>
+								<br /> <span class="dogodekOznake">Prejsnji hash: </span>
+								<h:outputText class="dogodekVsebina" value="#{a.prejsnjiHash}"></h:outputText>
+								<br /> <span class="dogodekOznake">Tocke: </span>
 								<h:outputText class="dogodekVsebina" value="#{a.stTock}"></h:outputText>
-								<br /> <span class="dogodekOznake">ID dogodka: </span>
-								<h:outputText class="dogodekVsebina" value="#{a.idDogodek}"></h:outputText>
 								<br /> <span class="dogodekOznake">Datum: </span>
 								<h:outputText class="dogodekVsebina" value="#{a.timeStamp}">
 									<f:convertDateTime pattern="dd.MM.yyyy HH:mm:ss" />
 								</h:outputText>
-								<br /> 
+								<br />
 							</div>
 						</div>
 						<hr />
 					</h:column>
 				</h:dataTable>
-				</h:form>
-				
+			</h:form>
+			<script>
+
+				function toggleDiv(a){
+					$( a ).toggle(300);
 					
-					<script>
+				}
 
-	function toggleDiv(a){
-		$( a ).toggle(300);
-		
-	}
-
-</script>
-			
+			</script>
 		</f:view>
 	</ui:define>
 </ui:composition>
