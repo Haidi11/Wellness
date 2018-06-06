@@ -65,7 +65,6 @@ public class ZaposleniModel {
 	// za prikaz imena, vloge
 	public Oseba getUporabnik() {
 		return dv.najdiPoUporabniskemImenu(vrniUporabnika().getName());
-
 	}
 	//vrne tocke v pravilnem sklonu
 	public String tockeSklon(int t) {

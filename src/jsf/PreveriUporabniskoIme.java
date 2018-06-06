@@ -36,11 +36,5 @@ public class PreveriUporabniskoIme implements Validator {
 			throw new ValidatorException(msg);
 			
 		}
-		
-
-		
-
-
-
 	}
 }

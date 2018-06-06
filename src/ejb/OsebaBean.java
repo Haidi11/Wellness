@@ -1,5 +1,6 @@
 package ejb;
 
+import vao.Nasvet;
 import vao.Oseba;
 
 import javax.ejb.Stateless;
@@ -127,16 +128,22 @@ public class OsebaBean implements OsebaVmesnik {
 	public boolean jeZasedeno(String o) {
 		if (em.createQuery("select e from Oseba e where e.uporabniskoIme = :uime)").setParameter("uime", o).getResultList().size() == 0) {
 			return false;
-
 		}
-		return true;
-
-		
+		return true;		
 	}
 
 	@Override
 	public List<Oseba> vrniOsebeOddelek(String data) {
 			return em.createQuery("select e from Oseba e where e.oddelek=:oddelek").setParameter("oddelek", data).getResultList();
 	
+	}
+
+	@Override
+	public void shraniUrejenoOsebo(Oseba oseba) {
+		 Oseba temp = em.find(Oseba.class, oseba.getIdOseba());
+		 temp.setEmail(oseba.getEmail());
+		 temp.setGeslo(oseba.getGeslo());
+		 temp.setTelefonskaStevilka(oseba.getTelefonskaStevilka());
+		 temp.setDavcnaStevilka(oseba.getDavcnaStevilka());
 	}
 }
