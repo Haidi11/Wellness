@@ -48,13 +48,6 @@
 			<hr />
 			<h2>Uredi podatke</h2>
 			<h:form>
-			Uporabniško ime: <h:inputText id="uporanbiskoIme"
-					validator="#{PreveriUporabniskoIme.validate}"
-					value="#{profil.oseba.uporabniskoIme}">
-					<f:validateRequired />
-				</h:inputText>
-				<span class="opozorilo"><h:message for="uporanbiskoIme" /> </span>
-				<br />
 		
 			Email:	<h:inputText id="email" value="#{profil.oseba.email}" validatorMessage="Prosim vnesite email">
 					<f:validateRequired />

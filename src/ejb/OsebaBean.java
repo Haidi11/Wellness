@@ -144,7 +144,6 @@ public class OsebaBean implements OsebaVmesnik {
 		 Oseba temp = em.find(Oseba.class, oseba.getIdOseba());
 		 temp.setEmail(oseba.getEmail());
 		 temp.setGeslo(oseba.getGeslo());
-		 temp.setUporabniskoIme(oseba.getUporabniskoIme());
 		 temp.setTelefonskaStevilka(oseba.getTelefonskaStevilka());
 		 temp.setDavcnaStevilka(oseba.getDavcnaStevilka());
 	}
