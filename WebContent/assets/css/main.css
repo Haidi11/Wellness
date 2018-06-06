@@ -2440,10 +2440,51 @@ za radio gumbke
 .drevo{
 	width: auto;
 }
-
+ /* drugo*/
 .nasvet{
 	 all: initial;
   * {
     all: unset;
   }
+}
+
+.dogodkiIndex{
+	display: inline-block;
+	overflow:hidden;	
+	float: left;
+}
+
+.tabelaIndex {
+    /* border: 1px solid black; */
+   /*  width: 40%; */
+}
+
+.naslovIndex {
+	font-size:14pt;
+	/* color: #4386f2; */
+	color: #37393d;
+	font-weight: bold;
+	
+}
+
+.tockovnik{
+	display: inline-block;
+	overflow:hidden;
+	/* float: right; */
+	floal: left;
+	margin-left: 30px;
+}
+
+.vlki{
+	overflow: hidden;
+}
+
+.obroba{
+	border: 1px solid black;
+	height: 360px;
+	width: 360px;
+} 
+
+.napisi{
+	padding-left: 10px; 
 }
