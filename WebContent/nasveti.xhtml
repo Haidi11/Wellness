@@ -27,9 +27,9 @@
 							<h:outputText value="#{n.avtor.priimek}"></h:outputText>
 						</h:column>
 						<h:column>
-							<f:facet name="header">Nasvet</f:facet>
-							<h:outputText value="#{n.nasvet}"></h:outputText>
-						</h:column>
+							<h:commandButton value="Podrobno"
+							action="#{nasvet.podrobno(n)}"></h:commandButton>
+						</h:column>	
 					</h:dataTable>
 				</h:form>
 				<h:form>
@@ -47,22 +47,25 @@
 							<f:facet name="header">Priimek avtorja</f:facet>
 							<h:outputText value="#{a.avtor.priimek}"></h:outputText>
 						</h:column>
-						<h:column>
+						<!-- <h:column>
 							<f:facet name="header">Nasvet</f:facet>
 							<h:outputText value="#{a.nasvet}"></h:outputText>
+						</h:column> -->
+						<h:column>
+							<h:commandButton value="Podrobno"
+							action="#{nasvet.podrobno(a)}"></h:commandButton>
 						</h:column>
 						<h:column>
 							<f:facet name="header"></f:facet>
 							<h:commandButton value="Izbrisi"
 								actionListener="#{nasvet.izbrisiNasvet(a)}"></h:commandButton>
 						</h:column>
-						<h:column>
+							<h:column>
 							<f:facet name="header"></f:facet>
-							<h:link outcome="urediNasvet.xhtml" value="Uredi"
-								includeViewParam="true">
-								<f:param name="idNasvet" value="#{a.idNasvet}"></f:param>
-							</h:link>
+							<h:commandButton value="Uredi"
+								action="#{nasvet.urediNasvet(a)}"></h:commandButton>
 						</h:column>
+						
 					</h:dataTable>
 				</h:form>
 			</f:view>

@@ -26,7 +26,7 @@ public interface NasvetVmesnik {
 
 	void dodajNasvet(Nasvet nasvet);
 	
-	
+
 
 
 }
