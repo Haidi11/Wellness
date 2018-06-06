@@ -18,31 +18,53 @@
  			<area shape="circle" coords="661,200,129" alt="Profil" href="profil.xhtml"></area>
  		</map>
  		
- 		
- 			  <div class="tockovnik"><h:dataTable value="#{zaposleni.topUporabnik}" var="a">
+ 		<div class="vlki">
+ 		<a href="dogodki.xhtml"> 
+ 		<div class="tockovnik obroba" onclick="">
+ 		<h3 class="naslovIndex napisi">Vsi prihajajoči dogodki</h3>
+ 			<h:dataTable class="tabelaIndex" value="#{zaposleni.vrniVseDogodkeZaUporabnika}" var="a">
 					<h:column>
-						Zaposleni z največ točkami:
-						<h:outputText value="#{a.ime}"></h:outputText> 
-						<h:outputText value="#{a.priimek}"></h:outputText> z 
+						<div>
+							<h:outputText class="napisi" value="#{a.naziv}"></h:outputText>
+						</div>
+						</h:column>
+						</h:dataTable>				
+ 			</div> </a>
+ 		<div class="tockovnik obroba" >
+ 		<h:dataTable  value="#{zaposleni.topUporabnik}" var="a">
+					<h:column>
+						<h3 class="naslovIndex napisi">Zaposleni z največ točkami:</h3>
+						<h:outputText class="napisi" value="#{a.ime}"></h:outputText> 
+						<h:outputText  value="#{a.priimek}"></h:outputText>  
 						 
-						<h:outputText value="#{a.tocke}"></h:outputText> <h:outputText value="#{zaposleni.tockeSklon(a.tocke)}"></h:outputText>.
+						<h:outputText  class="napisi" value="#{a.tocke}"></h:outputText> <h:outputText value="#{zaposleni.tockeSklon(a.tocke)}"></h:outputText>.
 					</h:column>
 					
 					</h:dataTable>
- 			  <h:dataTable value="#{zaposleni.topMesecniUporabnik}" var="a">
+ 			  <h:dataTable class="napisi" value="#{zaposleni.topMesecniUporabnik}" var="a">
 					<h:column>
-						Zaposleni z največ točkami ta mesec:
-						<h:outputText value="#{a.ime} "></h:outputText>      
+					<h3 class="naslovIndex napisi">Zaposleni z največ točkami ta mesec:</h3>
+						<h:outputText class="napisi" value="#{a.ime} "></h:outputText>      
 						 <h:outputText value="#{a.priimek}"></h:outputText> z 
 						 
-						<h:outputText value="#{a.tocke}"></h:outputText> <h:outputText value="#{zaposleni.tockeSklon(a.tocke)}"></h:outputText>.
+						<h:outputText class="napisi" value="#{a.tocke}"></h:outputText> <h:outputText value="#{zaposleni.tockeSklon(a.tocke)}"></h:outputText>.
 					</h:column>
 					
 					</h:dataTable>
- 			  
- 			
-         			
-       </div> 
+ 			 </div> 
+ 			 
+ 			 <a href="nasveti.xhtml">
+ 			 <div class="tockovnik obroba">
+ 			 <h3 class="naslovIndex napisi">Naslovi nasvetov:</h3>
+ 			 <h:dataTable  value="#{nasvet.vseNasvete}" var="n">
+ 			 		<h:column>
+							<h:outputText class="napisi" value="#{n.naslov}"></h:outputText>
+					</h:column>
+ 			 </h:dataTable>
+ 			 </div></a>
+ 			 
+ 			 </div> <!-- to je od ovojnice -->
+ 		
  		
   	 </f:view>   
 	 </ui:define>

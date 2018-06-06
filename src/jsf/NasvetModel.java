@@ -79,6 +79,10 @@ public class NasvetModel {
 		nasvetPodrobno=n;
 		return "nasvetPodrobno.xhtml";
 	}
+	
+	public void shraniUrejenNasvet( ) {
+		nv.dodajUrejenNasvet(uredinasvet);
+	}
 
 	public Nasvet getNovNasvet() {
 		return novNasvet;

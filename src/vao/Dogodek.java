@@ -69,7 +69,7 @@ public class Dogodek {
 		this.datumPrijave=new GregorianCalendar();
 		this.datumZacetka=new GregorianCalendar();
 		this.naziv="";
-		this.tocke=0;
+		this.tocke=1;
 		this.opisDogodka="";
 		this.prijavljen="Prijavi";
 		
