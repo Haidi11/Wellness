@@ -133,4 +133,16 @@ public class OsebaBean implements OsebaVmesnik {
 
 		
 	}
+
+	@Override
+	public List<Oseba> vrniOsebeOddelek(Object data) {
+		if(data instanceof String) {
+			return em.createQuery("select e from Oseba e where e.oddelek=:oddelek").setParameter("oddelek", (String) data).getResultList();
+			
+			
+		}
+		return null;
+		
+		
+	}
 }
