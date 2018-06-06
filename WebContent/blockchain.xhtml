@@ -3,15 +3,14 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:jsf="http://xmlns.jcp.org/jsf">
-<h:head></h:head>
-<h:body>
-<h1>Nasveti</h1>
+<ui:composition template="WEB-INF/template/template2.xhtml">
+	<ui:define name="main">
 			<f:view>
 				<h:form>
 					<h2>Seznam blokov</h2>
-					<h:dataTable value="#{blok.seznamBlokovOsebe}" var="blok">
+					<h:dataTable value="#{blok.seznamBlokovOsebe}" var="blok" >
 						<h:column>
-							<f:facet name="header">hashk</f:facet>
+							<f:facet name="header">hash</f:facet>
 							<h:outputText value="#{blok.hash}"></h:outputText>
 						</h:column>
 						<h:column>
@@ -33,5 +32,6 @@
 					</h:dataTable>
 				</h:form>
 			</f:view>
-</h:body>	
+		</ui:define>
+	</ui:composition>
 </html>
