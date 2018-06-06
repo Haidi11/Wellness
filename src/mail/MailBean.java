@@ -1,5 +1,6 @@
 package mail;
 
+import javax.ejb.Singleton;
 import javax.ejb.Stateless;
 import javax.mail.Message;
 import javax.mail.MessagingException;

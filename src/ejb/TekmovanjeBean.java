@@ -123,5 +123,7 @@ public class TekmovanjeBean implements TekmovanjeVmesnik {
 		return seznamLjudiTaMesec;
 
 	}
+	
+	
 
 }

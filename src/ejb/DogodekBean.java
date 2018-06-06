@@ -15,6 +15,7 @@ import orodja.Oddelki;
 import orodja.PaketZaprikazDogodkov;
 import orodja.StarostneSkupine;
 import vao.Dogodek;
+import vao.Obvestilo;
 import vao.Oseba;
 import vao.Tocke;
 import vmesniki.*;
@@ -254,4 +255,13 @@ public class DogodekBean implements DogodekVmesnik {
 		// TODO Auto-generated method stub
 
 	}
+
+	@Override
+	public void shraniObvestilo(int idOseba, int idDogodek) {
+		em.persist(new Obvestilo(idOseba,idDogodek));
+		
+	}
+	
+	
+	
 }

@@ -24,5 +24,6 @@ public interface DogodekVmesnik {
 	List<Oseba> vrniMojeUdelezence(int idDogodek);
 	Dogodek vrniMojDogodek(int idDogodek);
 	void potrdiUdelezbo(Dogodek izbranDogodek, Oseba o);
+	void shraniObvestilo(int idOseba, int idDogodek);
 
 }
