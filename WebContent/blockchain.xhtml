@@ -25,10 +25,6 @@ column {
 							<div class="gumbPodrobno">
 								<input type="button" value="Podrobnosti"
 									onclick="toggleDiv(div_#{a.idBlock})"></input>
-									<h:commandButton class="gumbZObrobo" value="Statistika"
-							action="#{dogodek.izberiDogodekKotLastnik(a)}"></h:commandButton>
-							<h:commandButton class="gumbZObrobo" value="Izbriši dogodek"
-							actionListener="#{dogodek.izbrisiDogodek(a)}"></h:commandButton>
 							</div>
 							
 							<div class="skritiDiv" id="div_#{a.idBlock}">
