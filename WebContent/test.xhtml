@@ -143,6 +143,29 @@
 				</h:dataTable>
 				</h:form>
 				
+				
+				<!-- nasveti test novih tabel -->
+				
+				
+				<h:form>
+					<h2>Vaši nasveti</h2>
+					<h:dataTable value="#{nasvet.vseNasveteAvtorja}" var="a">
+						<h:column>
+							<h:outputText class="dogodekVsebina" value="#{a.naslov}"></h:outputText>
+							
+							<div class="gumbPodrobno">
+							<h:commandButton class="gumbZObrobo" value="Podrobno"
+							action="#{nasvet.podrobno(a)}"></h:commandButton>
+							
+							<h:commandButton class="gumbZObrobo" value="Uredi"
+							action="#{nasvet.urediNasvet(a)}"></h:commandButton>
+							
+							<h:commandButton class="gumbZObrobo" value="Izbriši"
+							action="#{nasvet.izbrisiNasvet(a)}"></h:commandButton>
+							</div>
+						</h:column>
+					</h:dataTable>
+				</h:form>
 					
 					<script>
 
