@@ -116,7 +116,7 @@ body {
 	width: 1400px;
 }
 
-@media screen and (min-width: 961px) and (max-width: 1880px) {
+@media screen and (min-width: 961px) /*and (max-width: 1880px)*/ {
 	.container.\31 25\25 {
 		width: 100%;
 		max-width: 1500px;
@@ -187,9 +187,10 @@ body {
 	.container {
 		width: 100%;
 	}
+
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (min-width: 737px)  and (max-width: 960px) {
 	.container.\31 25\25 {
 		width: 100%;
 		max-width: 125%;
@@ -207,9 +208,14 @@ body {
 	.container {
 		width: 100%;
 	}
+	.obroba{
+	border: 1px solid black;
+	height: 360px;
+	width: 360px;
+	}
 }
 
-@media screen and (max-width: 736px) {
+@media screen and (min-width: 541px) and (max-width: 736px) {
 	.container.\31 25\25 {
 		width: 100%;
 		max-width: 125%;
@@ -227,6 +233,36 @@ body {
 	.container {
 		width: 100% !important;
 	}
+	.obroba{
+	border: 1px solid black;
+	height: 360px;
+	width: 360px;
+	}
+	
+}
+@media screen and (max-width: 540px) {
+	.container.\31 25\25 {
+		width: 100%;
+		max-width: 125%;
+		min-width: 100%;
+	}
+	.container.\37 5\25 {
+		width: 75%;
+	}
+	.container.\35 0\25 {
+		width: 50%;
+	}
+	.container.\32 5\25 {
+		width: 25%;
+	}
+	.container {
+		width: 100% !important;
+	}
+	.obrobaMali{
+		height: 360px;
+	
+	}
+	
 }
 
 /* Grid */

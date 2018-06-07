@@ -28,7 +28,7 @@
  		<div class="divZaSlike">
  		<h:graphicImage class="slika" value="images/w3.jpg" usemap="#map3" />
  		</div>
- 		</div>
+ 		
  		
  		<map name="map1">
  			<area shape="circle" coords="131,129,131" alt="Nasveti" title="Nasveti" href="nasveti.xhtml"></area>
@@ -45,7 +45,7 @@
  		<!-- divi -->
  		<div class="vlki">
  		<a href="dogodki.xhtml"> 
- 		<div class="tockovnik obroba obroba2" onclick="">
+ 		<div class="tockovnik obroba obroba2 obrobaMali">
  		<h3 class="naslovIndex napisi">Vsi prihajajoči dogodki</h3>
  			<h:dataTable class="tabelaIndex" value="#{zaposleni.vrniVseDogodkeZaUporabnika}" var="a">
 					<h:column>
@@ -55,7 +55,7 @@
 						</h:column>
 						</h:dataTable>				
  			</div> </a>
- 		<div class="tockovnik obroba obroba2" >
+ 		<div class="tockovnik obroba obroba2 obrobaMali" >
  		<h:dataTable  value="#{zaposleni.topUporabnik}" var="a">
 					<h:column>
 						<h3 class="naslovIndex napisi">Zaposleni z največ točkami:</h3>
@@ -79,7 +79,7 @@
  			 </div> 
  			 
  			 <a href="nasveti.xhtml">
- 			 <div class="tockovnik obroba obroba2">
+ 			 <div class="tockovnik obroba obroba2 obrobaMali">
  			 <h3 class="naslovIndex napisi">Naslovi nasvetov:</h3>
  			 <h:dataTable  value="#{nasvet.vseNasvete}" var="n">
  			 		<h:column>
@@ -89,7 +89,7 @@
  			 </div></a>
  			 
  			 </div> <!-- to je od ovojnice -->
- 		
+ 		</div>
  		
   	 </f:view>   
 	 </ui:define>
