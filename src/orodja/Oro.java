@@ -14,6 +14,13 @@ public class Oro {
 		return format.format(c.getTime()) + " " +ura(c);
 		
 	}
+	public static String izpisiSamoDatum(Calendar c) {
+		if (c == null)
+			return "";
+		SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+		return format.format(c.getTime());
+		
+	}
 	public static String ura(Calendar c) {
 //		String ura ="";
 //		String min="";

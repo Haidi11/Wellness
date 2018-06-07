@@ -85,12 +85,12 @@ public class Oseba {
 	 */
 	@Transient
 	public String getIzpisiDatumRojstva() {
-		return Oro.izpisiDatum(datumRojstva);
+		return Oro.izpisiSamoDatum(datumRojstva);
 	}
 
 	@Transient
 	public String getIzpisiDatumZaposlitve() {
-		return Oro.izpisiDatum(datumZaposlitve);
+		return Oro.izpisiSamoDatum(datumZaposlitve);
 	}
 
 	/*
