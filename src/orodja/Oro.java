@@ -1,7 +1,9 @@
 package orodja;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class Oro {
 
@@ -65,6 +67,12 @@ public class Oro {
 			return "";
 		} 
 	
+		
+		
+	}
+	public static String meseci() {
+		String ret = "'Januar', 'Februar', 'Marec', 'April', 'Maj', 'Junij', 'Julij', 'Avgust', 'September', 'Oktober', 'November', 'December'";
+		return ret;
 		
 		
 	}

@@ -3,6 +3,9 @@ package vmesniki;
 import vao.Oseba;
 
 import javax.ejb.Local;
+
+import orodja.PaketTocke;
+
 import java.util.List;
 import java.util.Map;
 
@@ -18,5 +21,6 @@ public interface OsebaVmesnik {
 	boolean jeZasedeno(String o);
 	void shraniUrejenoOsebo(Oseba oseba); 
 	List<Oseba> vrniOsebeOddelek(String data);
-	Map<String, String> vrniOddelke(); 
+	Map<String, String> vrniOddelke();
+	PaketTocke vrniTockeZaUporabnika(String name); 
 }

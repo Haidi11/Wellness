@@ -77,6 +77,144 @@
 				<br />
 				<h:commandButton value="Shrani spremembe" actionListener="#{profil.shraniUrejenoOseno}" />
 			</h:form>
+			
+			<h1>Graf pridobivanja točk</h1>
+			<canvas class="graf_mojDogodek" id="graf_tocke"></canvas>
+			
+			
+			<h1>Seznam blokov za točke</h1>
+			<h:form>
+				<h:dataTable value="#{blok.seznamBlokovOsebe}" var="a">
+					<h:column>
+						<div>
+							<h:outputText class="dogodekVsebina" value="Blok #{a.idBlock}"></h:outputText>
+
+							<div class="gumbPodrobno">
+								<input type="button" value="Podrobnosti"
+									onclick="toggleDiv(div_#{a.idBlock})"></input>
+							</div>
+							<div class="skritiDiv" id="div_#{a.idBlock}">
+								<span class="dogodekOznake">Hash: </span>
+								<h:outputText class="dogodekVsebina" value="#{a.hash}"></h:outputText>
+								<br /> <span class="dogodekOznake">Prejsnji hash: </span>
+								<h:outputText class="dogodekVsebina" value="#{a.prejsnjiHash}"></h:outputText>
+								<br /> <span class="dogodekOznake">Tocke: </span>
+								<h:outputText class="dogodekVsebina" value="#{a.stTock}"></h:outputText>
+								<br /> <span class="dogodekOznake">Datum: </span>
+								<h:outputText class="dogodekVsebina" value="#{a.timeStamp}">
+									<f:convertDateTime pattern="dd.MM.yyyy HH:mm:ss" />
+								</h:outputText>
+								<br />
+							</div>
+						</div>
+						<hr />
+					</h:column>
+				</h:dataTable>
+			</h:form>
+			
+			
+			
+			
+			<script>
+
+				function toggleDiv(a){
+					$( a ).toggle(300);
+					
+				}
+
+				
+
+				
+				var config = {
+					type: 'line',
+					data: {
+						labels: [#{profil.oznake}],
+						datasets: [{
+							label: 'Točke',
+							backgroundColor: [ 
+								'rgba(54, 162, 235, 0.2)',
+								'rgba(255, 206, 86, 0.2)',
+								'rgba(75, 192, 192, 0.2)',
+								'rgba(153, 102, 255, 0.2)',
+								'rgba(255, 159, 64, 0.2)' ],
+							borderColor: [ 
+								'rgba(54, 162, 235, 1)',
+								'rgba(255, 206, 86, 1)',
+								'rgba(75, 192, 192, 1)',
+								'rgba(153, 102, 255, 1)',
+								'rgba(255, 159, 64, 1)' ],
+							data: [#{profil.tocke}
+														],
+							fill: false,
+						}
+						
+// 						, 
+						
+// 						{
+// 							label: 'My Second dataset',
+// 							fill: false,
+// 							backgroundColor: window.chartColors.blue,
+// 							borderColor: window.chartColors.blue,
+// 							data: [
+// 								randomScalingFactor(),
+// 								randomScalingFactor(),
+// 								randomScalingFactor(),
+// 								randomScalingFactor(),
+// 								randomScalingFactor(),
+// 								randomScalingFactor(),
+// 								randomScalingFactor()
+// 							],
+// 						}
+]
+					},
+					options: {
+						responsive: true,
+						title: {
+							display: true,
+							text: 'Pridobivanje točk'
+						},
+						tooltips: {
+							mode: 'index',
+							intersect: false,
+						},
+						hover: {
+							mode: 'nearest',
+							intersect: true
+						},
+						scales: {
+							xAxes: [{
+								display: true,
+								scaleLabel: {
+									display: true,
+									labelString: 'Meseci'
+								}
+							}],
+							yAxes: [{
+								display: true,
+								scaleLabel: {
+									display: true,
+									labelString: 'Točke'
+								}
+							}]
+						}
+					}
+				};
+
+			
+				var tocke = document.getElementById('graf_tocke').getContext('2d');
+				var graf = new Chart(tocke, config);
+				
+
+			
+
+		
+				
+
+				
+
+				
+			
+			</script>
 		</f:view>
 	</ui:define>
 </ui:composition>

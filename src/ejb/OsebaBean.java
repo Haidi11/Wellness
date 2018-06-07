@@ -3,6 +3,7 @@ package ejb;
 import vao.Nasvet;
 import vao.Oseba;
 
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -12,6 +13,10 @@ import org.hibernate.validator.constraints.Email;
 import com.sun.org.apache.bcel.internal.generic.NEW;
 
 import block.Block;
+import orodja.Oro;
+import orodja.PaketTocke;
+import sun.util.resources.cldr.aa.CalendarData_aa_ER;
+import sun.util.resources.cldr.es.CalendarData_es_AR;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -20,6 +25,8 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import vmesniki.BlockChainVmesnik;
+import vmesniki.DogodekVmesnik;
 import vmesniki.OsebaVmesnik;
 
 @Stateless
@@ -27,6 +34,12 @@ public class OsebaBean implements OsebaVmesnik {
 
 	@PersistenceContext
 	EntityManager em;
+
+	@EJB
+	DogodekVmesnik dv;
+
+	@EJB
+	BlockChainVmesnik bv;
 
 	@Override
 	public void dodajOsebo(Oseba o) {
@@ -129,31 +142,33 @@ public class OsebaBean implements OsebaVmesnik {
 
 	@Override
 	public boolean jeZasedeno(String o) {
-		if (em.createQuery("select e from Oseba e where e.uporabniskoIme = :uime)").setParameter("uime", o).getResultList().size() == 0) {
+		if (em.createQuery("select e from Oseba e where e.uporabniskoIme = :uime)").setParameter("uime", o)
+				.getResultList().size() == 0) {
 			return false;
 		}
-		return true;		
+		return true;
 	}
 
 	@Override
 	public List<Oseba> vrniOsebeOddelek(String data) {
-			return em.createQuery("select e from Oseba e where e.oddelek=:oddelek").setParameter("oddelek", data).getResultList();
-	
+		return em.createQuery("select e from Oseba e where e.oddelek=:oddelek").setParameter("oddelek", data)
+				.getResultList();
+
 	}
 
 	@Override
 	public void shraniUrejenoOsebo(Oseba oseba) {
-		 Oseba temp = em.find(Oseba.class, oseba.getIdOseba());
-		 temp.setEmail(oseba.getEmail());
-		 temp.setGeslo(oseba.getGeslo());
-		 temp.setTelefonskaStevilka(oseba.getTelefonskaStevilka());
-		 temp.setDavcnaStevilka(oseba.getDavcnaStevilka());
+		Oseba temp = em.find(Oseba.class, oseba.getIdOseba());
+		temp.setEmail(oseba.getEmail());
+		temp.setGeslo(oseba.getGeslo());
+		temp.setTelefonskaStevilka(oseba.getTelefonskaStevilka());
+		temp.setDavcnaStevilka(oseba.getDavcnaStevilka());
 	}
 
 	@Override
 	public Map<String, String> vrniOddelke() {
-		Map<String,String> oddelki= new LinkedHashMap<>();
-		
+		Map<String, String> oddelki = new LinkedHashMap<>();
+
 		oddelki.put("", "");
 		oddelki.put("oddelek C", "oddelek C");
 		oddelki.put("Vodstvo", "Vodstvo");
@@ -161,8 +176,47 @@ public class OsebaBean implements OsebaVmesnik {
 		oddelki.put("Organizatorji dogodkov", "Organizatorji dogodkov");
 		oddelki.put("oddelek B", "oddelek B");
 		oddelki.put("oddelek A", "oddelek A");
-		
-		
+
 		return oddelki;
 	}
+
+	// sesteje tocke za vsak mesec za uporabnika
+	@Override
+	public PaketTocke vrniTockeZaUporabnika(String name) {
+
+		 
+
+		int[] vrednosti = new int[12];
+
+		List<Block> seznam = bv.getVseBlokiZaOsebo(dv.najdiPoUporabniskemImenu(name).getIdOseba());
+
+		for (Block b : seznam) {
+			Calendar temp = Calendar.getInstance();
+			temp.setTimeInMillis(b.getTimeStamp());
+
+			if (temp.get(Calendar.YEAR) == Calendar.getInstance().get(Calendar.YEAR)) {
+				for (int i = 0; i < vrednosti.length; i++) {
+
+					if (temp.get(Calendar.MONTH) == i) {
+						vrednosti[i] += b.getStTock();
+
+					}
+				}
+
+			}
+
+		}
+
+		String vrednostiString= "";
+		for (int i = 0; i < vrednosti.length; i++) {
+			vrednostiString+=vrednosti[i]+", ";
+		}
+		
+		
+		
+		
+		return new PaketTocke(vrednostiString, Oro.meseci() );
+
+	}
+
 }

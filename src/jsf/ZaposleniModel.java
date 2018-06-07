@@ -33,6 +33,7 @@ public class ZaposleniModel {
 	@EJB
 	DogodekVmesnik dv;
 
+
 	// prikaz podrobnosti
 	public void prikaziPodrobno(Dogodek d) {
 		this.dogodekPodrobno = d;
