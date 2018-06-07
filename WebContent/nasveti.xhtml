@@ -6,12 +6,8 @@
 
 <ui:composition template="WEB-INF/template/template2.xhtml">
 	<ui:define name="main">
-		<f:view>
-
-
-			<h1>Nasveti</h1>
 			<f:view>
-				<h:form>
+				<!-- <h:form>
 					<h2>Vsi nasveti</h2>
 					<h:dataTable value="#{nasvet.vseNasvete}" var="n">
 						<h:column>
@@ -31,44 +27,47 @@
 							action="#{nasvet.podrobno(n)}"></h:commandButton>
 						</h:column>	
 					</h:dataTable>
-				</h:form>
+				</h:form> -->
+				
 				<h:form>
-					<h2>Nasveti avtorja</h2>
-					<h:dataTable value="#{nasvet.vseNasveteAvtorja}" var="a">
+					<h2>Vsi nasveti</h2>
+					<h:dataTable value="#{nasvet.vseNasvete}" var="n">
 						<h:column>
-							<f:facet name="header">Naziv</f:facet>
-							<h:outputText value="#{a.naslov}"></h:outputText>
+							<h:outputText value="#{n.naslov}"></h:outputText>
 						</h:column>
+						
+						<div class="gumbPodrobno">
 						<h:column>
-							<f:facet name="header">Ime avtorja</f:facet>
-							<h:outputText value="#{a.avtor.ime}"></h:outputText>
-						</h:column>
-						<h:column>
-							<f:facet name="header">Priimek avtorja</f:facet>
-							<h:outputText value="#{a.avtor.priimek}"></h:outputText>
-						</h:column>
-						<!-- <h:column>
-							<f:facet name="header">Nasvet</f:facet>
-							<h:outputText value="#{a.nasvet}"></h:outputText>
-						</h:column> -->
-						<h:column>
-							<h:commandButton value="Podrobno"
-							action="#{nasvet.podrobno(a)}"></h:commandButton>
-						</h:column>
-						<h:column>
-							<f:facet name="header"></f:facet>
-							<h:commandButton value="Izbrisi"
-								actionListener="#{nasvet.izbrisiNasvet(a)}"></h:commandButton>
-						</h:column>
-							<h:column>
-							<f:facet name="header"></f:facet>
-							<h:commandButton value="Uredi"
-								action="#{nasvet.urediNasvet(a)}"></h:commandButton>
-						</h:column>
+							<h:commandButton value="Preberi" class="gumbZObrobo"
+							action="#{nasvet.podrobno(n)}"></h:commandButton>
+						</h:column>	
+						</div>
 						
 					</h:dataTable>
 				</h:form>
-			</f:view>
+				
+				
+				
+					<h:form>
+					<h2>Vaši nasveti</h2>
+					<h:dataTable value="#{nasvet.vseNasveteAvtorja}" var="a">
+						<h:column>
+							<h:outputText class="dogodekVsebina" value="#{a.naslov}"></h:outputText>
+							
+							<div class="gumbPodrobno">
+							<h:commandButton class="gumbZObrobo" value="Podrobno"
+							action="#{nasvet.podrobno(a)}"></h:commandButton>
+							
+							<h:commandButton class="gumbZObrobo" value="Uredi"
+							action="#{nasvet.urediNasvet(a)}"></h:commandButton>
+							
+							<h:commandButton class="gumbZObrobo" value="Izbriši"
+							action="#{nasvet.izbrisiNasvet(a)}"></h:commandButton>
+							</div>
+						</h:column>
+					</h:dataTable>
+				</h:form>
+			
 			<h:form>
 				<label for="naziv">Vnesite naziv</label>
 				<h:inputText type="text" name="naziv" id="naziv"
@@ -84,6 +83,14 @@
 				<h:commandButton value="Dodaj nasvet"
 					actionListener="#{nasvet.dodajNovNasvet}" />
 			</h:form>
+			
+		<script>
+
+		function toggleDiv(a){
+			$( a ).toggle(300);
+		
+		}
+		</script>
 			
 		<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 		<script type="text/javascript" src="editor/tinymce/tinymce.min.js"></script>

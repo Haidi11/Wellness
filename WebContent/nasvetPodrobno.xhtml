@@ -11,7 +11,9 @@
 	<!-- 	#{nasvet.nasvetPodrobno.naslov}
 		#{nasvet.nasvetPodrobno.nasvet} -->
 		Naslov:
-	 <h:outputText class="nasvet" value="#{nasvet.nasvetPodrobno.naslov}" escape="false"/>
+	 <h:outputText class="nasvet" value="#{nasvet.nasvetPodrobno.naslov}" escape="false" /> <br />
+	 Avtor:  <h:outputText class="nasvet" value="#{nasvet.nasvetPodrobno.avtor.ime}  " />
+	 <h:outputText class="nasvet" value="#{nasvet.nasvetPodrobno.avtor.priimek}" /> 
 	 <hr />
 		
 	 <h:outputText class="nasvet" value="#{nasvet.nasvetPodrobno.nasvet}" escape="false"/>
