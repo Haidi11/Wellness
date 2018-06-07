@@ -134,6 +134,13 @@ body {
 	.container {
 		width: 1200px;
 	}
+	
+	 .obroba{
+	border: 1px solid black;
+	height: 360px;
+	width: 360px;
+	}  
+	
 }
 
 @media screen and (min-width: 961px) and (max-width: 1620px) {
@@ -154,6 +161,12 @@ body {
 	.container {
 		width: 960px;
 	}
+	
+	 .obroba{
+	border: 1px solid black;
+	height: 360px;
+	width: 360px;
+	}  
 }
 
 @media screen and (min-width: 961px) and (max-width: 1320px) {
@@ -2472,19 +2485,35 @@ za radio gumbke
 	overflow:hidden;
 	/* float: right; */
 	floal: left;
-	margin-left: 30px;
+	margin-left: 30px; 
 }
 
 .vlki{
 	overflow: hidden;
+
 }
 
-.obroba{
+/* .obroba{
 	border: 1px solid black;
 	height: 360px;
 	width: 360px;
-} 
+}  */
 
 .napisi{
 	padding-left: 10px; 
 }
+
+.divZaSlike{
+	display: inline-block;
+	overflow:hidden;
+}
+
+.ovojincaZaSlike{
+  text-align: center;
+}
+
+/* nasveti 
+.gumbNasveti{
+	float:right;
+} */
+

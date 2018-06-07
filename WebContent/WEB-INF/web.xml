@@ -33,16 +33,17 @@
 
 	<security-constraint>
 		<web-resource-collection>
-			<web-resource-name>zaposleni</web-resource-name>
-			<url-pattern>/faces/dogodki.xhtml</url-pattern>
+			<web-resource-name>organizator</web-resource-name>
+			<url-pattern>/faces/dodajDogodek.xhtml</url-pattern>
+			<url-pattern>/faces/mojiDogodki.xhtml</url-pattern>
+			<url-pattern>/faces/dodajTekmovanje.xhtml</url-pattern>
 			<http-method>POST</http-method>
 			<http-method>GET</http-method>
 			<http-method>PUT</http-method>
 			<http-method>DELETE</http-method>
 		</web-resource-collection>
 		<auth-constraint>
-			<role-name>zaposleni</role-name>
-			<role-name>kadrovska</role-name>
+			<role-name>organizator</role-name>
 		</auth-constraint>
 	</security-constraint>
 
@@ -78,7 +79,7 @@
 		<role-name>zaposleni</role-name>
 	</security-role>
 	<security-role>
-		<role-name>*</role-name>
+		<role-name>organizator</role-name>
 	</security-role>
 
 
