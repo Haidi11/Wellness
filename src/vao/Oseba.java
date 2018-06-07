@@ -27,8 +27,6 @@ public class Oseba {
 	private String ime;
 	private String priimek;
 	private String email;
-	private boolean kadrovskaSluzba;
-	private boolean organizatorDogodkov;
 	private String spol;
 	private String oddelek;
 	private int tocke;
@@ -40,6 +38,12 @@ public class Oseba {
 	private String vloga;
 	private String geslo;
 	private String uporabniskoIme;
+	private String ulica;
+	private String hisnaStevilka;
+	private String posta;
+	private int postnaStevilka;
+	private String drzava;
+
 	@Transient
 	private String udelezba;
 	@Transient
@@ -49,15 +53,13 @@ public class Oseba {
 
 	private List<Nasvet> nasveti = new ArrayList<>();
 	private List<Dogodek> dogodki = new ArrayList<>();
-	private List<Tekmovanje> tekmovanja= new ArrayList<>();
+	private List<Tekmovanje> tekmovanja = new ArrayList<>();
 
 	// nastavi na prazno za resetiranje vnosnih polj
 	public Oseba() {
 		this.ime = "";
 		this.priimek = "";
 		this.email = "";
-		this.kadrovskaSluzba = false;
-		this.organizatorDogodkov = false;
 		this.spol = "";
 		this.oddelek = "";
 		this.telefonskaStevilka = "";
@@ -66,6 +68,11 @@ public class Oseba {
 		this.datumRojstva = new GregorianCalendar();
 		this.datumZaposlitve = new GregorianCalendar();
 		this.vloga = "";
+		this.ulica = "";
+		this.hisnaStevilka = "";
+		this.posta = "";
+		this.postnaStevilka = 0;
+		this.drzava = "";
 
 	}
 
@@ -89,18 +96,12 @@ public class Oseba {
 	/*
 	 * getterji/setterji
 	 */
-	public boolean isOrganizatorDogodkov() {
-		return organizatorDogodkov;
-	}
 
-	@Transient
-	public boolean getOrganizatorDogodkov() {
-		return organizatorDogodkov;
-	}
 
-	public void setOrganizatorDogodkov(boolean orgaizatorDoodkov) {
-		this.organizatorDogodkov = orgaizatorDoodkov;
-	}
+
+	
+
+	
 
 	public String getIme() {
 		return ime;
@@ -160,13 +161,7 @@ public class Oseba {
 		this.tocke = tocke;
 	}
 
-	public boolean isKadrovskaSluzba() {
-		return kadrovskaSluzba;
-	}
 
-	public void setKadrovskaSluzba(boolean kadrovskaSluzba) {
-		this.kadrovskaSluzba = kadrovskaSluzba;
-	}
 
 	@ManyToMany(mappedBy = "udelezenci")
 	public List<Dogodek> getDogodki() {
@@ -240,6 +235,7 @@ public class Oseba {
 	public void setUporabniskoIme(String uporabniskoIme) {
 		this.uporabniskoIme = uporabniskoIme;
 	}
+
 	@Transient
 	public String getUdelezba() {
 		return udelezba;
@@ -275,12 +271,53 @@ public class Oseba {
 	public void setStTockTaMesec(int stTockTaMesec) {
 		this.stTockTaMesec = stTockTaMesec;
 	}
-	@OneToMany(mappedBy="lastnik", targetEntity=Tekmovanje.class)
+
+	@OneToMany(mappedBy = "lastnik", targetEntity = Tekmovanje.class)
 	public List<Tekmovanje> getTekmovanja() {
 		return tekmovanja;
 	}
 
 	public void setTekmovanja(List<Tekmovanje> tekmovanja) {
 		this.tekmovanja = tekmovanja;
+	}
+
+	public String getUlica() {
+		return ulica;
+	}
+
+	public void setUlica(String ulica) {
+		this.ulica = ulica;
+	}
+
+	public String getHisnaStevilka() {
+		return hisnaStevilka;
+	}
+
+	public void setHisnaStevilka(String hisnaStevilka) {
+		this.hisnaStevilka = hisnaStevilka;
+	}
+
+	public String getPosta() {
+		return posta;
+	}
+
+	public void setPosta(String posta) {
+		this.posta = posta;
+	}
+
+	public int getPostnaStevilka() {
+		return postnaStevilka;
+	}
+
+	public void setPostnaStevilka(int postnaStevilka) {
+		this.postnaStevilka = postnaStevilka;
+	}
+
+	public String getDrzava() {
+		return drzava;
+	}
+
+	public void setDrzava(String drzava) {
+		this.drzava = drzava;
 	}
 }

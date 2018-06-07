@@ -70,28 +70,44 @@
 				</h:inputText>
 				<span class="opozorilo"><h:message for="davcnaStevilka"></h:message></span>
 				<br />
-			Oddelek: <h:selectOneMenu id="oddelek" validator="#{PreveriOddelek.validate}" value="#{osebe.novaOseba.oddelek}">
+			Ulica: <h:inputText id="ulica" value="#{osebe.novaOseba.ulica}"
+					validatorMessage="Prosim vnesite ulico">
+					<f:validateRequired />
+				</h:inputText>
+				<span class="opozorilo"><h:message for="ulica"></h:message></span>
+				<br />		
+			Hišna številka: <h:inputText id="hisnaStevilka"
+					value="#{osebe.novaOseba.hisnaStevilka}"
+					validatorMessage="Prosim vnesite hišno številko">
+					<f:validateRequired />
+				</h:inputText>
+				<span class="opozorilo"><h:message for="hisnaStevilka"></h:message></span>
+				<br />
+				Poštna številka: <input id="postnaStevilka" type="number" min="1000"
+					max="99999" jsf:value="#{osebe.novaOseba.postnaStevilka}" />
+
+				<br />
+				Pošta: <h:inputText id="posta" value="#{osebe.novaOseba.posta}"
+					validatorMessage="Prosim vnesite pošto">
+					<f:validateRequired />
+				</h:inputText>
+				<span class="opozorilo"><h:message for="posta"></h:message></span>
+				<br />
+				Država: <h:inputText id="drzava" value="#{osebe.novaOseba.drzava}"
+					validatorMessage="Prosim vnesite državo">
+					<f:validateRequired />
+				</h:inputText>
+				<span class="opozorilo"><h:message for="drzava"></h:message></span>
+				<br />
+			Oddelek: <h:selectOneMenu id="oddelek"
+					validator="#{PreveriOddelek.validate}"
+					value="#{osebe.novaOseba.oddelek}">
 					<f:selectItems value="#{osebe.oddelki}" />
 					<f:validateRequired />
 				</h:selectOneMenu>
 				<span class="opozorilo"><h:message for="oddelek"></h:message></span>
 				<br />
-			Organizator dogodkov:	<h:selectOneRadio id="organizatordogodkov"
-					class="radioGumbi" value="#{osebe.novaOseba.organizatorDogodkov}"
-					validatorMessage="Prosim vnesite ali je oseba organizator dogodkov?">
-					<f:selectItem itemValue="#{true}" itemLabel="da" />
-					<f:selectItem itemValue="#{false}" itemLabel="ne" />
-					<f:validateRequired />
-				</h:selectOneRadio>
-
-			Kadrovska služba:	<h:selectOneRadio id="kadrovskaSluzba"
-					class="radioGumbi" value="#{osebe.novaOseba.kadrovskaSluzba}"
-					validatorMessage="Prosim vnesite ali je oseba član kadrovske službe">
-					<f:selectItem itemValue="#{true}" itemLabel="da" />
-					<f:selectItem itemValue="#{false}" itemLabel="ne" />
-					<f:validateRequired />
-				</h:selectOneRadio>
-				
+								
 			Vloga <h:inputText id="vloga" value="#{osebe.novaOseba.vloga}"
 					validatorMessage="Prosim vnesite vlogo osebe v podjetju">
 					<f:validateRequired />
@@ -99,16 +115,14 @@
 				<span class="opozorilo"><h:message for="vloga"></h:message></span>
 				<br />
 				
-			Uporabniško ime: <h:inputText id="uporanbiskoIme" validator="#{PreveriUporabniskoIme.validate}"
-					value="#{osebe.novaOseba.uporabniskoIme}"
-					>
+			Uporabniško ime: <h:inputText id="uporanbiskoIme"
+					validator="#{PreveriUporabniskoIme.validate}"
+					value="#{osebe.novaOseba.uporabniskoIme}">
 
 					<f:validateRequired />
-					
+
 				</h:inputText>
-				<span class="opozorilo"><h:message for="uporanbiskoIme" />
-				
-				</span>
+				<span class="opozorilo"><h:message for="uporanbiskoIme" /> </span>
 				<br />
 
 				<h:commandButton value="Dodaj Zaposlenega"
@@ -147,13 +161,7 @@
 								<h:outputText class="osebaVsebina" value="#{a.EMSO}"></h:outputText>
 								<br /> <span class="osebeOznake"> Točke: </span>
 								<h:outputText class="osebaVsebina" value="#{a.tocke}"></h:outputText>
-								<br /> <span class="osebeOznake"> Kadrovska služba: </span>
-								<h:outputText class="osebaVsebina" value="#{a.kadrovskaSluzba}"></h:outputText>
-								<br /> <span class="osebeOznake"> Organizator dogodkov:
-								</span>
-								<h:outputText class="osebaVsebina"
-									value="#{a.organizatorDogodkov}"></h:outputText>
-								<br /> <span class="osebeOznake"> Davčna številka: </span>
+								<br /> 								<br /> <span class="osebeOznake"> Davčna številka: </span>
 								<h:outputText class="osebaVsebina" value="#{a.davcnaStevilka}"></h:outputText>
 								<br /> <span class="osebeOznake"> Vloga: </span>
 								<h:outputText class="osebaVsebina" value="#{a.vloga}"></h:outputText>

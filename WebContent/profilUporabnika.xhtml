@@ -13,49 +13,72 @@
 			<h3>Vasi podatki</h3>
 			<h:form>
 
-				<b>Ime: </b><h:outputText value="#{profil.oseba.ime}"></h:outputText>
+				<b>Ime: </b>
+				<h:outputText value="#{profil.oseba.ime}"></h:outputText>
 				<br></br>
-				<b>Priimek: </b><h:outputText value="#{profil.oseba.priimek}"></h:outputText>
+				<b>Priimek: </b>
+				<h:outputText value="#{profil.oseba.priimek}"></h:outputText>
 				<br></br>
-				<b>Datum rojstva: </b><h:outputText value="#{profil.oseba.izpisiDatumRojstva}"></h:outputText>
+				<b>Datum rojstva: </b>
+				<h:outputText value="#{profil.oseba.izpisiDatumRojstva}"></h:outputText>
 				<br></br>
-				<b>Datum zaposlitve: </b><h:outputText value="#{profil.oseba.izpisiDatumZaposlitve}"></h:outputText>
+				<b>Datum zaposlitve: </b>
+				<h:outputText value="#{profil.oseba.izpisiDatumZaposlitve}"></h:outputText>
 				<br></br>
-				<b>EMSO: </b><h:outputText value="#{profil.oseba.EMSO}"><f:convertDateTime pattern="dd.MM.yyyy HH:mm:ss" /></h:outputText>
+				<b>EMSO: </b>
+				<h:outputText value="#{profil.oseba.EMSO}"></h:outputText>
 				<br></br>
-				<b>Davcna stevilka: </b><h:outputText value="#{profil.oseba.davcnaStevilka}"></h:outputText>
+				<b>Davcna stevilka: </b>
+				<h:outputText value="#{profil.oseba.davcnaStevilka}"></h:outputText>
 				<br></br>
-				<b>Email: </b><h:outputText value="#{profil.oseba.email}"></h:outputText>
+				<b>Email: </b>
+				<h:outputText value="#{profil.oseba.email}"></h:outputText>
 				<br></br>
-				<b>Geslo: </b><h:outputText value="#{profil.oseba.geslo}"></h:outputText>
+				<b>Geslo: </b>
+				<h:outputText value="#{profil.oseba.geslo}"></h:outputText>
 				<br></br>
-				<b>Spol: </b><h:outputText value="#{profil.oseba.spol}"></h:outputText>
+				<b>Spol: </b>
+				<h:outputText value="#{profil.oseba.spol}"></h:outputText>
 				<br></br>
-				<b>Telefonska stevilka: </b><h:outputText value="#{profil.oseba.telefonskaStevilka}"></h:outputText>
+				<b>Telefonska stevilka: </b>
+				<h:outputText value="#{profil.oseba.telefonskaStevilka}"></h:outputText>
 				<br></br>
-				<b>Oddelek: </b><h:outputText value="#{profil.oseba.oddelek}"></h:outputText>
+				<b>Oddelek: </b>
+				<h:outputText value="#{profil.oseba.oddelek}"></h:outputText>
 				<br></br>
-				<b>Organizator: </b><h:outputText value="#{profil.oseba.organizatorDogodkov}"></h:outputText>
+				<b>Vloga:</b>
+				<h:outputText value="#{profil.oseba.vloga}"></h:outputText>
 				<br></br>
-				<b>KadrovskaSluzba: </b><h:outputText value="#{profil.oseba.kadrovskaSluzba}"></h:outputText>
-				<br></br>
-				<b>Vloga:</b> <h:outputText value="#{profil.oseba.vloga}"></h:outputText>
-				<br></br>
-				<b>Uporabnisko ime:</b> <h:outputText value="#{profil.oseba.uporabniskoIme}"></h:outputText>
+				<b>Uporabnisko ime:</b>
+				<h:outputText value="#{profil.oseba.uporabniskoIme}"></h:outputText>
 				<br></br>
 			</h:form>
 			<hr />
 			<h2>Uredi podatke</h2>
+			Ime: <h:inputText id="ime" value="#{profil.oseba.ime}"
+				validatorMessage="Prosim vnesite ime">
+				<f:validateRequired />
+			</h:inputText>
+			<span class="opozorilo"><h:message for="ime"></h:message></span>
+			<br />
+			Priimek: <h:inputText id="priimek" value="#{profil.oseba.priimek}"
+				validatorMessage="Prosim vnesite priimek">
+				<f:validateRequired />
+			</h:inputText>
+			<span class="opozorilo"><h:message for="priimek"></h:message></span>
+			<br />
 			<h:form>
 		
-			Email:	<h:inputText id="email" value="#{profil.oseba.email}" validatorMessage="Prosim vnesite email">
+			Email:	<h:inputText id="email" value="#{profil.oseba.email}"
+					validatorMessage="Prosim vnesite email">
 					<f:validateRequired />
 					<f:validateRegex pattern=".+\@.+\..+" />
 				</h:inputText>
 				<span class="opozorilo"><h:message for="email"></h:message></span>
 				<br />	
 				
-			Geslo:	<h:inputText id="geslo" value="#{profil.oseba.geslo}" validatorMessage="Prosim vnesite geslo">
+			Geslo:	<h:inputText id="geslo" value="#{profil.oseba.geslo}"
+					validatorMessage="Prosim vnesite geslo">
 					<f:validateRequired />
 				</h:inputText>
 				<span class="opozorilo"><h:message for="geslo"></h:message></span>
@@ -75,13 +98,44 @@
 				</h:inputText>
 				<span class="opozorilo"><h:message for="davcnaStevilka"></h:message></span>
 				<br />
-				<h:commandButton value="Shrani spremembe" actionListener="#{profil.shraniUrejenoOseno}" />
+				
+			Ulica: <h:inputText id="ulica" value="#{profil.oseba.ulica}"
+					validatorMessage="Prosim vnesite ulico">
+					<f:validateRequired />
+				</h:inputText>
+				<span class="opozorilo"><h:message for="ulica"></h:message></span>
+				<br />		
+			Hišna številka: <h:inputText id="hisnaStevilka"
+					value="#{profil.oseba.hisnaStevilka}"
+					validatorMessage="Prosim vnesite hišno številko">
+					<f:validateRequired />
+				</h:inputText>
+				<span class="opozorilo"><h:message for="hisnaStevilka"></h:message></span>
+				<br />
+				Poštna številka: <input id="postnaStevilka" type="number" min="1000"
+					max="99999" jsf:value="#{profil.oseba.postnaStevilka}" />
+
+				<br />
+				Pošta: <h:inputText id="posta" value="#{profil.oseba.posta}"
+					validatorMessage="Prosim vnesite pošto">
+					<f:validateRequired />
+				</h:inputText>
+				<span class="opozorilo"><h:message for="posta"></h:message></span>
+				<br />
+				Država: <h:inputText id="drzava" value="#{profil.oseba.drzava}"
+					validatorMessage="Prosim vnesite državo">
+					<f:validateRequired />
+				</h:inputText>
+				<span class="opozorilo"><h:message for="drzava"></h:message></span>
+				<br />
+				<h:commandButton value="Shrani spremembe"
+					actionListener="#{profil.shraniUrejenoOseno}" />
 			</h:form>
-			
+
 			<h1>Graf pridobivanja točk</h1>
 			<canvas class="graf_mojDogodek" id="graf_tocke"></canvas>
-			
-			
+
+
 			<h1>Seznam blokov za točke</h1>
 			<h:form>
 				<h:dataTable value="#{blok.seznamBlokovOsebe}" var="a">
@@ -111,10 +165,10 @@
 					</h:column>
 				</h:dataTable>
 			</h:form>
-			
-			
-			
-			
+
+
+
+
 			<script>
 
 				function toggleDiv(a){
