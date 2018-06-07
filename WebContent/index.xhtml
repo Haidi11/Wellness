@@ -11,16 +11,41 @@
       
   	 <f:view>
   	 
- 		<h:graphicImage value="images/wellnes.jpg" usemap="#map"/>
+ 		<!-- <h:graphicImage class="slika" value="images/wellnes.jpg" usemap="#map"/>
  		<map name="map">
  			<area shape="circle" coords="143,200,130" alt="Nasveti" href="nasveti.xhtml"></area>
   			<area shape="circle" coords="403,200,125" alt="Dogodki" href="dogodki.xhtml"></area>
  			<area shape="circle" coords="661,200,129" alt="Profil" href="profil.xhtml"></area>
+ 		</map> -->
+ 		
+ 		<div class="ovojincaZaSlike">
+ 		<div class="divZaSlike">
+ 		<h:graphicImage class="slika" value="images/w1.jpg" usemap="#map1" />
+ 		</div>
+ 		<div class="divZaSlike">
+ 		<h:graphicImage class="slika" value="images/w2.jpg" usemap="#map2" />
+ 		</div>
+ 		<div class="divZaSlike">
+ 		<h:graphicImage class="slika" value="images/w3.jpg" usemap="#map3" />
+ 		</div>
+ 		</div>
+ 		
+ 		<map name="map1">
+ 			<area shape="circle" coords="131,129,131" alt="Nasveti" title="Nasveti" href="nasveti.xhtml"></area>
+ 		</map>
+ 		<map name="map2">
+ 			<area shape="circle" coords="130,128,127" alt="Dogodki" title="Dogodki" href="dogodki.xhtml"></area>
+ 		</map>
+ 		<map name="map3">
+ 			<area shape="circle" coords="128,126,128" alt="Profil" title="Profil" href="profilUporabnika.xhtml"></area>
  		</map>
  		
+ 		
+ 		
+ 		<!-- divi -->
  		<div class="vlki">
  		<a href="dogodki.xhtml"> 
- 		<div class="tockovnik obroba" onclick="">
+ 		<div class="tockovnik obroba obroba2" onclick="">
  		<h3 class="naslovIndex napisi">Vsi prihajajoči dogodki</h3>
  			<h:dataTable class="tabelaIndex" value="#{zaposleni.vrniVseDogodkeZaUporabnika}" var="a">
 					<h:column>
@@ -30,7 +55,7 @@
 						</h:column>
 						</h:dataTable>				
  			</div> </a>
- 		<div class="tockovnik obroba" >
+ 		<div class="tockovnik obroba obroba2" >
  		<h:dataTable  value="#{zaposleni.topUporabnik}" var="a">
 					<h:column>
 						<h3 class="naslovIndex napisi">Zaposleni z največ točkami:</h3>
@@ -54,7 +79,7 @@
  			 </div> 
  			 
  			 <a href="nasveti.xhtml">
- 			 <div class="tockovnik obroba">
+ 			 <div class="tockovnik obroba obroba2">
  			 <h3 class="naslovIndex napisi">Naslovi nasvetov:</h3>
  			 <h:dataTable  value="#{nasvet.vseNasvete}" var="n">
  			 		<h:column>
