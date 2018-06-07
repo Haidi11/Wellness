@@ -39,11 +39,15 @@ public class OsebaModel {
 		ejb.dodajOsebo(novaOseba);
 		novaOseba= new Oseba();
 	}
-	//oddelki 
+	
+	//oddelki in vloge
 	private  Map<String,String> oddelki;
+	private  Map<String,String> vloga;
 	@PostConstruct
 	public void init() {
 		oddelki =ejb.vrniOddelke();
+		vloga= ejb.vrniVloge();
+		
 	}
 	
 	public Oseba getNovaOseba() {
@@ -61,6 +65,14 @@ public class OsebaModel {
 
 	public  void setOddelki(Map<String, String> oddelki) {
 		oddelki = oddelki;
+	}
+
+	public Map<String, String> getVloga() {
+		return vloga;
+	}
+
+	public void setVloga(Map<String, String> vloga) {
+		this.vloga = vloga;
 	}
 
 	

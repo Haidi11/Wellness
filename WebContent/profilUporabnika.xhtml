@@ -34,9 +34,6 @@
 				<b>Email: </b>
 				<h:outputText value="#{profil.oseba.email}"></h:outputText>
 				<br></br>
-				<b>Geslo: </b>
-				<h:outputText value="#{profil.oseba.geslo}"></h:outputText>
-				<br></br>
 				<b>Spol: </b>
 				<h:outputText value="#{profil.oseba.spol}"></h:outputText>
 				<br></br>
@@ -54,7 +51,7 @@
 				<br></br>
 			</h:form>
 			<hr />
-			<h2>Uredi podatke</h2>
+			<h2>Uredi podatke</h2><h:form>
 			Ime: <h:inputText id="ime" value="#{profil.oseba.ime}"
 				validatorMessage="Prosim vnesite ime">
 				<f:validateRequired />
@@ -67,7 +64,7 @@
 			</h:inputText>
 			<span class="opozorilo"><h:message for="priimek"></h:message></span>
 			<br />
-			<h:form>
+			
 		
 			Email:	<h:inputText id="email" value="#{profil.oseba.email}"
 					validatorMessage="Prosim vnesite email">
@@ -77,12 +74,7 @@
 				<span class="opozorilo"><h:message for="email"></h:message></span>
 				<br />	
 				
-			Geslo:	<h:inputText id="geslo" value="#{profil.oseba.geslo}"
-					validatorMessage="Prosim vnesite geslo">
-					<f:validateRequired />
-				</h:inputText>
-				<span class="opozorilo"><h:message for="geslo"></h:message></span>
-				<br />			
+				
 			Telefonska Številka: <h:inputText id="telefonskaStevilka"
 					value="#{profil.oseba.telefonskaStevilka}"
 					validatorMessage="Prosim vnesite telefonsko številko">

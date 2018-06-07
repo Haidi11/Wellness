@@ -22,5 +22,6 @@ public interface OsebaVmesnik {
 	void shraniUrejenoOsebo(Oseba oseba); 
 	List<Oseba> vrniOsebeOddelek(String data);
 	Map<String, String> vrniOddelke();
-	PaketTocke vrniTockeZaUporabnika(String name); 
+	PaketTocke vrniTockeZaUporabnika(String name);
+	Map<String, String> vrniVloge(); 
 }

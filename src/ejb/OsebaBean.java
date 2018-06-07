@@ -219,4 +219,17 @@ public class OsebaBean implements OsebaVmesnik {
 
 	}
 
+	@Override
+	public Map<String, String> vrniVloge() {
+		Map<String, String> vloge = new LinkedHashMap<>();
+
+		vloge.put("", "");
+		vloge.put("kadrovska služba", "kadrovska");
+		vloge.put("zaposleni", "zaposleni");
+		vloge.put("organizator dogodkov", "organizator");
+		
+
+		return vloge;
+	}
+
 }

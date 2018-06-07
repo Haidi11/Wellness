@@ -107,13 +107,22 @@
 				</h:selectOneMenu>
 				<span class="opozorilo"><h:message for="oddelek"></h:message></span>
 				<br />
-								
-			Vloga <h:inputText id="vloga" value="#{osebe.novaOseba.vloga}"
-					validatorMessage="Prosim vnesite vlogo osebe v podjetju">
+				
+				Vloga: <h:selectOneMenu id="vloga"
+					validator="#{PreveriVlogo.validate}"
+					value="#{osebe.novaOseba.vloga}">
+					<f:selectItems value="#{osebe.vloga}" />
 					<f:validateRequired />
-				</h:inputText>
+				</h:selectOneMenu>
 				<span class="opozorilo"><h:message for="vloga"></h:message></span>
 				<br />
+								
+<!-- 			Vloga <h:inputText id="vloga" value="#{osebe.novaOseba.vloga}" -->
+<!-- 					validatorMessage="Prosim vnesite vlogo osebe v podjetju"> -->
+<!-- 					<f:validateRequired /> -->
+<!-- 				</h:inputText> -->
+<!-- 				<span class="opozorilo"><h:message for="vloga"></h:message></span> -->
+<!-- 				<br /> -->
 				
 			Uporabniško ime: <h:inputText id="uporanbiskoIme"
 					validator="#{PreveriUporabniskoIme.validate}"
