@@ -114,8 +114,40 @@ public class ZaposleniModel {
 			o.setUporabniskoIme("luka");
 			o.setTelefonskaStevilka("i99i");
 			o.setVloga("kadrovska");
+			
+			Oseba m = new Oseba();
+			m.setDatumRojstva(Calendar.getInstance());
+			m.setDatumZaposlitve(Calendar.getInstance());
+			m.setDavcnaStevilka("4wfw");
+			m.setEmail("nekaj@nekaj.com");
+			m.setEMSO("1234567");
+			m.setIme("Matic");
+			m.setOddelek("oddelek C");
+			m.setPriimek("Mesner");
+			m.setSpol("M");
+			m.setGeslo("mesner11");
+			m.setUporabniskoIme("mesner");
+			m.setTelefonskaStevilka("080123");
+			m.setVloga("organizator");
+			
+			Oseba o1 = new Oseba();
+			o1.setDatumRojstva(Calendar.getInstance());
+			o1.setDatumZaposlitve(Calendar.getInstance());
+			o1.setDavcnaStevilka("56795");
+			o1.setEmail("nekaj@nekaj.com");
+			o1.setEMSO("9876543");
+			o1.setIme("Timi");
+			o1.setOddelek("oddelek A");
+			o1.setPriimek("Timotej");
+			o1.setSpol("M");
+			o1.setGeslo("timi11");
+			o1.setUporabniskoIme("timi");
+			o1.setTelefonskaStevilka("090080070");
+			o1.setVloga("zaposleni");
 
 			ov.dodajOsebo(o);
+			ov.dodajOsebo(m);
+			ov.dodajOsebo(o1);
 		}
 	}
 
