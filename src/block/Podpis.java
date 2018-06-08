@@ -15,6 +15,7 @@ public class Podpis {
 			if(hex.length() == 1) hexString.append('0');
 			hexString.append(hex);
 		}
+		System.out.println("Podpis: "+ hexString.toString());
 		return hexString.toString();
 	}
 

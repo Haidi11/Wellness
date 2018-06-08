@@ -34,6 +34,7 @@ public class Block {
 	
 	public String izracunHash() throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		String izracunanHash = Podpis.generiranjePodpisa(prejsnjiHash + Long.toString(timeStamp)+Long.toString(stTock)+Long.toString(idOseba)+Long.toString(idDogodek));
+		System.out.println(prejsnjiHash + Long.toString(timeStamp)+Long.toString(stTock)+Long.toString(idOseba)+Long.toString(idDogodek));
 		return izracunanHash;
 	}
 	

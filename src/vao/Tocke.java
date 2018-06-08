@@ -15,7 +15,15 @@ public class Tocke {
 	/*
 	 * getterji, setterji
 	 */
-	
+	public Tocke(int tocke, int idDogodek, int idOseba) {
+		this.stTock = tocke;
+		this.idDogodek = idDogodek;
+		this.idOseba = idOseba;
+	}
+
+	public Tocke() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public int getIdDogodek() {
 		return idDogodek;

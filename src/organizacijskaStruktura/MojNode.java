@@ -23,9 +23,14 @@ public class MojNode extends DefaultTreeNode{
 	 }
 
 	 
-	 private void sestavi() {
+	 public MojNode() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public void sestavi() {
 		 List<Oseba> seznam = ov.vrniOsebeOddelek((String)super.getData());
-		 	
+		 System.out.println("Seznam: "+seznam);
 		for(Oseba o : seznam) {
 //			super.getChildren().add(new MojNode(o.getOddelek(),this));
 
@@ -33,4 +38,6 @@ public class MojNode extends DefaultTreeNode{
 		}
 		
 	 }
+	
+	
 }

@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 import com.google.gson.GsonBuilder;
 
+import organizacijskaStruktura.MojNode;
+
 public class MainTest {
 	public static ArrayList<Block> blockchain = new ArrayList<Block>(); 
 	public static int tezavnost = 0; //nastavi tezavnost na 0! 
@@ -44,5 +46,10 @@ public class MainTest {
 			}
 		}
 		return true;
+	}
+	
+	public void test () {
+		MojNode n = new MojNode();
+		n.sestavi();
 	}
 }

@@ -27,53 +27,32 @@ public class TimerZaObvescanje {
 	@EJB
 	PosljiVmesnik pv;
 
-//	@Resource
-//	TimerService timerService;
-//
-//	@PostConstruct
-//	public void initialize() {
-//		System.out.println("init");
-//		//poslji();
-//		timerService.createTimer(0, 86400, "Delay 20 seconds then every 6 seconds timer");
-//	}
-
-	
-    @Schedule(second = "*", minute = "*", hour = "4", persistent = false)
-	private void poslji() {
+	@Schedule(second = "*", minute = "*", hour = "4", persistent = false)
+	public boolean poslji() {
+		boolean poslano = false;
 		System.out.println("poslji");
 		for (Dogodek d : dv.sezamDogodkov()) {
-
-
-			
-			if (1 == ((int)d.getDatumZacetka().get(Calendar.DAY_OF_YEAR) - (int)Calendar.getInstance().get(Calendar.DAY_OF_YEAR))) {
+			if (1 == ((int) d.getDatumZacetka().get(Calendar.DAY_OF_YEAR)
+					- (int) Calendar.getInstance().get(Calendar.DAY_OF_YEAR))) {
 				System.out.println("nasel datum");
-				
-				
 				for (Oseba o : d.getUdelezenci()) {
 					try {
-						pv.posljiMail(o.getEmail(), "Obvestilo na dogodek: " + d.getNaziv(), "Obveščamo vas da, je jutri dogodek: "+d.getNaziv() + ", na keterega ste se prijavili. Dogodek se začne ob: " + d.getIzpisiZacetek()+
-				" in traja do: " + d.getIzpisiKonca());
-						
+						pv.posljiMail(o.getEmail(), "Obvestilo na dogodek: " + d.getNaziv(),
+								"Obveščamo vas da, je jutri dogodek: " + d.getNaziv()
+										+ ", na keterega ste se prijavili. Dogodek se začne ob: " + d.getIzpisiZacetek()
+										+ " in traja do: " + d.getIzpisiKonca());
+						poslano = true;
 						dv.shraniObvestilo(o.getIdOseba(), d.getIdDogodek());
 					} catch (Exception e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-					
-					
+
 				}
 			}
 
 		}
+		return poslano;
 	}
-	
-//	@Timeout
-//	public void programmaticTimeout(Timer timer) {
-//		System.out.println("ne");
-//
-//		poslji();
-//
-//		
-//	}
 
 }
