@@ -1,30 +1,20 @@
 package ejb;
 
-import vao.Nasvet;
-import vao.Oseba;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import org.hibernate.validator.constraints.Email;
-
-import com.sun.org.apache.bcel.internal.generic.NEW;
-
 import block.Block;
 import orodja.Oro;
 import orodja.PaketTocke;
-import sun.util.resources.cldr.aa.CalendarData_aa_ER;
-import sun.util.resources.cldr.es.CalendarData_es_AR;
-
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-
+import vao.Oseba;
 import vmesniki.BlockChainVmesnik;
 import vmesniki.DogodekVmesnik;
 import vmesniki.OsebaVmesnik;
