@@ -51,19 +51,20 @@
 				<br></br>
 			</h:form>
 			<hr />
-			<h2>Uredi podatke</h2><h:form>
+			<h2>Uredi podatke</h2>
+			<h:form>
 			Ime: <h:inputText id="ime" value="#{profil.oseba.ime}"
-				validatorMessage="Prosim vnesite ime">
-				<f:validateRequired />
-			</h:inputText>
-			<span class="opozorilo"><h:message for="ime"></h:message></span>
-			<br />
+					validatorMessage="Prosim vnesite ime">
+					<f:validateRequired />
+				</h:inputText>
+				<span class="opozorilo"><h:message for="ime"></h:message></span>
+				<br />
 			Priimek: <h:inputText id="priimek" value="#{profil.oseba.priimek}"
-				validatorMessage="Prosim vnesite priimek">
-				<f:validateRequired />
-			</h:inputText>
-			<span class="opozorilo"><h:message for="priimek"></h:message></span>
-			<br />
+					validatorMessage="Prosim vnesite priimek">
+					<f:validateRequired />
+				</h:inputText>
+				<span class="opozorilo"><h:message for="priimek"></h:message></span>
+				<br />
 			
 		
 			Email:	<h:inputText id="email" value="#{profil.oseba.email}"
@@ -122,6 +123,25 @@
 				<br />
 				<h:commandButton value="Shrani spremembe"
 					actionListener="#{profil.shraniUrejenoOseno}" />
+						<br />
+						<br />
+</h:form>
+<h:form>
+				Geslo:
+				<h:inputSecret id="password" value="#{profil.oseba.geslo}"
+					required="true"
+					validator="#{passwordValidator.validate}">
+					<f:attribute name="confirm" value="#{confirm}" />
+				</h:inputSecret>
+				<span class="opozorilo"><h:message for="password" /></span>
+	<br />
+			Potrdi geslo:
+				<h:inputSecret id="confirm" binding="#{confirm}" required="true" />
+				<span class="opozorilo"><h:message for="confirm" /></span>
+				<br />
+
+				<h:commandButton value="Spremeni geslo"
+					actionListener="#{profil.spremeniGeslo}" />
 			</h:form>
 
 			<h1>Graf pridobivanja točk</h1>

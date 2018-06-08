@@ -50,6 +50,9 @@ public class ProfilUporabnikaModel {
 	public void shraniUrejenoOseno( ) {
 		ov.shraniUrejenoOsebo(oseba);
 	}
+	public void spremeniGeslo( ) {
+		ov.spremeniGeslo(oseba);
+	}
 	
 	//priobi tocke, sesteje za vsak mesec za posameznega uporabnika
 	public void pridobiTocke() {

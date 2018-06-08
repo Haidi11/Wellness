@@ -22,5 +22,6 @@ public interface OsebaVmesnik {
 	List<Oseba> vrniOsebeOddelek(String data);
 	Map<String, String> vrniOddelke();
 	PaketTocke vrniTockeZaUporabnika(String name);
-	Map<String, String> vrniVloge(); 
+	Map<String, String> vrniVloge();
+	void spremeniGeslo(Oseba oseba); 
 }

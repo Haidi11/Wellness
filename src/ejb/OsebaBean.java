@@ -149,10 +149,23 @@ public class OsebaBean implements OsebaVmesnik {
 	@Override
 	public void shraniUrejenoOsebo(Oseba oseba) {
 		Oseba temp = em.find(Oseba.class, oseba.getIdOseba());
+		temp.setIme(oseba.getIme());
+		temp.setPriimek(oseba.getPriimek());
 		temp.setEmail(oseba.getEmail());
-		temp.setGeslo(oseba.getGeslo());
 		temp.setTelefonskaStevilka(oseba.getTelefonskaStevilka());
 		temp.setDavcnaStevilka(oseba.getDavcnaStevilka());
+		temp.setUlica(oseba.getUlica());
+		temp.setHisnaStevilka(oseba.getHisnaStevilka());
+		temp.setPostnaStevilka(oseba.getPostnaStevilka());
+		temp.setPosta(oseba.getPosta());
+		temp.setDrzava(oseba.getDrzava());
+		
+	}
+	@Override
+	public void spremeniGeslo(Oseba oseba) {
+		Oseba temp = em.find(Oseba.class, oseba.getIdOseba());
+		temp.setGeslo(oseba.getGeslo());
+		
 	}
 
 	@Override

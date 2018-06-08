@@ -117,12 +117,7 @@
 				<span class="opozorilo"><h:message for="vloga"></h:message></span>
 				<br />
 								
-<!-- 			Vloga <h:inputText id="vloga" value="#{osebe.novaOseba.vloga}" -->
-<!-- 					validatorMessage="Prosim vnesite vlogo osebe v podjetju"> -->
-<!-- 					<f:validateRequired /> -->
-<!-- 				</h:inputText> -->
-<!-- 				<span class="opozorilo"><h:message for="vloga"></h:message></span> -->
-<!-- 				<br /> -->
+
 				
 			Uporabniško ime: <h:inputText id="uporanbiskoIme"
 					validator="#{PreveriUporabniskoIme.validate}"
@@ -132,6 +127,12 @@
 
 				</h:inputText>
 				<span class="opozorilo"><h:message for="uporanbiskoIme" /> </span>
+				<br />
+			Geslo: <h:inputText id="geslo" value="#{osebe.novaOseba.geslo}"
+					validatorMessage="Prosim vnesite geslo">
+					<f:validateRequired />
+				</h:inputText>
+				<span class="opozorilo"><h:message for="geslo" /> </span>
 				<br />
 
 				<h:commandButton value="Dodaj Zaposlenega"
@@ -170,7 +171,8 @@
 								<h:outputText class="osebaVsebina" value="#{a.EMSO}"></h:outputText>
 								<br /> <span class="osebeOznake"> Točke: </span>
 								<h:outputText class="osebaVsebina" value="#{a.tocke}"></h:outputText>
-								<br /> 								<br /> <span class="osebeOznake"> Davčna številka: </span>
+								<br /> <br /> <span class="osebeOznake"> Davčna
+									številka: </span>
 								<h:outputText class="osebaVsebina" value="#{a.davcnaStevilka}"></h:outputText>
 								<br /> <span class="osebeOznake"> Vloga: </span>
 								<h:outputText class="osebaVsebina" value="#{a.vloga}"></h:outputText>
