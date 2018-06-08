@@ -1,7 +1,5 @@
 package vmesniki;
 
-import java.io.UnsupportedEncodingException;
-import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 import javax.ejb.Local;

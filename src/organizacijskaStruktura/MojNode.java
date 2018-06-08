@@ -2,8 +2,6 @@ package organizacijskaStruktura;
 
 import java.util.List;
 
-import javax.ejb.EJB;
-
 import org.primefaces.model.DefaultTreeNode;
 import org.primefaces.model.TreeNode;
 

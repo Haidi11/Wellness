@@ -12,6 +12,8 @@
     <class>vao.Tekmovanje</class>
     <class>vao.Obvestilo</class>
     <class>vao.Nasvet</class>
+<!--     <class>vao.Vloga</class> -->
+<!--     <class>vao.Oddelek</class> -->
     
     <properties>
         <property name="hibernate.show_sql" value="false"/>

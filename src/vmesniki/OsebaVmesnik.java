@@ -1,13 +1,12 @@
 package vmesniki;
 
-import vao.Oseba;
+import java.util.List;
+import java.util.Map;
 
 import javax.ejb.Local;
 
 import orodja.PaketTocke;
-
-import java.util.List;
-import java.util.Map;
+import vao.Oseba;
 
 @Local
 public interface OsebaVmesnik {

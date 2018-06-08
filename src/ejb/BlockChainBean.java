@@ -2,7 +2,7 @@ package ejb;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
-import java.util.*;
+import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;

@@ -6,12 +6,10 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import orodja.PaketTocke;
 import vao.Oseba;
-import vmesniki.BlockChainVmesnik;
 import vmesniki.DogodekVmesnik;
 import vmesniki.NasvetVmesnik;
 import vmesniki.OsebaVmesnik;

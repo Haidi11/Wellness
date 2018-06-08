@@ -9,10 +9,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
-import orodja.PaketZaprikazDogodkov;
-import vao.Dogodek;
 import vao.Nasvet;
-import vao.Oseba;
 import vmesniki.DogodekVmesnik;
 import vmesniki.NasvetVmesnik;
 

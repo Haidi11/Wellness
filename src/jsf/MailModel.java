@@ -6,7 +6,6 @@ import javax.faces.bean.SessionScoped;
 
 import mail.Mail;
 import vmesniki.MailVmesnik;
-import vmesniki.NasvetVmesnik;
 import vmesniki.PosljiVmesnik;
 
 @ManagedBean(name = "mail")

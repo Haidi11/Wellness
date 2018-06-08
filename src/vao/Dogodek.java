@@ -10,6 +10,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Transient;
@@ -17,8 +18,6 @@ import javax.persistence.Transient;
 import orodja.Oddelki;
 import orodja.Oro;
 import orodja.StarostneSkupine;
-
-import javax.persistence.JoinColumn;
 
 @Entity
 public class Dogodek {

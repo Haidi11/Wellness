@@ -1,13 +1,12 @@
 package organizacijskaStruktura;
 
 import java.io.Serializable;
-import java.nio.file.NotDirectoryException;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
+
 import org.primefaces.model.DefaultTreeNode;
 import org.primefaces.model.TreeNode;
 

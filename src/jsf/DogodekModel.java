@@ -12,11 +12,9 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
-
-
-import vmesniki.*;
 import vao.Dogodek;
 import vao.Oseba;
+import vmesniki.DogodekVmesnik;
 
 @ManagedBean(name = "dogodek")
 @SessionScoped

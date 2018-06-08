@@ -2,7 +2,6 @@ package orodja;
 
 import java.util.List;
 
-import vao.Dogodek;
 import vao.Nasvet;
 
 public class PaketZaPrikazNasvetov {

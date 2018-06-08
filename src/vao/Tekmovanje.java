@@ -2,7 +2,6 @@ package vao;
 
 import java.util.Calendar;
 
-import javax.ejb.EJB;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -11,8 +10,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
 import orodja.Oro;
-import vmesniki.DogodekVmesnik;
-import vmesniki.OsebaVmesnik;
 
 @Entity
 public class Tekmovanje {

@@ -10,10 +10,11 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
-import vmesniki.*;
 import orodja.PaketZaprikazDogodkov;
 import vao.Dogodek;
 import vao.Oseba;
+import vmesniki.DogodekVmesnik;
+import vmesniki.OsebaVmesnik;
 
 @ManagedBean(name = "zaposleni")
 @SessionScoped

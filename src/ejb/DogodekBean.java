@@ -18,7 +18,8 @@ import vao.Dogodek;
 import vao.Obvestilo;
 import vao.Oseba;
 import vao.Tocke;
-import vmesniki.*;
+import vmesniki.BlockChainVmesnik;
+import vmesniki.DogodekVmesnik;
 
 @Stateless
 public class DogodekBean implements DogodekVmesnik {

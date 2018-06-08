@@ -1,6 +1,6 @@
 package mail;
 
-import javax.ejb.Singleton;
+import javax.annotation.Resource;
 import javax.ejb.Stateless;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -10,9 +10,6 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 import jms.Sporocilo;
-
-import javax.annotation.Resource;
-
 import vmesniki.MailVmesnik;
 
 @Stateless

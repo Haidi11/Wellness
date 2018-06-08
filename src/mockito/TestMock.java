@@ -3,15 +3,13 @@ package mockito;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.List;
-
-import org.junit.Rule;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
-import org.mockito.internal.MockitoCore;
-import org.mockito.runners.MockitoJUnitRunner;
-import org.junit.jupiter.api.*;
-
-import vao.Oseba;
 
 public class TestMock  {
 	@Mock

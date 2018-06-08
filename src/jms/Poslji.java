@@ -1,7 +1,12 @@
 package jms;
 
 import javax.ejb.Stateless;
-import javax.jms.*;
+import javax.jms.DeliveryMode;
+import javax.jms.Queue;
+import javax.jms.QueueConnection;
+import javax.jms.QueueConnectionFactory;
+import javax.jms.QueueSender;
+import javax.jms.QueueSession;
 import javax.naming.InitialContext;
 
 import mail.Mail;

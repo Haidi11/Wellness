@@ -9,10 +9,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import orodja.PaketZaPrikazNasvetov;
-import orodja.PaketZaprikazDogodkov;
-import vao.Dogodek;
 import vao.Nasvet;
-import vao.Oseba;
 import vmesniki.NasvetVmesnik;
 
 @Stateless

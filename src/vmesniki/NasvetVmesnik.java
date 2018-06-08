@@ -7,7 +7,6 @@ import javax.ejb.Local;
 
 import orodja.PaketZaPrikazNasvetov;
 import vao.Nasvet;
-import vao.Oseba;
 
 @Local
 public interface NasvetVmesnik {

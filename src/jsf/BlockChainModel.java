@@ -9,9 +9,9 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
+import block.Block;
 import vmesniki.BlockChainVmesnik;
 import vmesniki.NasvetVmesnik;
-import block.Block;
 
 @ManagedBean(name = "blok")
 @SessionScoped
