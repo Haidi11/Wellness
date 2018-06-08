@@ -2547,7 +2547,11 @@ za radio gumbke
 .ovojincaZaSlike{
   text-align: center;
 }
-
+.opisDogodkovDogodki{
+	  word-break: break-all;
+	
+	
+}
 /* nasveti 
 .gumbNasveti{
 	float:right;

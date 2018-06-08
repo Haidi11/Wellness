@@ -15,8 +15,7 @@
 //	
 //	public Oddelek() {
 //		key="";
-//		value="";
-//		
+//		value="";	
 //	}
 //	
 //	public int getId() {
