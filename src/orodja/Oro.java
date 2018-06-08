@@ -6,7 +6,7 @@ import java.util.Calendar;
 import java.util.List;
 
 public class Oro {
-
+	
 	public static String izpisiDatum(Calendar c) {
 		if (c == null)
 			return "";

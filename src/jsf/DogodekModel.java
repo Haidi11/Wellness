@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -29,9 +30,20 @@ public class DogodekModel implements Serializable {
 	private Dogodek novDogodek = new Dogodek();
 	private Dogodek izbranDogodek;
 	
-	private Calendar potekUra= Calendar.getInstance();
-	private Calendar uraZacetka= Calendar.getInstance();
-	private Calendar uraKonca= Calendar.getInstance();
+	private Calendar potekUra;
+	private Calendar uraZacetka;
+	private Calendar uraKonca;
+	
+	@PostConstruct
+	private void init(){
+		potekUra= Calendar.getInstance();
+		uraZacetka= Calendar.getInstance();
+		uraKonca= Calendar.getInstance();
+		potekUra.set(Calendar.HOUR_OF_DAY, 23);
+		uraZacetka.add(Calendar.HOUR_OF_DAY, 2);
+		uraKonca.add(Calendar.HOUR_OF_DAY, 4);
+		
+	}
 	
 	
 
@@ -72,20 +84,19 @@ public class DogodekModel implements Serializable {
 
 	public void dodajDogodek() {
 		novDogodek.setIdLastnik(getUporabnik().getIdOseba());
-		novDogodek.getDatumZacetka().set(novDogodek.getDatumZacetka().get(Calendar.YEAR),
-				novDogodek.getDatumZacetka().get(Calendar.MONTH), novDogodek.getDatumZacetka().get(Calendar.DATE), uraZacetka.get(Calendar.HOUR_OF_DAY)-1, uraZacetka.get(Calendar.MINUTE));
 		
-		novDogodek.getDatumPrijave().set(novDogodek.getDatumPrijave().get(Calendar.YEAR),
-				novDogodek.getDatumPrijave().get(Calendar.MONTH), novDogodek.getDatumPrijave().get(Calendar.DATE), potekUra.get(Calendar.HOUR_OF_DAY)-1, potekUra.get(Calendar.MINUTE));
+		novDogodek.getDatumZacetka().set(Calendar.HOUR_OF_DAY, uraZacetka.get(Calendar.HOUR_OF_DAY)-1);
+		novDogodek.getDatumZacetka().set(Calendar.MINUTE, uraZacetka.get(Calendar.MINUTE));
 		
-		novDogodek.getDatumKonca().set(novDogodek.getDatumKonca().get(Calendar.YEAR),
-				novDogodek.getDatumKonca().get(Calendar.MONTH), novDogodek.getDatumKonca().get(Calendar.DATE), uraKonca.get(Calendar.HOUR_OF_DAY)-1, uraKonca.get(Calendar.MINUTE));
+		novDogodek.getDatumPrijave().set(Calendar.HOUR_OF_DAY, potekUra.get(Calendar.HOUR_OF_DAY)-1);
+		novDogodek.getDatumPrijave().set(Calendar.MINUTE, potekUra.get(Calendar.MINUTE));
+		
+		novDogodek.getDatumKonca().set(Calendar.HOUR_OF_DAY, uraKonca.get(Calendar.HOUR_OF_DAY)-1);
+		novDogodek.getDatumKonca().set(Calendar.MINUTE, uraKonca.get(Calendar.MINUTE));
 		
 		ejb.dodajDogodek(novDogodek);
 		
-		potekUra= Calendar.getInstance();
-		uraZacetka= Calendar.getInstance();
-		uraKonca= Calendar.getInstance();
+		init();
 		novDogodek = new Dogodek();
 	}
 	

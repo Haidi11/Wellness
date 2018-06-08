@@ -65,9 +65,12 @@ public class Dogodek {
 	
 	
 	public Dogodek () {
+		
 		this.datumKonca=new GregorianCalendar();
+		this.datumKonca.add(Calendar.DAY_OF_YEAR, 4);
 		this.datumPrijave=new GregorianCalendar();
 		this.datumZacetka=new GregorianCalendar();
+		this.datumZacetka.add(Calendar.DAY_OF_YEAR, 4);
 		this.naziv="";
 		this.tocke=1;
 		this.opisDogodka="";
