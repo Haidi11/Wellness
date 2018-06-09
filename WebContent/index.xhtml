@@ -56,9 +56,11 @@
 						</h:dataTable>				
  			</div> </a>
  		<div class="tockovnik obroba obroba2 obrobaMali" >
+ 		
+ 								<h3 class="naslovIndex napisi">Zaposleni z največ točkami:</h3>
+ 		
  		<h:dataTable  value="#{zaposleni.topUporabnik}" var="a">
 					<h:column>
-						<h3 class="naslovIndex napisi">Zaposleni z največ točkami:</h3>
 						<h:outputText class="napisi" value="#{a.ime}  "></h:outputText> 
 						<h:outputText  value="#{a.priimek}"></h:outputText>  
 						 
@@ -66,9 +68,10 @@
 					</h:column>
 					
 					</h:dataTable>
+										<h3 class="naslovIndex napisi">Zaposleni z največ točkami ta mesec:</h3>
+					
  			  <h:dataTable class="napisi" value="#{zaposleni.topMesecniUporabnik}" var="a">
 					<h:column>
-					<h3 class="naslovIndex napisi">Zaposleni z največ točkami ta mesec:</h3>
 						<h:outputText class="napisi" value="#{a.ime}  "></h:outputText>      
 						 <h:outputText value="#{a.priimek}"></h:outputText> z 
 						 
