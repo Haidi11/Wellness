@@ -3,7 +3,9 @@ package vao;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -50,6 +52,7 @@ public class Oseba {
 	private List<Nasvet> nasveti = new ArrayList<>();
 	private List<Dogodek> dogodki = new ArrayList<>();
 	private List<Tekmovanje> tekmovanja = new ArrayList<>();
+	private Set<Tekmovanje> zmagovalec = new HashSet<>();
 
 	// nastavi na prazno za resetiranje vnosnih polj
 	public Oseba() {
@@ -315,5 +318,13 @@ public class Oseba {
 
 	public void setDrzava(String drzava) {
 		this.drzava = drzava;
+	}
+	@ManyToMany(mappedBy = "zmagovalci")  
+	public Set<Tekmovanje> getZmagovalec() {
+		return zmagovalec;
+	}
+
+	public void setZmagovalec(Set<Tekmovanje> zmagovalec) {
+		this.zmagovalec = zmagovalec;
 	}
 }

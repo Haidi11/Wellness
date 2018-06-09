@@ -1,11 +1,19 @@
 package vao;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
@@ -17,11 +25,20 @@ public class Tekmovanje {
 	@Id
 	@GeneratedValue
 	private int id;
-//	@Transient
-//	@EJB
-//	OsebaVmesnik ov;
 
-	private int zmagovalec;
+	private String tip;
+	private int potrebneTocke;
+	
+	
+	@ManyToMany(cascade = { 
+	        CascadeType.PERSIST, 
+	        CascadeType.MERGE
+	    },fetch=FetchType.EAGER)
+	@JoinTable(name = "tekmovanje_oseba",
+	        joinColumns = @JoinColumn(name = "id"),
+	        inverseJoinColumns = @JoinColumn(name = "idOseba")
+	    )
+	private Set<Oseba> zmagovalci= new HashSet<>();
 
 	@ManyToOne
 	@JoinColumn(name = "fk_lastnik")
@@ -36,14 +53,27 @@ public class Tekmovanje {
 		this.mesec = Calendar.getInstance().get(Calendar.MONTH) + 1;
 		this.leto = Calendar.getInstance().get(Calendar.YEAR);
 		this.nagrada = "";
-		this.zmagovalec = 0;
 		this.lastnik = new Oseba();
+		this.tip="";
 
 	}
 	@Transient
 	public String getIzpisiMesec() {
 		
 		return Oro.mesec(mesec);
+	}
+	
+	@Transient
+	public String getIzpisZmagovalci() {
+		String temp=" ";
+		
+		for(Oseba o : zmagovalci) {
+			temp+=o.getIme() + " " + o.getPriimek() + ", ";
+			
+		}
+		return temp.substring(0, temp.length()-1);
+		
+		
 	}
 
 	/*
@@ -90,12 +120,23 @@ public class Tekmovanje {
 		this.lastnik = lastnik;
 	}
 
-	public int getZmagovalec() {
-		return zmagovalec;
+	public String getTip() {
+		return tip;
 	}
-
-	public void setZmagovalec(int zmagovalec) {
-		this.zmagovalec = zmagovalec;
+	public void setTip(String tip) {
+		this.tip = tip;
+	}
+	public int getPotrebneTocke() {
+		return potrebneTocke;
+	}
+	public void setPotrebneTocke(int potrebneTocke) {
+		this.potrebneTocke = potrebneTocke;
+	}
+	public Set<Oseba> getZmagovalci() {
+		return zmagovalci;
+	}
+	public void setZmagovalci(Set<Oseba> zmagovalci) {
+		this.zmagovalci = zmagovalci;
 	}
 
 }

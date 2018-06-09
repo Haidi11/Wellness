@@ -58,11 +58,8 @@ public class Dogodek {
 	        joinColumns = @JoinColumn(name = "idDogodek"),
 	        inverseJoinColumns = @JoinColumn(name = "idOseba")
 	    )
-	private List <Oseba> udelezenci = new ArrayList<>();
-	
-	
-	
-	
+	private List<Oseba> udelezenci = new ArrayList<>();
+		
 	public Dogodek () {
 		
 		this.datumKonca=new GregorianCalendar();

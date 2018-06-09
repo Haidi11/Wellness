@@ -17,6 +17,8 @@ public interface TekmovanjeVmesnik {
 
 	List<Tekmovanje> vrniMojaTekmovanja(int id);
 
+	Tekmovanje najdiPoId(int id);
+
 	
 	
 }

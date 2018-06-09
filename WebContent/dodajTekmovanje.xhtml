@@ -55,12 +55,11 @@
 								<span class="dogodekOznake">Nagrada: </span>
 
 								<h:outputText class="dogodekVsebina" value="#{a.nagrada}"></h:outputText>
-								<span class="dogodekOznake">Zmagovalec: </span>
+								<span class="dogodekOznake">Zmagovalci: </span>
 
-								<h:outputText class="dogodekVsebina"
-									value="#{tekmovanje.oseba(a).ime} "></h:outputText>
-								<h:outputText class="dogodekVsebina"
-									value="#{tekmovanje.oseba(a).priimek}"></h:outputText>
+							<h:outputText class="dogodekVsebina" 
+ 									value="#{tekmovanje.zmagovalci(a)} "></h:outputText>  
+								
 
 
 

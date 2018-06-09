@@ -2,12 +2,15 @@ package ejb;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
 
 import block.Block;
 import vao.Oseba;
@@ -39,8 +42,14 @@ public class TekmovanjeBean implements TekmovanjeVmesnik {
 	}
 	@Override
 	public List<Tekmovanje> vrniMojaTekmovanja(int id) {
+		
 		Oseba temp = em.find(Oseba.class, id);
 		temp.getTekmovanja().size();
+		temp.getZmagovalec().size();
+		
+		
+		
+		
 		return temp.getTekmovanja();
 
 	}
@@ -48,19 +57,21 @@ public class TekmovanjeBean implements TekmovanjeVmesnik {
 	@Override
 	public void koncajTekmovanje(Tekmovanje t) {
 
-		Tekmovanje temp = em.find(Tekmovanje.class, t.getId());
-		temp.setZmagovalec(topMesecniUporanbik(temp.getMesec(), temp.getLeto()).getIdOseba());
-	
+		if (t==null) return;
+		Tekmovanje tekmovanje = em.find(Tekmovanje.class, t.getId());
+		
+			tekmovanje.setZmagovalci(topMesecniUporanbik(tekmovanje));
+		
 	}
 
 	// poisce vse tocke ki so bile dane v danem mescu in letu
 
-	private Oseba topMesecniUporanbik(int mesec, int leto) {
+	private Set<Oseba> topMesecniUporanbik(Tekmovanje tekmovanje) {
 		List<Block> seznam = em.createQuery("select e from Block e").getResultList();
-		List<Block> seznamBlokovTaMesec = dobiSeznamBlokovZaTaMesec(seznam, mesec, leto);
+		List<Block> seznamBlokovTaMesec = dobiSeznamBlokovZaTaMesec(seznam, tekmovanje.getMesec(), tekmovanje.getLeto());
 
 		if (seznamBlokovTaMesec.size() == 0) {
-			return new Oseba();
+			return new HashSet<Oseba>();
 
 		}
 
@@ -74,8 +85,38 @@ public class TekmovanjeBean implements TekmovanjeVmesnik {
 				}
 			}
 		}
+		if(tekmovanje.getTip()!=null)
+		if(tekmovanje.getTip().equals("top"))
+			
+			return uporabnikZNajvecTockami2(osebe);
+		
 
-		return uporabnikZNajvecTockami(osebe).get(0);
+		return uporabnikiZDovoljTockami2(osebe, tekmovanje.getPotrebneTocke());
+		
+	}
+	
+	//poisce uporabnike ki imajo dovolj tock
+	private List<Oseba> uporabnikiZDovoljTockami(List<Oseba> osebe, int tocke) {
+		List<Oseba> seznam = new ArrayList<>();
+		
+		for(Oseba o : osebe) {
+			if(o.getStTockTaMesec()>=tocke) {
+				seznam.add(o);
+			}
+			
+		}
+		return seznam;
+	}
+	private Set<Oseba> uporabnikiZDovoljTockami2(List<Oseba> osebe, int tocke) {
+		Set<Oseba> seznam = new HashSet<>();
+		
+		for(Oseba o : osebe) {
+			if(o.getStTockTaMesec()>=tocke) {
+				seznam.add(o);
+			}
+			
+		}
+		return seznam;
 	}
 
 	// poisci uporabnika z najvec tockami ta mesec
@@ -102,7 +143,29 @@ public class TekmovanjeBean implements TekmovanjeVmesnik {
 
 		return seznamIste;
 	}
+	private Set<Oseba> uporabnikZNajvecTockami2(List<Oseba> osebe) {
+		Oseba top = osebe.get(0);
 
+		for (Oseba o : osebe) {
+			if (top.getStTockTaMesec() < o.getStTockTaMesec()) {
+				top = o;
+
+			}
+
+		}
+
+		Set<Oseba> seznamIste = new HashSet<>();
+
+		for (Oseba o : osebe) {
+			if (o.getStTockTaMesec() == top.getStTockTaMesec()) {
+				seznamIste.add(o);
+
+			}
+
+		}
+
+		return seznamIste;
+	}
 	// dobi seznam blokov za ta mesec
 	private List<Block> dobiSeznamBlokovZaTaMesec(List<Block> seznam, int mesec, int leto) {
 		List<Block> seznamLjudiTaMesec = new ArrayList<>();
@@ -120,6 +183,12 @@ public class TekmovanjeBean implements TekmovanjeVmesnik {
 		}
 		return seznamLjudiTaMesec;
 
+	}
+
+	@Override
+	public Tekmovanje najdiPoId(int id) {
+		return em.find(Tekmovanje.class,id);
+		
 	}
 	
 	

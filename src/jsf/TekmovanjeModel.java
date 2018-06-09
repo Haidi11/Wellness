@@ -1,12 +1,14 @@
 package jsf;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.transaction.Transactional;
 
 import vao.Oseba;
 import vao.Tekmovanje;
@@ -20,6 +22,7 @@ public class TekmovanjeModel {
 
 	@EJB
 	TekmovanjeVmesnik tv;
+	
 	@EJB
 	DogodekVmesnik dv;
 
@@ -36,14 +39,16 @@ public class TekmovanjeModel {
 	}
 
 	public List<Tekmovanje> getMojaTekmovanja() {
-
-		return tv.vrniMojaTekmovanja(dv.najdiPoUporabniskemImenu(vrniUporabnika().getName()).getIdOseba());
+		 List<Tekmovanje> list=tv.vrniMojaTekmovanja(dv.najdiPoUporabniskemImenu(vrniUporabnika().getName()).getIdOseba());
+		 
+		return list;
 	}
 
-	public Oseba oseba(Tekmovanje a) {
+	public String zmagovalci(Tekmovanje a) {
 		if(a==null)
-		return new Oseba();
-		return ov.najdiPoId(a.getZmagovalec());
+			return "";
+		
+		return tv.najdiPoId(a.getId()).getIzpisZmagovalci();
 
 	}
 
