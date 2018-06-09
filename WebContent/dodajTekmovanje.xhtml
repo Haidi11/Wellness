@@ -30,6 +30,17 @@
 				</h:inputText>
 				<span class="opozorilo"><h:message for="nagrada" /></span>
 				<br />
+				Tip tekmovanja: <h:selectOneMenu id="tip"
+					validator="#{PreveriVlogo.validate}"
+					value="#{tekmovanje.novoTekmovanje.tip}">
+					<f:selectItems value="#{tekmovanje.tipi}" /> 
+					<f:validateRequired />
+				</h:selectOneMenu>
+				<span class="opozorilo"><h:message for="tip"></h:message></span>
+				<br />
+				Točke: <input type="number" min="0" id="tocke"  jsf:value="#{tekmovanje.novoTekmovanje.potrebneTocke}">
+				</input>
+				<br />
 
 				<h:commandButton value="Dodaj tekmovanje"
 					actionListener="#{tekmovanje.dodajTekmovanje()}" />

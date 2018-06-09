@@ -1,6 +1,7 @@
 package vmesniki;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.ejb.Local;
 
@@ -18,6 +19,8 @@ public interface TekmovanjeVmesnik {
 	List<Tekmovanje> vrniMojaTekmovanja(int id);
 
 	Tekmovanje najdiPoId(int id);
+
+	Map<String, String> vrniTipe();
 
 	
 	

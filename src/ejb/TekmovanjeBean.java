@@ -3,7 +3,9 @@ package ejb;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import javax.ejb.EJB;
@@ -189,6 +191,19 @@ public class TekmovanjeBean implements TekmovanjeVmesnik {
 	public Tekmovanje najdiPoId(int id) {
 		return em.find(Tekmovanje.class,id);
 		
+	}
+
+	@Override
+	public Map<String, String> vrniTipe() {
+		Map<String, String> tipi = new LinkedHashMap<>();
+
+		tipi.put("", "");
+		tipi.put("top", "Oseba z največ točkami");
+		tipi.put("limit", "Potrebno število točk");
+		
+		
+
+		return tipi;
 	}
 	
 	

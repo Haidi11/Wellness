@@ -3,7 +3,9 @@ package jsf;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -36,6 +38,15 @@ public class TekmovanjeModel {
 		tv.dodajTekmovanje(novoTekmovanje);
 		novoTekmovanje = new Tekmovanje();
 
+	}
+	
+	
+	private  Map<String,String> tipi;
+	@PostConstruct
+	public void init() {
+		tipi =tv.vrniTipe();
+		
+		
 	}
 
 	public List<Tekmovanje> getMojaTekmovanja() {
@@ -75,6 +86,14 @@ public class TekmovanjeModel {
 
 	public void setNovoTekmovanje(Tekmovanje novoTekmovanje) {
 		this.novoTekmovanje = novoTekmovanje;
+	}
+
+	public Map<String, String> getTipi() {
+		return tipi;
+	}
+
+	public void setTipi(Map<String, String> tipi) {
+		this.tipi = tipi;
 	}
 
 }
