@@ -106,7 +106,8 @@ public class OsebaBean implements OsebaVmesnik {
 	}
 
 	// dobi seznam blokov za ta mesec
-	private List<Block> dobiSeznamBlokovZaTaMesec(List<Block> seznam) {
+	@Override
+	public List<Block> dobiSeznamBlokovZaTaMesec(List<Block> seznam) {
 		List<Block> seznamLjudiTaMesec = new ArrayList<>();
 		for (Block b : seznam) {
 			Calendar datum = Calendar.getInstance();
@@ -186,8 +187,6 @@ public class OsebaBean implements OsebaVmesnik {
 	// sesteje tocke za vsak mesec za uporabnika
 	@Override
 	public PaketTocke vrniTockeZaUporabnika(String name) {
-
-		 
 
 		int[] vrednosti = new int[12];
 

@@ -22,6 +22,8 @@ public interface TekmovanjeVmesnik {
 
 	Map<String, String> vrniTipe();
 
+	String poisciNaslednjoNagrado(String name);
+
 	
 	
 }

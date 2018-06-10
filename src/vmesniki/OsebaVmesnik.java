@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.ejb.Local;
 
+import block.Block;
 import orodja.PaketTocke;
 import vao.Oseba;
 
@@ -23,5 +24,6 @@ public interface OsebaVmesnik {
 	Map<String, String> vrniOddelke();
 	PaketTocke vrniTockeZaUporabnika(String name);
 	Map<String, String> vrniVloge();
-	void spremeniGeslo(Oseba oseba); 
+	void spremeniGeslo(Oseba oseba);
+	List<Block> dobiSeznamBlokovZaTaMesec(List<Block> seznam); 
 }

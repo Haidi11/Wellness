@@ -18,10 +18,11 @@ import vmesniki.TekmovanjeVmesnik;
 @ManagedBean(name = "profil")
 @RequestScoped
 public class ProfilUporabnikaModel {
-	ZaposleniModel zd = new ZaposleniModel();
-	Oseba oseba;
-	String tocke;
-	String oznake;
+	private ZaposleniModel zd = new ZaposleniModel();
+	private Oseba oseba;
+	private String tocke;
+	private String oznake;
+	private String naslednjaNagrada;
 	
 	@EJB
 	NasvetVmesnik nv;
@@ -41,12 +42,21 @@ public class ProfilUporabnikaModel {
 	}
 	
 	
+	
 	@PostConstruct
 	public void podatkiOsebe() {
 		oseba =  dv.najdiPoUporabniskemImenu(vrniUporabnika().getName());
 		pridobiTocke();
+		poisciNaslednjoNagrado();
 	}
 	
+	private void poisciNaslednjoNagrado() {
+		naslednjaNagrada=tv.poisciNaslednjoNagrado(vrniUporabnika().getName());
+		
+	}
+
+
+
 	public void shraniUrejenoOseno( ) {
 		ov.shraniUrejenoOsebo(oseba);
 	}
@@ -88,6 +98,18 @@ public class ProfilUporabnikaModel {
 
 	public void setOznake(String oznake) {
 		this.oznake = oznake;
+	}
+
+
+
+	public String getNaslednjaNagrada() {
+		return naslednjaNagrada;
+	}
+
+
+
+	public void setNaslednjaNagrada(String naslednjaNagrada) {
+		this.naslednjaNagrada = naslednjaNagrada;
 	}
 	
 	
