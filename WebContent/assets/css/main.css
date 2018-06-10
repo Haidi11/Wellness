@@ -1730,6 +1730,7 @@ input[type="button"]:active, input[type="submit"]:active, input[type="reset"]:ac
 }
 
 .icon:before {
+	padding-right:3px;
 	display: inline-block;
 	font-family: FontAwesome;
 	font-size: 1.25em;

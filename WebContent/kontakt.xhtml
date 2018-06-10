@@ -3,22 +3,45 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:jsf="http://xmlns.jcp.org/jsf">
-	
-	 <ui:composition template="WEB-INF/template/template2.xhtml">
-	<ui:define name="main">
-  	 <f:view>
-	<h2>Kontaktiraj nas!</h2>
-	<h:form>
-	<h:outputText value="Vnesite predmet"></h:outputText><br></br>
-	<h:inputText id="predmet" value="#{mail.novMail.predmet}"></h:inputText><br></br>
-	<h:outputText value="Vnesite vsebino"></h:outputText><br></br>
-	<h:inputTextarea id="vsebina" value="#{mail.novMail.vsebina}"></h:inputTextarea><br></br>
-	<h:outputText value="Vnesite svoj mail"></h:outputText><br></br>
-	<input type="email" id="njihovMail" jsf:value="#{mail.njihovMail}" /><br></br>
 
-	<h:commandButton value="Poslji" actionListener="#{mail.posljiJMS}"></h:commandButton>
-	</h:form>
-	</f:view>
+<ui:composition template="WEB-INF/template/template2.xhtml">
+	<ui:define name="main">
+		<f:view>
+			<h2>Kontaktiraj nas!</h2>
+			<h:form>
+				<h:outputText value="Vnesite zadevo"></h:outputText>
+				<br></br>
+				<h:inputText id="predmet" value="#{mail.novMail.predmet}"
+					validatorMessage="Prosim vnesite zadevo">
+					<f:validateRequired />
+				</h:inputText>
+				<span class="opozorilo"><h:message for="predmet"></h:message></span>
+				<br></br>
+				<h:outputText value="Vnesite vsebino"></h:outputText>
+				<br></br>
+				<h:inputTextarea id="vsebina" value="#{mail.novMail.vsebina}"
+					validatorMessage="Prosim vnesite vesbino">
+					<f:validateRequired />
+				</h:inputTextarea>
+				<span class="opozorilo"><h:message for="vsebina"></h:message></span>
+				<br></br>
+				<h:outputText value="Vnesite svoj mail"></h:outputText>
+				<br></br>
+				<h:inputText  id="njihovMail"
+					value="#{mail.njihovMail}"
+					validatorMessage="Prosim vnesite email">
+					<f:validateRequired />
+					<f:validateRegex pattern=".+\@.+\..+" />
+				</h:inputText>
+				<span class="opozorilo"><h:message for="njihovMail"></h:message></span>
+				<br></br>
+				
+
+
+				<h:commandButton value="Poslji" actionListener="#{mail.posljiJMS}"></h:commandButton>
+				<br />
+			</h:form>
+		</f:view>
 	</ui:define>
-	</ui:composition>
+</ui:composition>
 </html>
