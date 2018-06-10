@@ -31,7 +31,7 @@ odvisno od tipa podjetja, kamor vpeljujete rešitev
 * Prejem opomnika na dogodek
 
 ## ER 
-![](https://raw.githubusercontent.com/Haidi11/Wellness/master/ostalo/erDiagram.png)
+![](https://raw.githubusercontent.com/Haidi11/Wellness/master/ostalo/erKoncni.png)
 
 ***
 ## Namestitev
