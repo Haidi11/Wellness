@@ -1,4 +1,4 @@
-package jsf;
+package validatorji;
 
 import java.security.Principal;
 

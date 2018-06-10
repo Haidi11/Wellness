@@ -31,7 +31,7 @@
 				<span class="opozorilo"><h:message for="nagrada" /></span>
 				<br />
 				Tip tekmovanja: <h:selectOneMenu id="tip"
-					validator="#{PreveriVlogo.validate}"
+					validator="#{PreveriTip.validate}"
 					value="#{tekmovanje.novoTekmovanje.tip}">
 					<f:selectItems value="#{tekmovanje.tipi}" /> 
 					<f:validateRequired />
