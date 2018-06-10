@@ -30,8 +30,6 @@ odvisno od tipa podjetja, kamor vpeljujete rešitev
 * Vnos uporabnikov in organizacijske strukture podjetja
 * Prejem opomnika na dogodek
 
-## ER
-![](https://raw.githubusercontent.com/Haidi11/Wellness/master/ostalo/er.png)
 ***
 ## Namestitev
 * Eclipse Java EE IDE for Web Developers.
