@@ -64,14 +64,14 @@ column {
 				</input>
 
 				<br />
-			Opis dogodka:	<h:inputTextarea id="opis"
+			Opis dogodka:	<h:inputTextarea class="tinymce"  id="texteditor" name="nasvet" 
 					value="#{dogodek.novDogodek.opisDogodka}"
 					validatorMessage="Vnesite opis dogodka">
 					<f:validateRequired />
 				</h:inputTextarea>
 				<span class="opozorilo"><h:message for="opis"></h:message></span>
 				<br />
-
+<!-- <h:inputTextarea value="#{nasvet.novNasvet.nasvet}" class="tinymce"  id="texteditor" name="nasvet"/> -->
 				<h:commandButton value="Dodaj dogodek"
 					actionListener="#{dogodek.dodajDogodek()}" />
 				<br />
@@ -110,7 +110,7 @@ column {
 								
 								<span class="dogodekVsebina"> 
 								
-								<h:outputText value="#{a.opisDogodka}"></h:outputText>
+								<h:outputText value="#{a.opisDogodka}" escape="false"></h:outputText>
 								</span> <br />
 							</div>
 						</div>
@@ -130,6 +130,10 @@ column {
 					  } ); */
 					
 					</script>
+							<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="editor/tinymce/tinymce.min.js"></script>
+		<script type="text/javascript" src="editor/tinymce/init-tinymce.js"></script>
+		<script type="text/javascript" src="js/getdata.js"></script>
 			</h:form>
 		</f:view>
 	</ui:define>

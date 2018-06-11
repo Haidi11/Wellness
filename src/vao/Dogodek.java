@@ -7,6 +7,7 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -33,6 +34,7 @@ public class Dogodek {
 	private int tocke;
 	@Transient
 	private int steviloPrijavljenih;
+	@Column(length=10000)
 	private String opisDogodka;
 	@Transient
 	private String prijavljen;
