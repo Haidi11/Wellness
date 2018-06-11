@@ -108,7 +108,7 @@ public class ZaposleniModel {
 			o.setEmail("nekaj@nekaj.com");
 			o.setEMSO("9i9494944");
 			o.setIme("Luka");
-			o.setOddelek("informatika");
+			o.setOddelek("Razvojni oddelek");
 			o.setPriimek("Pavlič");
 			o.setSpol("M");
 			o.setGeslo("luka123");
@@ -123,7 +123,7 @@ public class ZaposleniModel {
 			m.setEmail("nekaj@nekaj.com");
 			m.setEMSO("1234567");
 			m.setIme("Matic");
-			m.setOddelek("oddelek C");
+			m.setOddelek("Finance");
 			m.setPriimek("Mesner");
 			m.setSpol("M");
 			m.setGeslo("mesner11");
@@ -138,17 +138,35 @@ public class ZaposleniModel {
 			o1.setEmail("nekaj@nekaj.com");
 			o1.setEMSO("9876543");
 			o1.setIme("Timi");
-			o1.setOddelek("oddelek A");
+			o1.setOddelek("Infrormatiki");
 			o1.setPriimek("Timotej");
 			o1.setSpol("M");
 			o1.setGeslo("timi11");
 			o1.setUporabniskoIme("timi");
 			o1.setTelefonskaStevilka("090080070");
 			o1.setVloga("zaposleni");
+			
+			Oseba o2 = new Oseba();
+			o2.setDatumRojstva(Calendar.getInstance());
+			o2.setDatumZaposlitve(Calendar.getInstance());
+			o2.setDavcnaStevilka("56795");
+			o2.setEmail("nekaj@nekaj.com");
+			o2.setEMSO("9876543");
+			o2.setIme("Eva");
+			o2.setOddelek("Infrormatiki");
+			o2.setPriimek("Horvat");
+			o2.setSpol("Z");
+			o2.setGeslo("eva");
+			o2.setUporabniskoIme("eva");
+			o2.setTelefonskaStevilka("123");
+			o2.setVloga("zaposleni");
+			
+			
 
 			ov.dodajOsebo(o);
 			ov.dodajOsebo(m);
 			ov.dodajOsebo(o1);
+			ov.dodajOsebo(o2);
 		}
 	}
 
