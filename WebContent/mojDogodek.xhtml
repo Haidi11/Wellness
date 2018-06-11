@@ -21,34 +21,32 @@
 				<h:dataTable value="#{dogodek.vrniPrijavljeneOsebeNaDogodek}"
 					var="a">
 					<h:column>
-						<f:facet name="header">Ime</f:facet>
-						<h:outputText value="#{a.ime}"></h:outputText>
-					</h:column>
-					<h:column>
-						<f:facet name="header">Priimek</f:facet>
-						<h:outputText value="#{a.priimek}"></h:outputText>
-					</h:column>
-					<h:column>
-						<f:facet name="header">Spol</f:facet>
-						<h:outputText value="#{a.spol}"></h:outputText>
-					</h:column>
-					<h:column>
-						<f:facet name="header">Email</f:facet>
-						<h:outputText value="#{a.email}"></h:outputText>
-					</h:column>
-					<h:column>
-						<f:facet name="header">Telefonska številka</f:facet>
-						<h:outputText value="#{a.telefonskaStevilka}"></h:outputText>
-					</h:column>
-					<h:column>
-						<f:facet name="header">Oddelek</f:facet>
-						<h:outputText value="#{a.oddelek}"></h:outputText>
-					</h:column>
-					<h:column>
-						<f:facet name="header"></f:facet>
-						<h:commandButton value="#{a.udelezba}"
-							class="dis_#{a.gumbUdelezba}" disabled="#{a.gumbUdelezba}"
-							action="#{dogodek.potrdiUdelezbo(a)}"></h:commandButton>
+						<div>
+
+							<h:outputText value="#{a.ime}"></h:outputText>
+
+							<h:outputText value="#{a.priimek}"></h:outputText>
+
+							<div class="gumbPodrobno">
+								
+								<h:commandButton value="#{a.udelezba}"
+									class="dis_#{a.gumbUdelezba} gumbZObrobo" disabled="#{a.gumbUdelezba}"
+									action="#{dogodek.potrdiUdelezbo(a)}"></h:commandButton><input class="gumbZObrobo" type="button" value="Podrobnosti"
+									onclick="toggleDiv(div_#{a.idOseba})"></input>
+							</div>
+							<div class="skritiDiv" id="div_#{a.idOseba}">
+								<br /> <span class="osebeOznake">Spol: </span>
+								<h:outputText value="#{a.spol}"></h:outputText>
+								<br /> <span class="osebeOznake"> Email: </span>
+								<h:outputText value="#{a.email}"></h:outputText>
+								<br /> <span class="osebeOznake"> Telefonska Številka: </span>
+								<h:outputText value="#{a.telefonskaStevilka}"></h:outputText>
+								<br /> <span class="osebeOznake"> Oddelek: </span>
+								<h:outputText value="#{a.oddelek}"></h:outputText>
+
+
+							</div>
+						</div>
 					</h:column>
 				</h:dataTable>
 
@@ -203,10 +201,15 @@
 
 					var pitaMoja	= new Chart(oddelki, config_pie);
 
+					function toggleDiv(a){
+						$( a ).toggle(300);
+						
+					}
 
 										
 				
 				</script>
+
 			</h:form>
 
 
