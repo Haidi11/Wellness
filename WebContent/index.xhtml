@@ -46,8 +46,8 @@
  		<div class="vlki">
  		<a href="dogodki.xhtml"> 
  		<div class="tockovnik obroba obroba2 obrobaMali">
- 		<h3 class="naslovIndex napisi">Vsi prihajajoči dogodki</h3>
- 			<h:dataTable class="tabelaIndex" value="#{zaposleni.vrniVseDogodkeZaUporabnika}" var="a">
+ 		<h3 class="naslovIndex napisi">Novi dogodki</h3>
+ 			<h:dataTable class="tabelaIndex" value="#{zaposleni.noviDogodki}" var="a">
 					<h:column>
 						<div>
 							<h:outputText class="napisi" value="#{a.naziv}"></h:outputText>

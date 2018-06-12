@@ -55,6 +55,12 @@ public class ZaposleniModel {
 		Principal p = vrniUporabnika();
 		dv.izberiDogodek(d, p.getName());
 	}
+	
+	public List<Dogodek> getNoviDogodki(){
+		
+		return dv.vrniNoveDogodke();
+				
+	}
 
 	// prikaz dogodkov z dodanimi lastnostmi o prijavljenosti
 	public List<Dogodek> getVrniVseDogodkeZaUporabnika() {

@@ -1,7 +1,6 @@
 package jsf;
 
 import java.security.Principal;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -10,9 +9,7 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-import javax.transaction.Transactional;
 
-import vao.Oseba;
 import vao.Tekmovanje;
 import vmesniki.DogodekVmesnik;
 import vmesniki.OsebaVmesnik;

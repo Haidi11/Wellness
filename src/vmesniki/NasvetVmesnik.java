@@ -13,8 +13,6 @@ public interface NasvetVmesnik {
 
 	void brisiNasvet(Nasvet nasvet);
 
-	void urediNasvet(int id, String popravljenNasvet);
-
 	ArrayList<Nasvet> seznamVsehNasvetov();
 
 	PaketZaPrikazNasvetov sezamDogodkovZaUporabnika(int id);
