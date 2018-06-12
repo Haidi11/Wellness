@@ -24,6 +24,8 @@ public interface NasvetVmesnik {
 	void dodajNasvet(Nasvet nasvet);
 
 	void dodajUrejenNasvet(Nasvet n);
+
+	List<Nasvet> vrniNoveNasvete();
 	
 
 

@@ -2487,9 +2487,8 @@ za radio gumbke
 .tockovnik {
 	display: inline-block;
 	overflow: hidden;
-	/* float: right; */
-	floal: left;
-	margin-left: 30px;
+		
+
 }
 
 .vlki {

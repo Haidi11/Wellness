@@ -34,14 +34,15 @@
 					<h:dataTable value="#{nasvet.vseNasvete}" var="n">
 						<h:column>
 							<h:outputText value="#{n.naslov}"></h:outputText>
-						</h:column>
+					
 						
 						<div class="gumbPodrobno">
-						<h:column>
+						
 							<h:commandButton value="Preberi" class="gumbZObrobo"
 							action="#{nasvet.podrobno(n)}"></h:commandButton>
-						</h:column>	
 						</div>
+						</h:column>	
+						
 						
 					</h:dataTable>
 				</h:form>
@@ -71,7 +72,11 @@
 			<h:form>
 				<label for="naziv">Vnesite naziv</label>
 				<h:inputText type="text" name="naziv" id="naziv"
-					value="#{nasvet.novNasvet.naslov}"></h:inputText>
+					value="#{nasvet.novNasvet.naslov}" validatorMessage="Prosim vnesite naslov">
+					<f:validateRequired />
+
+					</h:inputText>
+					<span class="opozorilo"><h:message for="naziv"></h:message></span>
 				<br></br>
 				
 				

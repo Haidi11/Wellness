@@ -28,6 +28,9 @@ public class NasvetModel {
 	public List<Nasvet> getVseNasvete(){
 		return nv.seznamVsehNasvetov();
 	}
+	public List<Nasvet> getNoviNasveti(){
+		return nv.vrniNoveNasvete();
+	}
 	
 	public void preusmeriNaUrejanje() {
 	}

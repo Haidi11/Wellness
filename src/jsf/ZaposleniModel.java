@@ -72,7 +72,9 @@ public class ZaposleniModel {
 
 	// za prikaz imena, vloge
 	public Oseba getUporabnik() {
-		return dv.najdiPoUporabniskemImenu(vrniUporabnika().getName());
+		String uporabnik = vrniUporabnika().getName();
+	
+		return dv.najdiPoUporabniskemImenu(uporabnik);
 	}
 	//vrne tocke v pravilnem sklonu
 	public String tockeSklon(int t) {
@@ -120,7 +122,7 @@ public class ZaposleniModel {
 			o.setGeslo("luka123");
 			o.setUporabniskoIme("luka");
 			o.setTelefonskaStevilka("i99i");
-			o.setVloga("kadrovska");
+			o.setVloga("admin");
 			
 			Oseba m = new Oseba();
 			m.setDatumRojstva(Calendar.getInstance());

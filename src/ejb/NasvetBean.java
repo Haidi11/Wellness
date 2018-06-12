@@ -1,6 +1,7 @@
 package ejb;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -63,5 +64,15 @@ public class NasvetBean implements NasvetVmesnik {
 		 temp.setNasvet(n.getNasvet());
 		 temp.setNaslov(n.getNaslov());
 	 }
+
+
+	@Override
+	public List<Nasvet> vrniNoveNasvete() {
+		List<Nasvet> list = this.seznamVsehNasvetov();
+		
+		Collections.reverse(list);
+		
+		return list;
+	}
 
 }
