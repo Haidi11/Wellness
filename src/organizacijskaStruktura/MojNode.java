@@ -22,15 +22,15 @@ public class MojNode extends DefaultTreeNode{
 
 	 
 	 public MojNode() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 
 	public void sestavi() {
 		 List<Oseba> seznam = ov.vrniOsebeOddelek((String)super.getData());
-		 System.out.println("Seznam: "+seznam);
+		// System.out.println("Seznam: "+seznam);
 		for(Oseba o : seznam) {
-//			super.getChildren().add(new MojNode(o.getOddelek(),this));
+
 
 		      super.getChildren().add(new DefaultTreeNode(o.getIme() + " " + o.getPriimek()));
 		}
