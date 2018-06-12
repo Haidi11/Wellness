@@ -76,6 +76,18 @@ public class Dogodek {
 		
 			
 	}
+	
+		public Dogodek (String naziv,String opisDogodka, int tocke) {
+		this.naziv = naziv;
+		this.datumKonca=new GregorianCalendar();
+		this.datumKonca.add(Calendar.DAY_OF_YEAR, 4);
+		this.datumPrijave=new GregorianCalendar();
+		this.datumZacetka=new GregorianCalendar();
+		this.datumZacetka.add(Calendar.DAY_OF_YEAR, 4);
+		this.tocke=tocke;
+		this.opisDogodka=opisDogodka;
+		this.prijavljen="Prijavi";	
+	}
 	/*
 	 * izpis datumov
 	 */

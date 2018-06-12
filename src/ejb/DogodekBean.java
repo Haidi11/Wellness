@@ -27,7 +27,7 @@ public class DogodekBean implements DogodekVmesnik {
 	BlockChainVmesnik bc;
 
 	@PersistenceContext
-	EntityManager em;
+	public EntityManager em;
 
 	@Override
 	public void dodajDogodek(Dogodek dogodek) {

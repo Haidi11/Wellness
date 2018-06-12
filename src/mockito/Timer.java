@@ -1,4 +1,4 @@
-package junitTestiranje;
+package mockito;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import timer.TimerZaObvescanje;
 
-public class TimerTest {
+public class Timer {
 	TimerZaObvescanje timer;
 	 @Before 
 	 public void initialize() {
@@ -21,4 +21,5 @@ public class TimerTest {
 		assertTrue("mail poslan ob pravilnem casu",bol);
 		assertFalse("mail poslan ob nepravilnem casu ali pa sploh ne",bol);
 	  }
+
 }

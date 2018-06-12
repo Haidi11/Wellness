@@ -1,4 +1,4 @@
-package junitTestiranje;
+package mockito;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
@@ -11,7 +11,7 @@ import org.junit.Test;
 import block.Block;
 import block.Podpis;
 
-public class BlockTest {
+public class BlockChain {
 	Podpis podpis ;	
 	Block block;
 	
