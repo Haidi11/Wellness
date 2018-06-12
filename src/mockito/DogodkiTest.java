@@ -20,9 +20,12 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import ejb.DogodekBean;
 import vao.Dogodek;
+import vao.Oseba;
 
 @RunWith(MockitoJUnitRunner.class)
 public class DogodkiTest {
@@ -41,30 +44,26 @@ public class DogodkiTest {
 	@Mock
 	private EntityTransaction et;
 
+	/*Preverjamo dodajanje dogodka
+	 * test ne sme failat*/
 	@Test
 	public void testiranjeDodajanjaDogodka() throws Exception {
-		dogodekBean = Mockito.mock(DogodekBean.class);
-		dogodekBean.em = Mockito.mock(EntityManager.class);
-		dogodek = new Dogodek("test","to je test za mockito",5);
-		Mockito.verify(dogodekBean.em).persist(dogodek);
-		Integer dogodekId = dogodek.getIdDogodek();
-		Assert.assertNotNull(dogodekId); 
-		/*Dogodek dogodek = Mockito.mock(Dogodek.class);
-		dogodek = new Dogodek();
-		Mockito.when(em.getTransaction()).thenReturn(et);
-		Mockito.when(emf.createEntityManager()).thenReturn(em);
 		dogodekBean.dodajDogodek(dogodek);
-		Mockito.verify(em, Mockito.times(1)).persist(dogodek);*/
+		Integer dogodekId =dogodek.getIdDogodek();
+		Assert.assertNotNull(dogodekId);
 	}
 
-	/*@Test
+
+	/*Preverjamo odstranjevanje dogodka
+	 * test ne sme failat*/
+	@Test
 	public void testiranjeBrisanjaDogodka() throws Exception {
 		dogodek = Mockito.mock(Dogodek.class);
 		Mockito.when(em.getTransaction()).thenReturn(et);
 		Mockito.when(emf.createEntityManager()).thenReturn(em);
 		dogodekBean.odstraniDogodek(dogodek);
-		Mockito.verify(em, Mockito.times(1)).persist(dogodek);
-	}*/
+		//Mockito.verify(em).remove(dogodek);
+	}
 
 	/*@Test
 	public void testiranjePridobivanjaPodrobnostiDogodka() throws Exception {
@@ -75,31 +74,33 @@ public class DogodkiTest {
 		Mockito.verify(em, Mockito.times(1)).persist(dogodek);
 	}*/
 	
+	/*Test preveri kaj se zgodi če iščemo uporabnika z id-jem ki ne obstaja
+	 * Test faila z izjemo NullPointerException*/
 	@Test(expected=java.lang.NullPointerException.class)
 	public void napakaKoIdDogodkaNeObstaja() {
-		dogodekBean = new DogodekBean();
-		dogodek = new Dogodek();
-		dogodek.setIdDogodek(6);
+		dogodek.setIdDogodek(0);
 		dogodekBean.dodajDogodek(dogodek);
-		Assert.assertNull(dogodek);
+		Assert.assertNotNull(dogodek.getIdDogodek());
 	}
 	
-	@Test(expected=java.lang.IllegalArgumentException.class)
+	/*Test preveri če želimo dodati uporabnika z id-jem ki v bazi že obstaja
+	 * Test faila z izjemo IndexOutOfBoundsException*/
+	@Test(expected=java.lang.IndexOutOfBoundsException.class)
 	public void napakaKoIdDogodkaZeObstaja() {
-		dogodekBean = new DogodekBean();
-		dogodek = new Dogodek();
-		dogodek.setIdDogodek(8);
+		List<Dogodek> trenutniSeznamDogodkov = new ArrayList<Dogodek>();
+		trenutniSeznamDogodkov = dogodekBean.sezamDogodkov();
+		int prvid = trenutniSeznamDogodkov.get(0).getIdDogodek();
+		dogodek.setIdDogodek(prvid);
 		dogodekBean.dodajDogodek(dogodek);
-		Assert.assertNotNull(dogodek);
+		Assert.assertEquals(trenutniSeznamDogodkov.get(0).getIdDogodek(), prvid);
 	}
 	
+	/*Test preveri kaj se zgodi če dobimo prazen seznam dogodkov
+	 * test faila z izjemo NullPointerException */
 	@Test(expected=java.lang.NullPointerException.class)
 	public void prazenSeznamDogodkov() {
-		List<Dogodek> seznamDogodkov = new ArrayList<>();
-		dogodekBean = new DogodekBean();
-		dogodek = new Dogodek();
-		seznamDogodkov = dogodekBean.sezamDogodkov();
-		//Assert.assertNull(seznamDogodkov);
-		Mockito.verify(seznamDogodkov);
+		ArrayList<Dogodek> trenutniSeznam = new ArrayList<>();
+		when(dogodekBean.sezamDogodkov()).thenReturn(trenutniSeznam);
+		Assert.assertEquals(0, trenutniSeznam.size());
 	}
 }

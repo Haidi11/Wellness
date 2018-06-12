@@ -23,7 +23,7 @@ import vmesniki.OsebaVmesnik;
 public class OsebaBean implements OsebaVmesnik {
 
 	@PersistenceContext
-	EntityManager em;
+	public EntityManager em;
 
 	@EJB
 	DogodekVmesnik dv;
