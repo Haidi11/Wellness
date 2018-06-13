@@ -29,24 +29,10 @@ public class Struktura implements Serializable {
 		TreeNode nodeOrganizatorji = new MojNode("Organizatorji dogodkov", root, ov);
 
 
-		TreeNode A = new MojNode("oddelek A", nodeZaposleni, ov);
-		TreeNode B= new MojNode("oddelek B", nodeZaposleni, ov);
-		TreeNode C = new MojNode("oddelek C", nodeZaposleni, ov);
-		// TreeNode nodeVodstvo = new DefaultTreeNode("Vodstvo", root);
-		// TreeNode nodeKadrovska = new DefaultTreeNode("Kadrovska služba", root);
-		// TreeNode nodeZaposleni= new DefaultTreeNode("Zaposleni", root);
-		// TreeNode nodeOrganizatorji= new DefaultTreeNode("Organizatorji dogodkov",
-		// root);
-		//
-		// TreeNode node00 = new DefaultTreeNode("Node 0.0", nodeZaposleni);
-		// TreeNode node01 = new DefaultTreeNode("Node 0.1", nodeZaposleni);
-		//
-		// TreeNode node10 = new DefaultTreeNode("Node 1.0", nodeZaposleni );
-		//
-		// node00.getChildren().add(new DefaultTreeNode("Node 0.0.0"));
-		// node00.getChildren().add(new DefaultTreeNode("Node 0.0.1"));
-		// node01.getChildren().add(new DefaultTreeNode("Node 0.1.0"));
-		// node10.getChildren().add(new DefaultTreeNode("Node 1.0.0"));
+		TreeNode A = new MojNode("Infrormatiki", nodeZaposleni, ov);
+		TreeNode B= new MojNode("Finance", nodeZaposleni, ov);
+		TreeNode C = new MojNode("Razvojni oddelek", nodeZaposleni, ov);
+		
 
 	}
 

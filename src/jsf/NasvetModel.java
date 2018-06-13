@@ -17,7 +17,6 @@ import vmesniki.NasvetVmesnik;
 @SessionScoped
 public class NasvetModel {
 	private Nasvet novNasvet = new Nasvet();
-	private String prijave;
 	private Nasvet nasvetPodrobno;
 	private Nasvet uredinasvet;
 
@@ -28,6 +27,9 @@ public class NasvetModel {
 	
 	public List<Nasvet> getVseNasvete(){
 		return nv.seznamVsehNasvetov();
+	}
+	public List<Nasvet> getNoviNasveti(){
+		return nv.vrniNoveNasvete();
 	}
 	
 	public void preusmeriNaUrejanje() {
@@ -62,11 +64,7 @@ public class NasvetModel {
 		nv.brisiNasvet(izbranNasvet);
 	}
 	
-	public String urediNasvete(int id, String popravljenNasvet) {
-		nv.urediNasvet(id,popravljenNasvet);
-		
-		return "nasveti.xhtml";
-	}
+	
 	public String urediNasvet(Nasvet a) {
 		uredinasvet=a;
 		
@@ -77,8 +75,9 @@ public class NasvetModel {
 		return "nasvetPodrobno.xhtml";
 	}
 	
-	public void shraniUrejenNasvet( ) {
+	public String shraniUrejenNasvet( ) {
 		nv.dodajUrejenNasvet(uredinasvet);
+		return "nasveti.xhtml";
 	}
 
 	public Nasvet getNovNasvet() {

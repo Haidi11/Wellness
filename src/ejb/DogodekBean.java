@@ -2,6 +2,7 @@ package ejb;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -27,7 +28,7 @@ public class DogodekBean implements DogodekVmesnik {
 	BlockChainVmesnik bc;
 
 	@PersistenceContext
-	EntityManager em;
+	public EntityManager em;
 
 	@Override
 	public void dodajDogodek(Dogodek dogodek) {
@@ -261,6 +262,14 @@ public class DogodekBean implements DogodekVmesnik {
 	public void shraniObvestilo(int idOseba, int idDogodek) {
 		em.persist(new Obvestilo(idOseba,idDogodek));
 		
+	}
+
+	@Override
+	public List<Dogodek> vrniNoveDogodke() {
+		List<Dogodek> list = sezamDogodkov();
+		Collections.reverse(list);
+		
+		return list;
 	}
 	
 	

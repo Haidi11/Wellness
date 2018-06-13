@@ -55,6 +55,12 @@ public class ZaposleniModel {
 		Principal p = vrniUporabnika();
 		dv.izberiDogodek(d, p.getName());
 	}
+	
+	public List<Dogodek> getNoviDogodki(){
+		
+		return dv.vrniNoveDogodke();
+				
+	}
 
 	// prikaz dogodkov z dodanimi lastnostmi o prijavljenosti
 	public List<Dogodek> getVrniVseDogodkeZaUporabnika() {
@@ -66,7 +72,9 @@ public class ZaposleniModel {
 
 	// za prikaz imena, vloge
 	public Oseba getUporabnik() {
-		return dv.najdiPoUporabniskemImenu(vrniUporabnika().getName());
+		String uporabnik = vrniUporabnika().getName();
+	
+		return dv.najdiPoUporabniskemImenu(uporabnik);
 	}
 	//vrne tocke v pravilnem sklonu
 	public String tockeSklon(int t) {
@@ -114,7 +122,7 @@ public class ZaposleniModel {
 			o.setGeslo("luka");
 			o.setUporabniskoIme("luka");
 			o.setTelefonskaStevilka("i99i");
-			o.setVloga("kadrovska");
+			o.setVloga("admin");
 			
 			Oseba o1 = new Oseba();
 			o1.setDatumRojstva(Calendar.getInstance());

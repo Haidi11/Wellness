@@ -23,7 +23,7 @@ import vmesniki.OsebaVmesnik;
 public class OsebaBean implements OsebaVmesnik {
 
 	@PersistenceContext
-	EntityManager em;
+	public EntityManager em;
 
 	@EJB
 	DogodekVmesnik dv;
@@ -174,12 +174,12 @@ public class OsebaBean implements OsebaVmesnik {
 		Map<String, String> oddelki = new LinkedHashMap<>();
 
 		oddelki.put("", "");
-		oddelki.put("oddelek C", "oddelek C");
+		oddelki.put("Razvojni oddelek", "Razvojni oddelek");
 		oddelki.put("Vodstvo", "Vodstvo");
 		oddelki.put("Kadrovska služba", "Kadrovska služba");
 		oddelki.put("Organizatorji dogodkov", "Organizatorji dogodkov");
-		oddelki.put("oddelek B", "oddelek B");
-		oddelki.put("oddelek A", "oddelek A");
+		oddelki.put("Finance", "Finance");
+		oddelki.put("Infrormatiki", "Infrormatiki");
 
 		return oddelki;
 	}

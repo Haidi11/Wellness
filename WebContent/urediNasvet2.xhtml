@@ -9,13 +9,19 @@
 		<f:view>
 			<h:form>
 				<label for="naziv">Vnesite naziv</label>
-				<h:inputText type="text" name="naziv" id="naziv"
-					value="#{nasvet.novNasvet.naslov}"></h:inputText>
+						<h:inputText type="text" name="naziv" id="naziv"
+					value="#{nasvet.uredinasvet.naslov}" validatorMessage="Prosim vnesite naslov">
+					<f:validateRequired />
+
+					</h:inputText>
+					<span class="opozorilo"><h:message for="naziv"></h:message></span>
+					
+					
 				<br></br>				
 				<h:inputTextarea value="#{nasvet.uredinasvet.nasvet}" class="tinymce"  id="texteditor" name="nasvet" />
 				<br></br>
 				<h:commandButton value="Shrani"
-					actionListener="#{nasvet.shraniUrejenNasvet}" />
+					action="#{nasvet.shraniUrejenNasvet}" />
 			</h:form>
 			
 		<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>

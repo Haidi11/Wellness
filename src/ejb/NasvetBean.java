@@ -1,6 +1,7 @@
 package ejb;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -24,16 +25,7 @@ public class NasvetBean implements NasvetVmesnik {
 		em.remove(temp);
 	}
 
-	@Override
-	public void urediNasvet(int idNasvet, String popravljenNasvet) {
-		/*Nasvet temp = em.find(Nasvet.class, n.getIdNasvet());
-		temp.setNasvet(n.getNasvet());*/
-		Query q = em.createQuery("update Nasvet n set n.nasvet = :nasvet where n.idNasvet = :id");
-		q.setParameter("id", idNasvet);
-		q.setParameter("nasvet", popravljenNasvet);
-		q.executeUpdate();
-	}
-
+	
 	@Override
 	public ArrayList<Nasvet> seznamVsehNasvetov() {
 		return (ArrayList<Nasvet>) em.createQuery("select n from Nasvet n").getResultList();
@@ -72,5 +64,15 @@ public class NasvetBean implements NasvetVmesnik {
 		 temp.setNasvet(n.getNasvet());
 		 temp.setNaslov(n.getNaslov());
 	 }
+
+
+	@Override
+	public List<Nasvet> vrniNoveNasvete() {
+		List<Nasvet> list = this.seznamVsehNasvetov();
+		
+		Collections.reverse(list);
+		
+		return list;
+	}
 
 }
