@@ -45,6 +45,7 @@
 			<http-method>DELETE</http-method>
 		</web-resource-collection>
 		<auth-constraint>
+			<role-name>kadrovska</role-name>
 			<role-name>organizator</role-name>
 			<role-name>admin</role-name>
 		</auth-constraint>
