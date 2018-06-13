@@ -126,18 +126,17 @@
 				<br />
 				<h:commandButton value="Shrani spremembe"
 					actionListener="#{profil.shraniUrejenoOseno}" />
-						<br />
-						<br />
-</h:form>
-<h:form>
+				<br />
+				<br />
+			</h:form>
+			<h:form>
 				Geslo:
 				<h:inputSecret id="password" value="#{profil.oseba.geslo}"
-					required="true"
-					validator="#{passwordValidator.validate}">
+					required="true" validator="#{passwordValidator.validate}">
 					<f:attribute name="confirm" value="#{confirm}" />
 				</h:inputSecret>
 				<span class="opozorilo"><h:message for="password" /></span>
-	<br />
+				<br />
 			Potrdi geslo:
 				<h:inputSecret id="confirm" binding="#{confirm}" required="true" />
 				<span class="opozorilo"><h:message for="confirm" /></span>
@@ -156,17 +155,22 @@
 				<h:dataTable value="#{blok.seznamBlokovOsebe}" var="a">
 					<h:column>
 						<div>
-							<h:outputText class="dogodekVsebina" value="Blok #{a.idBlock}"></h:outputText>
+							<div>
+								<h:outputText class="dogodekVsebina" value="Blok #{a.idBlock}"></h:outputText>
 
-							<div class="gumbPodrobno">
-								<input type="button" value="Podrobnosti"
-									onclick="toggleDiv(div_#{a.idBlock})"></input>
+								<div class="gumbPodrobno">
+									<input type="button" value="Podrobnosti"
+										onclick="toggleDiv(div_#{a.idBlock})"></input>
+								</div>
 							</div>
+							
 							<div class="skritiDiv" id="div_#{a.idBlock}">
+								<br />
 								<span class="dogodekOznake">Hash: </span>
-								<h:outputText class="dogodekVsebina" value="#{a.hash}"></h:outputText>
+								<h:outputText class="dogodekVsebina hash" value="#{a.hash}"></h:outputText>
 								<br /> <span class="dogodekOznake">Prejsnji hash: </span>
-								<h:outputText class="dogodekVsebina" value="#{a.prejsnjiHash}"></h:outputText>
+								<h:outputText class="dogodekVsebina hash"
+									value="#{a.prejsnjiHash}"></h:outputText>
 								<br /> <span class="dogodekOznake">Tocke: </span>
 								<h:outputText class="dogodekVsebina" value="#{a.stTock}"></h:outputText>
 								<br /> <span class="dogodekOznake">Datum: </span>

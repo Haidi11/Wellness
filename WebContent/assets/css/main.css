@@ -2520,7 +2520,7 @@ za radio gumbke
 		
 	margin-top:5px;
 }
-/* nasveti 
-.gumbNasveti{
-	float:right;
-} */
+.hash{
+	word-break: break-all;
+}
+
