@@ -2459,10 +2459,13 @@ za radio gumbke
 }
 /* drugo*/
 .nasvet {
-/* 	all: initial;
- */	
+ 	all: initial;
+ 	* { 
+    all: unset; 
+  }
 	
-	word-break: break-all;
+	
+	
 }
 
 .dogodkiIndex {

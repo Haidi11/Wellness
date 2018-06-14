@@ -179,7 +179,7 @@ public class OsebaBean implements OsebaVmesnik {
 		oddelki.put("Kadrovska služba", "Kadrovska služba");
 		oddelki.put("Organizatorji dogodkov", "Organizatorji dogodkov");
 		oddelki.put("Finance", "Finance");
-		oddelki.put("Infrormatiki", "Infrormatiki");
+		oddelki.put("Informatiki", "Informatiki");
 
 		return oddelki;
 	}
