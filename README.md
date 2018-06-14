@@ -1,7 +1,6 @@
 # CORPORATE WELLNESS
-***
-Planiranje in izvajanje promocije zdravja na delovnem mestu.
 
+Planiranje in izvajanje promocije zdravja na delovnem mestu.
 
 ## Bistvo
 
@@ -29,11 +28,22 @@ odvisno od tipa podjetja, kamor vpeljujete rešitev
 * Razpis tekmovanj in nagrad
 * Vnos uporabnikov in organizacijske strukture podjetja
 * Prejem opomnika na dogodek
+* Hramba pridobljenih točk uporabnika s pomočjo tehnologije Blockchain
 
 ## ER 
 ![](https://raw.githubusercontent.com/Haidi11/Wellness/master/ostalo/erKoncni.png)
 
 ***
+## Arhitektura
+**Podatkovna baza:** 
+MySQL <br />
+**Server-side:**
+WildFly 11,
+Java EE 1.8 (JSF, EJB, JMS), 
+Primefaces<br />
+**Front-end:** JavaScript, JQuery, HTML 5, Primefaces <br />
+**Testiranje:** Mockito, JUnit 5
+
 ## Namestitev
 * Eclipse Java EE IDE for Web Developers.
 (Version: Oxygen.3a Release )
