@@ -31,7 +31,7 @@ odvisno od tipa podjetja, kamor vpeljujete rešitev
 * Hramba pridobljenih točk uporabnika s pomočjo tehnologije Blockchain
 
 ## ER 
-![](https://raw.githubusercontent.com/Haidi11/Wellness/master/ostalo/erKoncni.png)
+![](https://raw.githubusercontent.com/Haidi11/Wellness/master/ostalo/er.png)
 
 ***
 ## Arhitektura
