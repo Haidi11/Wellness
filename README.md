@@ -29,6 +29,7 @@ odvisno od tipa podjetja, kamor vpeljujete rešitev
 * Razpis tekmovanj in nagrad
 * Vnos uporabnikov in organizacijske strukture podjetja
 * Prejem opomnika na dogodek
+* Hramba pridobljenih točk uporabnika s pomočjo tehnologije Blockchain
 
 ## ER 
 ![](https://raw.githubusercontent.com/Haidi11/Wellness/master/ostalo/erKoncni.png)
