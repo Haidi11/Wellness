@@ -160,13 +160,14 @@ public class OsebaBean implements OsebaVmesnik {
 		temp.setPostnaStevilka(oseba.getPostnaStevilka());
 		temp.setPosta(oseba.getPosta());
 		temp.setDrzava(oseba.getDrzava());
-		
+
 	}
+
 	@Override
 	public void spremeniGeslo(Oseba oseba) {
 		Oseba temp = em.find(Oseba.class, oseba.getIdOseba());
 		temp.setGeslo(oseba.getGeslo());
-		
+
 	}
 
 	@Override
@@ -209,15 +210,17 @@ public class OsebaBean implements OsebaVmesnik {
 
 		}
 
-		String vrednostiString= "";
+		String vrednostiString = "";
 		for (int i = 0; i < vrednosti.length; i++) {
-			vrednostiString+=vrednosti[i]+", ";
+			if (vrednosti[i] == 0 && Calendar.getInstance().get(Calendar.MONTH) <= i) {
+				vrednostiString+= ", ";
+				continue;
+			}
+
+				vrednostiString += vrednosti[i] + ", ";
 		}
-		
-		
-		
-		
-		return new PaketTocke(vrednostiString, Oro.meseci() );
+
+		return new PaketTocke(vrednostiString, Oro.meseci());
 
 	}
 
@@ -229,7 +232,6 @@ public class OsebaBean implements OsebaVmesnik {
 		vloge.put("kadrovska služba", "kadrovska");
 		vloge.put("zaposleni", "zaposleni");
 		vloge.put("organizator dogodkov", "organizator");
-		
 
 		return vloge;
 	}
