@@ -36,19 +36,19 @@ odvisno od tipa podjetja, kamor vpeljujete rešitev
 ***
 ## Arhitektura
 **Podatkovna baza:** 
-*MySQL
+MySQL <br />
 **Server-side:**
-*WildFly 11,
-*Java EE 1.8 (JSF, EJB, JMS), 
-*Primefaces
+WildFly 11,
+Java EE 1.8 (JSF, EJB, JMS), 
+Primefaces
 **Front-end:**
-*JavaScript, 
-*JQuery, 
-*HTML 5, 
+JavaScript, 
+JQuery, 
+HTML 5, 
 Primefaces
 **Testiranje:**
-*Mockito, 
-*JUnit 5
+Mockito, 
+JUnit 5
 ## Namestitev
 * Eclipse Java EE IDE for Web Developers.
 (Version: Oxygen.3a Release )
