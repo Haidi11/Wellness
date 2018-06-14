@@ -40,7 +40,7 @@ MySQL <br />
 **Server-side:**
 WildFly 11,
 Java EE 1.8 (JSF, EJB, JMS), 
-Primefaces
+Primefaces<br />
 **Front-end:** JavaScript, JQuery, HTML 5, Primefaces <br />
 **Testiranje:** Mockito, JUnit 5
 
