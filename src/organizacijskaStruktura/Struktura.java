@@ -29,7 +29,7 @@ public class Struktura implements Serializable {
 		TreeNode nodeOrganizatorji = new MojNode("Organizatorji dogodkov", root, ov);
 
 
-		TreeNode A = new MojNode("Infrormatiki", nodeZaposleni, ov);
+		TreeNode A = new MojNode("Informatiki", nodeZaposleni, ov);
 		TreeNode B= new MojNode("Finance", nodeZaposleni, ov);
 		TreeNode C = new MojNode("Razvojni oddelek", nodeZaposleni, ov);
 		
