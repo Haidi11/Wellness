@@ -41,14 +41,9 @@ MySQL <br />
 WildFly 11,
 Java EE 1.8 (JSF, EJB, JMS), 
 Primefaces
-**Front-end:**
-JavaScript, 
-JQuery, 
-HTML 5, 
-Primefaces
-**Testiranje:**
-Mockito, 
-JUnit 5
+**Front-end:** JavaScript, JQuery, HTML 5, Primefaces <br />
+**Testiranje:** Mockito, JUnit 5
+
 ## Namestitev
 * Eclipse Java EE IDE for Web Developers.
 (Version: Oxygen.3a Release )
