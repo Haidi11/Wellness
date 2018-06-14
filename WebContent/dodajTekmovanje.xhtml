@@ -64,10 +64,16 @@
 							<div class="skritiDiv" id="div_#{a.id}">
 
 								<span class="dogodekOznake">Nagrada: </span>
-
 								<h:outputText class="dogodekVsebina" value="#{a.nagrada}"></h:outputText>
+								
+								<span class="dogodekOznake">Tip tekmovanja: </span>
+								
+								<h:outputText class="dogodekVsebina" value="#{a.tip}"></h:outputText>
+						
+								<span class="dogodekOznake">Potrebne točke: </span>
+								<h:outputText class="dogodekVsebina" value="#{a.potrebneTocke}"></h:outputText>
+								
 								<span class="dogodekOznake">Zmagovalci: </span>
-
 							<h:outputText class="dogodekVsebina" 
  									value="#{tekmovanje.zmagovalci(a)} "></h:outputText>  
 								
