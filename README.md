@@ -115,6 +115,22 @@ API: AIzaSyD4JVT8B0kQ4tYLF7GvSvZBMCYlIXuYNA4
 **Favicon**
 v mapi ostalo se nahaja slika favicon.ico. V mapi strežnika v podmapi welcome-content zamnejajte privzeto sliko z to, restartajte server
 in počistite cache v brskalniku.  
+## Arhitektura
+**Podatkovna baza:**
+MySQL
+**Server-side:**
+WildFly 11,
+Java EE 1.8 (JSF, EJB, JMS), 
+Primefaces
+**Front-end:**
+JavaScript, 
+JQuery, 
+HTML 5, 
+Primefaces
+**Testiranje:**
+Mockito, 
+JUnit 5
+
 
 ## GSON
 Open Windows >preferences in the Eclipse menu, and navigate to the Java >Build path > User Libraries tab. Click new and enter a new User Library name: like “gson_lib” and hit ok. With “gson_lib” selected press Add External JARs and find the gson-2.6.2.jar you downloaded. Apply and Close. Nato pa Wellness -> properties -> Java Build Path -> add Library -> User library
